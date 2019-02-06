@@ -86,13 +86,14 @@ andro...</p>
     <div id="primary">
         
 <div class="post">
-    <a href="/2018/11/18/2018-11-18-在mapper中如何传递多个参数/" title="在Mapper中如何传递多个参数">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/60.gif" class="cover" width="580" height="440">
+    <a href="/2018/11/18/2018-11-18-接口绑定的实现方式/" title="Mybatis接口绑定的实现方式">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/64.gif" class="cover" width="580" height="440">
     </a>
     <div class="else">
         <p>十一月 18, 2018</p>
-        <h3><a href="/2018/11/18/2018-11-18-在mapper中如何传递多个参数/" title="在Mapper中如何传递多个参数" class="posttitle">在Mapper中如何传递多个参数</a></h3>
-        <p>在mapper中如何传递多个参数第一种：使用占位符在映射文件中使用#{0},#{1}代表传递进来的第几个参数在java代码中使用@param注解:来命名参数#{0},#{1}方式//对应的xml,#{0}代表接收的是dao层中的第一个参数，#{1}代表dao层中第二参数123&lt;select id=&quot;selectUser&quot;resultMap=&quot;BaseRes...</p>
+        <h3><a href="/2018/11/18/2018-11-18-接口绑定的实现方式/" title="Mybatis接口绑定的实现方式" class="posttitle">Mybatis接口绑定的实现方式</a></h3>
+        <p>一种是通过注解绑定,就是在接口的方法上面加上@Select@Update等注解里面包含Sql语句来绑定另外一种就是通过xml里面写SQL来绑定,在这种情况下,要指定xml映射文件里面的namespace必须为接口的全路径名 
+</p>
     </div>
 </div>
 
@@ -153,19 +154,6 @@ ID生成策略在xml.让所使用的数据库选择ID策略（在mysql中，使�
 
 
 <div class="post">
-    <a href="/2018/11/18/2018-11-18-Sprign的注入方式/" title="Sprign的注入方式">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/71.gif" class="cover" width="580" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 18, 2018</p>
-        <h3><a href="/2018/11/18/2018-11-18-Sprign的注入方式/" title="Sprign的注入方式" class="posttitle">Sprign的注入方式</a></h3>
-        <p>Spring是一个轻量级的控制反转（IOC）和面向切面（AOP）的容器框架–通过控制反转（IOC）的技术达到松耦合的目的–包含并管理应用对象的配置和生命周期，这个意义上是一种容器。–将简单的组件配置、组合成为复杂的应用，这个意义上是框架控制反转与依赖注入：Spring是依赖注入的容器 控制反转时指依赖关系的管理由代码转到容器由Spring容器进行依赖注入
-2种常用的注入方式设值注入1234&...</p>
-    </div>
-</div>
-
-
-<div class="post">
     <a href="/2018/11/18/2018-11-18- Spring的web.xml配置/" title="Spring的web.xml配置">
         <img src="http://pmi6mt23n.bkt.clouddn.com/87.jpg" class="cover" width="580" height="440">
     </a>
@@ -192,13 +180,17 @@ ID生成策略在xml.让所使用的数据库选择ID策略（在mysql中，使�
 
 
 <div class="post">
-    <a href="/2018/11/15/2018-11-15-序列化与反序列化/" title="序列化与反序列化">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/89.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/18/2018-11-18-aop/" title="AOP事务">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/85.jpg" class="cover" width="580" height="440">
     </a>
     <div class="else">
-        <p>十一月 15, 2018</p>
-        <h3><a href="/2018/11/15/2018-11-15-序列化与反序列化/" title="序列化与反序列化" class="posttitle">序列化与反序列化</a></h3>
-        <p>实体类实现序列化需要比较是否已有重复的数据先比较首地址是否相同(hashcode)   相同不能存入不同再比较内容是否相同（equals）序列化 (Serialization)是将对象的状态信息转换为可以存储或传输的形式的过程。一般将一个对象存储至一个储存媒介，例如档案或是记亿体缓冲等。在网络传输过程中，可以是字节或是XML等格式。反序列化：由字节的或XML编码格式可以还原完全相等的对象。 ...</p>
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-aop/" title="AOP事务" class="posttitle">AOP事务</a></h3>
+        <p>Spring事务原子性事务要么一致完成，要么全部回滚。ps：一家人就要整整齐齐
+一致性事务开始前和结束后的状态保持一致eg . A向B转账过程出错，钱能原路返回，A和B的金额总和不变。
+持久性事务一经提交 不可改变。
+隔离性不同事务互不干扰。Spring是非侵入性的，不改动原有代码
+platformTransactionManager事务管理器,有3个方法： commit() getTran...</p>
     </div>
 </div>
 
@@ -211,6 +203,18 @@ ID生成策略在xml.让所使用的数据库选择ID策略（在mysql中，使�
         <p>十一月 15, 2018</p>
         <h3><a href="/2018/11/15/2018-11-15-java代码执行机制/" title="Java代码执行机制" class="posttitle">Java代码执行机制</a></h3>
         <p>java代码执行机制源代码编译机制第一步：  1.分析和输入到符号表（Parse and Enter）Parse  过程所做的是词法和语法分析 Enter  过程是将符号输入到符号表第二步：将annotation生成附加的代码第三步：语法分析后生产class文件，此时class文件可以放入jvm中执行类加载与执行机制第一步：加载class，标记已加载的class第二步：校验class格式，初...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/15/2018-11-15-序列化与反序列化/" title="序列化与反序列化">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/89.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 15, 2018</p>
+        <h3><a href="/2018/11/15/2018-11-15-序列化与反序列化/" title="序列化与反序列化" class="posttitle">序列化与反序列化</a></h3>
+        <p>实体类实现序列化需要比较是否已有重复的数据先比较首地址是否相同(hashcode)   相同不能存入不同再比较内容是否相同（equals）序列化 (Serialization)是将对象的状态信息转换为可以存储或传输的形式的过程。一般将一个对象存储至一个储存媒介，例如档案或是记亿体缓冲等。在网络传输过程中，可以是字节或是XML等格式。反序列化：由字节的或XML编码格式可以还原完全相等的对象。 ...</p>
     </div>
 </div>
 
