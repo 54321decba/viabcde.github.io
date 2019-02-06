@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Java基础</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Java基础</h1>
+        <div class="stuff">
+            <span>十月 12, 2016</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java/">java</a><span class="post-tags-list-count">7</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="int与Integer的基本使用对比"><a href="#int与Integer的基本使用对比" class="headerlink" title="* int与Integer的基本使用对比**"></a>* int与Integer的基本使用对比**</h3><p>（1）由于Integer变量实际上是对一个Integer对象的引用，所以两个通过new生成的Integer变量永远是不相等的（因为new生成的是两个对象，其内存地址不同）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = new Integer(100);//新建的对象，不取常量池中的100</span><br><span class="line">Integer j = new Integer(100);</span><br><span class="line">System.out.print(i == j); //false</span><br></pre></td></tr></table></figure>
+<p>Integer变量和int变量比较时，只要两个变量的值是向等的，则结果为true（因为包装类Integer和基本数据类型int比较时，java会自动拆包装为int，然后进行比较，实际上就变为两个int变量的比较）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = new Integer(100);</span><br><span class="line">int j = 100；</span><br><span class="line">System.out.print(i == j); //true，和int比较则自动拆箱为int，比较</span><br></pre></td></tr></table></figure>
+<p>（3）非new生成的Integer变量和new Integer()生成的变量比较时，结果为false。（因为非new生成的Integer变量指向的是java常量池中的对象，而new Integer()生成的变量指向堆中新建的对象，两者在内存中的地址不同）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = new Integer(100);//新建的对象，不取常量池的100</span><br><span class="line">Integer j = 100;//取常量池中的100</span><br><span class="line">System.out.print(i == j); //false</span><br></pre></td></tr></table></figure>
+<p>（4）对于两个非new生成的Integer对象，进行比较时，如果两个变量的值在区间-128到127之间，则比较结果为true，如果两个变量的值不在此区间，则比较结果为false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Integer i = 100;//非new对象，取常量池中的100</span><br><span class="line">Integer j = 100;</span><br><span class="line">System.out.print(i == j); //true</span><br><span class="line"></span><br><span class="line">Integer i = 128;//超过127，常量池没有，则新建对象</span><br><span class="line">Integer j = 128;</span><br><span class="line">System.out.print(i == j); //false</span><br></pre></td></tr></table></figure>
+<p>　　对于第4条的原因： java在编译Integer i = 100 ;时，会翻译成为Integer i = Integer.valueOf(100)。而java API中对Integer类型的valueOf的定义如下，对于-128到127之间的数，会进行缓存，Integer i = 127时，会将127进行缓存，下次再写Integer j = 127时，就会直接从缓存中取，就不会new了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static Integer valueOf(int i)&#123;</span><br><span class="line">    assert IntegerCache.high &gt;= 127;</span><br><span class="line">    if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)&#123;</span><br><span class="line">        return IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    &#125;</span><br><span class="line">    return new Integer(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="线程池的作用"><a href="#线程池的作用" class="headerlink" title="线程池的作用"></a><strong>线程池的作用</strong></h3><p>当启动和销毁线程的时间总和大于线程执行时间时，就需要线程池来提高效率</p>
+<h3 id="short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错"><a href="#short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错" class="headerlink" title="short s1 =1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错?"></a><strong><code>short s1 =1; s1 = s1 + 1;</code>有什么错? <code>short s1 = 1; s1 += 1;</code>有什么错?</strong></h3><p><code>short s1 = 1; s1 = s1 + 1;</code> （s1+1运算结果是int型，需要强制转换类型）   <code>short s1 = 1; s1 += 1;</code>（可以正确编译）</p>
+<h3 id="Spring整合ORM框架时事务管理用的是"><a href="#Spring整合ORM框架时事务管理用的是" class="headerlink" title="Spring整合ORM框架时事务管理用的是"></a><strong>Spring整合ORM框架时事务管理用的是</strong></h3><p>由相应ORM框架的事务管理器类如Hibernate对应于HibernateTransactionManager<br>整合过后可配置由Spring控制事务的提交。<br>http请求由请求行、消息报头、请求正文组成，http响应由状态行、消息报头和响应正文组成   </p>
+<h3 id="Object类的常用方法"><a href="#Object类的常用方法" class="headerlink" title="Object类的常用方法"></a><strong>Object类的常用方法</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">protected Object clone()//创建并返回此对象的一个副本。   </span><br><span class="line">boolean equals(Object obj)//指示其他某个对象是否与此对象“相等”。   </span><br><span class="line">String toString()//返回该对象的字符串表示。</span><br><span class="line">void wait()//在其他线程调用此对象的 notify() 方法或 notifyAll() //方法前，导致当前线程等待。 </span><br><span class="line">void notify()//唤醒在此对象监视器上等待的单个线程。   </span><br><span class="line">void notifyAll()//唤醒在此对象监视器上等待的所有线程。</span><br><span class="line">int hashCode()//返回该对象的哈希码值。</span><br><span class="line">Class&lt;&gt; getClass()//返回此 Object 的运行时类。  </span><br><span class="line">protected void finalize()//当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。</span><br></pre></td></tr></table></figure>
+<h3 id="常用的类，包，接口，常见的runtime-exception"><a href="#常用的类，包，接口，常见的runtime-exception" class="headerlink" title="常用的类，包，接口，常见的runtime exception"></a><strong>常用的类，包，接口，常见的runtime exception</strong></h3><p>常用的类：BufferedReader、BufferedWriter、FileReader、FileWirter、String、Integer 、StringBuffer、Stack<br>常用的包：java.lang、java.awt、java.io、java.util、java.sql、javax.xml、java.NET<br>常用的接口： List、Map、Document、NodeList、Remote<br>常见的异常：ArithmeticException （a=5/0即数学运算中除0异常）ClassCastException （强制转换异常）NullPointerException（空指针异常，使用Null时）ArrayIndexOutofBoundsException（数组越界）StringIndexOutBoundsException（指示索引或者为负或者超出字符串大小）IndexOutOfBoundsException（下标越界）NegativeArraySizeException（创建大小为负的数组）IllegalArgumentException（传递非法参数）SecurityException（安全异常）NumberFormatException（数据格式异常，字符串-&gt;数字）FileNotFoundException（文件未找到异常）SQLException（操作数据库异常）IOException（I/O输入输出异常）   </p>
+<h3 id="平时一般怎么处理事务呢？"><a href="#平时一般怎么处理事务呢？" class="headerlink" title="平时一般怎么处理事务呢？"></a><strong>平时一般怎么处理事务呢？</strong></h3><p>spring的事务是通过“声明式事务”的方式对事务进行管理，即在配置文件中进行声明，通过AOP将事务切面切入程序，最大的好处是大大减少了代码量，提高了工作效率。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#int与Integer的基本使用对比"><span class="toc-number">1.</span> <span class="toc-text">* int与Integer的基本使用对比**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池的作用"><span class="toc-number">2.</span> <span class="toc-text">线程池的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错"><span class="toc-number">3.</span> <span class="toc-text">short s1 =1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring整合ORM框架时事务管理用的是"><span class="toc-number">4.</span> <span class="toc-text">Spring整合ORM框架时事务管理用的是</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类的常用方法"><span class="toc-number">5.</span> <span class="toc-text">Object类的常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的类，包，接口，常见的runtime-exception"><span class="toc-number">6.</span> <span class="toc-text">常用的类，包，接口，常见的runtime exception</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平时一般怎么处理事务呢？"><span class="toc-number">7.</span> <span class="toc-text">平时一般怎么处理事务呢？</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

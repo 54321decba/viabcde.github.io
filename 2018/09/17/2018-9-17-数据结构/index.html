@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">数据结构</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">数据结构</h1>
+        <div class="stuff">
+            <span>九月 17, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java基础/">java基础</a><span class="post-tags-list-count">22</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a><strong>时间复杂度</strong></h3><p>运行次数而非时间（因为不同机器的运行环境不同）</p>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a><strong>空间复杂度</strong></h3><p>占用内存大小</p>
+<h3 id="程序的难易程度"><a href="#程序的难易程度" class="headerlink" title="程序的难易程度"></a><strong>程序的难易程度</strong></h3><p>能否一读便通</p>
+<h3 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a><strong>健壮性</strong></h3><p>能处理各种非法异常<br>字段表示一个事物的属性（列）<br>记录表示一个事物（行）<br>表是同一类事物的集合<br>视图是为了简化查询<br>程序 = 数据的存储 + 数据的操作 + 可以被计算机执行的语言</p>
+<h3 id="用链表实现栈"><a href="#用链表实现栈" class="headerlink" title="用链表实现栈"></a><strong>用链表实现栈</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Node&lt;E&gt; &#123;</span><br><span class="line">     Node&lt;E&gt;next=null;</span><br><span class="line">     E data;</span><br><span class="line">     public Node(E data) &#123;this.data=data;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Stack&lt;E&gt; &#123;</span><br><span class="line">    Node&lt;E&gt;top=null;</span><br><span class="line">    public boolean isEmpty() &#123;</span><br><span class="line">        return top==null;</span><br><span class="line">    &#125;</span><br><span class="line">    /*新建一个结点，该节点指向当前的头结点</span><br><span class="line">     *再修改top指向新建的结点*/</span><br><span class="line">    public void push(E data) &#123;</span><br><span class="line">        Node&lt;E&gt;newNode=new Node&lt;E&gt;(data);</span><br><span class="line">        newNode.next=top;</span><br><span class="line">        top=newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    /*</span><br><span class="line">     * 将当前的top结点的值保存到data</span><br><span class="line">     * 再把top的指针指向下一个结点*/</span><br><span class="line">    public E pop() &#123;</span><br><span class="line">        if(isEmpty())</span><br><span class="line">            return null;</span><br><span class="line">        E data=top.data;</span><br><span class="line">        top=top.next;</span><br><span class="line">        return data;</span><br><span class="line">    &#125;</span><br><span class="line">    public E peek() &#123;</span><br><span class="line">        if(isEmpty()) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        return top.data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="数组实现栈"><a href="#数组实现栈" class="headerlink" title="数组实现栈"></a><strong>数组实现栈</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Mystack&lt;E&gt;&#123;</span><br><span class="line"></span><br><span class="line">        private Object[] stack;</span><br><span class="line">        private int size;</span><br><span class="line"></span><br><span class="line">        public Mystack() &#123;</span><br><span class="line">            stack=new Object[10];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public boolean isEmpty() &#123;</span><br><span class="line">            return size==0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public E peek() &#123;</span><br><span class="line">            if(isEmpty()) &#123;</span><br><span class="line">                return null;</span><br><span class="line">            &#125;</span><br><span class="line">            return(E) stack[size-1];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public E pop() &#123;</span><br><span class="line">            E e=peek();</span><br><span class="line">            stack[size-1]=null;</span><br><span class="line">            size--;</span><br><span class="line">            return e;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public E push(E item) &#123;</span><br><span class="line">            ensureCapacity(size+1);</span><br><span class="line">            stack[size++]=item;</span><br><span class="line">            return item;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private void ensureCapacity(int size) &#123;</span><br><span class="line">            int len=stack.length;</span><br><span class="line">            if(size&gt;len) &#123;</span><br><span class="line">                int newLen=10;</span><br><span class="line">                stack=Arrays.copyOf(stack,newLen);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="排序问题"><a href="#排序问题" class="headerlink" title="排序问题"></a><strong>排序问题</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-21/排序.png" alt="enter description here"><br> 对于不同情况，即需要排序的数据的大小n<br> 当n较小时直接使用选择或插入排序<br> 若数据大部分有序的可以选择冒泡或快速排序<br> 但是，要判断是否基本有序的标准很难拿捏，所以…<br> 当n较大时，可以选择堆排序和归并排序等因为它们的时间复杂度为nlogn，从数学的角度来讲，n越大，其递增的速度比n^2慢<br>快些选堆不稳定<br>记忆：堆在北方的方言是坟墓的意思，不慎重考虑，快些选坟墓就不稳定，可能会诈尸！即使2个数是一样的，它还是会做一遍排序操作  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间复杂度"><span class="toc-number">1.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空间复杂度"><span class="toc-number">2.</span> <span class="toc-text">空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序的难易程度"><span class="toc-number">3.</span> <span class="toc-text">程序的难易程度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#健壮性"><span class="toc-number">4.</span> <span class="toc-text">健壮性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用链表实现栈"><span class="toc-number">5.</span> <span class="toc-text">用链表实现栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组实现栈"><span class="toc-number">6.</span> <span class="toc-text">数组实现栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序问题"><span class="toc-number">7.</span> <span class="toc-text">排序问题</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

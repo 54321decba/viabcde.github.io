@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Dao接口与xml映射文件</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Dao接口与xml映射文件</h1>
+        <div class="stuff">
+            <span>十一月 18, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Mybatis/">Mybatis</a><span class="post-tags-list-count">18</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？"><a href="#Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？" class="headerlink" title="Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？"></a><strong>Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？</strong></h3><p>Dao接口即Mapper接口<br>接口的全限名=映射文件中的namespace的值<br>接口的方法名=映射文件中MappedStatement的id值<br>接口方法内的参数=传递给sql的参数<br>Mapper接口是没有实现类的，当调用接口方法时，接口全限名+方法名拼接字符串作为key值，可唯一定位一个MappedStatement<br><strong>举例：</strong><br>在Mybatis中，每一个select、insert、update、delete标签，都会被解析为一个MappedStatement对象。<br>com.mybatis3.mappers.StudentDao.findStudentById，<br>可以唯一找到namespace为com.mybatis3.mappers.StudentDao中id = findStudentById的MappedStatement。<br><strong>注意：</strong><br>Dao接口里的方法，是不能重载的，因为是全限名+方法名的保存和寻找策略。<br><strong>Dao接口的工作原理：</strong><br>JDK动态代理，Mybatis运行时使用JDK动态代理为Dao接口生成代理proxy对象，代理对象proxy会拦截接口方法，转而执行MappedStatement所代表的sql，然后将sql执行结果返回  </p>
+<h3 id="Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复？"><a href="#Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复？" class="headerlink" title="Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复？"></a><strong>Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复？</strong></h3><p>namespace不同可以重复，因为我们的Statement实际上就是namespace+id</p>
+<h3 id="Mybatis动态sql是做什么的？都有哪些动态sql？能简述一下动态sql的执行原理不？"><a href="#Mybatis动态sql是做什么的？都有哪些动态sql？能简述一下动态sql的执行原理不？" class="headerlink" title="Mybatis动态sql是做什么的？都有哪些动态sql？能简述一下动态sql的执行原理不？"></a><strong>Mybatis动态sql是做什么的？都有哪些动态sql？能简述一下动态sql的执行原理不？</strong></h3><p>完成逻辑判断和动态拼接sql的功能。<br>Mybatis提供了9种动态sql标签：trim|where|set|foreach|if|choose|when|otherwise|bind。<br><strong>执行原理</strong><br>使用OGNL从sql参数对象中计算表达式的值，根据表达式的值动态拼接sql，以此来完成动态sql的功能。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？"><span class="toc-number">1.</span> <span class="toc-text">Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复？"><span class="toc-number">2.</span> <span class="toc-text">Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mybatis动态sql是做什么的？都有哪些动态sql？能简述一下动态sql的执行原理不？"><span class="toc-number">3.</span> <span class="toc-text">Mybatis动态sql是做什么的？都有哪些动态sql？能简述一下动态sql的执行原理不？</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

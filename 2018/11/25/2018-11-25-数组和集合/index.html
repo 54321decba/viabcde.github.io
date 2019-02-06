@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">数组和集合</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">数组和集合</h1>
+        <div class="stuff">
+            <span>十一月 25, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java基础/">java基础</a><span class="post-tags-list-count">22</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="Set，List-和-Map-的区别"><a href="#Set，List-和-Map-的区别" class="headerlink" title="Set，List 和 Map 的区别"></a><strong>Set，List 和 Map 的区别</strong></h3><p>java集合的主要分为三种类型：  Set（集）  List（列表）    Map（映射）<br>要深入理解集合首先要了解下我们熟悉的数组：  </p>
+<h2 id="区别1："><a href="#区别1：" class="headerlink" title="区别1："></a><strong>区别1：</strong></h2><p><strong>数组</strong><br>大小固定<br>一个数组(数组是一种可读/可写数据结构)只能存放一种类型的数据（基本类型/引用类型），而集合（集合提供的ReadOnly方法，以只读方式来使用集合/能动态改变大小）只能存放以object形式的引用类型的的数据。<br>array无法判断其中实际存有多少元素，length只是告诉我们array的容量。<br><strong>List：</strong>可以自动扩展的数组<br><strong>set：</strong>没有重复的数组<br><strong>TreeSet,TreeList,Tree：</strong>自动排序的组数<br><strong>Java中有一个Arrays类，专门用来操作array</strong><br>arrays中拥有一组static函数，<br>equals()：比较两个array是否相等。array拥有相同元素个数，且所有对应元素两两相等。<br>fill()：将值填入array中。<br>sort()：用来对array进行排序。<br>binarySearch()：在排好序的array中寻找元素。<br>System.arraycopy()：array的复制。  </p>
+<h3 id="Collection与Collections的区别"><a href="#Collection与Collections的区别" class="headerlink" title="Collection与Collections的区别"></a><strong>Collection与Collections的区别</strong></h3><p>Collection是集合类的上级接口，继承与他有关的接口主要有List和Set<br>Collections是针对集合类的一个帮助类，<br>搜索、排序、线程安全等操作<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String args[]) &#123;   </span><br><span class="line">       //注意List是实现Collection接口的   </span><br><span class="line">       List list = new ArrayList();   </span><br><span class="line">       double array[] = &#123; 112, 111, 23, 456, 231 &#125;;   </span><br><span class="line">       for (int i = 0; i &lt; array.length; i++) &#123;   </span><br><span class="line">           list.add(new Double(array[i]));   </span><br><span class="line">       &#125;   </span><br><span class="line">       Collections.sort(list);   //把list按从小到大排序</span><br><span class="line">       for (int i = 0; i &lt; array.length; i++) &#123;   </span><br><span class="line">           System.out.println(list.get(i));   </span><br><span class="line">       &#125;   </span><br><span class="line">       // 结果：23.0 111.0 112.0 231.0 456.0   </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>混排（Shuffling）<br>反转（Reverse）<br>替换所有的元素（fill）<br>拷贝（copy）<br>返回Collections中最小元素（min）<br>返回Collections中最大元素（max）<br>返回指定源列表中最后一次出现指定目标列表的起始位置（lastIndexOfSubList）<br>返回指定源列表中第一次出现指定目标列表的起始位置（IndexOfSubList）<br>根据指定的距离循环移动指定列表中的元素（Rotate）    </p>
+<h3 id="Java中HashMap的key值要是为类对象则该类需要满足什么条件？"><a href="#Java中HashMap的key值要是为类对象则该类需要满足什么条件？" class="headerlink" title="Java中HashMap的key值要是为类对象则该类需要满足什么条件？"></a><strong>Java中HashMap的key值要是为类对象则该类需要满足什么条件？</strong></h3><p>需要同时重写该类的hashCode()方法和它的equals()方法。  </p>
+<h3 id="如何选择合适的Java集合框架"><a href="#如何选择合适的Java集合框架" class="headerlink" title="如何选择合适的Java集合框架"></a><strong>如何选择合适的Java集合框架</strong></h3><p>确定集合类型：<br>如果是单列的集合，用Collection下的子接口ArrayList和Set<br>如果是映射，使用Map<br>确定使用集合类型下的哪个子类<br>是否需要同步，选择线程安全的集合类<br>迭代时是否需要有序(插入顺序有序)，找Linked双向列表结构<br>是否需要排序(自然顺序或者手动排序)，找Tree红黑树类型的(JDK1.8)<br>估算存放集合的数据量有多大，无论是List还是Map，它们实现动态增长，都是有性能消耗的。在初始集合的时候给出一个合理的容量会减少动态增长时的消耗~<br>使用泛型，避免在运行时出现ClassCastException<br>尽可能使用Collections工具类，或者获取只读、同步或空的集合，而非编写自己的实现。  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Set，List-和-Map-的区别"><span class="toc-number">1.</span> <span class="toc-text">Set，List 和 Map 的区别</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#区别1："><span class="toc-number"></span> <span class="toc-text">区别1：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection与Collections的区别"><span class="toc-number">1.</span> <span class="toc-text">Collection与Collections的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java中HashMap的key值要是为类对象则该类需要满足什么条件？"><span class="toc-number">2.</span> <span class="toc-text">Java中HashMap的key值要是为类对象则该类需要满足什么条件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何选择合适的Java集合框架"><span class="toc-number">3.</span> <span class="toc-text">如何选择合适的Java集合框架</span></a></li></ol>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">SpringBoot遇到的问题</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">SpringBoot遇到的问题</h1>
+        <div class="stuff">
+            <span>十一月 13, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="post-tags-list-count">17</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="遇到的问题：端口占用问题"><a href="#遇到的问题：端口占用问题" class="headerlink" title="遇到的问题：端口占用问题"></a><strong>遇到的问题：</strong>端口占用问题</h2><p>运行独立jar包时可能会出现端口占用问题，springboot的内嵌tomcat的端口8080可能会被oracle (我就是)占用或者 tomcat（默认8080）占用    </p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a><strong>解决方法</strong></h2><p>重新配置内嵌tomcat的端口号步骤如下    </p>
+<ol>
+<li>在resource目录下新建application.properties文件（文件名一定要application.properties因为这个是默认的配置，如果文件名字不是这个则需要手动的添加识别）配置如下图<br><img src="https://viabcde.github.io/images/2018-10-10/2018101015.png" alt="enter description
+here"> </li>
+</ol>
+<h3 id="通过命令行设置属性值-启动的应用的端口号"><a href="#通过命令行设置属性值-启动的应用的端口号" class="headerlink" title="通过命令行设置属性值 启动的应用的端口号"></a><strong>通过命令行设置属性值 启动的应用的端口号</strong></h3><p>在命令行运行时，连续的两个减号–就是对application.properties中的属性值进行赋值的标识。<br>java -jar xxx.jar –server.port=8888命令，等价于我们在application.properties中添加属性server.port=8888</p>
+<p><strong>问题：</strong>通过命令行就能更改应用运行的参数很不安全<br><strong>解决方法：</strong>SpringBoot提供了屏蔽命令行访问属性的设置：SpringApplication.setAddCommandLineProperties(false)。 </p>
+<h3 id="编写SpringBoot-demo过程遇到的2个错误"><a href="#编写SpringBoot-demo过程遇到的2个错误" class="headerlink" title="编写SpringBoot demo过程遇到的2个错误"></a><strong>编写SpringBoot demo过程遇到的2个错误</strong></h3><p><strong>错误1</strong><br>创建完成后，如果项目报红色，(1).需要对项目右键-》属性-》Generate Deloyment Desriptor Stub。(2).项目右键-》Maven-》Update Project<br><strong>错误2</strong><br>运行后出现springboot A resource exists with a different case<br><img src="https://viabcde.github.io/images/201811/20181106.png" alt="enter description
+here"><br>groupId 和artifactId 和项目名不一致，我这里项目名SpringBootDemo而pom文件中是springbootDemo，所以出现这个错误，修改如上图即可<br><strong>错误3</strong><br>spring boot javax/annotation/ManagedBean : Unsupported major.minor version 51.0<br>原因jdk版本的问题  ，maven自带的jar版本与javax的jar版本不符，我修改为1.6即可解决<br><strong>错误4</strong><br>Establishing SSL connection without server’s identity verification is not recommended<br><strong>解决方法</strong><br>MySQL 5.5.45+, 5.6.26+ and 5.7.6+ 这些版本的数据库需要手动指定SSL是否开启，所以原来的连接字符串：jdbc.url=jdbc:mysql://127.0.0.1:3306/test就不可以了。<br>解决：<br>需要在其后附加useSSL=true或false，使用新的连接字符串：jdbc.url=jdbc:mysql://127.0.0.1:3306/test&amp;useSSL=false问题就解决了。</p>
+<h3 id="Spring-Boot-启动报错Unable-to-start-ServletWebServerApplicationContext-due-to-missing-ServletWebServerFa"><a href="#Spring-Boot-启动报错Unable-to-start-ServletWebServerApplicationContext-due-to-missing-ServletWebServerFa" class="headerlink" title="Spring Boot 启动报错Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFa"></a><strong>Spring Boot 启动报错Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFa</strong></h3><p><strong>错误代码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line">@SpringBootApplication</span><br><span class="line">public class HelloApplication &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		SpringApplication.run(HelloController.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line">	</span><br><span class="line">    @RequestMapping(&quot;/&quot;)</span><br><span class="line">    public String index() &#123;</span><br><span class="line">        return &quot;Hello Spring Boot 2.0!&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>原因：</strong><br>使用代码自动提示(Alt+/)时粗心了<code>SpringApplication.run(HelloController.class, args);</code><br>应该改为<code>SpringApplication.run(HelloApplication.class, args);</code></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题：端口占用问题"><span class="toc-number">1.</span> <span class="toc-text">遇到的问题：端口占用问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过命令行设置属性值-启动的应用的端口号"><span class="toc-number">2.1.</span> <span class="toc-text">通过命令行设置属性值 启动的应用的端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写SpringBoot-demo过程遇到的2个错误"><span class="toc-number">2.2.</span> <span class="toc-text">编写SpringBoot demo过程遇到的2个错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Boot-启动报错Unable-to-start-ServletWebServerApplicationContext-due-to-missing-ServletWebServerFa"><span class="toc-number">2.3.</span> <span class="toc-text">Spring Boot 启动报错Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFa</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">SqlSessionFactoryBuilder、SqlSessionFactory、SqlSession、数据库会话器</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">SqlSessionFactoryBuilder、SqlSessionFactory、SqlSession、数据库会话器</h1>
+        <div class="stuff">
+            <span>十一月 19, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Mybatis/">Mybatis</a><span class="post-tags-list-count">18</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="SqlSessionFactoryBuilder（构造器）"><a href="#SqlSessionFactoryBuilder（构造器）" class="headerlink" title="SqlSessionFactoryBuilder（构造器）"></a><strong>SqlSessionFactoryBuilder（构造器）</strong></h3><p><strong>用处：</strong>根据配置信息或者代码来生成SqlSessionFactory<br>该类有多个重载方法build()。如下图：<br><img src="https://viabcde.github.io/images/2018-10-10/2018101026.png" alt="enter description
+here"><br><strong>SqlSessionFactoryBuilder真正重载build方法只有如下三种：</strong><br>分别是InputStream（字节流）、Reader（字符流）、Configuration（类）<br><strong>字节流和字符流</strong>通过读取XML文件创建SqlSessionFactory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public SqlSessionFactory build(InputStream inputStream, String environment, Properties properties)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public SqlSessionFactory build(Reader reader, String environment, Properties properties)</span><br></pre></td></tr></table></figure>
+<p><strong>Configuration</strong>是java代码方式创建SqlSessionFactory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public SqlSessionFactory build(Configuration config)</span><br></pre></td></tr></table></figure></p>
+<p>最后一种读取xml构造SqlSessionFactory，构造过程中注入了configuration的实例对象，之后configuration实例对象解析XML文件来构建SqlSessionFactory，示例代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String resource = &quot;mybatis-config.xml&quot;;</span><br><span class="line">	InputStream inputStream = Resources.getResourceAsStream(resource);</span><br><span class="line">	SqlSessionFactory sqlSessionFactory = null;</span><br><span class="line">	sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);</span><br></pre></td></tr></table></figure>
+<p>通过分析，SqlSessionFactoryBuilder创建SqlSessionFactory采用了建造者的设计模式<br>SqlSessionFactoryBuilder扮演具体的建造者，Configuration类则负责建造的细节工作，SqlSession则是构造出来的产品  </p>
+<h3 id="SqlSessionFactory（工厂接口）"><a href="#SqlSessionFactory（工厂接口）" class="headerlink" title="SqlSessionFactory（工厂接口）"></a><strong>SqlSessionFactory（工厂接口）</strong></h3><p><strong>用处：</strong>生产SqlSession会话 即sqlSession = sqlSessionFactory.openSession();  </p>
+<h3 id="SqlSession（会话）"><a href="#SqlSession（会话）" class="headerlink" title="SqlSession（会话）"></a><strong>SqlSession（会话）</strong></h3><p><strong>作用</strong><br>获取映射器，映射器通过命名空间和方法名称找到SQL，发送给数据库执行后返回结果；<br>通过update、insert、select、delete等方法，带上SQL的id来操作在XML中配置好的SQL，从而完成工作，与此同时它也支持事务，通过commit、rollback方法提交或者回滚事务。<br><strong>运行原理：</strong>SqlSession通过Executor（执行器）创建StatementHandler来运行的<br><img src="https://viabcde.github.io/images/2018-10-10/2018101027.png" alt="enter descriptionhere"> </p>
+<h3 id="数据库会话器（StatementHandler）："><a href="#数据库会话器（StatementHandler）：" class="headerlink" title="数据库会话器（StatementHandler）："></a><strong>数据库会话器（StatementHandler）：</strong></h3><p>使用数据库的Statement（PrepareStatement）执行操作<br>种类：SimpleStatementHandler：对应SIMPLE执行器<br>           PrepareStatementHandler：对应REUSE执行器<br>           CallableStatementHandler：对应BATCH执行器<br><strong>参数处理器（ParameterHandler）：</strong>用于SQL对参数的处理<br><strong>结果处理器（ResultSetHandler）：</strong>进行最后数据集（ResultSet）的封装返回处理。  </p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>mybatis的核心组件，重点是SqlSession和映射器。SqlSession的运行原理要有所了解，会使用SqlSession，同时也要理解mapper的原理，理解mybatis访问数据看的具体原理</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SqlSessionFactoryBuilder（构造器）"><span class="toc-number">1.</span> <span class="toc-text">SqlSessionFactoryBuilder（构造器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SqlSessionFactory（工厂接口）"><span class="toc-number">2.</span> <span class="toc-text">SqlSessionFactory（工厂接口）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SqlSession（会话）"><span class="toc-number">3.</span> <span class="toc-text">SqlSession（会话）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库会话器（StatementHandler）："><span class="toc-number">4.</span> <span class="toc-text">数据库会话器（StatementHandler）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

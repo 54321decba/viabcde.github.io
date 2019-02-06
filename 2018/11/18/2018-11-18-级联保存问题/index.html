@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">增删改</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">增删改</h1>
+        <div class="stuff">
+            <span>十一月 18, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Hibernate/">Hibernate</a><span class="post-tags-list-count">14</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="级联保存CascadeType"><a href="#级联保存CascadeType" class="headerlink" title="级联保存CascadeType"></a><strong>级联保存CascadeType</strong></h2><p>mappedby设置在一的一方，解决了当多的一方增加，不需要修改一的一方的代码<br>保存transient对象出问题<br>如下图g 没有被save    many2one     one2many     user保存 group不会跟着自动保存<br><img src="https://viabcde.github.io/images/blog/2018092883.png" alt="enter descriptionhere">   </p>
+<h3 id="解决方法1"><a href="#解决方法1" class="headerlink" title="解决方法1"></a><strong>解决方法1</strong></h3><p>把上图注释打开，先存g 再存 a</p>
+<h3 id="解决方法2"><a href="#解决方法2" class="headerlink" title="解决方法2"></a><strong>解决方法2</strong></h3><p>在group.java 保存group时自动保存其关联对象<br><strong>设置group能级联保存</strong><br><img src="https://viabcde.github.io/images/blog/2018092884.png" alt="enter descriptionhere"><br><strong>测试</strong><br><img src="https://viabcde.github.io/images/blog/2018092885.png" alt="enter descriptionhere"><br>【不建议，因为一的一方设置了mappedby，在它的表中不用保存多的一方，所以自动保存一的一方那个不会出现null，而自动保存多的一方会出现null值】同理，可以在user.java即多的这一方设置 保存user时自动保存其关联对象g<br><strong>解决方法</strong><br><img src="https://viabcde.github.io/images/blog/2018092886.png" alt="enter descriptionhere"><br><strong>问题：在数据库里u没有g的数据</strong><br><img src="https://viabcde.github.io/images/blog/2018092887.png" alt="enter descriptionhere"><br><strong>解决方法：user设置group属性</strong><br><img src="https://viabcde.github.io/images/blog/2018092888.png" alt="enter descriptionhere">      </p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a><strong>结论</strong></h2><p>存储时在save多的一方较容易只需要设多的一方即可 如果save一的一方则后需要 把多地一方再设一遍<br>many-to-one默认取多的一方user会把一的一方group取出来，即使不设置cascade为ALL而取一的一方group不会把多的一方user取出来<br><strong>测试</strong><br><img src="https://viabcde.github.io/images/blog/2018092890.png" alt="enter descriptionhere">    </p>
+<h2 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a><strong>结论</strong></h2><p>cascade管增删改 而fetch管读取<br><img src="https://viabcde.github.io/images/blog/2018092891.png" alt="enter descriptionhere"><br>group的fetch是eager user是lazy 则在用user .getGroup时会发2条sql，一次是取user和group联合的,另一次因为group是eager的所以在第一次取group时，会顺带着把user再取一遍<br>在xml中懒加载设置<br><img src="https://viabcde.github.io/images/blog/2018092892.png" alt="enter descriptionhere"><br>一对多设置eager情况：查看用户的权限；  </p>
+<h2 id="update"><a href="#update" class="headerlink" title="update"></a><strong>update</strong></h2><p>(一般cascade设为all，否则可能更新其他的方法不成功，比如设为merge,就只有用merge方法时能更新)<br><img src="https://viabcde.github.io/images/blog/2018092893.png" alt="enter descriptionhere">  </p>
+<h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a><strong>delete</strong></h3><p>在删除前如果不先删除其级联对象会把一个一方group也给删了，如果此时有其他对象级联了group，那么该对象也被清除，才能清除group<br>解决方法1：打破级联关系 先把级联对象设为空<br>解决方法二：使用sql语句<br><img src="https://viabcde.github.io/images/blog/2018092894.png" alt="enter descriptionhere">  </p>
+<h3 id="deletegroup"><a href="#deletegroup" class="headerlink" title="deletegroup"></a><strong>deletegroup</strong></h3><p><img src="https://viabcde.github.io/images/blog/2018092895.png" alt="enter descriptionhere">  </p>
+<h3 id="list和iterate区别"><a href="#list和iterate区别" class="headerlink" title="list和iterate区别"></a><strong>list和iterate区别</strong></h3><p>list取的是id+所有信息 iterate取的是id 当用到的时候再根据id取相应的值<br>list每执行一次都会发出sql语句，而iterate会利用session级的缓存，只会发出一次sql语句</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#级联保存CascadeType"><span class="toc-number">1.</span> <span class="toc-text">级联保存CascadeType</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法1"><span class="toc-number">1.1.</span> <span class="toc-text">解决方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法2"><span class="toc-number">1.2.</span> <span class="toc-text">解决方法2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">2.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论-1"><span class="toc-number">3.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update"><span class="toc-number">4.</span> <span class="toc-text">update</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#delete"><span class="toc-number">4.1.</span> <span class="toc-text">delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deletegroup"><span class="toc-number">4.2.</span> <span class="toc-text">deletegroup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list和iterate区别"><span class="toc-number">4.3.</span> <span class="toc-text">list和iterate区别</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

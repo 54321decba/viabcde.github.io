@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">SpringBoot</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">SpringBoot</h1>
+        <div class="stuff">
+            <span>十月 27, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="post-tags-list-count">17</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><a href="https://github.com/viabcde/mycoding.github.io/tree/master/SpringBootDemo" target="_blank" rel="noopener">示例demo源码地址</a></p>
+<h3 id="Spring-Boot简介—习惯大于约定原则"><a href="#Spring-Boot简介—习惯大于约定原则" class="headerlink" title="Spring Boot简介—习惯大于约定原则"></a><strong>Spring Boot简介—习惯大于约定原则</strong></h3><h2 id="springboot就是一个能够快速搭起spring项目的神器"><a href="#springboot就是一个能够快速搭起spring项目的神器" class="headerlink" title="springboot就是一个能够快速搭起spring项目的神器"></a>springboot就是一个能够快速搭起spring项目的<strong>神器</strong></h2><p><strong>原始Spring问题：</strong>大量的XML配置、复杂的依赖管理；需要手动配置tomcat<br>Spring Boot为了改善传统Spring应用繁杂的配置内容，采用了包扫描和自动化配置的机制来加载原本集中于xml文件中的各项内容<br><strong>Spring Boot</strong>提前配置好xml和依赖包，不需要手动配置服务器。<br><strong>如何做到的呢：</strong>把应用打包成可直接启动的jar/war，不需要另外配置一个Web Server。<br><strong>好处：</strong>既可以快速的创建一个可以立即运行的原型应用，又可以不断的修改和调整以适应应用开发在不同阶段的需要  </p>
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a><strong>PS</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SpringBoot借助Groovy的MetaObject协议、可插拔的AST转换过程以及内置的依赖解决方案引擎实现  </span><br><span class="line">Spring Boot默认使用tomcat作为服务器，使用logback提供日志记录  </span><br><span class="line">CLI（命令行界面）可在Spring仓库中手动下载和安装，用来运行和测试Boot应用  </span><br><span class="line">使用Groovy环境管理器（Groovy enVironment Manager，GVM）处理Boot版本的安装和管理。</span><br></pre></td></tr></table></figure>
+<h2 id="安装Boot"><a href="#安装Boot" class="headerlink" title="安装Boot"></a><strong>安装Boot</strong></h2><p>Boot及其CLI可以通过GVM的命令行gvm install springboot进行安装。  </p>
+<h2 id="spring-boot的启动原理"><a href="#spring-boot的启动原理" class="headerlink" title="spring boot的启动原理"></a><strong>spring boot的启动原理</strong></h2><p>maven打包之后，会生成两个jar文件：<br><strong>demo-0.0.1-SNAPSHOT.jar spring boot</strong><br>由maven插件生成，里面包含了应用的依赖，以及spring boot相关的类<br><strong>demo-0.0.1-SNAPSHOT.jar.original</strong><br>默认的maven-jar-plugin生成的包<br><strong>spring boot打好的包的目录结构</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">├── META-INF</span><br><span class="line">│   ├── MANIFEST.MF</span><br><span class="line">├── application.properties</span><br><span class="line">├── com</span><br><span class="line">│   └── example</span><br><span class="line">│       └── SpringBootDemoApplication.class</span><br><span class="line">├── lib</span><br><span class="line">│   ├── aopalliance-1.0.jar</span><br><span class="line">│   ├── spring-beans-4.2.3.RELEASE.jar</span><br><span class="line">│   ├── ...</span><br><span class="line">└── org</span><br><span class="line">    └── springframework</span><br><span class="line">        └── boot</span><br><span class="line">            └── loader</span><br><span class="line">                ├── ExecutableArchiveLauncher.class</span><br><span class="line">                ├── JarLauncher.class</span><br><span class="line">                ├── JavaAgentDetector.class</span><br><span class="line">                ├── LaunchedURLClassLoader.class</span><br><span class="line">                ├── Launcher.class</span><br><span class="line">                ├── MainMethodRunner.class</span><br><span class="line">                ├── ...</span><br></pre></td></tr></table></figure></p>
+<h3 id="MANIFEST-MF"><a href="#MANIFEST-MF" class="headerlink" title="MANIFEST.MF"></a><strong>MANIFEST.MF</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Manifest-Version: 1.0</span><br><span class="line">Start-Class: com.example.SpringBootDemoApplication</span><br><span class="line">Implementation-Vendor-Id: com.example</span><br><span class="line">Spring-Boot-Version: 1.3.0.RELEASE</span><br><span class="line">Created-By: Apache Maven 3.3.3</span><br><span class="line">Build-Jdk: 1.8.0_60</span><br><span class="line">Implementation-Vendor: Pivotal Software, Inc.</span><br><span class="line">Main-Class: org.springframework.boot.loader.JarLauncher</span><br></pre></td></tr></table></figure>
+<h3 id="Start-Class是com-example-SpringBootDemoApplication："><a href="#Start-Class是com-example-SpringBootDemoApplication：" class="headerlink" title="Start-Class是com.example.SpringBootDemoApplication："></a><strong>Start-Class是com.example.SpringBootDemoApplication：</strong></h3><p>这个是我们应用的Main函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">public class SpringBootDemoApplication &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(SpringBootDemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="com-example-目录"><a href="#com-example-目录" class="headerlink" title="com/example 目录"></a><strong>com/example 目录</strong></h3><p>应用的.class文件</p>
+<h3 id="lib目录"><a href="#lib目录" class="headerlink" title="lib目录"></a><strong>lib目录</strong></h3><p>应用的Maven依赖的jar包文件，比如spring-beans，spring-mvc等jar。  </p>
+<h3 id="org-springframework-boot-loader-目录"><a href="#org-springframework-boot-loader-目录" class="headerlink" title="org/springframework/boot/loader 目录"></a><strong>org/springframework/boot/loader 目录</strong></h3><p>Spring boot loader的.class文件  </p>
+<h3 id="spring-boot应用打包之后，生成的fat-jar"><a href="#spring-boot应用打包之后，生成的fat-jar" class="headerlink" title="spring boot应用打包之后，生成的fat_jar"></a><strong>spring boot应用打包之后，生成的fat_jar</strong></h3><p>包含应用依赖的jar包，还有Spring boot loader相关的类<br>Fat jar的启动Main函数是JarLauncher，它负责创建LaunchedURLClassLoader加载/lib下面的jar，并以一个新线程启动应用的Main函数。<br><strong>LaunchedURLClassLoader和普通的URLClassLoader的不同之处是</strong><br>它提供了从Archive里加载.class的能力。结合Archive提供的getEntries函数，就可以获取到Archive里的Resource。</p>
+<h2 id="加载流程"><a href="#加载流程" class="headerlink" title="加载流程"></a><strong>加载流程</strong></h2><p>1.以demo-0.0.1-SNAPSHOT.jar创建一个Archive<br>2.JarLauncher创建好Archive之后，通过getNestedArchives函数来获取到demo-0.0.1-SNAPSHOT.jar/lib下面的所有jar文件，并创建为List，数组里是lib目录下面的jar的URL，用这个来构造一个自定义的ClassLoader：LaunchedURLClassLoader。<br>3.从MANIFEST.MF里读取到Start-Class，即com.example.SpringBootDemoApplication，然后创建一个新的线程来启动应用的Main函数。  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Boot简介—习惯大于约定原则"><span class="toc-number">1.</span> <span class="toc-text">Spring Boot简介—习惯大于约定原则</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#springboot就是一个能够快速搭起spring项目的神器"><span class="toc-number"></span> <span class="toc-text">springboot就是一个能够快速搭起spring项目的神器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS"><span class="toc-number"></span> <span class="toc-text">PS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Boot"><span class="toc-number"></span> <span class="toc-text">安装Boot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring-boot的启动原理"><span class="toc-number"></span> <span class="toc-text">spring boot的启动原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MANIFEST-MF"><span class="toc-number">1.</span> <span class="toc-text">MANIFEST.MF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Start-Class是com-example-SpringBootDemoApplication："><span class="toc-number">2.</span> <span class="toc-text">Start-Class是com.example.SpringBootDemoApplication：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#com-example-目录"><span class="toc-number">3.</span> <span class="toc-text">com/example 目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lib目录"><span class="toc-number">4.</span> <span class="toc-text">lib目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#org-springframework-boot-loader-目录"><span class="toc-number">5.</span> <span class="toc-text">org/springframework/boot/loader 目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring-boot应用打包之后，生成的fat-jar"><span class="toc-number">6.</span> <span class="toc-text">spring boot应用打包之后，生成的fat_jar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加载流程"><span class="toc-number"></span> <span class="toc-text">加载流程</span></a>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

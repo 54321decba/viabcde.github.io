@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">SpringCloud</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">SpringCloud</h1>
+        <div class="stuff">
+            <span>十月 29, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SpringCloud/">SpringCloud</a><span class="post-tags-list-count">1</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="SpringCloud分布式开发de五大神兽"><a href="#SpringCloud分布式开发de五大神兽" class="headerlink" title="SpringCloud分布式开发de五大神兽"></a><strong>SpringCloud分布式开发de五大神兽</strong></h2><p><strong>•服务发现——Netflix Eureka</strong><br><strong>•服务网关——Netflix Zuul</strong><br><strong>•客服端负载均衡——Netflix Ribbon</strong><br><strong>•断路器——Netflix Hystrix</strong><br><strong>•分布式配置——Spring Cloud Config</strong>  </p>
+<h3 id="Eureka服务治理体系"><a href="#Eureka服务治理体系" class="headerlink" title="Eureka服务治理体系"></a><strong>Eureka服务治理体系</strong></h3><p>用来实现微服务实例自动注册和发现<br><strong>服务提供者</strong>向<strong>服务注册中心</strong>注册服务<br><strong>服务消费者</strong>向<strong>服务注册中心</strong>获取服务列表去寻找服务者<br>服务列表（包括服务的主机与端口号、服务版本号、通讯协议等一些附加信息）<br><strong>服务注册</strong><br>在服务治理框架中，通常都会构建一个注册中心，每个服务单元向注册中心登记自己提供的服务，包括服务的主机与端口号、服务版本号、通讯协议等一些附加信息。注册中心按照服务名分类组织服务清单，同时还需要以心跳检测的方式去监测清单中的服务是否可用，若不可用需要从服务清单中剔除，以达到排除故障服务的效果<br> <strong>服务发现</strong><br>在服务治理框架下，服务间的调用不再通过指定具体的实例地址来实现，而是通过服务名发起请求调用实现。服务调用方通过服务名从服务注册中心的服务清单中获取服务实例的列表清单，通过指定的负载均衡策略取出一个服务实例位置来进行服务调用。</p>
+<h2 id="Zuul路由网关"><a href="#Zuul路由网关" class="headerlink" title="Zuul路由网关"></a><strong>Zuul路由网关</strong></h2><h3 id="1-代理："><a href="#1-代理：" class="headerlink" title="1. 代理："></a><strong>1. 代理：</strong></h3><p>Zuul提供外部的请求转发到具体的微服务实例中的服务  </p>
+<h3 id="2-路由："><a href="#2-路由：" class="headerlink" title="2. 路由："></a><strong>2. 路由：</strong></h3><p>Zuul可以对外部访问实现统一的入口  </p>
+<h3 id="3-过滤："><a href="#3-过滤：" class="headerlink" title="3. 过滤："></a><strong>3. 过滤：</strong></h3><p>Zuul可以对外部访问进行干预，如请求校验、服务聚合等  </p>
+<h3 id="4-Zuul需要配合Eureka使用，"><a href="#4-Zuul需要配合Eureka使用，" class="headerlink" title="4. Zuul需要配合Eureka使用，"></a><strong>4. Zuul需要配合Eureka使用，</strong></h3><p>需要在Eureka中注册并获得其他微服务的信息  </p>
+<h3 id="5-理解："><a href="#5-理解：" class="headerlink" title="5. 理解："></a><strong>5. 理解：</strong></h3><p>Zuul就像大楼的保安，可以请他找人（代理），找的人在外面叫什么名字（路由），准不准你进楼（过滤）。因为保安属于物业公司，所以保安要在物业公司注册，所获得的信息也来源于物业公司（与Eureka的关系）。<br> <a href="http://github.com/Netflix/zuul" target="_blank" rel="noopener">Zuul的源码</a>    </p>
+<h3 id="zuul的基本配置"><a href="#zuul的基本配置" class="headerlink" title="zuul的基本配置"></a><strong>zuul的基本配置</strong></h3><p><strong>第一步：构建新的Zuul模块并在pom.xml中加入依赖（Zuul和Eureka必须同时加入）；</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">        &lt;!-- zuul路由网关 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- actuator监控 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- hystrix容错 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- 日常标配 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.wangcw.springcloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;springclouddemo-api&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;project.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-jetty&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- 热部署插件 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;springloaded&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>第二步：新建application.yml文件并配置（一定要向Eureka注册，因为Zuul本身也是一个微服务）；</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">server: </span><br><span class="line">  port: 6001</span><br><span class="line">spring: </span><br><span class="line">  application:</span><br><span class="line">    name: microservicecloud-zuul-gateway</span><br><span class="line"> </span><br><span class="line">eureka: </span><br><span class="line">  client: #客户端注册进eureka服务列表内</span><br><span class="line">    service-url: </span><br><span class="line">      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka</span><br><span class="line">  instance:</span><br><span class="line">    instance-id: gateway-zull-6001</span><br><span class="line">    prefer-ip-address: true </span><br><span class="line">#配置微服务的info信息</span><br><span class="line">info:</span><br><span class="line">  app.name: wangcw-dept-provider</span><br><span class="line">  company.name: www.amoins.top</span><br><span class="line">  build.artifactId: $project.artifactId$</span><br><span class="line">  build.version: $project.version$</span><br></pre></td></tr></table></figure>
+<p><strong>第三步： 修改hosts文件（非必须，不过能更好看出效果）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1		zuul.com</span><br></pre></td></tr></table></figure>
+<p><strong>第四步：创建主启动类，并加入@EnableZuulProxy注解</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication(exclude = &#123;DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class&#125;)</span><br><span class="line">@EnableZuulProxy</span><br><span class="line">public class Zuul_6001_App</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		SpringApplication.run(Zuul_6001_App.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第五步：启动测试，访问规则：步骤3中指定映射域名 + 端口号 + 微服务名称 + 访问路径。</strong><br>   例子：<a href="http://zuul.com:6001/springclouddemo-provider-dept/provider/dept/list" target="_blank" rel="noopener">http://zuul.com:6001/springclouddemo-provider-dept/provider/dept/list</a><br><img src="https://viabcde.github.io/images/2018-10-10/2018101024.png" alt="enter description
+here"> </p>
+<h3 id="路由访问映射规则"><a href="#路由访问映射规则" class="headerlink" title="路由访问映射规则"></a><strong>路由访问映射规则</strong></h3><pre><code>服务名映射和统一公共前缀 : 当不想暴露真实的服务名时，可以对服务名进行映射，只需在application.yml中配置即可。配置如下：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">zuul:</span><br><span class="line">   prefix: /wangcw        #设置统一公共前缀</span><br><span class="line">   ignored-services: &quot;*&quot;  #对外隐藏所有的服务名，可以使用通配符，配置之后通过这个微服务名访问就失效了，外部无法访问，但是微服务内部依然可用</span><br><span class="line">   routes:</span><br><span class="line">     mydept.serviceId: springclouddemo-provider-dept</span><br><span class="line">     mydept.path: /zull-dept/**          # 访问/zull-dept/*相当于访问微服务【springclouddemo-provider-dept】</span><br><span class="line">     #最终访问路径变成了 zuul.com:6001/wangcw/zull-dept/*</span><br></pre></td></tr></table></figure>
+<p>经过上述配置，访问路径变成  <a href="http://zuul.com:6001/wangcw/zull-dept/provider/dept/list" target="_blank" rel="noopener">http://zuul.com:6001/wangcw/zull-dept/provider/dept/list</a><br>测试结果：<br><img src="https://viabcde.github.io/images/2018-10-10/2018101025.png" alt="enter description
+here"><br>注：因为Zuul是针对外部访问管理的，所以配置了隐藏的服务，在系统中其他模块进行服务名访问时依然可以正常运行的。</p>
+<h2 id="ribbon"><a href="#ribbon" class="headerlink" title="ribbon"></a><strong>ribbon</strong></h2><p>负载均衡：在微服务之前，客户端与服务端之间是存在专门的负载均衡的中间硬件的<br>微服务出现后，把负载均衡的功能以库的方式集成到客户端的进程中称为软负载均衡</p>
+<h2 id="Netflix-hystrix"><a href="#Netflix-hystrix" class="headerlink" title="Netflix hystrix"></a><strong>Netflix hystrix</strong></h2><p>想象这样一个情况：一个电子商务网站因为在黑色周五发生过载，因为过多访问负载，在线支付延迟半天都没有响应，用户的支付因为太多并发请求导致响应时间过长，在等待很长时间以后最终失败。这样的错误导致退出购物车的用户重新刷新或者再次尝试支付，更加增加了服务器的负载，如同滚雪球一样爆炸，导致更多长时间等待线程和网络拥塞。<br>hystrix用来设计隔离访问远程系统端点或微服务等，防止级联爆炸式的失败<br>如果它在一段时间内侦测到许多类似的错误，会强迫其以后的多个调用快速失败，也就是不让它们再次访问远程服务器了  </p>
+<h2 id="spring-cloud-config来统一管理配置文件"><a href="#spring-cloud-config来统一管理配置文件" class="headerlink" title="spring cloud config来统一管理配置文件"></a><strong>spring cloud config来统一管理配置文件</strong></h2><p>和Eureka有点你相似，即我们先把配置文件推送到git等服务中，当我们需要配置文件 ConfigClient系统可以通过ConfigServer去获取配置文件</p>
+<h3 id="分布式链路跟踪-Sleuth-与-Zipkin"><a href="#分布式链路跟踪-Sleuth-与-Zipkin" class="headerlink" title="分布式链路跟踪 Sleuth 与 Zipkin"></a><strong>分布式链路跟踪 Sleuth 与 Zipkin</strong></h3><p>随着业务发展，系统拆分导致系统调用链路愈发复杂一个前端请求可能最终需要调用很多次后端服务才能完成，当整个请求变慢或不可用时，我们是无法得知该请求是由某个或某些后端服务引起的，这时就需要解决如何快读定位服务故障点，以对症下药。于是就有了分布式系统调用跟踪的诞生。<br><strong>一般的，一个分布式服务跟踪系统主要由三部分构成</strong><br>数据收集<br>数据存储<br>数据展示<br>每个 trace 中会调用若干个服务，为了记录调用了哪些服务，以及每次调用的消耗时间等信息，在每次调用服务时，埋入一个调用记录，称为一个 span。这样，若干个有序的 span 就组成了一个 trace。<br>附带上 span 中的请求的服务的名称，响应时间，以及请求成功与否等信息，就可以在发生问题的时候，找到异常的服务；根据历史数据，还可以从系统整体层面分析出哪里性能差，定位性能优化的目标。<br>可以用于<br><strong>耗时分析:</strong> 通过 Sleuth 可以很方便的了解到每个采样请求的耗时，从而分析出哪些服务调用比较耗时;<br><strong>可视化错误:</strong> 对于程序未捕捉的异常，可以通过集成 Zipkin 服务界面上看到;<br><strong>链路优化:</strong> 对于调用比较频繁的服务，可以针对这些服务实施一些优化措施。  </p>
+<h3 id="BUS消息总线技术"><a href="#BUS消息总线技术" class="headerlink" title="BUS消息总线技术"></a><strong>BUS消息总线技术</strong></h3><p><strong>路由(routing)</strong>是指分组从源到目的地时，决定端到端路径的网络范围的进程<br>消息代理中间件可以将消息路由到一个或多个目的地，实现对配置信息的实时更新</p>
+<h3 id="RabbitMQ作为消息的总代理"><a href="#RabbitMQ作为消息的总代理" class="headerlink" title="RabbitMQ作为消息的总代理"></a><strong>RabbitMQ作为消息的总代理</strong></h3><p>config-client修改pom.xml增加spring-cloud-starter-bus-amqp模块  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-bus-amqp&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>在配置文件中增加关于RabbitMQ的连接和用户信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.rabbitmq.host=localhost</span><br><span class="line">spring.rabbitmq.port=5672</span><br><span class="line">spring.rabbitmq.username=springcloud</span><br><span class="line">spring.rabbitmq.password=123456</span><br></pre></td></tr></table></figure></p>
+<p>启动config-server,再启动两个config-clien(分别在不同的端口上)<br>可以在config-client-eureka中的控制台中看到如下内容，在启动时候，客户端程序多了一个/bus/refresh请求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;&#123;[/bus/refresh],methods=[POST]&#125;&quot; onto public void org.springframework.cloud.bus.endpoint.RefreshBusEndpoint.refresh(java.lang.String)</span><br></pre></td></tr></table></figure></p>
+<p>•先访问两个config-client的/from请求，会返回当前config-repo/didispace-dev.properties中的from属性。<br>•接着，我们修改config-repo/didispace-dev.properties中的from属性值，并发送POST请求到其中的一个/bus/refresh。<br>•最后，我们再分别访问启动的两个config-client的/from请求，此时这两个请求都会返回最新的config-repo/didispace-dev.properties中的from属性。<br>上面已经能够通过Spring Cloud Bus来实时更新总线上的属性配置了。  </p>
+<h3 id="消息驱动的微服务"><a href="#消息驱动的微服务" class="headerlink" title="消息驱动的微服务"></a><strong>消息驱动的微服务</strong></h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringCloud分布式开发de五大神兽"><span class="toc-number">1.</span> <span class="toc-text">SpringCloud分布式开发de五大神兽</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Eureka服务治理体系"><span class="toc-number">1.1.</span> <span class="toc-text">Eureka服务治理体系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zuul路由网关"><span class="toc-number">2.</span> <span class="toc-text">Zuul路由网关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-代理："><span class="toc-number">2.1.</span> <span class="toc-text">1. 代理：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-路由："><span class="toc-number">2.2.</span> <span class="toc-text">2. 路由：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-过滤："><span class="toc-number">2.3.</span> <span class="toc-text">3. 过滤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Zuul需要配合Eureka使用，"><span class="toc-number">2.4.</span> <span class="toc-text">4. Zuul需要配合Eureka使用，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-理解："><span class="toc-number">2.5.</span> <span class="toc-text">5. 理解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zuul的基本配置"><span class="toc-number">2.6.</span> <span class="toc-text">zuul的基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由访问映射规则"><span class="toc-number">2.7.</span> <span class="toc-text">路由访问映射规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ribbon"><span class="toc-number">3.</span> <span class="toc-text">ribbon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Netflix-hystrix"><span class="toc-number">4.</span> <span class="toc-text">Netflix hystrix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring-cloud-config来统一管理配置文件"><span class="toc-number">5.</span> <span class="toc-text">spring cloud config来统一管理配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式链路跟踪-Sleuth-与-Zipkin"><span class="toc-number">5.1.</span> <span class="toc-text">分布式链路跟踪 Sleuth 与 Zipkin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BUS消息总线技术"><span class="toc-number">5.2.</span> <span class="toc-text">BUS消息总线技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RabbitMQ作为消息的总代理"><span class="toc-number">5.3.</span> <span class="toc-text">RabbitMQ作为消息的总代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息驱动的微服务"><span class="toc-number">5.4.</span> <span class="toc-text">消息驱动的微服务</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

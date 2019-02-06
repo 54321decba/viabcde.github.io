@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Maven常用命令</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Maven常用命令</h1>
+        <div class="stuff">
+            <span>九月 28, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Maven/">Maven</a><span class="post-tags-list-count">2</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="Maven常用命令："><a href="#Maven常用命令：" class="headerlink" title="Maven常用命令："></a>Maven常用命令：</h2><h3 id="1-创建Maven的普通Java项目"><a href="#1-创建Maven的普通Java项目" class="headerlink" title="1. 创建Maven的普通Java项目"></a><strong>1. 创建Maven的普通Java项目</strong></h3><p>mvn archetype:create<br>    -DgroupId=packageName<br>    -DartifactId=projectName  </p>
+<h3 id="2-创建Maven的Web项目"><a href="#2-创建Maven的Web项目" class="headerlink" title="2. 创建Maven的Web项目"></a><strong>2. 创建Maven的Web项目</strong></h3><p>mvn archetype:create<br>    -DgroupId=packageName<br>    -DartifactId=webappName<br>    -DarchetypeArtifactId=maven-archetype-webapp  </p>
+<h3 id="3-反向生成-maven-项目的骨架"><a href="#3-反向生成-maven-项目的骨架" class="headerlink" title="3. 反向生成 maven 项目的骨架"></a><strong>3. 反向生成 maven 项目的骨架</strong></h3><p>mvn archetype:generate<br>　　你是怎么创建你的maven项目的?是不是像这样:<br>mvn archetype:create -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.ryanote -Dartifact=common<br>　　如果你还再用的话,那你就out了,现代人都用mvn archetype:generate了,它将创建项目这件枯燥的事更加人性化,你再也不需要记那么多的archetypeArtifactId,你只需输入archetype:generate,剩下的就是做”选择题”了.<br>　　缩写写法：<br>mvn archetype:generate -DgroupId=otowa.user.dao -DartifactId=user-dao -Dversion=0.01-SNAPSHOT  </p>
+<h3 id="4-编译源代码"><a href="#4-编译源代码" class="headerlink" title="4. 编译源代码"></a><strong>4. 编译源代码</strong></h3><p>mvn compile  </p>
+<h3 id="5-编译测试代码"><a href="#5-编译测试代码" class="headerlink" title="5. 编译测试代码"></a><strong>5. 编译测试代码</strong></h3><p>mvn test-compile  </p>
+<h3 id="6-运行测试"><a href="#6-运行测试" class="headerlink" title="6. 运行测试"></a><strong>6. 运行测试</strong></h3><p>mvn test  </p>
+<h3 id="7-产生site"><a href="#7-产生site" class="headerlink" title="7. 产生site"></a><strong>7. 产生site</strong></h3><p>mvn site  </p>
+<h3 id="8-打包"><a href="#8-打包" class="headerlink" title="8. 打包"></a><strong>8. 打包</strong></h3><p>mvn package  </p>
+<h3 id="9-在本地Repository中安装jar"><a href="#9-在本地Repository中安装jar" class="headerlink" title="9. 在本地Repository中安装jar"></a><strong>9. 在本地Repository中安装jar</strong></h3><p>mvn install<br>例：installing D:\xxx\xx.jar to D:\xx\xxxx  </p>
+<h3 id="10-清除产生的项目"><a href="#10-清除产生的项目" class="headerlink" title="10. 清除产生的项目"></a><strong>10. 清除产生的项目</strong></h3><p>mvn clean  </p>
+<h3 id="11-生成eclipse项目"><a href="#11-生成eclipse项目" class="headerlink" title="11. 生成eclipse项目"></a><strong>11. 生成eclipse项目</strong></h3><p>mvn eclipse:eclipse  </p>
+<h3 id="12-生成idea项目"><a href="#12-生成idea项目" class="headerlink" title="12. 生成idea项目"></a><strong>12. 生成idea项目</strong></h3><p>mvn idea:idea  </p>
+<h3 id="13-组合使用goal命令，如只打包不测试"><a href="#13-组合使用goal命令，如只打包不测试" class="headerlink" title="13. 组合使用goal命令，如只打包不测试"></a><strong>13. 组合使用goal命令，如只打包不测试</strong></h3><p>mvn -Dtest package  </p>
+<h3 id="14-编译测试的内容"><a href="#14-编译测试的内容" class="headerlink" title="14. 编译测试的内容"></a><strong>14. 编译测试的内容</strong></h3><p>mvn test-compile  </p>
+<h3 id="15-只打jar包"><a href="#15-只打jar包" class="headerlink" title="15. 只打jar包"></a><strong>15. 只打jar包</strong></h3><p>mvn jar:jar  </p>
+<h3 id="16-只测试而不编译，也不测试编译"><a href="#16-只测试而不编译，也不测试编译" class="headerlink" title="16. 只测试而不编译，也不测试编译"></a><strong>16. 只测试而不编译，也不测试编译</strong></h3><p>mvn test -skipping compile -skipping test-compile<br> ( -skipping 的灵活运用，当然也可以用于其他组合命令) </p>
+<h3 id="17-清除eclipse的一些系统设置"><a href="#17-清除eclipse的一些系统设置" class="headerlink" title="17. 清除eclipse的一些系统设置:"></a><strong>17. 清除eclipse的一些系统设置:</strong></h3><p>mvn eclipse:clean </p>
+<h3 id="18-查看当前项目已被解析的依赖"><a href="#18-查看当前项目已被解析的依赖" class="headerlink" title="18.查看当前项目已被解析的依赖"></a><strong>18.查看当前项目已被解析的依赖</strong></h3><p>mvn dependency:list</p>
+<h3 id="19-上传到私服"><a href="#19-上传到私服" class="headerlink" title="19.上传到私服"></a><strong>19.上传到私服</strong></h3><p>mvn deploy</p>
+<h3 id="20-强制检查更新，由于快照版本的更新策略-一天更新几次、隔段时间更新一次-存在，如果想强制更新就会用到此命令"><a href="#20-强制检查更新，由于快照版本的更新策略-一天更新几次、隔段时间更新一次-存在，如果想强制更新就会用到此命令" class="headerlink" title="20. 强制检查更新，由于快照版本的更新策略(一天更新几次、隔段时间更新一次)存在，如果想强制更新就会用到此命令:"></a><strong>20. 强制检查更新，由于快照版本的更新策略(一天更新几次、隔段时间更新一次)存在，如果想强制更新就会用到此命令:</strong></h3><p>mvn clean install-U</p>
+<h3 id="21-源码打包"><a href="#21-源码打包" class="headerlink" title="21. 源码打包"></a><strong>21. 源码打包</strong></h3><p>mvn source:jar<br>或<br>mvn source:jar-no-fork  </p>
+<h3 id="mvn-compile与mvn-install、mvn-deploy的区别"><a href="#mvn-compile与mvn-install、mvn-deploy的区别" class="headerlink" title="mvn compile与mvn install、mvn deploy的区别"></a><strong>mvn compile与mvn install、mvn deploy的区别</strong></h3><p>1.mvn compile，编译类文件<br>2.mvn install，包含mvn compile，mvn package，然后上传到本地仓库<br>3.mvn deploy,包含mvn install,然后，上传到私服  </p>
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a><strong>PS</strong></h2><p>　　一般使用情况是这样，首先通过cvs或svn下载代码到本机，然后执行mvn eclipse:eclipse生成ecllipse项目文件，然后导入到eclipse就行了；修改代码后执行mvn compile或mvn test检验，也可以下载eclipse的maven插件。  </p>
+<h3 id="1-显示版本信息"><a href="#1-显示版本信息" class="headerlink" title="1. 显示版本信息"></a><strong>1. 显示版本信息</strong></h3><p>mvn -version/-v  </p>
+<h3 id="2-创建mvn项目"><a href="#2-创建mvn项目" class="headerlink" title="2. 创建mvn项目"></a><strong>2. 创建mvn项目</strong></h3><p>mvn archetype:create -DgroupI=com.oreilly -DartifactId=my-app  </p>
+<h3 id="3-生成target目录，编译、测试代码，生成测试报告，生成jar-war文件"><a href="#3-生成target目录，编译、测试代码，生成测试报告，生成jar-war文件" class="headerlink" title="3. 生成target目录，编译、测试代码，生成测试报告，生成jar/war文件"></a><strong>3. 生成target目录，编译、测试代码，生成测试报告，生成jar/war文件</strong></h3><p>mvn package</p>
+<h3 id="4-运行项目于jetty上"><a href="#4-运行项目于jetty上" class="headerlink" title="4. 运行项目于jetty上"></a><strong>4. 运行项目于jetty上</strong></h3><p>mvn jetty:run  </p>
+<h3 id="5-显示详细错误-信息"><a href="#5-显示详细错误-信息" class="headerlink" title="5. 显示详细错误 信息"></a><strong>5. 显示详细错误 信息</strong></h3><p>mvn -e</p>
+<h3 id="6-验证工程是否正确，所有需要的资源是否可用"><a href="#6-验证工程是否正确，所有需要的资源是否可用" class="headerlink" title="6. 验证工程是否正确，所有需要的资源是否可用"></a><strong>6. 验证工程是否正确，所有需要的资源是否可用</strong></h3><p>mvn validate</p>
+<h3 id="7-在集成测试可以运行的环境中处理和发布包"><a href="#7-在集成测试可以运行的环境中处理和发布包" class="headerlink" title="7. 在集成测试可以运行的环境中处理和发布包"></a><strong>7. 在集成测试可以运行的环境中处理和发布包</strong></h3><p>mvn integration-test</p>
+<h3 id="8-运行任何检查，验证包是否有效且达到质量标准"><a href="#8-运行任何检查，验证包是否有效且达到质量标准" class="headerlink" title="8. 运行任何检查，验证包是否有效且达到质量标准"></a><strong>8. 运行任何检查，验证包是否有效且达到质量标准</strong></h3><p>mvn verify</p>
+<h3 id="9-产生应用需要的任何额外的源代码，如xdoclet"><a href="#9-产生应用需要的任何额外的源代码，如xdoclet" class="headerlink" title="9. 产生应用需要的任何额外的源代码，如xdoclet"></a><strong>9. 产生应用需要的任何额外的源代码，如xdoclet</strong></h3><p>mvn generate-sources</p>
+<h3 id="10-使用-help-插件的-describe-目标来输出-Maven-Help-插件的信息"><a href="#10-使用-help-插件的-describe-目标来输出-Maven-Help-插件的信息" class="headerlink" title="10. 使用 help 插件的  describe 目标来输出 Maven Help 插件的信息"></a><strong>10. 使用 help 插件的  describe 目标来输出 Maven Help 插件的信息</strong></h3><p>mvn help:describe -Dplugin=help</p>
+<h3 id="11-使用Help-插件输出完整的带有参数的目标列"><a href="#11-使用Help-插件输出完整的带有参数的目标列" class="headerlink" title="11. 使用Help 插件输出完整的带有参数的目标列"></a><strong>11. 使用Help 插件输出完整的带有参数的目标列</strong></h3><p>mvn help:describe -Dplugin=help -Dfull</p>
+<h3 id="12-获取单个目标的信息-设置-mojo-参数和-plugin-参数。此命令列出了Compiler-插件的compile-目标的所有信息"><a href="#12-获取单个目标的信息-设置-mojo-参数和-plugin-参数。此命令列出了Compiler-插件的compile-目标的所有信息" class="headerlink" title="12. 获取单个目标的信息,设置  mojo 参数和  plugin 参数。此命令列出了Compiler 插件的compile 目标的所有信息"></a><strong>12. 获取单个目标的信息,设置  mojo 参数和  plugin 参数。此命令列出了Compiler 插件的compile 目标的所有信息</strong></h3><p>mvn help:describe -Dplugin=compiler -Dmojo=compile -Dfull</p>
+<h3 id="13-列出所有-Maven-Exec-插件可用的目标"><a href="#13-列出所有-Maven-Exec-插件可用的目标" class="headerlink" title="13. 列出所有 Maven Exec 插件可用的目标"></a><strong>13. 列出所有 Maven Exec 插件可用的目标</strong></h3><p>mvn help:describe -Dplugin=exec -Dfull</p>
+<h3 id="14-看这个“有效的-effective-”POM，它暴露了-Maven的默认设置"><a href="#14-看这个“有效的-effective-”POM，它暴露了-Maven的默认设置" class="headerlink" title="14. 看这个“有效的 (effective)”POM，它暴露了 Maven的默认设置"></a><strong>14. 看这个“有效的 (effective)”POM，它暴露了 Maven的默认设置</strong></h3><p>mvn help:effective-pom</p>
+<h3 id="15-想要查看完整的依赖踪迹，包含那些因为冲突或者其它原因而被拒绝引入的构件，打开-Maven-的调试标记运行"><a href="#15-想要查看完整的依赖踪迹，包含那些因为冲突或者其它原因而被拒绝引入的构件，打开-Maven-的调试标记运行" class="headerlink" title="15. 想要查看完整的依赖踪迹，包含那些因为冲突或者其它原因而被拒绝引入的构件，打开 Maven 的调试标记运行"></a><strong>15. 想要查看完整的依赖踪迹，包含那些因为冲突或者其它原因而被拒绝引入的构件，打开 Maven 的调试标记运行</strong></h3><p>mvn install -X</p>
+<h3 id="16-给任何目标添加maven-test-skip-属性就能跳过测试"><a href="#16-给任何目标添加maven-test-skip-属性就能跳过测试" class="headerlink" title="16. 给任何目标添加maven.test.skip 属性就能跳过测试"></a><strong>16. 给任何目标添加maven.test.skip 属性就能跳过测试</strong></h3><p>mvn install -Dmaven.test.skip=true</p>
+<h3 id="17-构建装配Maven-Assembly-插件是一个用来创建你应用程序特有分发包的插件"><a href="#17-构建装配Maven-Assembly-插件是一个用来创建你应用程序特有分发包的插件" class="headerlink" title="17. 构建装配Maven Assembly 插件是一个用来创建你应用程序特有分发包的插件"></a><strong>17. 构建装配Maven Assembly 插件是一个用来创建你应用程序特有分发包的插件</strong></h3><p>mvn install assembly:assembly</p>
+<h3 id="18-生成Wtp插件的Web项目"><a href="#18-生成Wtp插件的Web项目" class="headerlink" title="18. 生成Wtp插件的Web项目"></a><strong>18. 生成Wtp插件的Web项目</strong></h3><p>mvn -Dwtpversion=1.0 eclipse:eclipse</p>
+<h3 id="19-清除Eclipse项目的配置信息-Web项目"><a href="#19-清除Eclipse项目的配置信息-Web项目" class="headerlink" title="19. 清除Eclipse项目的配置信息(Web项目)"></a><strong>19. 清除Eclipse项目的配置信息(Web项目)</strong></h3><p>mvn -Dwtpversion=1.0 eclipse:clean</p>
+<h3 id="20-将项目转化为Eclipse项目"><a href="#20-将项目转化为Eclipse项目" class="headerlink" title="20. 将项目转化为Eclipse项目"></a><strong>20. 将项目转化为Eclipse项目</strong></h3><p>mvn eclipse:eclipse</p>
+<h3 id="21-mvn-exec命令可以执行项目中的main函数"><a href="#21-mvn-exec命令可以执行项目中的main函数" class="headerlink" title="21. mvn exec命令可以执行项目中的main函数"></a><strong>21. mvn exec命令可以执行项目中的main函数</strong></h3><p>首先需要编译java工程：mvn compile<br>不存在参数的情况下：mvn exec:java -Dexec.mainClass=”<strong><em>.Main”<br>存在参数：mvn exec:java -Dexec.mainClass=”</em></strong>.Main” -Dexec.args=”arg0 arg1 arg2”<br>指定运行时库：mvn exec:java -Dexec.mainClass=”***.Main” -Dexec.classpathScope=runtime  </p>
+<h3 id="22-打印出已解决依赖的列表"><a href="#22-打印出已解决依赖的列表" class="headerlink" title="22. 打印出已解决依赖的列表"></a><strong>22. 打印出已解决依赖的列表</strong></h3><p>mvn dependency:resolve</p>
+<h3 id="23-打印整个依赖树"><a href="#23-打印整个依赖树" class="headerlink" title="23. 打印整个依赖树"></a><strong>23. 打印整个依赖树</strong></h3><p>mvn dependency:tree</p>
+<h3 id="在应用程序用使用多个存储库"><a href="#在应用程序用使用多个存储库" class="headerlink" title="在应用程序用使用多个存储库"></a><strong>在应用程序用使用多个存储库</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;repositories&gt;    </span><br><span class="line">    &lt;repository&gt;     </span><br><span class="line">        &lt;id&gt;Ibiblio&lt;/id&gt;     </span><br><span class="line">        &lt;name&gt;Ibiblio&lt;/name&gt;     </span><br><span class="line">        &lt;url&gt;http://www.ibiblio.org/maven/&lt;/url&gt;   </span><br><span class="line">    &lt;/repository&gt;   </span><br><span class="line">    &lt;repository&gt;     </span><br><span class="line">        &lt;id&gt;PlanetMirror&lt;/id&gt;     </span><br><span class="line">        &lt;name&gt;Planet Mirror&lt;/name&gt;     </span><br><span class="line">        &lt;url&gt;http://public.planetmirror.com/pub/maven/&lt;/url&gt;   </span><br><span class="line">    &lt;/repository&gt;  </span><br><span class="line">&lt;/repositories&gt;</span><br></pre></td></tr></table></figure>
+<p>mvn deploy:deploy-file -DgroupId=com -DartifactId=client -Dversion=0.1.0 -Dpackaging=jar -Dfile=d:\client-0.1.0.jar -DrepositoryId=maven-repository-inner -Durl=<a href="ftp://xxxxxxx/opt/maven/repository/" target="_blank" rel="noopener">ftp://xxxxxxx/opt/maven/repository/</a></p>
+<h3 id="发布第三方Jar到本地库中"><a href="#发布第三方Jar到本地库中" class="headerlink" title="发布第三方Jar到本地库中"></a><strong>发布第三方Jar到本地库中</strong></h3><p>mvn install:install-file -DgroupId=com -DartifactId=client -Dversion=0.1.0 -Dpackaging=jar -Dfile=d:\client-0.1.0.jar<br>-DdownloadSources=true<br>-DdownloadJavadocs=true  </p>
+<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a><strong>附加</strong></h2><p>mvn help:describe<br>你是否因为记不清某个插件有哪些goal而痛苦过,你是否因为想不起某个goal有哪些参数而苦恼,那就试试这个命令吧,它会告诉你一切的.<br>参数: 1. -Dplugin=pluginName   2. -Dgoal(或-Dmojo)=goalName:与-Dplugin一起使用,它会列出某个插件的goal信息,<br>如果嫌不够详细,同样可以加-Ddetail.(注:一个插件goal也被认为是一个 “Mojo”)<br>下面大家就运行mvn help:describe -Dplugin=help -Dmojo=describe感受一下吧!<br>mvn tomcat:run<br>用了maven后,你再也不需要用eclipse里的tomcat来运行web项目(实际工作中经常会发现用它会出现不同步更新的情况),只需在对应目录里运行 mvn tomat:run命令,然后就可在浏览器里运行查看了.如果你想要更多的定制,可以在pom.xml文件里加下面配置:<br>01 02 03 04 org.codehaus.mojo 05 tomcat-maven-plugin 06 07 /web 08 9090 09 10 11 12 当然你也可以在命令里加参数来实现特定的功能,<br>下面几个比较常用:<br>　　1&gt;. 跳过测试:-Dmaven.test.skip(=true)<br>　　2&gt;. 指定端口:-Dmaven.tomcat.port=9090<br>　　3&gt;. 忽略测试失败:-Dmaven.test.failure.ignore=true 当然,如果你的其它关联项目有过更新的话,一定要在项目根目录下运行mvn clean install来执行更新,再运行mvn tomcat:run使改动生效.   </p>
+<h3 id="mvnDebug-tomcat-run"><a href="#mvnDebug-tomcat-run" class="headerlink" title="mvnDebug tomcat:run"></a><strong>mvnDebug tomcat:run</strong></h3><p>这条命令主要用来远程测试,它会监听远程测试用的8000端口,在eclipse里打开远程测试后,它就会跑起来了,设断点,调试,一切都是这么简单.上面提到的那几个参数在这里同样适用.</p>
+<h3 id="mvn-dependency-sources"><a href="#mvn-dependency-sources" class="headerlink" title="mvn dependency:sources"></a><strong>mvn dependency:sources</strong></h3><p>故名思义,有了它,你就不用到处找源码了,运行一下,你项目里所依赖的jar包的源码就都有了</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Maven常用命令："><span class="toc-number">1.</span> <span class="toc-text">Maven常用命令：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建Maven的普通Java项目"><span class="toc-number">1.1.</span> <span class="toc-text">1. 创建Maven的普通Java项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-创建Maven的Web项目"><span class="toc-number">1.2.</span> <span class="toc-text">2. 创建Maven的Web项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-反向生成-maven-项目的骨架"><span class="toc-number">1.3.</span> <span class="toc-text">3. 反向生成 maven 项目的骨架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-编译源代码"><span class="toc-number">1.4.</span> <span class="toc-text">4. 编译源代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-编译测试代码"><span class="toc-number">1.5.</span> <span class="toc-text">5. 编译测试代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-运行测试"><span class="toc-number">1.6.</span> <span class="toc-text">6. 运行测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-产生site"><span class="toc-number">1.7.</span> <span class="toc-text">7. 产生site</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-打包"><span class="toc-number">1.8.</span> <span class="toc-text">8. 打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-在本地Repository中安装jar"><span class="toc-number">1.9.</span> <span class="toc-text">9. 在本地Repository中安装jar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-清除产生的项目"><span class="toc-number">1.10.</span> <span class="toc-text">10. 清除产生的项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-生成eclipse项目"><span class="toc-number">1.11.</span> <span class="toc-text">11. 生成eclipse项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-生成idea项目"><span class="toc-number">1.12.</span> <span class="toc-text">12. 生成idea项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-组合使用goal命令，如只打包不测试"><span class="toc-number">1.13.</span> <span class="toc-text">13. 组合使用goal命令，如只打包不测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-编译测试的内容"><span class="toc-number">1.14.</span> <span class="toc-text">14. 编译测试的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-只打jar包"><span class="toc-number">1.15.</span> <span class="toc-text">15. 只打jar包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-只测试而不编译，也不测试编译"><span class="toc-number">1.16.</span> <span class="toc-text">16. 只测试而不编译，也不测试编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-清除eclipse的一些系统设置"><span class="toc-number">1.17.</span> <span class="toc-text">17. 清除eclipse的一些系统设置:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-查看当前项目已被解析的依赖"><span class="toc-number">1.18.</span> <span class="toc-text">18.查看当前项目已被解析的依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-上传到私服"><span class="toc-number">1.19.</span> <span class="toc-text">19.上传到私服</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-强制检查更新，由于快照版本的更新策略-一天更新几次、隔段时间更新一次-存在，如果想强制更新就会用到此命令"><span class="toc-number">1.20.</span> <span class="toc-text">20. 强制检查更新，由于快照版本的更新策略(一天更新几次、隔段时间更新一次)存在，如果想强制更新就会用到此命令:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-源码打包"><span class="toc-number">1.21.</span> <span class="toc-text">21. 源码打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mvn-compile与mvn-install、mvn-deploy的区别"><span class="toc-number">1.22.</span> <span class="toc-text">mvn compile与mvn install、mvn deploy的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS"><span class="toc-number">2.</span> <span class="toc-text">PS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-显示版本信息"><span class="toc-number">2.1.</span> <span class="toc-text">1. 显示版本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-创建mvn项目"><span class="toc-number">2.2.</span> <span class="toc-text">2. 创建mvn项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-生成target目录，编译、测试代码，生成测试报告，生成jar-war文件"><span class="toc-number">2.3.</span> <span class="toc-text">3. 生成target目录，编译、测试代码，生成测试报告，生成jar/war文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-运行项目于jetty上"><span class="toc-number">2.4.</span> <span class="toc-text">4. 运行项目于jetty上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-显示详细错误-信息"><span class="toc-number">2.5.</span> <span class="toc-text">5. 显示详细错误 信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-验证工程是否正确，所有需要的资源是否可用"><span class="toc-number">2.6.</span> <span class="toc-text">6. 验证工程是否正确，所有需要的资源是否可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-在集成测试可以运行的环境中处理和发布包"><span class="toc-number">2.7.</span> <span class="toc-text">7. 在集成测试可以运行的环境中处理和发布包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-运行任何检查，验证包是否有效且达到质量标准"><span class="toc-number">2.8.</span> <span class="toc-text">8. 运行任何检查，验证包是否有效且达到质量标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-产生应用需要的任何额外的源代码，如xdoclet"><span class="toc-number">2.9.</span> <span class="toc-text">9. 产生应用需要的任何额外的源代码，如xdoclet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-使用-help-插件的-describe-目标来输出-Maven-Help-插件的信息"><span class="toc-number">2.10.</span> <span class="toc-text">10. 使用 help 插件的  describe 目标来输出 Maven Help 插件的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-使用Help-插件输出完整的带有参数的目标列"><span class="toc-number">2.11.</span> <span class="toc-text">11. 使用Help 插件输出完整的带有参数的目标列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-获取单个目标的信息-设置-mojo-参数和-plugin-参数。此命令列出了Compiler-插件的compile-目标的所有信息"><span class="toc-number">2.12.</span> <span class="toc-text">12. 获取单个目标的信息,设置  mojo 参数和  plugin 参数。此命令列出了Compiler 插件的compile 目标的所有信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-列出所有-Maven-Exec-插件可用的目标"><span class="toc-number">2.13.</span> <span class="toc-text">13. 列出所有 Maven Exec 插件可用的目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-看这个“有效的-effective-”POM，它暴露了-Maven的默认设置"><span class="toc-number">2.14.</span> <span class="toc-text">14. 看这个“有效的 (effective)”POM，它暴露了 Maven的默认设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-想要查看完整的依赖踪迹，包含那些因为冲突或者其它原因而被拒绝引入的构件，打开-Maven-的调试标记运行"><span class="toc-number">2.15.</span> <span class="toc-text">15. 想要查看完整的依赖踪迹，包含那些因为冲突或者其它原因而被拒绝引入的构件，打开 Maven 的调试标记运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-给任何目标添加maven-test-skip-属性就能跳过测试"><span class="toc-number">2.16.</span> <span class="toc-text">16. 给任何目标添加maven.test.skip 属性就能跳过测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-构建装配Maven-Assembly-插件是一个用来创建你应用程序特有分发包的插件"><span class="toc-number">2.17.</span> <span class="toc-text">17. 构建装配Maven Assembly 插件是一个用来创建你应用程序特有分发包的插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-生成Wtp插件的Web项目"><span class="toc-number">2.18.</span> <span class="toc-text">18. 生成Wtp插件的Web项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-清除Eclipse项目的配置信息-Web项目"><span class="toc-number">2.19.</span> <span class="toc-text">19. 清除Eclipse项目的配置信息(Web项目)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-将项目转化为Eclipse项目"><span class="toc-number">2.20.</span> <span class="toc-text">20. 将项目转化为Eclipse项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-mvn-exec命令可以执行项目中的main函数"><span class="toc-number">2.21.</span> <span class="toc-text">21. mvn exec命令可以执行项目中的main函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-打印出已解决依赖的列表"><span class="toc-number">2.22.</span> <span class="toc-text">22. 打印出已解决依赖的列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-打印整个依赖树"><span class="toc-number">2.23.</span> <span class="toc-text">23. 打印整个依赖树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在应用程序用使用多个存储库"><span class="toc-number">2.24.</span> <span class="toc-text">在应用程序用使用多个存储库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布第三方Jar到本地库中"><span class="toc-number">2.25.</span> <span class="toc-text">发布第三方Jar到本地库中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附加"><span class="toc-number">3.</span> <span class="toc-text">附加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mvnDebug-tomcat-run"><span class="toc-number">3.1.</span> <span class="toc-text">mvnDebug tomcat:run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mvn-dependency-sources"><span class="toc-number">3.2.</span> <span class="toc-text">mvn dependency:sources</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

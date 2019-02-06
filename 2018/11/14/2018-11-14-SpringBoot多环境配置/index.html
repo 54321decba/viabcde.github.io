@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">SpringBoot多环境配置数据库地址，服务器端口等</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">SpringBoot多环境配置数据库地址，服务器端口等</h1>
+        <div class="stuff">
+            <span>十一月 14, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="post-tags-list-count">17</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="多环境配置数据库地址，服务器端口等"><a href="#多环境配置数据库地址，服务器端口等" class="headerlink" title="多环境配置数据库地址，服务器端口等"></a><strong>多环境配置数据库地址，服务器端口等</strong></h3><p>通过配置多份不同环境的配置文件，再通过打包命令指定需要打包的内容    </p>
+<h2 id="配置文件名称的格式"><a href="#配置文件名称的格式" class="headerlink" title="配置文件名称的格式"></a><strong>配置文件名称的格式</strong></h2><p>在Spring Boot中多环境配置文件名需要满足application-{profile}.properties的格式，其中{profile}对应环境，比如：<br>application-dev.properties：开发环境<br>application-test.properties：测试环境<br>application-prod.properties：生产环境<br>至于哪个配置文件会被加载，在application.properties文件中通过spring.profiles.active属性来设置，其值对应{profile}值。<br>如：spring.profiles.active=test就会加载application-test.properties配置文件内容<br>下面，以不同环境配置不同的服务端口为例，进行样例实验。<br>针对各环境新建不同的配置文件application-dev.properties、application-test.properties、application-prod.properties<br>在这三个文件均都设置不同的server.port属性，如：dev环境设置为1111，test环境设置为2222，prod环境设置为3333<br>application.properties中设置spring.profiles.active=dev，就是说默认以dev环境设置  </p>
+<h3 id="测试不同配置的加载"><a href="#测试不同配置的加载" class="headerlink" title="测试不同配置的加载"></a><strong>测试不同配置的加载</strong></h3><p>执行java -jar xxx.jar，可以观察到服务端口被设置为1111，也就是默认的开发环境（dev）<br><strong>执行java -jar xxx.jar    –spring.profiles.active=test</strong>可以观察到服务端口被设置为2222，也就是测试环境的配置（test）<br><strong>执行java -jar xxx.jar –spring.profiles.active=prod</strong>可以观察到服务端口被设置为3333，也就是生产环境的配置（prod）<br>按照上面的实验，可以如下总结多环境的配置思路：<br>application.properties中配置通用内容，并设置spring.profiles.active=dev，以开发环境为默认配置<br>application-{profile}.properties中配置各个环境不同的内容<br>通过命令行方式去激活不同环境的配置  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#多环境配置数据库地址，服务器端口等"><span class="toc-number">1.</span> <span class="toc-text">多环境配置数据库地址，服务器端口等</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件名称的格式"><span class="toc-number"></span> <span class="toc-text">配置文件名称的格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试不同配置的加载"><span class="toc-number">1.</span> <span class="toc-text">测试不同配置的加载</span></a></li></ol>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

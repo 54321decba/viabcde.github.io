@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">动态SQL</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">动态SQL</h1>
+        <div class="stuff">
+            <span>十一月 19, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Mybatis/">Mybatis</a><span class="post-tags-list-count">18</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a><strong>动态SQL</strong></h2><p>动态SQL是在原先SQL基础上加上判断条件，例如if等语句<br><img src="https://viabcde.github.io/images/2018-10-10/2018101029.png" alt="enter description
+here"> </p>
+<h3 id="if元素"><a href="#if元素" class="headerlink" title="if元素"></a><strong>if元素</strong></h3><p> <strong>示例：根据角色名称模糊匹配查询角色</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">       &lt;select id=&quot;findRoles&quot; parameterType=&quot;string&quot; resultMap=&quot;roleResultMap&quot;&gt;</span><br><span class="line">	select role_no, role_name, note from t_role where 1 = 1</span><br><span class="line">	&lt;if test=&quot;roleName !=null and roleName !=&apos;&apos; &quot;&gt;</span><br><span class="line">		and role_name like concat(&apos;%&apos;, #&#123;roleName&#125;, &apos;%&apos;)</span><br><span class="line">	&lt;/if&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="choose、when、otherwise元素"><a href="#choose、when、otherwise元素" class="headerlink" title="choose、when、otherwise元素"></a><strong>choose、when、otherwise元素</strong></h3><p><strong>判断条件结果不只是true或false，类似于java语言中的switch——case语句</strong></p>
+<p>示例：当role编号为空，使用roleNo为条件查询；当role编号为空，而角色名称roleName不为空，则roleName作为条件进行模糊查询；若俩者都为空，要求备注不为空。三种查询情况，来看mybatis动态sql语句如何实现？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;findRoles&quot; parameterType=&quot;string&quot; resultMap=&quot;roleResultMap&quot;&gt;</span><br><span class="line">	select role_no, role_name, note from t_role where 1 = 1</span><br><span class="line">	&lt;choose&gt;</span><br><span class="line">		&lt;when test=&quot;testNO != null and roleNo !=&apos;&apos; &quot;&gt;</span><br><span class="line">			and role_no = #&#123;roleNo&#125;</span><br><span class="line">		&lt;/when&gt;</span><br><span class="line">		&lt;when test=&quot;roleName !=null and roleName !=&apos;&apos; &quot;&gt;</span><br><span class="line">			and role_name like concat(&apos;%&apos;, &#123;roleName&#125;, &apos;%&apos;)</span><br><span class="line">		&lt;/when&gt;</span><br><span class="line">		&lt;otherwise&gt;</span><br><span class="line">			and note is not null</span><br><span class="line">		&lt;/otherwise&gt;</span><br><span class="line">	&lt;/choose&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="trim、where、set元素"><a href="#trim、where、set元素" class="headerlink" title="trim、where、set元素"></a><strong>trim、where、set元素</strong></h3><p><strong>where</strong><br>如果将if元素示例中的1=1去掉，SQL的语法就会异常，这时我们就可以用where元素起到同等作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;findRoles&quot; parameterType=&quot;string&quot; resultMap=&quot;roleResultMap&quot;&gt;</span><br><span class="line">	select role_no, role_name, note from t_role </span><br><span class="line">		&lt;where&gt;</span><br><span class="line">		&lt;if test=&quot;roleName !=null and roleName !=&apos;&apos; &quot;&gt;</span><br><span class="line">			and role_name like concat(&apos;%&apos;, &#123;roleName&#125;, &apos;%&apos;)</span><br><span class="line">		&lt;/if&gt;</span><br><span class="line">		&lt;/where&gt;</span><br><span class="line">	&lt;/choose&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>trim</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;findRoles&quot; parameterType=&quot;string&quot; resultMap=&quot;roleResultMap&quot;&gt;</span><br><span class="line">	select role_no, role_name, note from t_role </span><br><span class="line">		&lt;trim prefix=&quot;where&quot; prefixOverrides=&quot;and&quot;&gt;</span><br><span class="line">		    &lt;if test=&quot;roleName !=null and roleName !=&apos;&apos; &quot;&gt;</span><br><span class="line">			and role_name like concat(&apos;%&apos;, &#123;roleName&#125;, &apos;%&apos;)</span><br><span class="line">		    &lt;/if&gt;</span><br><span class="line">		&lt;/trim&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+<p>trim元素用来去掉一些特殊的字符串，prefix代表是语句的前缀，而prefixOverrides代表你需要去掉的字符串，本实例中trim与where元素起到同样的效果。<br><strong>set</strong><br>使用场景：更新一条记录的一个字段，性能最佳的办法是把主键和更新字段的值传给sql进行更新。mybatis通过set来设置这样的更新操作，具体示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;update id=&quot;updateRole&quot; parameterType=&quot;role&quot;&gt;</span><br><span class="line">	update t_role</span><br><span class="line">	&lt;set&gt;</span><br><span class="line">		&lt;if test=&quot;roleName != null and roleName !=&apos;&apos;&quot;&gt;</span><br><span class="line">			role_name = #&#123;roleName&#125;,</span><br><span class="line">		&lt;/if&gt;</span><br><span class="line">		&lt;if test=&quot;note != null and note !=&apos;&apos; &quot;&gt;</span><br><span class="line">			note = #&#123;note&#125;</span><br><span class="line">		&lt;/if&gt;</span><br><span class="line">	&lt;/set&gt;</span><br><span class="line">	where role_no = #&#123;roleNo&#125;</span><br><span class="line">&lt;/update&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>foreach元素</strong><br>循环语句，用来遍历集合。能够很好的支持数组和List、Set接口的集合，对此提供遍历的功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;findUserBySex&quot; resultType=&quot;user&quot;&gt;</span><br><span class="line">	select * from t_user where sex in</span><br><span class="line">	&lt;foreach item=&quot;sex&quot; index=&quot;index&quot; collection=&quot;sexList&quot; open=&quot;(&quot;separator=&quot;,&quot; close=&quot;)&quot;&gt;</span><br><span class="line">		#&#123;sex&#125;</span><br><span class="line">	&lt;/foreach&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+<p>collection配置的sexList是传递进来的参数名称，可以是一个数组或List、Set等集合；item配置的是循环中当前的元素；index配置的是当前元素在集合的位置下标；open和close配置的是以什么符号将这些集合元素包装起来；separator是各个元素的间隔符。值得注意的是，sql中大量语句的in是非常消耗性能的，所以我们要预估一下collection对象的长度。<br> <strong>test属性</strong><br> 用于条件判断语句中，相当于判断真假，上面的示例基本是用它判断空和非空，我们还可以用它来判断字符串、数字和枚举等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;getRoleTest&quot; parameterType=&quot;string&quot; resultMap=&quot;roleResultMap&quot;&gt;</span><br><span class="line">	select role_no, role_name, note from t_role </span><br><span class="line">	&lt;if test=&quot;type = &apos;Y&apos;&quot;&gt;</span><br><span class="line">		where 1=1</span><br><span class="line">	&lt;/if&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>bind元素</strong><br>通过OGNL表达式自定义一个上下文变量。例如模糊查询，mysql使用一个concat用“%”和参数相连接，然而oracle则是用连接符号“||”，这样就很难兼容，需要俩种形式。这样情况下，mybatis提供了bind元素，不必使用数据库的语言，只要使用mybatis的语言即可与所需参数相连，实现模糊查询。  </p>
+<h3 id="1-使用bind绑定一个参数"><a href="#1-使用bind绑定一个参数" class="headerlink" title="1 使用bind绑定一个参数"></a><strong>1 使用bind绑定一个参数</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;findRole&quot; resultType=&quot;com.liming.domain.mybatis.bean.RoleBean&quot;&gt;</span><br><span class="line">	&lt;bind name=&quot;pattern&quot; value=&quot;&apos;%&apos; + _parameter + &apos;%&apos;&quot;/&gt;</span><br><span class="line">	select id, role_name as roleName, create_date as createDate, end_date as endDate From t_role</span><br><span class="line">	where role_name like #&#123;pattern&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-多参数绑定"><a href="#2-多参数绑定" class="headerlink" title="2  多参数绑定"></a><strong>2  多参数绑定</strong></h3><p><strong>（1）定义接口方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/*</span><br><span class="line">  * 查询角色</span><br><span class="line">  * @param roleName 角色名称</span><br><span class="line">  * @param note 备注</span><br><span class="line">  * @return 符合条件的角色</span><br><span class="line"> */</span><br><span class="line">public List&lt;RoleBean&gt; findRole(@Param(&quot;roleName&quot;)String roleName, @Param(&quot;note&quot;)String note);</span><br></pre></td></tr></table></figure>
+<p><strong>（2）定义映射文件，定义俩个新的变量执行模糊查询</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;findRole&quot; resultType=&quot;com.liming.domain.mybatis.bean.RoleBean&quot;&gt;</span><br><span class="line">	&lt;bind name=&quot;pattern_roleName&quot; value=&quot;&apos;%&apos; + roleName + &apos;%&apos;&quot;/&gt;</span><br><span class="line">	&lt;bind name=&quot;pattern_note&quot; value =&quot;&apos;%&apos; + note + &apos;%&apos;&quot;/&gt;</span><br><span class="line">	select id, role_name as roleName, create_date as createDate, end_date as endDate from t_role</span><br><span class="line">	where role_name like #&#123;pattern_roleName&#125;</span><br><span class="line">	and note like #&#123;pattern_note&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>总结</strong><br>            mybatis通过条件判断的元素实现动态SQL语句查询功能，相对于静态的sql语句更加灵活，更全面满足开发人员的需求。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#动态SQL"><span class="toc-number">1.</span> <span class="toc-text">动态SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if元素"><span class="toc-number">1.1.</span> <span class="toc-text">if元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#choose、when、otherwise元素"><span class="toc-number">1.2.</span> <span class="toc-text">choose、when、otherwise元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trim、where、set元素"><span class="toc-number">1.3.</span> <span class="toc-text">trim、where、set元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用bind绑定一个参数"><span class="toc-number">1.4.</span> <span class="toc-text">1 使用bind绑定一个参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-多参数绑定"><span class="toc-number">1.5.</span> <span class="toc-text">2  多参数绑定</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

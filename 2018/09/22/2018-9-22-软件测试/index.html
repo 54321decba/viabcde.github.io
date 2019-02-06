@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">软件测试</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">软件测试</h1>
+        <div class="stuff">
+            <span>九月 22, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/测试/">测试</a><span class="post-tags-list-count">3</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a><strong>瀑布模型</strong></h3><p>适合于比较成熟，稳定的项目，即已经有类似，已经做烂到倒背如流的项目<br>思路清晰 ，容易把控   但要求前期需求分析明确稳定，一旦需求变更，牵一发而动全身，会影响大部分流程<br><strong>改良</strong>：每个阶段的小迭代开发：每个阶段如需求分析阶段，设计阶段…等等都有相关的人员对原型进行多次开会讨论确定至迭代出该阶段的最终产品  </p>
+<h3 id="快速模型"><a href="#快速模型" class="headerlink" title="快速模型"></a><strong>快速模型</strong></h3><p>先实现基本功能，再开会讨论增加新的功能，进行下一次的开发<br>适合小型，需求不明确系统</p>
+<h3 id="V模型"><a href="#V模型" class="headerlink" title="V模型"></a><strong>V模型</strong></h3><p><strong>需求分析</strong>（需求分析人员，需求文档）<br><strong>概要设计</strong> 详细设计（UI工程师 psd设计稿）<br><strong>编码</strong><br><strong>单元测试</strong>（单独模块）<br><strong>集成测试</strong>（模块之间）<br><strong>系统测试</strong>（前期测试是否满足需求 后期测试性能及在硬件中的兼容性）<br><strong>验收测试</strong> α测试 内测 β测试 公测 γ测试 基本无需求 性能上的bug<br>优缺点：和瀑布模型类似，都是线性流程的问题</p>
+<h3 id="W模型"><a href="#W模型" class="headerlink" title="W模型"></a><strong>W模型</strong></h3><p>在软件开发的每一个阶段都生成文档进行测试<br><strong>按是否关心代码细节</strong></p>
+<h3 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a><strong>白盒测试</strong></h3><p>有源码，关心程序结构</p>
+<h3 id="黑盒测试"><a href="#黑盒测试" class="headerlink" title="黑盒测试"></a><strong>黑盒测试</strong></h3><p>不关心源码，只关心输入和结果<br><img src="https://viabcde.github.io/images/2018-09-22/2018092205.png" alt="enter description here"><br><strong>按是否运行代码</strong></p>
+<h3 id="静态测试"><a href="#静态测试" class="headerlink" title="静态测试"></a><strong>静态测试</strong></h3><p>不运行程序 高层开会讨论文档，界面等的不合理之处</p>
+<h3 id="动态测试"><a href="#动态测试" class="headerlink" title="动态测试"></a><strong>动态测试</strong></h3><p>实际运行程序<br><strong>其他</strong></p>
+<h3 id="回归测试"><a href="#回归测试" class="headerlink" title="回归测试"></a><strong>回归测试</strong></h3><p>发现bug修改后再次测试,包括测试与其相关的其他模块的代码</p>
+<h3 id="随机测试"><a href="#随机测试" class="headerlink" title="随机测试"></a><strong>随机测试</strong></h3><p>对软件关键之处或容易出现bug的地方进行测试</p>
+<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a><strong>测试用例</strong></h3><p>测什么模块 怎么测</p>
+<h3 id="有效等价划分"><a href="#有效等价划分" class="headerlink" title="有效等价划分"></a><strong>有效等价划分</strong></h3><p>针对不能穷举的数据进行划分<br><img src="https://viabcde.github.io/images/2018-09-22/2018092206.png" alt="enter description here"></p>
+<h4 id="等价类考虑的细节"><a href="#等价类考虑的细节" class="headerlink" title="等价类考虑的细节"></a><strong>等价类考虑的细节</strong></h4><p><img src="https://viabcde.github.io/images/2018-09-22/2018092207.png" alt="enter description
+here"><br><img src="https://viabcde.github.io/images/2018-09-22/2018092208.png" alt="enter description
+here"><br>测试的时候边界值包括边界值左右的误差值也要测一下</p>
+<h3 id="软件缺陷"><a href="#软件缺陷" class="headerlink" title="软件缺陷"></a><strong>软件缺陷</strong></h3><p>软件没有满足用户的一些需求<br>软件做了用户需求之外关联度不大的功能<br>逻辑不合常理<br>性能不达标<br>系统崩溃  </p>
+<h3 id="导致软件缺陷的原因"><a href="#导致软件缺陷的原因" class="headerlink" title="导致软件缺陷的原因"></a><strong>导致软件缺陷的原因</strong></h3><p>用户需求定义出错<br>设计阶段出错<br>编码错误<br>硬件环境不兼容的错误  </p>
+<h3 id="版本管理工具的使用原因"><a href="#版本管理工具的使用原因" class="headerlink" title="版本管理工具的使用原因"></a><strong>版本管理工具的使用原因</strong></h3><p>方便备份文件<br>可以知道目前拿到的版本是否是最新的<br>可以很容易获得之前某一个版本的文件<br>不需要手动分享文件，任何需要文件资料的人可以通过版本工具去下载<br>在提交修改时不会覆盖之前的版本，而是在管理者确认合并后才能合并</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#瀑布模型"><span class="toc-number">1.</span> <span class="toc-text">瀑布模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快速模型"><span class="toc-number">2.</span> <span class="toc-text">快速模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V模型"><span class="toc-number">3.</span> <span class="toc-text">V模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#W模型"><span class="toc-number">4.</span> <span class="toc-text">W模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#白盒测试"><span class="toc-number">5.</span> <span class="toc-text">白盒测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#黑盒测试"><span class="toc-number">6.</span> <span class="toc-text">黑盒测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态测试"><span class="toc-number">7.</span> <span class="toc-text">静态测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态测试"><span class="toc-number">8.</span> <span class="toc-text">动态测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回归测试"><span class="toc-number">9.</span> <span class="toc-text">回归测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机测试"><span class="toc-number">10.</span> <span class="toc-text">随机测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试用例"><span class="toc-number">11.</span> <span class="toc-text">测试用例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有效等价划分"><span class="toc-number">12.</span> <span class="toc-text">有效等价划分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#等价类考虑的细节"><span class="toc-number">12.1.</span> <span class="toc-text">等价类考虑的细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件缺陷"><span class="toc-number">13.</span> <span class="toc-text">软件缺陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导致软件缺陷的原因"><span class="toc-number">14.</span> <span class="toc-text">导致软件缺陷的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#版本管理工具的使用原因"><span class="toc-number">15.</span> <span class="toc-text">版本管理工具的使用原因</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

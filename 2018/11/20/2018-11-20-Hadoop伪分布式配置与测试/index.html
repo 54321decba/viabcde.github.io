@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Hadoop伪分布式配置与测试</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Hadoop伪分布式配置与测试</h1>
+        <div class="stuff">
+            <span>十一月 20, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hadoop/">hadoop</a><span class="post-tags-list-count">5</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>①解压Hadoop的压缩包<br>cd /simple<br>tar -zxvf /simple/soft/hadoop-2.4.1.tar.gz -C /simple/<br>②为hadoop配置好jdk<br>cd /simple/hadoop-2.4.1/etc/hadoop/<br>vi hadoop-env.sh<br>增加内容如下<br>export JAVA_HOME=/simple/jdk1.7.0_79<br><img src="https://viabcde.github.io/images/201812/14.png" alt="enter descriptionhere"><br>③指定hdfs的缺省名称及缺省路径地址和运行时产生文件的存储目录<br>只需要hadoop目录下的core-site.xml文件即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--缺省名称--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;hdfs://192.168.1.2:90000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--缺省路径地址--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;hdfs://192.168.1.2:90000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--运行时文件存储目录--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;fs.tmp.dir&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;/simple/hadoop-2.4.1/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>④制定HDFS副本的数量，名称和数据的存储路径<br>只需要修改hadoop目录下的hdfs-site.xml文件即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 副本数量--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;1&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;!-- 副本数量--&gt;</span><br><span class="line">&lt;!-- 副本名称存储路径--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;dfs.name.dir&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;/simple/hadoop-2.4.1/hdfs/name&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 副本数据存储路径--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;dfs.data.dir&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;/simple/hadoop-2.4.1/hdfs/data&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>⑤修改文件名称并指定mapred运行在yarn上<br>mv mapred-site.xml.template mapred-site.xml<br>vi mapred.xml修改如下  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 指定mr运行在yarn上--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>⑥指定yarn的老大（ResourceManager）的地址 和reducer获取数据的方式<br>修改yarn-site.xml文件即可<br>vi yarn-site.xml  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 指定ResourceManager的地址--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;192.168.1.2&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- reducer获取数据的方式--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>最后，为hadoop配置环境变量<br>修改profile文件即可<br>vi /etc/profile 修改如下<br>HADOOP_HOME=/simple/hadoop-2.4.1<br>export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH<br><img src="https://viabcde.github.io/images/201812/15.png" alt="enter descriptionhere"><br>更新配置文件即可生效  source /etc/profile  </p>
+<h3 id="格式化namenode"><a href="#格式化namenode" class="headerlink" title="格式化namenode"></a>格式化namenode</h3><p>hdfs namenode -format<br>或者<br>hadoop namenode -format  </p>
+<h3 id="启动hadoop"><a href="#启动hadoop" class="headerlink" title="启动hadoop"></a>启动hadoop</h3><p>start-dfs.sh  </p>
+<h3 id="启动yarn"><a href="#启动yarn" class="headerlink" title="启动yarn"></a>启动yarn</h3><p>start-yarn.sh</p>
+<h3 id="查看以上是否正常启动"><a href="#查看以上是否正常启动" class="headerlink" title="查看以上是否正常启动"></a>查看以上是否正常启动</h3><p>jps 非正常则stop-all.sh然后重新启动  —–jps jvm process status<br><img src="https://viabcde.github.io/images/201812/16.png" alt="enter descriptionhere">      </p>
+<h3 id="测试hdfs和yarn"><a href="#测试hdfs和yarn" class="headerlink" title="测试hdfs和yarn"></a>测试hdfs和yarn</h3><p><img src="https://viabcde.github.io/images/201812/17.png" alt="enter descriptionhere"><br><img src="https://viabcde.github.io/images/201812/18.png" alt="enter descriptionhere">      </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#格式化namenode"><span class="toc-number">1.</span> <span class="toc-text">格式化namenode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hadoop"><span class="toc-number">2.</span> <span class="toc-text">启动hadoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动yarn"><span class="toc-number">3.</span> <span class="toc-text">启动yarn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看以上是否正常启动"><span class="toc-number">4.</span> <span class="toc-text">查看以上是否正常启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试hdfs和yarn"><span class="toc-number">5.</span> <span class="toc-text">测试hdfs和yarn</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

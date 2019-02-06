@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Hibernate对象关系映射</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Hibernate对象关系映射</h1>
+        <div class="stuff">
+            <span>十一月 18, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Hibernate/">Hibernate</a><span class="post-tags-list-count">14</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="一对一-单向-外键-关联"><a href="#一对一-单向-外键-关联" class="headerlink" title="一对一 单向_外键 关联"></a><strong>一对一 单向_外键 关联</strong></h3><p>1.husband的id是参考wife的;<br>2.2.husband有个wifiId字段是参考wife的<br>husband有一个外键wifeid,只需要在husband配置即可<br>husabnd.java中有个属性:wife,而wife.java没有husband这个属性<br><img src="https://viabcde.github.io/images/blog/2018092854.png" alt="enter description
+here"><br>或者<br><strong>【不推荐】xml方式配置</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">studentIdCard有student的id而student没有StudentIdCard的id  </span><br><span class="line">在StuIdCard.xml中配置即可，使用studentId的字段存储来自student的id</span><br></pre></td></tr></table></figure>
+<p><img src="https://viabcde.github.io/images/blog/2018092855.png" alt="enter description
+here">  </p>
+<h3 id="一对一双向外键关联"><a href="#一对一双向外键关联" class="headerlink" title="一对一双向外键关联"></a><strong>一对一双向外键关联</strong></h3><p>husband.java中有wife属性，表中有wifeid，而wife.java中有husband属性,数据库没有husbandId<br>mappyedby=(“wife”)指得是wife.java中的husband是由husband.java中的wife(对应mappedby中的wife)属性映射，不需要在数据库join husbandId<br>在husband.java中注解  @GeneratedValue id自动增长<br>双向表示双方通过属性.属性能互相访问到 mappedby一方被拥有的一方<br>如果没有mappedby 那么双方都生成了对方的主键 任何一张表都无法插入数据<br>只有其中一方设置 mappedby 它先插入数据 另一张表才能成功插入数据<br><img src="https://viabcde.github.io/images/blog/2018092856.png" alt="enter description
+here"><br><strong>在wife.java中注解</strong><br><img src="https://viabcde.github.io/images/blog/2018092857.png" alt="enter description
+here"><br>或者<br><strong>xml方式配置</strong><br><img src="https://viabcde.github.io/images/blog/2018092858.png" alt="enter description
+here">  </p>
+<h3 id="一对一单向主键关联"><a href="#一对一单向主键关联" class="headerlink" title="一对一单向主键关联"></a><strong>一对一单向主键关联</strong></h3><p><img src="https://viabcde.github.io/images/blog/2018092859.png" alt="enter description
+here"><br>或者<br><strong>xml方式配置</strong><br><img src="https://viabcde.github.io/images/blog/2018092860.png" alt="enter description
+here"><br>这里的id参考的是 student里的 id</p>
+<h3 id="一对一双向主键关联"><a href="#一对一双向主键关联" class="headerlink" title="一对一双向主键关联"></a><strong>一对一双向主键关联</strong></h3><p><strong>在husband.java设置</strong><br>因为2个表的ID是一致的 所以 不用哪一方先插入数据都可以<br><img src="https://viabcde.github.io/images/blog/2018092861.png" alt="enter description
+here"><br><strong>在wife.java设置</strong><br><img src="https://viabcde.github.io/images/blog/2018092862.png" alt="enter description
+here"><br>或者<br><strong>xml方式配置</strong><br>在student.xml<br>name=”stuIdCard”中的stuIdCard就是指student中的属性名 ref+””指定由studentIdCard.java中的student属性映射<br><img src="https://viabcde.github.io/images/blog/2018092863.png" alt="enter description
+here"><br>在studentIdCard.xml<br><img src="https://viabcde.github.io/images/blog/2018092864.png" alt="enter description
+here">  </p>
+<h3 id="一对一单向外键（联合主键）"><a href="#一对一单向外键（联合主键）" class="headerlink" title="一对一单向外键（联合主键）"></a><strong>一对一单向外键（联合主键）</strong></h3><p>编写wifePK.java<br>注意implements Serializable<br>在wife.java加注解<br><img src="https://viabcde.github.io/images/blog/2018092865.png" alt="enter description
+here"><br><img src="https://viabcde.github.io/images/blog/2018092866.png" alt="enter description
+here"><br>在husband.java加注解<br>表示在数据库表中的字段为 wife Id 和wifeName<br><img src="https://viabcde.github.io/images/blog/2018092867.png" alt="enter description
+here">  </p>
+<h3 id="组件映射"><a href="#组件映射" class="headerlink" title="组件映射"></a><strong>组件映射</strong></h3><p>只需要在husband配置注解即可把wife作为组件，而wife.java无需修改<br>2个对象组装为一个表  没有对应关系<br><img src="https://viabcde.github.io/images/blog/2018092868.png" alt="enter description
+here"><br><strong>xml方式配置</strong><br><img src="https://viabcde.github.io/images/blog/2018092869.png" alt="enter description
+here">  </p>
+<h3 id="多对一单向"><a href="#多对一单向" class="headerlink" title="多对一单向"></a><strong>多对一单向</strong></h3><p>在user.java中配置对group.java的多对一关系 在多的一方加Many2one<br><img src="https://viabcde.github.io/images/blog/2018092870.png" alt="enter description
+here"><br>或者<br><strong>xml方式配置</strong><br><img src="https://viabcde.github.io/images/blog/2018092871.png" alt="enter description
+here">  </p>
+<h3 id="一对多单向关联"><a href="#一对多单向关联" class="headerlink" title="一对多单向关联"></a><strong>一对多单向关联</strong></h3><p>在group.java中配置对user.java的一对多关联即可，user.java不需要配置<br><img src="https://viabcde.github.io/images/blog/2018092872.png" alt="enter description
+here"><br>或者<br><strong>xml方式配置</strong><br><img src="https://viabcde.github.io/images/blog/2018092873.png" alt="enter description
+here">  </p>
+<h3 id="一对多，多对一双向关联"><a href="#一对多，多对一双向关联" class="headerlink" title="一对多，多对一双向关联"></a><strong>一对多，多对一双向关联</strong></h3><p><img src="https://viabcde.github.io/images/blog/2018092874.png" alt="enter description
+here"><br>xml:<br>user.xml<br><img src="https://viabcde.github.io/images/blog/2018092875.png" alt="enter description
+here"><br>group.xml<br><img src="https://viabcde.github.io/images/blog/2018092876.png" alt="enter description
+here">  </p>
+<h3 id="多对多单向关联"><a href="#多对多单向关联" class="headerlink" title="多对多单向关联"></a><strong>多对多单向关联</strong></h3><p>先建立中间表teacher_student 里面的teacher_id student_id分别参考teacher 和student表的id<br><img src="https://viabcde.github.io/images/blog/2018092877.png" alt="enter description
+here"><br>xml<br><img src="https://viabcde.github.io/images/blog/2018092878.png" alt="enter description
+here"><br>这里有student的路径：指明teacher里能找到student 而student找不到teacher</p>
+<h3 id="多对多双向关联"><a href="#多对多双向关联" class="headerlink" title="多对多双向关联"></a><strong>多对多双向关联</strong></h3><p>先建立中间表teacher_student 里面的teacher_id student_id分别参考teacher 和student表的id<br><img src="https://viabcde.github.io/images/blog/2018092879.png" alt="enter description
+here"><br><img src="https://viabcde.github.io/images/blog/2018092880.png" alt="enter description
+here"><br>xml<br><img src="https://viabcde.github.io/images/blog/2018092881.png" alt="enter description
+here"><br>这里有student的路径：指明teacher里能找到student 而student找不到teacher<br><img src="https://viabcde.github.io/images/blog/2018092882.png" alt="enter description
+here">  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一对一-单向-外键-关联"><span class="toc-number">1.</span> <span class="toc-text">一对一 单向_外键 关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对一双向外键关联"><span class="toc-number">2.</span> <span class="toc-text">一对一双向外键关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对一单向主键关联"><span class="toc-number">3.</span> <span class="toc-text">一对一单向主键关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对一双向主键关联"><span class="toc-number">4.</span> <span class="toc-text">一对一双向主键关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对一单向外键（联合主键）"><span class="toc-number">5.</span> <span class="toc-text">一对一单向外键（联合主键）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件映射"><span class="toc-number">6.</span> <span class="toc-text">组件映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多对一单向"><span class="toc-number">7.</span> <span class="toc-text">多对一单向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对多单向关联"><span class="toc-number">8.</span> <span class="toc-text">一对多单向关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对多，多对一双向关联"><span class="toc-number">9.</span> <span class="toc-text">一对多，多对一双向关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多对多单向关联"><span class="toc-number">10.</span> <span class="toc-text">多对多单向关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多对多双向关联"><span class="toc-number">11.</span> <span class="toc-text">多对多双向关联</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

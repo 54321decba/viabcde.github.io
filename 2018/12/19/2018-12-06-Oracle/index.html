@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Oracle</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Oracle</h1>
+        <div class="stuff">
+            <span>十二月 19, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/数据库/">数据库</a><span class="post-tags-list-count">6</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>特点：安全性高  </p>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a><strong>数据库</strong></h3><p>这里的数据库是磁盘上存储数据的集合，在物理上表现为数据文件、日志文件和控制文件等  </p>
+<h3 id="全局数据库名"><a href="#全局数据库名" class="headerlink" title="全局数据库名"></a><strong>全局数据库名</strong></h3><p>用于区分一个数据库的标识。它由数据库名称和域名构成，类似网络中的域名   </p>
+<h3 id="数据库实例"><a href="#数据库实例" class="headerlink" title="数据库实例"></a><strong>数据库实例</strong></h3><p>具体的数据库  </p>
+<h3 id="表空间"><a href="#表空间" class="headerlink" title="表空间"></a><strong>表空间</strong></h3><p>存放多个关系表   </p>
+<h3 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a><strong>数据文件</strong></h3><p>扩展名是.dbf，是用于存储数据库数据的文件。一个数据文件中可能存储很多个表的数据，而一个表的数据<br>也可以存放在多个数据文件中。数据文件和数据库表不存在一对一的关系  </p>
+<h3 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a><strong>日志文件</strong></h3><p>扩展名.log，它记录了数据的所有更改信息，用于恢复数据库  </p>
+<h3 id="控制文件"><a href="#控制文件" class="headerlink" title="控制文件"></a><strong>控制文件</strong></h3><p>技展名.ctl，是一个二进制文件。控制文件是数据库启动及运行所必需的文件。存储数据文件和日志文件的<br>名称和位置<br><strong>外模式</strong> ：用户看到的视图，部分逻辑结构<br><strong>模式</strong>  ：所有逻辑结构<br><strong>内模式</strong>：数据的物理结构和存取方式的描述  </p>
+<h3 id="Java连接Oracle"><a href="#Java连接Oracle" class="headerlink" title="Java连接Oracle"></a><strong>Java连接Oracle</strong></h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">driver</span>: oracle.jdbc.driver.OracleDriver</span><br><span class="line"><span class="attribute">url</span>: <span class="attribute">jdbc</span>:<span class="attribute">oracle</span>:<span class="attribute">thin</span>:<span class="variable">@localhost</span>:<span class="number">1521</span>:数据库名</span><br></pre></td></tr></table></figure>
+<h3 id="char和varchar2-区别"><a href="#char和varchar2-区别" class="headerlink" title="char和varchar2    区别"></a><strong>char和varchar2    区别</strong></h3><p>char用户输入的值小于指定长度，系统自动用空格填充  varchar2不会，节省空间<br>char 查询的速度极快浪费空间，适合查询比较频繁的数据字段。<br>varchar 节省空间<br>nchar和nvarchar存储unicode字符，为中文而设计<br><strong>number(p,s)</strong><br>p表示总位数        s表示小数点右边的位数  </p>
+<h3 id="date数据类型"><a href="#date数据类型" class="headerlink" title="date数据类型"></a><strong>date数据类型</strong></h3><p>默认<br>用于存储表中的日期和时间数据。使用7字节固定长度，每个字节分别存储世纪、年、月、日、小<br>时、分和秒。sysdate函数的功能是返回当前的日期和时间。</p>
+<h3 id="timestamp数据类型"><a href="#timestamp数据类型" class="headerlink" title="timestamp数据类型"></a><strong>timestamp数据类型</strong></h3><p>扩展<br>用于存储日期的年、月、日以及时间的小时、分和秒。秒值精确到小数小后6位，包含时区<br>信息。systimestamp函数的功能是返回当前日期、时间和时区<br><strong>sys和system这两个用户最大的区别是</strong>  ：在于有没有create database的权限   </p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h3><p>blob 二进制数据，可以存放图片/声音4g；一般来讲，在真实项目中是不会把图片和声音真的往数据库里存放，一般存放图片、视频的路径，如果安全需要比较高的话，则放入数据库。  </p>
+<h3 id="sql-plus工具"><a href="#sql-plus工具" class="headerlink" title="sql*plus工具"></a><strong><code>sql*plus</code>工具</strong></h3><p><code>sql*plus</code>是oracle自带的工具软件，主要用于执行sql语句，pl\sql块。<br>操作如下：<br>(1)、在D:\dev\oracle\product\10.2.0\db_1\bin\目录下的sqlplusw.exe。(D:\dev\oracle\为oracle安装目录)<br>(2)、在运行栏中输入“sqlplusw”即可  </p>
+<h3 id="连接命令"><a href="#连接命令" class="headerlink" title="连接命令"></a><strong>连接命令</strong></h3><p>conn 用户名/密码@网络服务名 <code>[as sysdba/sysoper]</code>，当用特权用户身份连接时，必须带上as sysdba或是as sysoper   </p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">conn</span> system/oracle<span class="variable">@orcl</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-、连接命令"><a href="#1-、连接命令" class="headerlink" title="1)、连接命令"></a>1)、连接命令</h2><p><strong>1.connect</strong><br>用法：conn 用户名/密码@网络服务名 as sysdba/sysoper<br>说明：当用特权用户身份连接时，必须带上as sysdba或是as sysoper<br>eg、<br>SQL&gt; show user<br>USER 为 “SCOTT”<br>SQL&gt; conn system/oracle@orcl<br>已连接。<br>SQL&gt; show user<br>USER 为 “SYSTEM”<br>SQL&gt;<br>以上命令实现类似切换用户的效果<br><strong>2.disc/ disconn / disconnect</strong><br>说明: 该命令用来断开与当前数据库的连接<br><strong>3.pssword</strong><br>说明: 该命令用于修改用户的密码，如果要想修改其它用户的密码，需要用sys/system登录。<br>eg、<br>SQL&gt; conn scott/oracle<br>已连接。<br>SQL&gt; passw<br>更改 SCOTT 的口令<br>旧口令:<br>新口令:<br>重新键入新口令:<br>口令已更改<br>SQL&gt;<br><strong>4.show user</strong><br>说明: 显示当前用户名<br><strong>5.exit</strong><br>说明: 该命令会断开与数据库的连接，同时会退出<code>sql*plus</code><br>5.clear screen<br>清空屏幕   </p>
+<h2 id="2-、文件操作命令"><a href="#2-、文件操作命令" class="headerlink" title="2)、文件操作命令"></a><strong>2)、文件操作命令</strong></h2><p><strong>1.start和@</strong><br>说明: 运行sql脚本<br>案例: sql&gt;@ d:\a.sql或是sql&gt;start d:\a.sql<br><strong>2.edit</strong><br>说明: 该命令可以编辑指定的sql脚本<br>案例: sql&gt;edit d:\a.sql,这样会把d:\a.sql 这个文件打开<br><strong>3.spool</strong><br>说明: 该命令可以将<code>sql*plus</code>屏幕上的内容输出到指定文件中去。<br>案例: sql&gt;spool d:\b.sql并输入sql&gt;spool off<br>eg、<br>sql&gt;spool d:\b.sql;<br>sql&gt;select * from emp;<br>sql&gt;spool off;   </p>
+<h2 id="3-、交互式命令"><a href="#3-、交互式命令" class="headerlink" title="3)、交互式命令"></a><strong>3)、交互式命令</strong></h2><p><strong>1.&amp;</strong><br>说明：可以替代变量，而该变量在执行时，需要用户输入。<br>select * from emp where job=’&amp;job’；  </p>
+<h2 id="4-、显示和设置环境变量"><a href="#4-、显示和设置环境变量" class="headerlink" title="4)、显示和设置环境变量"></a><strong>4)、显示和设置环境变量</strong></h2><p>概述：可以用来控制输出的各种格式，set show 如果希望永久的保存相关的设<br>置，可以去修改glogin.sql 脚本<br><strong>1.linesize</strong><br>说明：设置显示行的宽度，默认是80个字符<br>show linesize<br>set linesize 90<br><strong>2.pagesize</strong><br>说明：设置每页显示的行数目，默认是14<br>用法和linesize 一样<br>至于其它环境参数的使用也是大同小异   </p>
+<h3 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a><strong>触发器</strong></h3><p>作用：当某条语句执行前或后触发，或者某个表中的某一行被改变时触发<br>create <code>[or replace]</code> tigger 触发器名 触发时间 触发事件<br>on 表名   </p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">for</span> <span class="keyword">each</span> row]</span><br></pre></td></tr></table></figure>
+<p>begin<br>  pl/sql语句<br>end<br>其中：<br>触发器名：触发器对象的名称。由于触发器是数据库自动执行的，因此该名称只是一个名称，没有实质的用途。<br>触发时间：指明触发器何时执行，该值可取：<br>before：表示在数据库动作之前触发器执行;<br>after：表示在数据库动作之后触发器执行。<br>触发事件：指明哪些数据库动作会触发此触发器：<br>insert：数据库插入会触发此触发器;<br>update：数据库修改会触发此触发器;<br>delete：数据库删除会触发此触发器。<br>表 名：数据库触发器所在的表。<br>for each row：对表的每一行触发器执行一次。如果没有这一选项，则只对整个表执行一次。<br>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create or replace trigger auth_secure before insert or update or DELETE </span><br><span class="line">on tb_emp</span><br><span class="line">begin</span><br><span class="line">   IF(to_char(sysdate,&apos;DY&apos;)=&apos;星期日&apos;) THEN</span><br><span class="line">       RAISE_APPLICATION_ERROR(-20600,&apos;不能在周末修改表tb_emp&apos;);</span><br><span class="line">   END IF;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局数据库名"><span class="toc-number">2.</span> <span class="toc-text">全局数据库名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库实例"><span class="toc-number">3.</span> <span class="toc-text">数据库实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表空间"><span class="toc-number">4.</span> <span class="toc-text">表空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据文件"><span class="toc-number">5.</span> <span class="toc-text">数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志文件"><span class="toc-number">6.</span> <span class="toc-text">日志文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制文件"><span class="toc-number">7.</span> <span class="toc-text">控制文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java连接Oracle"><span class="toc-number">8.</span> <span class="toc-text">Java连接Oracle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#char和varchar2-区别"><span class="toc-number">9.</span> <span class="toc-text">char和varchar2    区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#date数据类型"><span class="toc-number">10.</span> <span class="toc-text">date数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#timestamp数据类型"><span class="toc-number">11.</span> <span class="toc-text">timestamp数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片"><span class="toc-number">12.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql-plus工具"><span class="toc-number">13.</span> <span class="toc-text">sql*plus工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接命令"><span class="toc-number">14.</span> <span class="toc-text">连接命令</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#1-、连接命令"><span class="toc-number"></span> <span class="toc-text">1)、连接命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-、文件操作命令"><span class="toc-number"></span> <span class="toc-text">2)、文件操作命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-、交互式命令"><span class="toc-number"></span> <span class="toc-text">3)、交互式命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-、显示和设置环境变量"><span class="toc-number"></span> <span class="toc-text">4)、显示和设置环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触发器"><span class="toc-number">1.</span> <span class="toc-text">触发器</span></a></li></ol>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

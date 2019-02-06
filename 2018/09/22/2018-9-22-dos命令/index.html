@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Win的dos命令</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Win的dos命令</h1>
+        <div class="stuff">
+            <span>九月 22, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/windows/">windows</a><span class="post-tags-list-count">1</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a><strong>ping</strong></h2><p><strong>原理：</strong>网络上的机器的唯一IP，给目标IP地址发送数据包，对方就要返回一个同样大小的数据包，根据返回的数据包我们可以确定目标主机的存在，可以初步判断目标主机的操作系统等<br>从<strong>TTL的返回值</strong>可以初步判断被ping主机的操作系统，之所以说“初步判断”是因为这个值是可以修改的。这里TTL=32表示操作系统可能是win98(小知识:如果TTL=128，则表示目标主机可能是Win2000;如果TTL=250，则目标主机可能是Unix)  </p>
+<h3 id="t"><a href="#t" class="headerlink" title="-t"></a><strong>-t</strong></h3><p>表示不间断向目标IP发送数据包，直到我们强迫其停止。<br>试想，使用100M的宽带接入，而目标IP是56K的小猫，要不了多久，目标IP就因承受不了这么多的数据而掉线，<strong>一次简单攻击的实现</strong>    </p>
+<h3 id="l"><a href="#l" class="headerlink" title="-l"></a><strong>-l</strong></h3><p>定义发送数据包的大小，默认为32字节，我们利用它可以最大定义到65500字节。结合上面介绍的-t参数一起使用，效果更好    </p>
+<h3 id="n"><a href="#n" class="headerlink" title="-n"></a><strong>-n</strong></h3><p>向目标IP发送数据包的次数，默认为3次。如果网络速度比较慢，3次对我们来说也浪费了不少时间，因为现在我们的目的仅仅是判断目标IP是否存在，那么就定义为一次吧。<br>说明一下，如果-t 参数和-n参数一起使用，ping命令就以放在后面的参数为标准，比如“ping IP -t -n 3”，虽然使用了-t参数，但并不是一直ping下去，而是只ping 3次。  </p>
+<h2 id="nbtstat"><a href="#nbtstat" class="headerlink" title="nbtstat"></a><strong>nbtstat</strong></h2><p>　　该命令使用TCP/IP上的NetBIOS显示协议统计和当前TCP/IP连接，这个命令可得到远程主机的NETBIOS信息，比如用户名、所属的工作组、网卡的MAC地址等  </p>
+<h3 id="a"><a href="#a" class="headerlink" title="-a"></a><strong>-a</strong></h3><p>只要知道远程主机的机器名称，就可以得到它的NETBIOS信息(下同)。 // nbtstat -a fei(计算机名)  </p>
+<h3 id="A"><a href="#A" class="headerlink" title="-A"></a><strong>-A</strong></h3><p>可得到远程主机的NETBIOS信息，但需要知道它的IP。<br>//nbtstat -a 192.168.1.100  </p>
+<h3 id="n-1"><a href="#n-1" class="headerlink" title="-n"></a><strong>-n</strong></h3><p>列出本地机器的NETBIOS信息。<br>当得到了对方的IP或者机器名后，可用nbtstat命令来进一步得到对方的信息了，这又增加了我们入侵的保险系数。  </p>
+<h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a><strong>netstat</strong></h2><p>用来查看网络状态的命令。  </p>
+<h3 id="a-1"><a href="#a-1" class="headerlink" title="-a"></a><strong>-a</strong></h3><p>查看本地机器的所有开放端口，可以知道机器所开的服务等信息，有效发现和预防木马。用法:netstat -a IP。  </p>
+<h3 id="r"><a href="#r" class="headerlink" title="-r"></a><strong>-r</strong></h3><p> 列出当前的路由信息，获取本地机器的网关、子网掩码等信息。用法:netstat -r IP。  </p>
+<h2 id="tracert"><a href="#tracert" class="headerlink" title="tracert"></a><strong>tracert</strong></h2><p>跟踪路由信息，此命令可查出数据从本地机器传输到目标主机所经过的途径，了解网络布局和结构。<br>这里说明数据从本地机器传输到192.168.0.1的机器上，中间没有经过任何中转，说明这两台机器是在同一段局域网内。用法:tracert IP。  </p>
+<h2 id="net"><a href="#net" class="headerlink" title="net"></a><strong>net</strong></h2><h3 id="net-view"><a href="#net-view" class="headerlink" title="net view"></a><strong>net view</strong></h3><p>此命令查看远程主机的所以共享资源。命令格式为net view IP。  </p>
+<h3 id="net-start"><a href="#net-start" class="headerlink" title="net start"></a><strong>net start</strong></h3><p>用来启动远程主机上的服务。<br>用法:net start servername</p>
+<h3 id="net-stop"><a href="#net-stop" class="headerlink" title="net stop"></a><strong>net stop</strong></h3><p>用来关闭远程主机上的服务。<br>用法和net start同。  </p>
+<h3 id="net-user"><a href="#net-user" class="headerlink" title="net user"></a><strong>net user</strong></h3><p><strong>查看和帐户有关的情况，包括新建帐户、删除帐户、查看特定帐户、激活帐户、帐户禁用等</strong><br>这对我们入侵是很有利的，最重要的，它为我们克隆帐户提供了前提。键入不带参数的net user，可以查看所有用户，包括已经禁用的。下面分别讲解。<br>1，net user abcd1234/add，新建一个用户名为abcd，密码为1234的帐户，默认为user组成员。<br>2，net user abcd /del，将用户名为abcd的用户删除。<br>3，net user abcd /active:no，将用户名为abcd的用户禁用。<br>4，net user abcd /active:yes，激活用户名为abcd的用户。<br>5，net user abcd，查看用户名为abcd的用户的情况   </p>
+<h3 id="net-localgroup"><a href="#net-localgroup" class="headerlink" title="net localgroup"></a><strong>net localgroup</strong></h3><p>查看所有和用户组有关的信息和进行相关操作。键入不带参数的netlocalgroup即列出当前所有的用户组。<br>用法:net localgroup groupname username /add。    </p>
+<h2 id="at"><a href="#at" class="headerlink" title="at"></a><strong>at</strong></h2><p>这个命令的作用是安排在特定日期或时间执行某个特定的命令和程序(知道net time的重要了吧?)。当我们知道了远程主机的当前时间，就可以利用此命令让其在以后的某个时间(比如2分钟后)执行某个程序和命令。<br>用法:at time 命令\computer。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ping"><span class="toc-number">1.</span> <span class="toc-text">ping</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#t"><span class="toc-number">1.1.</span> <span class="toc-text">-t</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#l"><span class="toc-number">1.2.</span> <span class="toc-text">-l</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n"><span class="toc-number">1.3.</span> <span class="toc-text">-n</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nbtstat"><span class="toc-number">2.</span> <span class="toc-text">nbtstat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a"><span class="toc-number">2.1.</span> <span class="toc-text">-a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n-1"><span class="toc-number">2.3.</span> <span class="toc-text">-n</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#netstat"><span class="toc-number">3.</span> <span class="toc-text">netstat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-1"><span class="toc-number">3.1.</span> <span class="toc-text">-a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#r"><span class="toc-number">3.2.</span> <span class="toc-text">-r</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tracert"><span class="toc-number">4.</span> <span class="toc-text">tracert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#net"><span class="toc-number">5.</span> <span class="toc-text">net</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#net-view"><span class="toc-number">5.1.</span> <span class="toc-text">net view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#net-start"><span class="toc-number">5.2.</span> <span class="toc-text">net start</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#net-stop"><span class="toc-number">5.3.</span> <span class="toc-text">net stop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#net-user"><span class="toc-number">5.4.</span> <span class="toc-text">net user</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#net-localgroup"><span class="toc-number">5.5.</span> <span class="toc-text">net localgroup</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#at"><span class="toc-number">6.</span> <span class="toc-text">at</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

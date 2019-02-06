@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">小程序入门程序的解释</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">小程序入门程序的解释</h1>
+        <div class="stuff">
+            <span>十二月 17, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/小程序/">小程序</a><span class="post-tags-list-count">1</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>程序的组成<br><img src="https://viabcde.github.io/images/201812/44.png" alt="enter descriptionhere"><br><strong>app.js</strong>：小程序的逻辑     必须<br><strong>app.json</strong>  ：小程序的公共设置   必须<br><strong>app.wxss</strong>：小程序的公共样式表   非必须<br>每个文件夹表示一个页面，一个页面由4个文件组成<br><strong>js</strong>：页面逻辑   必须<br><strong>wxml</strong>：页面结构   必须<br><strong>json</strong>：页面配置  非必须<br><strong>wxss</strong>：页面样式表   非必须    </p>
+<h3 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a><strong>app.js</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">//app.js</span><br><span class="line"></span><br><span class="line">App(&#123;</span><br><span class="line"></span><br><span class="line">  onLaunch: function () &#123;</span><br><span class="line"></span><br><span class="line">    //当小程序初始化完成时，会触发onLaunch（全局只触发一次）</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  onShow: function () &#123;</span><br><span class="line"></span><br><span class="line">  //当小程序启动，或从后台进入前台显示，会触发onShow</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  onHide: function () &#123;</span><br><span class="line"></span><br><span class="line">  //当小程序从前台进入后台，会触发onHide</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  onError: function (msg) &#123;</span><br><span class="line"></span><br><span class="line">  //当小程序发生脚本错误，或者api调用失败时，会触发onError并带上错误信息</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  other:function()&#123;</span><br><span class="line"></span><br><span class="line">//全局函数，可以被项目上的其他js文件调用</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  globalData:&#123;</span><br><span class="line"></span><br><span class="line">//全局对象</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用App()函数，指定小程序的生命周期属性，如初始化：onLaunch等函数<br><strong>onLaunch</strong>：初始化，只触发一次<br><strong>onShow</strong>：监听小程序显示，  在启动，或从后台进入前台时会触发onShow<br><strong>onHide</strong>：监听小程序隐藏，   在从前台进入后台时触发onHide<br><strong>onError</strong>：错误监听函数，  脚本发生错误/api调用失败触发inError<br><strong>其他</strong>：自定义函数，使用this访问<br><strong>前台、后台定义：</strong> 当用户点击左上角关闭，或者按了设备 Home 键离开微信，小程序并没有直接销毁，而是进入了后台；当再次进入微信或再次打开小程序，又会从后台进入前台。需要注意的是：只有当小程序进入后台一定时间，或者系统资源占用过高，才会被真正的销毁。   </p>
+<h3 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a><strong>app.json</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;pages&quot;:[</span><br><span class="line">    &quot;pages/index/index&quot;,</span><br><span class="line">    &quot;pages/logs/logs&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;window&quot;:&#123;</span><br><span class="line">    &quot;backgroundTextStyle&quot;:&quot;light&quot;,</span><br><span class="line">    &quot;navigationBarBackgroundColor&quot;: &quot;#fff&quot;,</span><br><span class="line">    &quot;navigationBarTitleText&quot;: &quot;WeChat&quot;,</span><br><span class="line">    &quot;navigationBarTextStyle&quot;:&quot;black&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>pages</strong>：来指定小程序由哪些页面组成    pages内只需要写wxml文件的路径，其他文件不用写<br><strong>window</strong>：<br><strong>navigationBarBackgroundColor</strong>    HexColor    导航栏背景颜色，如 #000000<br><strong>navigationBarTextStyle</strong>    String        导航栏标题颜色，仅支持 black / white<br><strong>navigationBarTitleText</strong>    String        导航栏标题文字内容<br><strong>navigationStyle</strong>    String    default    导航栏样式，仅支持以下值：default 默认样式custom 自定义导航栏，只保留右上角胶囊按钮    微信版本 6.6.0<br><strong>backgroundColor</strong>    HexColor    #ffffff    窗口的背景色<br><strong>backgroundTextStyle</strong>    String    dark    下拉 loading 的样式，仅支持 dark / light<br><strong>backgroundColorTop</strong>    String    #ffffff    顶部窗口的背景色，仅 iOS 支持    微信版本 6.5.16<br><strong>backgroundColorBottom</strong>    String    #ffffff    底部窗口的背景色，仅 iOS 支持    微信版本 6.5.16<br><strong>enablePullDownRefresh</strong>    Boolean    false    是否开启当前页面的下拉刷新。详见 Page.onPullDownRefresh<br><strong>onReachBottomDistance</strong>    Number    50    页面上拉触底事件触发时距页面底部距离，单位为px。详见 Page.onReachBottom<br><strong>pageOrientation</strong>    String    portrait    屏幕旋转设置，仅支持 auto / portrait 详见 响应显示区域变化    微信版本 6.7.3<br><img src="https://viabcde.github.io/images/201812/45.png" alt="enter descriptionhere">       </p>
+<h2 id="一个页面目录内的文件"><a href="#一个页面目录内的文件" class="headerlink" title="一个页面目录内的文件"></a><strong>一个页面目录内的文件</strong></h2><h3 id="xx-js"><a href="#xx-js" class="headerlink" title="xx.js"></a><strong>xx.js</strong></h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#app-js"><span class="toc-number">1.</span> <span class="toc-text">app.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-json"><span class="toc-number">2.</span> <span class="toc-text">app.json</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#一个页面目录内的文件"><span class="toc-number"></span> <span class="toc-text">一个页面目录内的文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#xx-js"><span class="toc-number">1.</span> <span class="toc-text">xx.js</span></a></li></ol>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

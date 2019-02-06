@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Java基础1</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Java基础1</h1>
+        <div class="stuff">
+            <span>十二月 04, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java基础/">java基础</a><span class="post-tags-list-count">22</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="环境变量path和classpath的作用是什么？"><a href="#环境变量path和classpath的作用是什么？" class="headerlink" title="环境变量path和classpath的作用是什么？"></a><strong>环境变量path和classpath的作用是什么？</strong></h3><p>(1)path是配置Windows可执行文件的搜索路径，即扩展名为.exe的程序文件所在的目录，用于指定DOS窗口命令的路径。<br>(2)Classpath是配置class文件所在的目录，用于指定类搜索路径，JVM就是通过它来寻找该类的class类文件的。    </p>
+<h3 id="amp-和-amp-amp-的区别"><a href="#amp-和-amp-amp-的区别" class="headerlink" title="&amp;和&amp;&amp;的区别?"></a><strong>&amp;和&amp;&amp;的区别?</strong></h3><p>&amp;既可以判断true/false，也可以进行数之间的运算<br>&amp;&amp;一般用于判断表达式ture/false   </p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a><strong>数据类型</strong></h3><p>(1)基本数据类型(4类8种)：<br>整数类型：byte、short（2）、int（4）、long（8）<br>浮点数类型：float（4）、double（8）<br>字符类型：char（2）<br>布尔类型：boolean（1）<br>(2)引用数据类型：<br>    类<br>    接口<br>    数组    </p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a><strong>函数</strong></h3><p>一是为了代码的可复用性   二是为了代码的易读性   </p>
+<h3 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a><strong>内存结构</strong></h3><p>栈内存：用于存储局部变量，当数据使用完，所占空间会自动释放。<br>堆内存：数组和对象，通过new建立的实例都存放在堆内存中。<br>方法区：静态成员、构造函数、常量池、线程池<br>本地方法区：window系统占用  </p>
+<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a><strong>类和对象</strong></h3><p>类：对现实世界中某类事物的描述,是抽象的，概念上的定义。<br>对象：事物具体存在的个体。   </p>
+<h3 id="成员变量和局部变量的区别-重点"><a href="#成员变量和局部变量的区别-重点" class="headerlink" title="成员变量和局部变量的区别(重点)"></a><strong>成员变量和局部变量的区别(重点)</strong></h3><p>(1)作用域<br>成员变量：针对整个类有效。<br>局部变量：只在某个范围内有效。(一般指的就是方法,语句体内)<br>(2)存储位置<br>成员变量：随着对象的创建而存在，随着对象的消失而消失，存储在堆内存中。<br>局部变量：在方法被调用，或者语句被执行的时候存在，存储在栈内存中。<br>当方法调用完，或者语句结束后，就自动释放。<br>(3)初始值<br>成员变量：有默认初始值。<br>局部变量：没有默认初始值，使用前必须赋值。   </p>
+<h3 id="构造方法，构造代码块，成员方法"><a href="#构造方法，构造代码块，成员方法" class="headerlink" title="构造方法，构造代码块，成员方法"></a><strong>构造方法，构造代码块，成员方法</strong></h3><p>构造方法和类名相同，并且没有返回类型，也没有返回值，用于给对象初始化<br>构造代码块是给所有不同对象的共性进行统一初始化，而且优先于构造函数执行<br>普通成员方法是由创建好的对象调用，可以调用多次   </p>
+<h3 id="Person-p-new-Person-在内存中做了哪些事情"><a href="#Person-p-new-Person-在内存中做了哪些事情" class="headerlink" title="Person p = new Person();在内存中做了哪些事情"></a><strong>Person p = new Person();在内存中做了哪些事情</strong></h3><p>(1)将Person.class文件加载进内存中。<br>(2)在栈空间开辟一个变量空间p。<br>(3)在堆内存给对象分配空间。<br>(4)对对象中的成员进行默认初始化。<br>(5)对对象中的成员进行显示初始化。<br>(6)调用构造代码块对对象进行初始化。(如果没有就不执行)<br>(7)调用构造方法对对象进行初始化。对象初始化完毕。<br>(8)将对象的内存地址赋值给p变量，让p变量指向该对象。  </p>
+<h3 id="public-static-void-main-String-args"><a href="#public-static-void-main-String-args" class="headerlink" title="public static void main(String[] args)"></a><strong>public static void main(String[] args)</strong></h3><p>public:公共的意思，是最大权限修饰符。<br>static:由于jvm调用main方法的时候，没有创建对象，只能通过类名调用。所以，main必须用static修饰。<br>void:由于main方法是被jvm调用，不需要返回值。用void修饰。<br>main:main是主要的意思，所以jvm采用了这个名字。是程序的入口。<br><code>String[]</code>:字符串数组<br>args:数组名    </p>
+<h3 id="静态变量和成员变量的区别"><a href="#静态变量和成员变量的区别" class="headerlink" title="静态变量和成员变量的区别"></a><strong>静态变量和成员变量的区别</strong></h3><p>A：调用方式<br>    静态变量也称为类变量，可以直接通过类名调用。也可以通过对象名调用。<br>    这个变量属于类。<br>    成员变量也称为实例变量，只能通过对象名调用。这个变量属于对象。<br>B：存储位置<br>    静态变量存储在方法区长中的静态区。<br>    成员变量存储在堆内存。<br>C：生命周期<br>    静态变量随着类的加载而存在，随着类的消失而消失。生命周期长。<br>    成员变量随着对象的创建而存在，随着对象的消失而消失。<br>D：与对象的相关性<br>    静态变量是所有对象共享的数据。<br>    成员变量是每个对象所特有的数据。  </p>
+<h3 id="静态的优点和弊端"><a href="#静态的优点和弊端" class="headerlink" title="静态的优点和弊端"></a><strong>静态的优点和弊端</strong></h3><p>优点：<br>    对对象的共享数据进行单独空间的存储，节省内存，没有必要每个对象都存储一份，可直接被类名调用<br>弊端：<br>    生命周期过长，随着类的消失而消失<br>    访问出现权限，即静态虽好但只能访问静态    </p>
+<h3 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a><strong>单例设计模式</strong></h3><p>单例设计模式的两种方式<br>A:饿汉式 当类加载的时候，就创建对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Student</span><br><span class="line">&#123;</span><br><span class="line">private Student()&#123;&#125;</span><br><span class="line">private static final Student s = new Student();</span><br><span class="line">public static Student getInstance()</span><br><span class="line">&#123;</span><br><span class="line">return s;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>B:懒汉式 当使用的使用，才去创建对象。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Student</span><br><span class="line">&#123;</span><br><span class="line">private Student()&#123;&#125;</span><br><span class="line">private static final Student s = null;</span><br><span class="line">public static Student getInstance()</span><br><span class="line">&#123;</span><br><span class="line">if(s==null) </span><br><span class="line">&#123;</span><br><span class="line">//线程1就进来了，线程2就进来了。</span><br><span class="line">s = new Student();</span><br><span class="line">	&#125;</span><br><span class="line">	return s;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>注：开发常用饿汉式，因为饿汉式简单安全。懒汉式多线程的时候容易发生问题，因为可能多个线程都同时进入到if判断语句，可能会创建多个对象 ###   <strong>子类的实例化过程</strong><br>子类创建对象时，会先去创建父类的对象。<br>默认是去调用父类的无参构造方法。<br>子类构造方法中，第一行默认是super()<br>因为他继承父类的成员使用，使用前这些成员必须初始化，而他们是父类的成员，所以，必须通过父类进行初始化。<br>所以，会先创建一个父类的对象。当父类没有无参构造方法时,必须使用this或者super调用其他的构造方法。<br><strong>this和super的区别</strong><br>this:代表本类对象的引用。<br>super:代表父类的存储空间。    </p>
+<h3 id="数组和集合都是容器，两者有何不同？"><a href="#数组和集合都是容器，两者有何不同？" class="headerlink" title="数组和集合都是容器，两者有何不同？"></a><strong>数组和集合都是容器，两者有何不同？</strong></h3><p>数组长度固定，而集合长度是可变的<br>数组值可以存储对象，还可以存储基本数据类型;而集合只能存储对象<br>数组存储数据类型是固定的，而集合存储的数据类型不固定<br>List:列表，元素是有序的(元素带角标索引)，可以有重复元素,可以有null元素<br>ArrayList(JDK1.2):底层的数据结构是数组数据结构，特点是查询速度快(因为带角标)，但是增删速度稍慢,因为当元素多时，增删一个元素则所有元素的角标都得改变，线程不同步。默认长度是10，当超过长度时，按50%延长集合长度。<br>LinkedList(JDK1.2):底层数据结构式链表数据结构(即后面一个元素记录前一个)，<br>    特点：查询速度慢，因为每个元素只知道前面一个元素，但增删速度快<br>    因为元素再多，增删一个，只要让其前后的元素重新相连即可<br>    线程是不同步的。<br>Vector(JDK1.0):底层数据结构是数组数据结构.特点是查询和增删速度都很慢。<br>    默认长度是10，当超过长度时,按100%延长集合长度。<br>    线程同步。<br>(Vector功能跟ArrayList功能一模一样，已被ArrayList替代)<br>如果要求增删快，考虑使用LinkedList<br>如果要求查询快，考虑使用ArrayList<br>如果要求线程安全，考虑使用Vector。<br>Set:集合，元素是无序的(因为没有索引)，元素不可以重复。可以有null元素。<br>HashSet(JDK1.2):底层数据结构是哈希表、存取速度快、元素唯一、线程不同步。<br>TreeSet:底层数据结构式二叉树。可以对Set集合中的元素进行排序。元素有序、线程不同步。<br>Map<br>HashTable(JDK1.0):<br>底层是哈希表数据结构；<br>    不可以使用null键和null值；<br>    用作键的对象必须实现hashCode和equals方法来保证键的唯一性<br>    线程同步，效率低<br>|—&gt;HashMap(JDK1.2):<br>底层是哈希表数据结构；<br>    允许使用null键和null值；<br>    线程不同步，效率高；<br>    保证元素唯一性的:<br>    如果你想将一组对象按一定顺序存取，在不考虑并发访问的情况下会使用<code>____C_____ ,</code><br>反之则会使用<code>____A_____；</code>如果你想存储一组无序但唯一的对象，你会使用<code>___B______ ;</code><br>如果你想按关键字对对象进行存取，在不考虑并发访问的情况下会使用<code>___D______</code> ,反之则会使用<code>_____E____。</code><br>A. Vector<br>B. HashSet<br>C. ArrayList<br>D. HashMap<br>E. Hashtable<br>(1)字节流<br>    输出字节流：OutputStream：字节写入流抽象类<br>|—&gt;FileOutputStream：<br>    字节写入流<br>|—&gt;BufferedOutputStream：<br>    字节写入流缓冲区<br>|—&gt;PrintStream：<br>    打印流<br>    输入字节流：InputStream：字节读取流抽象类<br>|—&gt;FileInputStream：<br>    字节读取流<br>|—&gt;BufferedInputStream：<br>    字节读取流缓冲区<br>(2)字符流<br>    输出字符流：Writer：字符写入流的抽象<br>|—&gt;FileWriter：<br>    字符写入流<br>|—&gt;BufferedWriter：<br>    字符写入流缓冲区<br>|—&gt;OutputStreamWriter：<br>    字符通向字节的转换流(涉及键盘录入时用)<br>    |—&gt;OutputStreamWriter：<br>    打印流，可处理各种类型的数据<br>    输入字符流：Reader: 字符读取流的抽象类<br>|—&gt;FileReader：<br>    字符读取流<br>|—&gt;LineNumberReader：<br>    跟踪行号的缓冲字符读取流<br>|—&gt;BufferedReader：<br>    字符读取流缓冲区<br>|—&gt;InputStreamReader：<br>    字节通向字符的转换流(涉及键盘录入时用)<br>规律：<br>(1)第一步：先明确源和目的<br>    源：<br>    文本：用Reader<br>字节：用InputStream<br>目的：<br>    文本：用Writer<br>字节：用OutputStream<br>    (2)第二步：明确是不是纯文本<br>    是：用字符流；<br>    不是：用字节流<br>(3)第三步：明确流体系后，通过设备来明确具体使用哪个流对象<br>    源设备：<br>    键盘：System.in<br>硬盘：文件流File<br>内存：数组流ArrayStream<br>目的设备：<br>    键盘：System.out<br>硬盘：文件流File<br>内存：数组流ArrayStream  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量path和classpath的作用是什么？"><span class="toc-number">1.</span> <span class="toc-text">环境变量path和classpath的作用是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#amp-和-amp-amp-的区别"><span class="toc-number">2.</span> <span class="toc-text">&amp;和&amp;&amp;的区别?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型"><span class="toc-number">3.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">4.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存结构"><span class="toc-number">5.</span> <span class="toc-text">内存结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类和对象"><span class="toc-number">6.</span> <span class="toc-text">类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员变量和局部变量的区别-重点"><span class="toc-number">7.</span> <span class="toc-text">成员变量和局部变量的区别(重点)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造方法，构造代码块，成员方法"><span class="toc-number">8.</span> <span class="toc-text">构造方法，构造代码块，成员方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Person-p-new-Person-在内存中做了哪些事情"><span class="toc-number">9.</span> <span class="toc-text">Person p = new Person();在内存中做了哪些事情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#public-static-void-main-String-args"><span class="toc-number">10.</span> <span class="toc-text">public static void main(String[] args)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态变量和成员变量的区别"><span class="toc-number">11.</span> <span class="toc-text">静态变量和成员变量的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态的优点和弊端"><span class="toc-number">12.</span> <span class="toc-text">静态的优点和弊端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单例设计模式"><span class="toc-number">13.</span> <span class="toc-text">单例设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组和集合都是容器，两者有何不同？"><span class="toc-number">14.</span> <span class="toc-text">数组和集合都是容器，两者有何不同？</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">运行SpringBoot</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">运行SpringBoot</h1>
+        <div class="stuff">
+            <span>十一月 13, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="post-tags-list-count">17</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a><strong>第一种方式</strong></h3><p>1.在UserController中加上@EnableAutoConfiguration开启自动配置<br>2.然后通过SpringApplication.run(UserController.class);运行这个控制器<br><strong>使用场景：</strong>这种方式在运行一个控制器比较方便<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@EnableAutoConfiguration</span><br><span class="line">public class Application &#123;</span><br><span class="line">@RequestMapping(&quot;user&quot;)</span><br><span class="line">public static StringSayHello() &#123;</span><br><span class="line">        return&quot;Hello Word!&quot;;</span><br><span class="line">&#125;</span><br><span class="line">public static voidmain(String[] args)&#123;</span><br><span class="line">        SpringApplication.run(Application.class,args);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a><strong>第二种方式</strong></h3><p>@Configuration+@ComponentScan开启注解扫描并自动注册相应的注解Bean<br>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan</span><br><span class="line">@EnableAutoConfiguration</span><br><span class="line">public class Application &#123;</span><br><span class="line">public static voidmain(String[] args)&#123;</span><br><span class="line">        SpringApplication.run(Application.class,args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第三种：将工程打包成独立运行jar包"><a href="#第三种：将工程打包成独立运行jar包" class="headerlink" title="第三种：将工程打包成独立运行jar包"></a><strong>第三种：将工程打包成独立运行jar包</strong></h3><p>进入cmd 定位到项目目录下然后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean  package –DskipTests</span><br></pre></td></tr></table></figure></p>
+<p>执行成功后在项目的target文件夹下出现jar包，例如（spingboot-demo-0.0.1-SNAPSHOT.jar）<br>然后再cmd 的C盘 用户目录下执行命令  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java –jar （jar包的目录）E:\program\spingboot-demo\target\spingboot-demo-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
+<p>回车运行会有如下图<br><img src="https://viabcde.github.io/images/2018-10-10/2018101012.png" alt="enter description
+here"><br>出现下图表示运行成功<br><img src="https://viabcde.github.io/images/2018-10-10/2018101013.png" alt="enter description
+here"><br>然后在浏览器中输入端口号和地址进行访问。<br><img src="https://viabcde.github.io/images/2018-10-10/2018101014.png" alt="enter description
+here"><br><strong>spring boot 优势:</strong>  一个jar 包和java 环境就能运行web 项目</p>
+<h2 id="远程下载并启动Spring-boot项目"><a href="#远程下载并启动Spring-boot项目" class="headerlink" title="远程下载并启动Spring boot项目"></a><strong>远程下载并启动Spring boot项目</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:hengyunabc/spring-boot-demo.git  </span><br><span class="line">mvn spring-boot-demo  </span><br><span class="line">java -jar target/demo-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
+<h3 id="部署spring-boot应用"><a href="#部署spring-boot应用" class="headerlink" title="部署spring boot应用"></a><strong>部署spring boot应用</strong></h3><p>要部署运行spring boot应用，首选要打包spring boot应用，你在pom文件中看到的spring-boot-maven-plugin插件就是打包spring boot应用的。<br>进入工程目录   运行mvn package 进行打包<br><img src="https://viabcde.github.io/images/201811/20181108.png" alt="enter description
+here"><br>打包之后的文件在工程目录的target目录  使用java的原生命令执行生成的jar文件<br>java  -jar  spring-boot-demo01.jar –server.port=9090  启动spring boot 项目</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种方式"><span class="toc-number">1.</span> <span class="toc-text">第一种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种方式"><span class="toc-number">2.</span> <span class="toc-text">第二种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三种：将工程打包成独立运行jar包"><span class="toc-number">3.</span> <span class="toc-text">第三种：将工程打包成独立运行jar包</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#远程下载并启动Spring-boot项目"><span class="toc-number"></span> <span class="toc-text">远程下载并启动Spring boot项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#部署spring-boot应用"><span class="toc-number">1.</span> <span class="toc-text">部署spring boot应用</span></a></li></ol>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

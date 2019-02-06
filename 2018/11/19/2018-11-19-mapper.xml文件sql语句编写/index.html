@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">mapper.xml文件sql语句编写</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">mapper.xml文件sql语句编写</h1>
+        <div class="stuff">
+            <span>十一月 19, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Mybatis/">Mybatis</a><span class="post-tags-list-count">18</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="resultType和resultMap区别"><a href="#resultType和resultMap区别" class="headerlink" title="resultType和resultMap区别"></a><strong>resultType和resultMap区别</strong></h3><p>resultType是自定义除实体额外的pojo来接收查询结果<br>resultMap是在xml组装好的映射结果，不需要额外的pojo<br>一对一查询（resulttype）<br>    需要些pojo 来接收查询结果 可以继承属性较多的一方 这样子类可以少写一些属性<br><img src="https://viabcde.github.io/images/blog/20180928141.png" alt="enter description
+here"><br>一对一查询（resultMap）<br><img src="https://viabcde.github.io/images/blog/20180928142.png" alt="enter description
+here"><br>column是指数据库里的字段 而property是po里的属性名<br><img src="https://viabcde.github.io/images/blog/20180928143.png" alt="enter description
+here"><br>延迟加载<br><img src="https://viabcde.github.io/images/blog/20180928144.png" alt="enter description
+here"><br><img src="https://viabcde.github.io/images/blog/20180928145.png" alt="enter description
+here"><br>开启延迟加载 在sqlmapconfig.xml<br><img src="https://viabcde.github.io/images/blog/20180928146.png" alt="enter description
+here"><br>测试<br><img src="https://viabcde.github.io/images/blog/20180928147.png" alt="enter description
+here"><br>测试环境<br><img src="https://viabcde.github.io/images/blog/20180928148.png" alt="enter description
+here">  </p>
+<h1 id="association-查询结果的一对一关联："><a href="#association-查询结果的一对一关联：" class="headerlink" title="association 查询结果的一对一关联："></a>association 查询结果的一对一关联：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=&quot;blogResult&quot; type=&quot;Blog&quot;&gt;</span><br><span class="line">  &lt;id property=”blog_id” column=&quot;id&quot; /&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;result property=&quot;title&quot; column=&quot;blog_title&quot;/&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;association property=&quot;author&quot; column=&quot;blog_author_id&quot; javaType=&quot;Author&quot;&gt;</span><br><span class="line">    &lt;id property=&quot;id&quot; column=&quot;author_id&quot;/&gt;</span><br><span class="line">    &lt;result property=&quot;username&quot; column=&quot;author_username&quot;/&gt;</span><br><span class="line">    &lt;result property=&quot;password&quot; column=&quot;author_password&quot;/&gt;</span><br><span class="line">    &lt;result property=&quot;email&quot; column=&quot;author_email&quot;/&gt;</span><br><span class="line">    &lt;result property=&quot;bio&quot; column=&quot;author_bio&quot;/&gt;</span><br><span class="line">  &lt;/association&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="collection查询结果的一对多关联："><a href="#collection查询结果的一对多关联：" class="headerlink" title="collection查询结果的一对多关联："></a>collection查询结果的一对多关联：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=&quot;blogResult&quot; type=&quot;Blog&quot;&gt;</span><br><span class="line">  &lt;id property=”id” column=&quot;blog_id&quot; /&gt;</span><br><span class="line">  &lt;result property=&quot;title&quot; column=&quot;blog_title&quot;/&gt;</span><br><span class="line">  &lt;collection property=&quot;posts&quot; ofType=&quot;Post&quot;&gt;</span><br><span class="line">    &lt;id property=&quot;id&quot; column=&quot;post_id&quot;/&gt;</span><br><span class="line">    &lt;result property=&quot;subject&quot; column=&quot;post_subject&quot;/&gt;</span><br><span class="line">    &lt;result property=&quot;body&quot; column=&quot;post_body&quot;/&gt;</span><br><span class="line">  &lt;/collection&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Mapper配置"><a href="#Mapper配置" class="headerlink" title="Mapper配置"></a><strong>Mapper配置</strong></h3><p>Mybatis 的Mapper 是指Mybatis 执行数据库操作的接口类以及方法，在非注解模式下，还包含与类对应的 xml 配置文件。<br>第一种依据 Mapper 类 具体路径 配置 Mapper<br>这种情况下，如果是非注解模式的话xml配置文件必须和这个类在同一级目录，且与Mapper类同名  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;mappers&gt;		</span><br><span class="line">		&lt;!-- class 级别的指定 --&gt;</span><br><span class="line">		&lt;mapper class=&quot;com.bestcxx.stu.springmvc.mapper.UserModelMapper&quot;/&gt;</span><br><span class="line">		&lt;mapper class=&quot;com.bestcxx.stu.springmvc.mapper.UserModelTwoMapper&quot;/&gt;</span><br><span class="line">	&lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>在存在 xml 配置文件的情况下，文件结构如下，没有 xml 配置文件的情况下，只有 Mapper 类<br><img src="https://viabcde.github.io/images/2018-10-10/2018101032.png" alt="enter descriptionhere"><br>第二种依据 Mapper 类所在的package包路径 配置 Mapper<br>这种情况下，如果是非注解模式的话xml配置文件必须也处于同一级 package 下，且与Mapper类同名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;mappers&gt;</span><br><span class="line">		&lt;package name=&quot;com.bestcxx.stu.springmvc.mapper&quot;/&gt;</span><br><span class="line">	&lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<p>文件结构<br><img src="https://viabcde.github.io/images/2018-10-10/2018101033.png" alt="enter descriptionhere"><br>第三种是把 Mapper 的xml配置文件单独放置到 resources 中，和Mapper 类分开了<br>这种方式的好处是便于统一管理 xml 配置文件，不好的的地方是无法使用注解模式了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;mappers&gt;</span><br><span class="line">		&lt;!-- 使用这个方案，可以单独指定Mapper的位置 --&gt;</span><br><span class="line">		&lt;mapper resource=&quot;mybatis/mappings/UserModelMapper.xml&quot;/&gt;</span><br><span class="line">		&lt;mapper resource=&quot;mybatis/mappings/UserModelTwoMapper.xml&quot;/&gt;</span><br><span class="line">	&lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后Mapper类还是呆在该在的位置<br><img src="https://viabcde.github.io/images/2018-10-10/2018101034.png" alt="enter descriptionhere"><br>但是mapper 的 xml文件的位置如下<br><img src="https://viabcde.github.io/images/2018-10-10/2018101035.png" alt="enter descriptionhere"><br>上面的配置在mybitas-config.xml（名字是可以自定义的）中集中管理，Mapper 的 xml 文件需要关联<br>第一，是mybatis-config.xml 文件负责加载 Mapper的xml文件，即上面所说的配置是在这个mybatis-config.xml文件中<br>第二，mapper对应的xml 配置文件内部要指定对应的Mapper类<br>下面是单独测试mybatis的mybatas的配置文件的内容  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE configuration</span><br><span class="line">PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span><br><span class="line">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;!-- 元素首次出现必须符合下面的顺序 --&gt;</span><br><span class="line">	&lt;!-- (properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?) --&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 加载常量配置信息 --&gt;</span><br><span class="line">	&lt;!-- 可以覆盖重写，用于解密-http://www.mybatis.org/mybatis-3/zh/configuration.html</span><br><span class="line">		·在 properties 元素体内指定的属性首先被读取。</span><br><span class="line">		·然后根据 properties 元素中的 resource 属性读取类路径下属性文件或根据 url 属性指定的路径读取属性文件，并覆盖已读取的同名属性。</span><br><span class="line">		·最后读取作为方法参数传递的属性，并覆盖已读取的同名属性。 --&gt;</span><br><span class="line">	&lt;properties resource=&quot;config/jdbc.properties&quot;/&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 为实体类定义别名 --&gt;</span><br><span class="line">	&lt;typeAliases&gt;</span><br><span class="line">		&lt;typeAlias alias=&quot;userModel&quot;  type=&quot;com.bestcxx.stu.springmvc.model.UserModel&quot;/&gt;</span><br><span class="line">		&lt;typeAlias alias=&quot;userModelTwo&quot;  type=&quot;com.bestcxx.stu.springmvc.model.UserModelTwo&quot;/&gt;</span><br><span class="line">	&lt;/typeAliases&gt;</span><br><span class="line">	&lt;!-- 使用 spring 配置数据库的时候，下面就可以注释掉了 --&gt;</span><br><span class="line">	&lt;!-- 定义数据库信息，默认使用 development 数据库构建环境 --&gt;</span><br><span class="line">	&lt;environments default=&quot;development&quot;&gt;</span><br><span class="line">		&lt;environment id=&quot;development&quot;&gt;</span><br><span class="line">			&lt;!-- 采用 jdbc 事务管理 --&gt;</span><br><span class="line">			&lt;transactionManager type=&quot;JDBC&quot;/&gt;</span><br><span class="line">			&lt;!-- 配置数据库链接信息 --&gt;</span><br><span class="line">			&lt;dataSource type=&quot;POOLED&quot;&gt;</span><br><span class="line">				&lt;property name=&quot;driver&quot; value=&quot;$&#123;jdbc.driverClassName&#125;&quot;/&gt;</span><br><span class="line">				&lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot;/&gt;</span><br><span class="line">				&lt;property name=&quot;username&quot; value=&quot;$&#123;jdbc.username&#125;&quot;/&gt;</span><br><span class="line">				&lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot;/&gt;</span><br><span class="line">			&lt;/dataSource&gt;</span><br><span class="line">		&lt;/environment&gt;</span><br><span class="line">	&lt;/environments&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 定义映射器 --&gt;</span><br><span class="line">	&lt;mappers&gt;</span><br><span class="line">		&lt;!-- 使用这个方案，可以单独指定Mapper的位置 --&gt;</span><br><span class="line">		&lt;!-- &lt;mapper resource=&quot;mybatis/mappings/UserModelMapper.xml&quot;/&gt;</span><br><span class="line">		&lt;mapper resource=&quot;mybatis/mappings/UserModelTwoMapper.xml&quot;/&gt; --&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;!-- 使用下面两个个方法，Mapper.xml 文件位置必须在和其内部 &lt;mapper namespace=&quot;&quot;&gt;的类在一起，当然，使用注解模式的话，Mapper.xml文件就没有必要存在了 --&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;!-- 直接指定一个包去扫描-内保包含多个Mapper配置- --&gt;</span><br><span class="line">		&lt;!-- &lt;package name=&quot;com.bestcxx.stu.springmvc.mapper&quot;/&gt; --&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;!-- class 级别的指定 --&gt;</span><br><span class="line">		&lt;mapper class=&quot;com.bestcxx.stu.springmvc.mapper.UserModelMapper&quot;/&gt;</span><br><span class="line">		&lt;mapper class=&quot;com.bestcxx.stu.springmvc.mapper.UserModelTwoMapper&quot;/&gt;</span><br><span class="line">	&lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>mapper的xml 配置文件的内容<br>注意<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;mapper namespace=&quot;com.bestcxx.stu.springmvc.mapper.UserModelMapper&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper</span><br><span class="line">  PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span><br><span class="line">  &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span><br><span class="line">&lt;mapper namespace=&quot;com.bestcxx.stu.springmvc.mapper.UserModelMapper&quot;&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;!-- 表字段显式 --&gt;</span><br><span class="line">	&lt;sql id=&quot;userModelColumns&quot;&gt;</span><br><span class="line">		u.userName AS &quot;userName&quot;,</span><br><span class="line">		u.passWord AS &quot;passWord&quot;,</span><br><span class="line">		u.createDate AS &quot;createDate&quot;,</span><br><span class="line">		u.intNum AS &quot;intNum&quot;,</span><br><span class="line">		u.decimalNum AS &quot;decimalNum&quot;</span><br><span class="line">	&lt;/sql&gt;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	&lt;!-- 根据 userName 查询 --&gt;</span><br><span class="line">	&lt;select id=&quot;getUserModel&quot; resultType=&quot;userModel&quot;&gt;</span><br><span class="line">		SELECT</span><br><span class="line">		&lt;include refid=&quot;userModelColumns&quot; /&gt;</span><br><span class="line">		FROM</span><br><span class="line">		userModel u</span><br><span class="line">		WHERE</span><br><span class="line">		u.userName = #&#123;userName&#125;</span><br><span class="line">	&lt;/select&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;!-- 插入 --&gt;</span><br><span class="line">	&lt;insert id=&quot;addUserModel&quot; parameterType=&quot;userModel&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;userName&quot;&gt;</span><br><span class="line">		INSERT INTO userModel (</span><br><span class="line">		passWord,</span><br><span class="line">		createDate,</span><br><span class="line">		intNum,</span><br><span class="line">		decimalNum</span><br><span class="line">		)</span><br><span class="line">		VALUES (</span><br><span class="line">		#&#123;passWord&#125;,</span><br><span class="line">		#&#123;createDate&#125;,</span><br><span class="line">		#&#123;intNum&#125;,</span><br><span class="line">		#&#123;decimalNum&#125;</span><br><span class="line">		)</span><br><span class="line">		</span><br><span class="line">	&lt;/insert&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 搜索多条，返回List&lt;userModel&gt;-入参为111,222,333 格式 --&gt;</span><br><span class="line">	&lt;select id=&quot;getUserModelListByStrs&quot; parameterType=&quot;string&quot; resultType=&quot;userModel&quot;&gt;</span><br><span class="line">		SELECT </span><br><span class="line">		&lt;include refid=&quot;userModelColumns&quot; /&gt;</span><br><span class="line">		FROM </span><br><span class="line">		userModel u</span><br><span class="line">		WHERE</span><br><span class="line">		u.userName in ($&#123;userNames&#125;)</span><br><span class="line">	&lt;/select&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 搜索多条，返回 List&lt;HashMap&lt;String,Object&gt;&gt;,入参为list--&gt;</span><br><span class="line">	&lt;select id=&quot;getHashMapListByList&quot; parameterType=&quot;list&quot; resultType=&quot;map&quot;&gt;</span><br><span class="line">		SELECT </span><br><span class="line">		&lt;include refid=&quot;userModelColumns&quot; /&gt;</span><br><span class="line">		FROM </span><br><span class="line">		userModel u</span><br><span class="line">		WHERE</span><br><span class="line">		u.userName in </span><br><span class="line">		&lt;foreach item=&quot;item&quot; collection=&quot;userNamelist&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot; &gt;</span><br><span class="line">		    #&#123;item&#125;</span><br><span class="line">		 &lt;/foreach&gt;</span><br><span class="line">	&lt;/select&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;update id=&quot;update&quot;&gt;</span><br><span class="line">		UPDATE userModel u</span><br><span class="line">		SET</span><br><span class="line">		u.passWord=#&#123;passWord&#125;,u.createDate=#&#123;createDate&#125;</span><br><span class="line">		WHERE</span><br><span class="line">		u.userName=#&#123;userName&#125;</span><br><span class="line">	&lt;/update&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure></p>
+<p>第四种，直接在spring中配置Mapper的路径，但是mybatis.xml还是必不可少的<br>在sqlSessionFactory中设定 mybitas的xml和aliases<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- MustConfigPoint MyBatis begin --&gt;</span><br><span class="line">	&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</span><br><span class="line">		&lt;property name=&quot;typeAliasesPackage&quot; value=&quot;实体类包路径&quot; /&gt;</span><br><span class="line">		&lt;property name=&quot;typeAliasesSuperType&quot; value=&quot;实体类顶级包路径&quot; /&gt;</span><br><span class="line">		&lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:/mybatis/mappings/**/*.xml&quot; /&gt;</span><br><span class="line">		&lt;property name=&quot;configLocation&quot; value=&quot;classpath:/mybatis/mybatis-config.xml&quot;&gt;&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="设置Mapper类"><a href="#设置Mapper类" class="headerlink" title="设置Mapper类"></a>设置Mapper类</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- MustConfigPoint 扫描basePackage下所有以@MyBatisDao注解的接口 --&gt;</span><br><span class="line">	&lt;bean id=&quot;mapperScannerConfigurer&quot; class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;basePackage&quot; value=&quot;mapper类的包路径&quot; /&gt;</span><br><span class="line">		&lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot; /&gt;</span><br><span class="line">		&lt;property name=&quot;annotationClass&quot; value=&quot;com.msyd.framework.common.persistence.annotation.MyBatisDao&quot; /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#resultType和resultMap区别"><span class="toc-number">1.</span> <span class="toc-text">resultType和resultMap区别</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#association-查询结果的一对一关联："><span class="toc-number"></span> <span class="toc-text">association 查询结果的一对一关联：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#collection查询结果的一对多关联："><span class="toc-number"></span> <span class="toc-text">collection查询结果的一对多关联：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mapper配置"><span class="toc-number">1.</span> <span class="toc-text">Mapper配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置Mapper类"><span class="toc-number"></span> <span class="toc-text">设置Mapper类</span></a>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

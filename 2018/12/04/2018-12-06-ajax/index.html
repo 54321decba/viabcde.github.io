@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Ajax</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Ajax</h1>
+        <div class="stuff">
+            <span>十二月 04, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/ajax/">ajax</a><span class="post-tags-list-count">1</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a><strong>介绍</strong></h3><p>在ie5时就有，当时叫DHTML，几年后改名为AJAX<br>ps:<strong>面试问过</strong>：<code>要在不加载整个网页的情况下更新部分网页，应该使用什么技术？</code><br>AJAX 是一种用于创建快速动态网页的技术。<br>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。   </p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a><strong>工作原理</strong></h3><p><img src="https://viabcde.github.io/images/201812/43.png" alt="enter descriptionhere"><br>AJAX是基于现有的Internet标准，并且联合使用它们：  </p>
+<p>XMLHttpRequest 对象 (异步的与服务器交换数据)<br>JavaScript/DOM (信息显示/交互)<br>CSS (给数据定义样式)<br>XML (作为转换数据的格式)    </p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">function loadXMLDoc()</span><br><span class="line">&#123;</span><br><span class="line">	var xmlhttp;</span><br><span class="line">	if (window.XMLHttpRequest)</span><br><span class="line">	&#123;</span><br><span class="line">		//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span><br><span class="line">		xmlhttp=new XMLHttpRequest();</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		// IE6, IE5 浏览器执行代码</span><br><span class="line">		xmlhttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	xmlhttp.onreadystatechange=function()</span><br><span class="line">	&#123;</span><br><span class="line">		if (xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)</span><br><span class="line">		&#123;</span><br><span class="line">			document.getElementById(&quot;myDiv&quot;).innerHTML=xmlhttp.responseText;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	xmlhttp.open(&quot;GET&quot;,&quot;/try/ajax/ajax_info.txt&quot;,true);</span><br><span class="line">	xmlhttp.send();</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;myDiv&quot;&gt;&lt;h2&gt;使用 AJAX 修改该文本内容&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; onclick=&quot;loadXMLDoc()&quot;&gt;修改内容&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="xmlhttp-open"><a href="#xmlhttp-open" class="headerlink" title="xmlhttp.open"></a><strong>xmlhttp.open</strong></h3><p>xmlhttp.open(“GET”,”/try/ajax/ajax_info.txt”,true);<br>method：请求的类型；GET 或 POST<br>url：文件在服务器上的位置<br>async：true（异步）或 false（同步）<br><strong>method参数</strong>是必须提供的-用于指定你想用来发送请求的HTTP方法(GET，POST，PUT，DELETE或HEAD)。为了把数据发送到服务器，应该使用POST方法；为了从服务器端检索数据，应该使用GET方法<br><strong>uri参数</strong>用于指定XMLHttpRequest对象把请求发送到的服务器相应的URI。<br><strong>async参数</strong>指定是否请求是异步的-缺省值为true。为了发送一个同步请求，需要把这个参数设置为false<br>调用open()方法准备好一个请求之后，你需要把该请求发送到服务器,调用send()方法   </p>
+<h3 id="xmlhttp-readyState"><a href="#xmlhttp-readyState" class="headerlink" title="xmlhttp.readyState"></a><strong>xmlhttp.readyState</strong></h3><p>ReadyState取值 描述<br>0  描述一种”未初始化”状态；此时，已经创建一个XMLHttpRequest对象，但是还没有初始化。<br>1  描述一种”发送”状态；此时，代码已经调用了XMLHttpRequest open()方法并且XMLHttpRequest已经准备好把一个请求发送到服务器。<br>2  描述一种”发送”状态；此时，已经通过send()方法把一个请求发送到服务器端，但是还没有收到一个响应。<br>3  描述一种”正在接收”状态；此时，已经接收到HTTP响应头部信息，但是消息体部分还没有完全接收结束。<br>4  描述一种”已加载”状态；此时，响应已经被完全接收。 </p>
+<h3 id="xmlhttp-send"><a href="#xmlhttp-send" class="headerlink" title="xmlhttp.send()"></a><strong>xmlhttp.send()</strong></h3><p>调用open()方法准备好一个请求之后，你需要把该请求发送到服务器。仅当readyState值为1时，你才可以调用send()方法；否则的话，XMLHttpRequest对象将引发一个异常。<br>将请求发送到服务器。<br>string：仅用于 POST 请求</p>
+<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a><strong>XMLHttpRequest</strong></h3><p>在不重新加载页面的情况下更新网页<br>在页面已加载后从服务器请求数据<br>在页面已加载后从服务器接收数据<br>在后台向服务器发送数据<br>XMLHttpRequest 对象用于和服务器交换数据。<br>所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）。<br>XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。  </p>
+<h3 id="xmlhttp"><a href="#xmlhttp" class="headerlink" title="xmlhttp"></a><strong>xmlhttp</strong></h3><p>所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象<br>IE6及以下版本的不支持<br>所以需要判断window是否有XMLHttpRequest这个对象，没有则使用旧的对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if (window.XMLHttpRequest)</span><br><span class="line">	&#123;</span><br><span class="line">		//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span><br><span class="line">		xmlhttp=new XMLHttpRequest();</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		// IE6, IE5 浏览器执行代码</span><br><span class="line">		xmlhttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作原理"><span class="toc-number">2.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">3.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xmlhttp-open"><span class="toc-number">4.</span> <span class="toc-text">xmlhttp.open</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xmlhttp-readyState"><span class="toc-number">5.</span> <span class="toc-text">xmlhttp.readyState</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xmlhttp-send"><span class="toc-number">6.</span> <span class="toc-text">xmlhttp.send()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XMLHttpRequest"><span class="toc-number">7.</span> <span class="toc-text">XMLHttpRequest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xmlhttp"><span class="toc-number">8.</span> <span class="toc-text">xmlhttp</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

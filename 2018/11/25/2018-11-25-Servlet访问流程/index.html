@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Servlet访问流程</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Servlet访问流程</h1>
+        <div class="stuff">
+            <span>十一月 25, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Servlet/">Servlet</a><span class="post-tags-list-count">2</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="Servlet-的请求流程？"><a href="#Servlet-的请求流程？" class="headerlink" title="Servlet 的请求流程？"></a><strong>Servlet 的请求流程？</strong></h2><h3 id="1-浏览器发出请求-http-localhost-80-xxx1-xxx2"><a href="#1-浏览器发出请求-http-localhost-80-xxx1-xxx2" class="headerlink" title="1.浏览器发出请求 http://localhost:80/xxx1/xxx2"></a><strong>1.浏览器发出请求</strong> <a href="http://localhost:80/xxx1/xxx2" target="_blank" rel="noopener">http://localhost:80/xxx1/xxx2</a></h3><p><strong>注：</strong>（80端口可以默认不写，因为这是http协议默认的端口，平时我们访问<a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a> 时其实访问的是<a href="https://www.baidu.com:80/）" target="_blank" rel="noopener">https://www.baidu.com:80/）</a></p>
+<h3 id="2-服务器解析请求信息"><a href="#2-服务器解析请求信息" class="headerlink" title="2.服务器解析请求信息"></a><strong>2.服务器解析请求信息</strong></h3><p>•http:协议名称<br>•localhost:访问的是互联网中的哪一台计算机<br>•80:从主机当中找到对应 80 端口的程序 （这里即为 Tomcat 服务器）<br>•/xxx1:当前项目的上下文路径 （即在 server.xml 中配置主机时配置的 path属性）<br>•/xxx2:当前请求的资源名  </p>
+<h3 id="3-解析-Tomcat-服务器根目录下的-config-server-xml-文件"><a href="#3-解析-Tomcat-服务器根目录下的-config-server-xml-文件" class="headerlink" title="3.解析 Tomcat 服务器根目录下的 /config/server.xml 文件"></a><strong>3.解析 Tomcat 服务器根目录下的 /config/server.xml 文件</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context docBase=&quot;D:\javaPros\test\webapp&quot; path=&quot;xxx1&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>判断哪一个<context>元素的 path属性 属性为 xxx1<br>•若找不到，则返回 404错误<br>•若找到了，则解析该<context>元素，得到docBase属性，获取当前访问 Web 项目的跟的绝对路径：D:\javaPros\test\webapp  </context></context></p>
+<h3 id="4-从D-javaPros-test-webapp下的-WEB-INF-下找到-web-xml-文件"><a href="#4-从D-javaPros-test-webapp下的-WEB-INF-下找到-web-xml-文件" class="headerlink" title="4.从D:\javaPros\test\webapp下的 WEB-INF 下找到 web.xml 文件"></a><strong>4.从D:\javaPros\test\webapp下的 WEB-INF 下找到 web.xml 文件</strong></h3><p> 判断 web.xml 文件中是否有 <url-pattern> 的文本内容为 /xxx2<br> •若找不到，则返回 404错误<br>•若找到了，则继续获取该资源对应 Servlet 类的全限名称： xxx.xxx    </url-pattern></p>
+<h3 id="5-判断-Servlet-实例缓存池-中是否有-xxx-xxx-的对象"><a href="#5-判断-Servlet-实例缓存池-中是否有-xxx-xxx-的对象" class="headerlink" title="5.判断 Servlet 实例缓存池 中是否有 xxx.xxx 的对象"></a><strong>5.判断 Servlet 实例缓存池 中是否有 xxx.xxx 的对象</strong></h3><p>Map&lt;String,Servlet&gt; cache = ……(Tomcat提供的);<br>    key:存Servlet类的全限定名称<br>    value:该Servlet类的对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Servlet obj = cache.get(&quot;xxx.xxx&quot;);</span><br><span class="line">    if(obj==null)&#123;</span><br><span class="line">        //Servlet实例缓存中没有该类的对象,第一次.</span><br><span class="line">        GOTO 6:</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        //有对象,非第一次.</span><br><span class="line">        GOTO 8:</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="servlet的生命周期"><a href="#servlet的生命周期" class="headerlink" title="servlet的生命周期"></a><strong>servlet的生命周期</strong></h2><h3 id="1-使用反射调用构造器，创建对应的对象"><a href="#1-使用反射调用构造器，创建对应的对象" class="headerlink" title="1.使用反射调用构造器，创建对应的对象"></a><strong>1.使用反射调用构造器，创建对应的对象</strong></h3><p>obj = Class.forName(“xxx.xxx”).newInstance();<br>把当前创建的 Servlet 对象，存放在缓存之中，供给下一次的使用.<br>cache.put(“xxx.xxx”,obj);  </p>
+<h3 id="2-创建-ServletConfig-对象，并调用-init-方法"><a href="#2-创建-ServletConfig-对象，并调用-init-方法" class="headerlink" title="2.创建 ServletConfig 对象，并调用 init() 方法"></a><strong>2.创建 ServletConfig 对象，并调用 init() 方法</strong></h3><p>obj.init(config);  </p>
+<h3 id="3-创建-ServletRequest-对象和-ServletResponse-对象，并调用-service-方法"><a href="#3-创建-ServletRequest-对象和-ServletResponse-对象，并调用-service-方法" class="headerlink" title="3.创建 ServletRequest 对象和 ServletResponse 对象，并调用 service()方法"></a><strong>3.创建 ServletRequest 对象和 ServletResponse 对象，并调用 service()方法</strong></h3><p>obj.service(req,resp);</p>
+<h3 id="4-在-service-方法中对浏览器作出响应操作。"><a href="#4-在-service-方法中对浏览器作出响应操作。" class="headerlink" title="4.在 service() 方法中对浏览器作出响应操作。"></a><strong>4.在 service() 方法中对浏览器作出响应操作。</strong></h3><h2 id="Servlet-是单例的吗？为什么？"><a href="#Servlet-是单例的吗？为什么？" class="headerlink" title="Servlet 是单例的吗？为什么？"></a><strong>Servlet 是单例的吗？为什么？</strong></h2><p>Servlet 是单例的，浏览器多次对Servlet的请求，一般情况下，服务器只创建一个Servlet对象，也就是说，Servlet对象一旦创建了，就会驻留在内存中，为后续的请求做服务，直到服务器关闭。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet-的请求流程？"><span class="toc-number">1.</span> <span class="toc-text">Servlet 的请求流程？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-浏览器发出请求-http-localhost-80-xxx1-xxx2"><span class="toc-number">1.1.</span> <span class="toc-text">1.浏览器发出请求 http://localhost:80/xxx1/xxx2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-服务器解析请求信息"><span class="toc-number">1.2.</span> <span class="toc-text">2.服务器解析请求信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-解析-Tomcat-服务器根目录下的-config-server-xml-文件"><span class="toc-number">1.3.</span> <span class="toc-text">3.解析 Tomcat 服务器根目录下的 /config/server.xml 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-从D-javaPros-test-webapp下的-WEB-INF-下找到-web-xml-文件"><span class="toc-number">1.4.</span> <span class="toc-text">4.从D:\javaPros\test\webapp下的 WEB-INF 下找到 web.xml 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-判断-Servlet-实例缓存池-中是否有-xxx-xxx-的对象"><span class="toc-number">1.5.</span> <span class="toc-text">5.判断 Servlet 实例缓存池 中是否有 xxx.xxx 的对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#servlet的生命周期"><span class="toc-number">2.</span> <span class="toc-text">servlet的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用反射调用构造器，创建对应的对象"><span class="toc-number">2.1.</span> <span class="toc-text">1.使用反射调用构造器，创建对应的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-创建-ServletConfig-对象，并调用-init-方法"><span class="toc-number">2.2.</span> <span class="toc-text">2.创建 ServletConfig 对象，并调用 init() 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-创建-ServletRequest-对象和-ServletResponse-对象，并调用-service-方法"><span class="toc-number">2.3.</span> <span class="toc-text">3.创建 ServletRequest 对象和 ServletResponse 对象，并调用 service()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-在-service-方法中对浏览器作出响应操作。"><span class="toc-number">2.4.</span> <span class="toc-text">4.在 service() 方法中对浏览器作出响应操作。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet-是单例的吗？为什么？"><span class="toc-number">3.</span> <span class="toc-text">Servlet 是单例的吗？为什么？</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

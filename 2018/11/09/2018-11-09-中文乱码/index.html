@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">中文乱码问题</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">中文乱码问题</h1>
+        <div class="stuff">
+            <span>十一月 09, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/BUG/">BUG</a><span class="post-tags-list-count">1</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="jsp中四种传递参数的方法"><a href="#jsp中四种传递参数的方法" class="headerlink" title="jsp中四种传递参数的方法"></a>jsp中四种传递参数的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、form表单  </span><br><span class="line">2、request.setAttribute();和request.getAttribute();  </span><br><span class="line">3、超链接  </span><br><span class="line">&lt;a herf=&quot;index.jsp&quot;?a=a&amp;b=b&amp;c=c&gt;name&lt;/a&gt;</span><br><span class="line">4、&lt;jsp:param&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="form表单"><a href="#form表单" class="headerlink" title="form表单"></a><strong>form表单</strong></h3><p><strong>form.jsp</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			form.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line"> </span><br><span class="line">		&lt;h2 style=&quot;font-family:arial;color:red;font-size:25px;text-align:center&quot;&gt;登录页面&lt;/h2&gt;</span><br><span class="line"> </span><br><span class="line">		&lt;form action=&quot;result.jsp&quot; method=&quot;get&quot; align=&quot;center&quot;&gt;</span><br><span class="line">			姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; size=&quot;20&quot; value=&quot;&quot; maxlength=&quot;20&quot;&gt;&lt;br/&gt;</span><br><span class="line">	</span><br><span class="line">			密码：&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot; value=&quot;&quot; maxlength=&quot;20&quot;&gt;&lt;br/&gt;</span><br><span class="line"> </span><br><span class="line">			 &lt;!--在爱好前空一个空格，是为了排版好看些--&gt;</span><br><span class="line"> </span><br><span class="line">			&amp;nbsp;爱好：&lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;唱歌&quot;&gt;唱歌</span><br><span class="line">				  &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;足球&quot;&gt;足球</span><br><span class="line">				  &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;篮球&quot;&gt;篮球&lt;br/&gt;&lt;br/&gt;</span><br><span class="line">			</span><br><span class="line">			&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;登录&quot;&gt;</span><br><span class="line">			&lt;input type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;重置&quot;&gt;&lt;br/&gt;</span><br><span class="line">		&lt;/form&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>result.jsp</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			result.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body bgcolor=&quot;ffffff&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">		  request.setCharacterEncoding(&quot;GB2312&quot;);</span><br><span class="line">		  String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">		  name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);</span><br><span class="line">		  String pwd=request.getParameter(&quot;password&quot;);</span><br><span class="line">		  String[] hobby=request.getParameterValues(&quot;hobby&quot;);//注意这里的函数是getParameterValues()接受一个数组的数据</span><br><span class="line">		%&gt;</span><br><span class="line">		  </span><br><span class="line">		&lt;%</span><br><span class="line">			if(!name.equals(&quot;&quot;) &amp;&amp; !pwd.equals(&quot;&quot;))</span><br><span class="line">			&#123;</span><br><span class="line">		%&gt;</span><br><span class="line">				</span><br><span class="line">				您好！登录成功！&lt;br/&gt;</span><br><span class="line">				姓名：&lt;%=name%&gt;&lt;br/&gt;</span><br><span class="line">				密码：&lt;%=pwd%&gt;&lt;br/&gt;</span><br><span class="line">				爱好：&lt;%</span><br><span class="line">						 for(String ho: hobby)</span><br><span class="line">						 &#123;</span><br><span class="line">							ho=new String(ho.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);</span><br><span class="line">							out.print(ho+&quot; &quot;);</span><br><span class="line">						 &#125;</span><br><span class="line">				       %&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			&#125;</span><br><span class="line">			else</span><br><span class="line">			&#123;</span><br><span class="line">		%&gt;</span><br><span class="line">			        请输入姓名或密码！</span><br><span class="line">		&lt;%</span><br><span class="line">			&#125;</span><br><span class="line">		%&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>注意：form表单的提交方式为get，在参数传递时会遇到中文乱码的问题:<br><strong>解决方法</strong>:将接受到的字符串先转换成一个byte数组，再用String构造一个新的编码格式的String，如：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name=request.getParameter(&quot;name&quot;);  </span><br><span class="line"> name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);</span><br></pre></td></tr></table></figure>
+<p>如果form表单的提交方式为post<br><strong>解决办法:</strong> 使用 request.setCharacterEncoding(“GB2312”);设置request的编码方式。    </p>
+<h2 id="ps-为什么会出现中文乱码问题呢？"><a href="#ps-为什么会出现中文乱码问题呢？" class="headerlink" title="ps: 为什么会出现中文乱码问题呢？"></a><strong>ps: 为什么会出现中文乱码问题呢？</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">因为Tomcat服务器默认的系统编码方式为iso-8859-1，你传递参数给服务器时，使用的是默认的iso-8859-1的编码方式，但是服务器向你返回信息时，是按page指令中设置的编码方式，如：&lt;%@page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;GB2312&quot;%&gt;，这样就混合了两种编码方式，所以会出现乱码，所以解决之道就是统一传递和接收的编码方式。</span><br></pre></td></tr></table></figure>
+<h3 id="request-setAttribute-和request-getAttribute"><a href="#request-setAttribute-和request-getAttribute" class="headerlink" title="request.setAttribute()和request.getAttribute()"></a><strong>request.setAttribute()和request.getAttribute()</strong></h3><p><strong>set.jsp</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			set.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			request.setAttribute(&quot;name&quot;,&quot;心雨&quot;);</span><br><span class="line">		%&gt;</span><br><span class="line">		&lt;jsp:forward page=&quot;get.jsp&quot;/&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>get.jsp</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			get.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			out.println(&quot;传递过来的参数是：&quot;+request.getAttribute(&quot;name&quot;));</span><br><span class="line">		%&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>request.setAttribute()和request.getAttribute()是配合<a href="jsp:forward" target="_blank" rel="noopener">jsp:forward</a>或是include指令来实现的。</p>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a herf=&quot;index.jsp?a=a&amp;b=b&amp;c=c&quot;&gt;name&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>href.jsp</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			href.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;a href=&quot;getHerf.jsp?name=心雨&amp;password=123&quot;&gt;传递参数&lt;/a&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>getHref.jsp</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			getHref.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">			name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;gb2312&quot;);</span><br><span class="line">			out.print(&quot;name:&quot;+name);</span><br><span class="line">		%&gt;</span><br><span class="line">		&lt;br/&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			out.print(&quot;password:&quot;+request.getParameter(&quot;password&quot;));</span><br><span class="line">		%&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>这种传递参数的方法和form表单的get方式类似，是通过地址栏传递的参数，其乱码解决方法也和form 的get方式一样。</p>
+<h3 id="第四种"><a href="#第四种" class="headerlink" title="第四种"></a><strong>第四种</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:param&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>param.jsp</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			param.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line"> </span><br><span class="line">		&lt;%request.setCharacterEncoding(&quot;GB2312&quot;);%&gt;</span><br><span class="line"> </span><br><span class="line">		&lt;jsp:forward page=&quot;getParam.jsp&quot;&gt;</span><br><span class="line">			&lt;jsp:param name=&quot;name&quot; value=&quot;心雨&quot;/&gt;</span><br><span class="line">			&lt;jsp:param name=&quot;password&quot; value=&quot;123&quot;/&gt;</span><br><span class="line">		&lt;/jsp:forward&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>getParam.jsp</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			getParam.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">			out.print(&quot;name:&quot;+name);</span><br><span class="line">		%&gt;</span><br><span class="line">		&lt;br/&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			out.print(&quot;password:&quot;+request.getParameter(&quot;password&quot;));</span><br><span class="line">		%&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在form表单的例子中，如果传递方式为post，则只需要在接收参数的页面设置request的编码方式就可以了，即request.setCharacterEncoding(“GB2312”);<br>注意是在接收参数的页面，如果将该句放到form表单里，那么不起作用，仍然是乱码。而在本例中，为了使传递的参数不出现乱码，却是将request.setCharacterEncoding(“GB2312”);放在发送参数的页面中，才会正常显示中文，放在接收参数的页面中，不起作用。<br>也许这就是<a href="jsp:param" target="_blank" rel="noopener">jsp:param</a>和form表单传递参数不同的地方。    </p>
+<h2 id="为什么会有这个不同呢？"><a href="#为什么会有这个不同呢？" class="headerlink" title="为什么会有这个不同呢？"></a>为什么会有这个不同呢？</h2><p>可能是因为form表单中的参数是由客户端传送到服务端上的，需要经过一个request的打包过程，但是<a href="jsp:param" target="_blank" rel="noopener">jsp:param</a>传递的参数本身就是在服务器端的，不需要经历由客户端到服务端这么一个过程，但是服务器里的参数传递是这么回事呢？这个问题，我不知道了！真是知识是一个扩大的圆圈，你知道的越多，那么不知道的就越多！努力吧！</p>
+<h3 id="1-对于-POST-请求："><a href="#1-对于-POST-请求：" class="headerlink" title="1.对于 POST 请求："></a><strong>1.对于 POST 请求：</strong></h3><p> 设置请求的编码方式：request.setCharacterEncoding(“UTF-8”);<br>注意：必须在获取第一个参数之前设置，并且该方式只对 POST 方式有效。</p>
+<h3 id="2-对于-GET-请求："><a href="#2-对于-GET-请求：" class="headerlink" title="2.对于 GET 请求："></a><strong>2.对于 GET 请求：</strong></h3><p> 重新设置 Tomcat 的编码方式，修改 Tomcat 的配置文件:<br>Tomcat根目录/conf/server.xml(修改端口的那一行)<br><img src="https://viabcde.github.io/images/2018-10-10/2018101007.png" alt="duotai"> </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp中四种传递参数的方法"><span class="toc-number">1.</span> <span class="toc-text">jsp中四种传递参数的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#form表单"><span class="toc-number">1.1.</span> <span class="toc-text">form表单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps-为什么会出现中文乱码问题呢？"><span class="toc-number">2.</span> <span class="toc-text">ps: 为什么会出现中文乱码问题呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#request-setAttribute-和request-getAttribute"><span class="toc-number">2.1.</span> <span class="toc-text">request.setAttribute()和request.getAttribute()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超链接"><span class="toc-number">2.2.</span> <span class="toc-text">超链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四种"><span class="toc-number">2.3.</span> <span class="toc-text">第四种</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会有这个不同呢？"><span class="toc-number">3.</span> <span class="toc-text">为什么会有这个不同呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-对于-POST-请求："><span class="toc-number">3.1.</span> <span class="toc-text">1.对于 POST 请求：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-对于-GET-请求："><span class="toc-number">3.2.</span> <span class="toc-text">2.对于 GET 请求：</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

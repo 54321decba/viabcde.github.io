@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Oracle3</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Oracle3</h1>
+        <div class="stuff">
+            <span>十二月 20, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/数据库/">数据库</a><span class="post-tags-list-count">6</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="一、字符函数"><a href="#一、字符函数" class="headerlink" title="一、字符函数"></a><strong>一、字符函数</strong></h3><p>字符函数是oracle中最常用的函数，我们来看看有哪些字符函数：<br>lower(char)：将字符串转化为小写的格式。<br>upper(char)：将字符串转化为大写的格式。<br>length(char)：返回字符串的长度。<br>substr(char, m, n)：截取字符串的子串，n代表取n个字符的意思，不是代表取到第n个<br>replace(char1, search_string, replace_string)<br>instr(C1,C2,I,J) –&gt;判断某字符或字符串是否存在，存在返回出现的位置的索引，否则返回小于1;在一个字符串中搜索指定的字符,返回发现指定的字符的位置;<br>C1 被搜索的字符串<br>C2 希望搜索的字符串<br>I 搜索的开始位置,默认为1<br>J 出现的位置,默认为1   </p>
+<h2 id="问题：将所有员工的名字按小写的方式显示"><a href="#问题：将所有员工的名字按小写的方式显示" class="headerlink" title="问题：将所有员工的名字按小写的方式显示"></a><strong>问题：将所有员工的名字按小写的方式显示</strong></h2><p>SQL&gt; select lower(ename) from emp;   </p>
+<h2 id="问题：将所有员工的名字按大写的方式显示。"><a href="#问题：将所有员工的名字按大写的方式显示。" class="headerlink" title="问题：将所有员工的名字按大写的方式显示。"></a><strong>问题：将所有员工的名字按大写的方式显示。</strong></h2><p>SQL&gt; select upper(ename) from emp;<br><strong>问题：显示正好为5个字符的员工的姓名。</strong><br>SQL&gt; select * from emp where length(ename)=5;<br>问题：显示所有员工姓名的前三个字符。<br>SQL&gt; select substr(ename, 1, 3) from emp;<br>问题：以首字母大写,后面小写的方式显示所有员工的姓名。<br>SQL&gt; select upper(substr(ename,1,1)) || lower(substr(ename,2,length(ename)-1)) from emp;<br>问题：以首字母小写,后面大写的方式显示所有员工的姓名。<br>SQL&gt; select lower(substr(ename,1,1)) || upper(substr(ename,2,length(ename)-1)) from emp;<br>问题：显示所有员工的姓名，用“我是老虎”替换所有“A”<br>SQL&gt; select replace(ename,’A’, ‘我是老虎’) from emp;<br>问题：instr(<code>char1,char2,[,n[,m]]</code>)用法<br>SQL&gt; select instr(‘azhangsanbcd’, ‘zhangsan’) from dual; –返回2<br>SQL&gt; select instr(‘oracle traning’, ‘ra’, 1, 1) instring from dual; –返回2<br>SQL&gt; select instr(‘oracle traning’, ‘ra’, 1, 2) instring from dual; –返回9<br>SQL&gt; select instr(‘oracle traning’, ‘ra’, 1, 3) instring from dual; –返回0，根据条件，由于ra只出现二次，第四个参数3，就是说第3次出现ra的位置，显然第3次是没有再出现了，所以结果返回0。注意空格也算一个字符<br>SQL&gt; select instr(‘abc’,’d’) from dual;  –返回0   </p>
+<h3 id="二、数学函数"><a href="#二、数学函数" class="headerlink" title="二、数学函数"></a><strong>二、数学函数</strong></h3><p>数学函数的输入参数和返回值的数据类型都是数字类型的。数学函数包括cos，cosh，exp，ln, log，sin，sinh，sqrt，tan，tanh，acos，asin，atan，round等<br>我们讲最常用的：<br><code>round(n,[m])</code> 该函数用于执行四舍五入，<br>如果省掉m，则四舍五入到整数。<br>如果m是正数，则四舍五入到小数点的m位后。<br>如果m是负数，则四舍五入到小数点的m位前。<br>eg、SELECT round(23.75123) FROM dual; –返回24<br>SELECT round(23.75123, -1) FROM dual; –返回20<br>SELECT round(27.75123, -1) FROM dual; –返回30<br>SELECT round(23.75123, -3) FROM dual; –返回0<br>SELECT round(23.75123, 1) FROM dual; –返回23.8<br>SELECT round(23.75123, 2) FROM dual; –返回23.75<br>SELECT round(23.75123, 3) FROM dual; –返回23.751<br><code>trunc(n,[m])</code> 该函数用于截取数字。<br>如果省掉m，就截去小数部分，<br>如果m是正数就截取到小数点的m位后，<br>如果m是负数，则截取到小数点的前m位。<br>eg、SELECT trunc(23.75123) FROM dual; –返回23<br>SELECT trunc(23.75123, -1) FROM dual; –返回20<br>SELECT trunc(27.75123, -1) FROM dual; –返回20<br>SELECT trunc(23.75123, -3) FROM dual; –返回0<br>SELECT trunc(23.75123, 1) FROM dual; –返回23.7<br>SELECT trunc(23.75123, 2) FROM dual; –返回23.75<br>SELECT trunc(23.75123, 3) FROM dual; –返回23.751<br>mod(m,n)取余函数<br>eg、select mod(10,2) from dual; –返回0<br>SELECT MOD(10,3) FROM dual; –返回1<br>floor(n) 返回小于或是等于n的最大整数<br>ceil(n) 返回大于或是等于n的最小整数<br>eg、SELECT ceil(24.56) from dual; –返回25<br>SELECT floor(24.56) from dual; –返回24<br>abs(n) 返回数字n的绝对值<br>对数字的处理，在财务系统或银行系统中用的最多，不同的处理方法，对财务报表有不同的结果   </p>
+<h3 id="三、日期函数"><a href="#三、日期函数" class="headerlink" title="三、日期函数"></a><strong>三、日期函数</strong></h3><p>日期函数用于处理date类型的数据。默认情况下日期格式是dd-mon-yy 即“12-7 月-12”<br>(1)sysdate 返回系统时间<br>eg、SQL&gt; select sysdate from dual;<br>(2)oracle add_months函数<br>oracle add_months(time,months)函数可以得到某一时间之前或之后n个月的时间<br>eg、select add_months(sysdate,-6) from dual; –该查询的结果是当前时间半年前的时间<br>select add_months(sysdate,6) from dual; –该查询的结果是当前时间半年后的时间<br>(3)last_day(d)：返回指定日期所在月份的最后一天   </p>
+<h3 id="问题：查找已经入职8个月多的员工"><a href="#问题：查找已经入职8个月多的员工" class="headerlink" title="问题：查找已经入职8个月多的员工"></a><strong>问题：查找已经入职8个月多的员工</strong></h3><p>SQL&gt; select * from emp where sysdate&gt;=add_months(hiredate,8);<br>问题：显示满10年服务年限的员工的姓名和受雇日期。</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; <span class="keyword">select</span> ename, hiredate <span class="keyword">from</span> emp <span class="keyword">where</span> sysdate&gt;=add_months(hiredate,<span class="number">12</span>*<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p>问题：对于每个员工，显示其加入公司的天数。<br>SQL&gt; select floor(sysdate-hiredate) “入职天数”,ename from emp;<br>或者<br>SQL&gt; select trunc(sysdate-hiredate) “入职天数”,ename from emp;<br>问题：找出各月倒数第3天受雇的所有员工。<br>SQL&gt; select hiredate,ename from emp where last_day(hiredate)-2=hiredate;</p>
+<p>四、转换函数<br>转换函数用于将数据类型从一种转为另外一种。在某些情况下，oracle server允许值的数据类型和实际的不一样，这时oracle server会隐含的转化数据类型<br>比如：<br>create table t1(id int);<br>insert into t1 values(‘10’);–这样oracle会自动的将’10’ –&gt;10<br>create table t2 (id varchar2(10));<br>insert into t2 values(1); –这样oracle就会自动的将1 –&gt;’1’；<br>我们要说的是尽管oracle可以进行隐含的数据类型的转换，但是它并不适应所有的情况，为了提高程序的可靠性，我们应该使用转换函数进行转换。</p>
+<p>to_char()函数<br>你可以使用select ename, hiredate, sal from emp where deptno = 10;显示信息，可是，在某些情况下，这个并不能满足你的需求。<br>问题：日期是否可以显示 时/分/秒<br>SQL&gt; select ename, to_char(hiredate, ‘yyyy-mm-dd hh24:mi:ss’) from emp;<br>问题：薪水是否可以显示指定的货币符号<br>SQL&gt;<br>yy：两位数字的年份 2004–&gt;04<br>yyyy：四位数字的年份 2004年<br>mm：两位数字的月份 8 月–&gt;08<br>dd：两位数字的天 30 号–&gt;30<br>hh24： 8点–&gt;20<br>hh12：8点–&gt;08<br>mi、ss–&gt;显示分钟\秒<br>9：显示数字，并忽略前面0<br>0：显示数字，如位数不足，则用0补齐<br>.：在指定位置显示小数点<br>,：在指定位置显示逗号<br>$：在数字前加美元<br>L：在数字前面加本地货币符号<br>C：在数字前面加国际货币符号<br>G：在指定位置显示组分隔符、<br>D：在指定位置显示小数点符号(.)</p>
+<h2 id="问题：显示薪水的时候，把本地货币单位加在前面"><a href="#问题：显示薪水的时候，把本地货币单位加在前面" class="headerlink" title="问题：显示薪水的时候，把本地货币单位加在前面"></a><strong>问题：显示薪水的时候，把本地货币单位加在前面</strong></h2><figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; <span class="built_in">select</span> ename, to_char(hiredate, <span class="string">'yyyy-mm-dd hh24:mi:ss'</span>), to_char(sal,<span class="string">'L99999.99'</span>) <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p>问题：显示1980年入职的所有员工<br>SQL&gt; select <em> from emp where to_char(hiredate, ‘yyyy’)=1980;<br>问题：显示所有12月份入职的员工<br>SQL&gt; select </em> from emp where to_char(hiredate, ‘mm’)=12;</p>
+<p>to_date()函数<br>函数to_date用于将字符串转换成date类型的数据。</p>
+<h2 id="问题：能否按照中国人习惯的方式年—月—日添加日期。"><a href="#问题：能否按照中国人习惯的方式年—月—日添加日期。" class="headerlink" title="问题：能否按照中国人习惯的方式年—月—日添加日期。"></a><strong>问题：能否按照中国人习惯的方式年—月—日添加日期。</strong></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg、<span class="keyword">SELECT</span> <span class="keyword">to_date</span>(<span class="string">'2012-02-18 09:25:30'</span>,<span class="string">'yyyy-mm-dd hh24:mi:ss'</span>) <span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+<p>五、sys_context()系统函数<br>1)terminal：当前会话客户所对应的终端的标示符，如计算机名<br>2)language: 语言<br>3)db_name： 当前数据库名称<br>4)nls_date_format： 当前会话客户所对应的日期格式<br>5)session_user： 当前会话客户所对应的数据库用户名<br>6)current_schema： 当前会话客户所对应的默认方案名<br>7)host： 返回数据库所在主机的名称<br>通过该函数，可以查询一些重要信息，比如你正在使用哪个数据库？<br>select sys_context(‘USERENV’,’db_name’) from dual;<br>注意：USERENV是固定的，不能改的，db_name可以换成其它,<br>eg、select sys_context(‘USERENV’,’language’) from dual;<br>select sys_context(‘USERENV’,’current_schema’) from dual;</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、字符函数"><span class="toc-number">1.</span> <span class="toc-text">一、字符函数</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#问题：将所有员工的名字按小写的方式显示"><span class="toc-number"></span> <span class="toc-text">问题：将所有员工的名字按小写的方式显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题：将所有员工的名字按大写的方式显示。"><span class="toc-number"></span> <span class="toc-text">问题：将所有员工的名字按大写的方式显示。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二、数学函数"><span class="toc-number">1.</span> <span class="toc-text">二、数学函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、日期函数"><span class="toc-number">2.</span> <span class="toc-text">三、日期函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题：查找已经入职8个月多的员工"><span class="toc-number">3.</span> <span class="toc-text">问题：查找已经入职8个月多的员工</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题：显示薪水的时候，把本地货币单位加在前面"><span class="toc-number"></span> <span class="toc-text">问题：显示薪水的时候，把本地货币单位加在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题：能否按照中国人习惯的方式年—月—日添加日期。"><span class="toc-number"></span> <span class="toc-text">问题：能否按照中国人习惯的方式年—月—日添加日期。</span></a>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

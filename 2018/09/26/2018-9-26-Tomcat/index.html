@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Tomcat</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Tomcat</h1>
+        <div class="stuff">
+            <span>九月 26, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Tomcat/">Tomcat</a><span class="post-tags-list-count">1</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>浏览器发出<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 给DNS服务器—-服务器根据浏览器所在地区返回该地区的代理接收浏览器接下来的请求—代理先看自己的缓存有没有对应的资源，没有才请求真正的服务器去数据库里找<br><img src="https://viabcde.github.io/images/2018-09-27/2018092721.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092722.png" alt="enter description here"></p>
+<h3 id="测试某个端口如8080端口是否正在监听"><a href="#测试某个端口如8080端口是否正在监听" class="headerlink" title="测试某个端口如8080端口是否正在监听"></a><strong>测试某个端口如8080端口是否正在监听</strong></h3><p>Telnet localhost 8080 </p>
+<h3 id="查询每个端口号对应的应用程序"><a href="#查询每个端口号对应的应用程序" class="headerlink" title="查询每个端口号对应的应用程序"></a><strong>查询每个端口号对应的应用程序</strong></h3><p>需要下载fport工具</p>
+<h3 id="配置startup-bat"><a href="#配置startup-bat" class="headerlink" title="配置startup.bat"></a><strong>配置startup.bat</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-27/2018092723.png" alt="enter description here"><br>shutdown.bat也一样配置</p>
+<h3 id="在bat文件中如果想要不显示命令-只显示结果"><a href="#在bat文件中如果想要不显示命令-只显示结果" class="headerlink" title="在bat文件中如果想要不显示命令 只显示结果"></a><strong>在bat文件中如果想要不显示命令 只显示结果</strong></h3><p>可以 在每个命令前加@<br>或者在文本最前面加echo off<br><img src="https://viabcde.github.io/images/2018-09-27/2018092724.png" alt="enter description here"></p>
+<h3 id="http-localhost-8080"><a href="#http-localhost-8080" class="headerlink" title="http://localhost:8080/"></a><strong><a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></strong></h3><p>最后的/表示tomcat程序文件目录 中 文件夹ROOT</p>
+<h3 id="配置web的虚拟目录-在server-xmi中"><a href="#配置web的虚拟目录-在server-xmi中" class="headerlink" title="配置web的虚拟目录  在server.xmi中"></a><strong>配置web的虚拟目录  在server.xmi中</strong></h3><p><strong>第一种：</strong><br> 即此时 / 优先指向 F:\javaweb\lession2<br>如果没有 再指向 tomcat程序文件目录 中 文件夹ROOT<br><img src="https://viabcde.github.io/images/2018-09-27/2018092725.png" alt="enter description here"><br>如果 path不为空 则需要在 / 后面加上 相应的 path 的内容 但是访问到的依然是F:\javaweb\lession2下的资源文件  </p>
+<h3 id="打包成war文件"><a href="#打包成war文件" class="headerlink" title="打包成war文件"></a><strong>打包成war文件</strong></h3><p>jar –cvf 自定义名称.war 需要打包的文件路径  </p>
+<h3 id="基于不同的主机名来区分不同站点"><a href="#基于不同的主机名来区分不同站点" class="headerlink" title="基于不同的主机名来区分不同站点"></a><strong>基于不同的主机名来区分不同站点</strong></h3><p>配置虚拟主机 在server.xml<br>如果在各个Host中找不到匹配的主机名 则选择默认的主机名为localhost<br><img src="https://viabcde.github.io/images/2018-09-27/2018092727.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092728.png" alt="enter description here"><br>在输入localhost 表示ip 127.0.0.1  也可以 自定义配置输入 skfla 表127.0.0.1<br>此时使用 skfla也可以访问主机<br><img src="https://viabcde.github.io/images/2018-09-27/2018092729.png" alt="enter description here"></p>
+<h3 id="server-xml中修改端口号"><a href="#server-xml中修改端口号" class="headerlink" title="server.xml中修改端口号"></a><strong>server.xml中修改端口号</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-27/2018092730.png" alt="enter description here"></p>
+<h3 id="基于不同的端口来区分不同站点"><a href="#基于不同的端口来区分不同站点" class="headerlink" title="基于不同的端口来区分不同站点"></a><strong>基于不同的端口来区分不同站点</strong></h3><p>也可以配置另外一个Service元素 改成不同的端口号 来区分不同 </p>
+<h3 id="修改Tomcat端口号"><a href="#修改Tomcat端口号" class="headerlink" title="修改Tomcat端口号"></a><strong>修改Tomcat端口号</strong></h3><p>第一步<br>在tomcat的conf文件夹下找到server.xml文件，<br>第二步<br>打开文件后修改  </p>
+<p>&lt;Connector port = “8080” protocol = “HTTP/1.1”<br>ConnectionTineout = “20000” redirectPort = “8443” /&gt;<br><em>备注</em>：如果修改为默认端口号80则localhost后面可不写端口号。  </p>
+<h3 id="tomcat-有哪几种Connector-运行模式-优化-？"><a href="#tomcat-有哪几种Connector-运行模式-优化-？" class="headerlink" title="tomcat 有哪几种Connector 运行模式(优化)？"></a><strong>tomcat 有哪几种Connector 运行模式(优化)？</strong></h3><p>1.bio(blocking I/O)<br>2.nio(non-blocking I/O)<br>3.apr(Apache Portable Runtime/Apache可移植运行库)<br>相关解释:<br>•bio: 传统的Java I/O操作，同步且阻塞IO。<br>•nio: JDK1.4开始支持，同步阻塞或同步非阻塞IO<br>•aio(nio.2): JDK7开始支持，异步非阻塞IO<br>•apr: Tomcat将以JNI的形式调用Apache HTTP服务器的核心动态链接库来处理文件读取或网络传输操作，从而大大地 提高Tomcat对静态文件的处理性能<br>下面是配置Tomcat运行模式改成是NIO模式，并配置连接池相关参数来进行优化:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">           connectionTimeout=&quot;20000&quot;</span><br><span class="line">           redirectPort=&quot;8443&quot; /&gt;</span><br><span class="line">--&gt;</span><br><span class="line">&lt;!-- protocol 启用 nio模式，(tomcat8默认使用的是nio)(apr模式利用系统级异步io) --&gt;</span><br><span class="line">&lt;!-- minProcessors最小空闲连接线程数--&gt;</span><br><span class="line">&lt;!-- maxProcessors最大连接线程数--&gt;</span><br><span class="line">&lt;!-- acceptCount允许的最大连接数，应大于等于maxProcessors--&gt;</span><br><span class="line">&lt;!-- enableLookups 如果为true,requst.getRemoteHost会执行DNS查找，反向解析ip对应域名或主机名--&gt;</span><br><span class="line">&lt;Connector port=&quot;8080&quot; protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot; </span><br><span class="line">    connectionTimeout=&quot;20000&quot;</span><br><span class="line">    redirectPort=&quot;8443</span><br><span class="line"></span><br><span class="line">    maxThreads=“500” </span><br><span class="line">    minSpareThreads=“100” </span><br><span class="line">    maxSpareThreads=“200”</span><br><span class="line">    acceptCount=&quot;200&quot;</span><br><span class="line">    enableLookups=&quot;false&quot;       </span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Tomcat有几种部署方式"><a href="#Tomcat有几种部署方式" class="headerlink" title="Tomcat有几种部署方式"></a><strong>Tomcat有几种部署方式</strong></h3><p>1.直接把Web项目放在webapps下，Tomcat会自动将其部署<br>2.在server.xml文件上配置<context>节点，设置相关的属性即可<br>3.通过Catalina来进行配置:进入到conf\Catalina\localhost文件下，创建一个xml文件，该文件的名字就是站点的名字。编写XML的方式来进行设置。<br>部署方式第二点：<br>•在其他盘符下创建一个web站点目录，并创建WEB-INF目录和一个html文件。    </context></p>
+<p><img src="https://viabcde.github.io/images/2018-10-10/2018101003.png" alt="enter description
+here"><br>•找到Tomcat目录下/conf/server.xml文件<br><img src="https://viabcde.github.io/images/2018-10-10/2018101004.png" alt="enter description
+here"><br>•在server.xml中的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context path=&quot;/web1&quot; docBase=&quot;D:\web1&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://viabcde.github.io/images/2018-10-10/2018101005.png" alt="enter description
+here"><br>•访问配置好的web站点<br><img src="https://viabcde.github.io/images/2018-10-10/2018101006.png" alt="enter description
+here"><br><strong>部署方式第三点：</strong><br>•进入到conf\Catalina\localhost文件下，创建一个xml文件，该文件的名字就是站点的名字。<br>•xml文件的代码如下，docBase是你web站点的绝对路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; </span><br><span class="line">&lt;Context </span><br><span class="line">    docBase=&quot;D:\web1&quot; </span><br><span class="line">    reloadable=&quot;true&quot;&gt; </span><br><span class="line">&lt;/Context&gt;</span><br></pre></td></tr></table></figure></p>
+<p>•访问web站点下的html资源  </p>
+<h3 id="tomcat容器是如何创建servlet类实例？用到了什么原理"><a href="#tomcat容器是如何创建servlet类实例？用到了什么原理" class="headerlink" title="tomcat容器是如何创建servlet类实例？用到了什么原理"></a><strong>tomcat容器是如何创建servlet类实例？用到了什么原理</strong></h3><p>当容器启动时，会读取在webapps目录下所有的web应用中的web.xml文件，然后对 xml文件进行解析，并读取servlet注册信息。然后，将每个应用中注册的servlet类都进行加载，并通过 反射的方式实例化。（有时候也是在第一次请求时实例化）<br>在servlet注册时加上<load-on-startup>1</load-on-startup>如果为正数，则在一开始就实例化，如果不写或为负数，则第一次请求实例化。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试某个端口如8080端口是否正在监听"><span class="toc-number">1.</span> <span class="toc-text">测试某个端口如8080端口是否正在监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询每个端口号对应的应用程序"><span class="toc-number">2.</span> <span class="toc-text">查询每个端口号对应的应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置startup-bat"><span class="toc-number">3.</span> <span class="toc-text">配置startup.bat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在bat文件中如果想要不显示命令-只显示结果"><span class="toc-number">4.</span> <span class="toc-text">在bat文件中如果想要不显示命令 只显示结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-localhost-8080"><span class="toc-number">5.</span> <span class="toc-text">http://localhost:8080/</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置web的虚拟目录-在server-xmi中"><span class="toc-number">6.</span> <span class="toc-text">配置web的虚拟目录  在server.xmi中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打包成war文件"><span class="toc-number">7.</span> <span class="toc-text">打包成war文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于不同的主机名来区分不同站点"><span class="toc-number">8.</span> <span class="toc-text">基于不同的主机名来区分不同站点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server-xml中修改端口号"><span class="toc-number">9.</span> <span class="toc-text">server.xml中修改端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于不同的端口来区分不同站点"><span class="toc-number">10.</span> <span class="toc-text">基于不同的端口来区分不同站点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改Tomcat端口号"><span class="toc-number">11.</span> <span class="toc-text">修改Tomcat端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tomcat-有哪几种Connector-运行模式-优化-？"><span class="toc-number">12.</span> <span class="toc-text">tomcat 有哪几种Connector 运行模式(优化)？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat有几种部署方式"><span class="toc-number">13.</span> <span class="toc-text">Tomcat有几种部署方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tomcat容器是如何创建servlet类实例？用到了什么原理"><span class="toc-number">14.</span> <span class="toc-text">tomcat容器是如何创建servlet类实例？用到了什么原理</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

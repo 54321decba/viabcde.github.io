@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Mysql</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Mysql</h1>
+        <div class="stuff">
+            <span>十一月 14, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/web基础/">web基础</a><span class="post-tags-list-count">5</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="传汉字到mysql数据库，显示问号的解决方法"><a href="#传汉字到mysql数据库，显示问号的解决方法" class="headerlink" title="传汉字到mysql数据库，显示问号的解决方法"></a><strong>传汉字到mysql数据库，显示问号的解决方法</strong></h3><p>1、检查jsp显示页面，检查jsp开头有没有设置UTF-8的字符集<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2、检查后台逻辑代<br>根据前台展示页面，找到后台代码，<br>一般设置编码有如下几种方式：<br>设置request<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(&quot;UTF-8&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>设置response<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">response.setCharacterEncoding(&quot;UTF-8&quot;);</span><br><span class="line">response.setContentType(&quot;text/html;charset=UTF-8&quot;);</span><br><span class="line">response.setHeader(&quot;Content-Type&quot;,&quot;text/html;charset=UTF-8&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>3、检查数据库字符集<br>mysql中可以设置数据库字符集，<br><img src="https://viabcde.github.io/images/2018-10-10/2018101001.png" alt="duotai"><br>也可以设置表的字符集<br><img src="https://viabcde.github.io/images/2018-10-10/2018101002.png" alt="duotai"><br>4、变更数据库URL<br>在连接数据库的URL属性中添加useUnicode=true&amp;characterEncoding=utf8<br>我直接添加的characterEncoding=utf8<br>最终解决了我的中文乱码问题</p>
+<h3 id="mysql启动正常但是访问时还是报错：-ERROR-2003-HY000-Can’t-connect-to-MySQL-server-on-‘localhost’-10061"><a href="#mysql启动正常但是访问时还是报错：-ERROR-2003-HY000-Can’t-connect-to-MySQL-server-on-‘localhost’-10061" class="headerlink" title="mysql启动正常但是访问时还是报错： ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061"></a><strong>mysql启动正常但是访问时还是报错： ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061</strong></h3><p>mysql以管理员身份在cmd命令行启动<br>net start mysql —&gt;启动成功<br>右键计算机 服务 启动 mysql 成功<br>但是就是在 执行 mysql -uroot -p 是报错，错误如下<br>报错：win7 ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061<br>后来发现原来是自己host文件里面，localhost 没有指向：127.0.0.1<br>修改host文件，mysql成功连接  </p>
+<h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a><strong>mysql</strong></h3><p>net start mysql<br>cmd 切换到指定路径：比如切换到D盘  直接输入D：即可 然后输入指定目录如：D:\java\mysql-5.7.24-winx64\bin<br>cd mysql bin目录(C:\Program Files\MySQL\MySQL Server 5.1\bin)<br>mysql -u root -p<br>输入密码<br>Source e:/library.sql;<br>Show databases;<br>Use library;<br>Show tables;   </p>
+<h3 id="查看数据库的隔离级别"><a href="#查看数据库的隔离级别" class="headerlink" title="查看数据库的隔离级别"></a><strong>查看数据库的隔离级别</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global variables like &apos;tx_isolation&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="AUTO-INCREMENT-42"><a href="#AUTO-INCREMENT-42" class="headerlink" title="AUTO_INCREMENT=42"></a><strong>AUTO_INCREMENT=42</strong></h3><p>指定序号的初始值为42，即从42开始递增</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#传汉字到mysql数据库，显示问号的解决方法"><span class="toc-number">1.</span> <span class="toc-text">传汉字到mysql数据库，显示问号的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql启动正常但是访问时还是报错：-ERROR-2003-HY000-Can’t-connect-to-MySQL-server-on-‘localhost’-10061"><span class="toc-number">2.</span> <span class="toc-text">mysql启动正常但是访问时还是报错： ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql"><span class="toc-number">3.</span> <span class="toc-text">mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看数据库的隔离级别"><span class="toc-number">4.</span> <span class="toc-text">查看数据库的隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AUTO-INCREMENT-42"><span class="toc-number">5.</span> <span class="toc-text">AUTO_INCREMENT=42</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

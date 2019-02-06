@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Hadoop-修改Linux的ip地址</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Hadoop-修改Linux的ip地址</h1>
+        <div class="stuff">
+            <span>十一月 19, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hadoop/">hadoop</a><span class="post-tags-list-count">5</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>修改ifcfg-eth0文件即可<br>该文件路径：/etc/sysconfig/network-scripts/ifcfg-eth0  </p>
+<h3 id="方法一：图形化设置IP"><a href="#方法一：图形化设置IP" class="headerlink" title="方法一：图形化设置IP"></a><strong>方法一：图形化设置IP</strong></h3><p>①auto eth0代表第一张物理网卡，如果是eth1就代表第二张网卡<br>点击并编辑它<br><img src="https://viabcde.github.io/images/201812/1.png" alt="enter descriptionhere"><br>②修改IPv4的设置 method（网卡配置方式选择manual即手动配置的意思）<br>添加IP192.168.0.202  子网掩码：255.255.255.0 网关：192.168.0.1<br><img src="https://viabcde.github.io/images/201812/2.png" alt="enter descriptionhere"><br>IP地址分为网络号和主机号2个域的原因：IP数据包在网络传输时，是基于网络而非基于主机，这样即简化了路由表，有能快速定位目标主机所在网络<br>子网掩码的作用：外部网络号通过与子网掩码进行与运算，可以判断与本机网络号是否处于同一个网络<br>网关：192.168.0.1 外部的网络IP<br>本机IP:192.168.0.202,即192.168.0.1的子网，该子网内的主机IP通过与子网掩码与运算来判断是否可以直接相连<br><img src="https://viabcde.github.io/images/201812/3.png" alt="enter descriptionhere"> </p>
+<h3 id="方法二：修改配置文件方式设置IP"><a href="#方法二：修改配置文件方式设置IP" class="headerlink" title="方法二：修改配置文件方式设置IP"></a><strong>方法二：修改配置文件方式设置IP</strong></h3><p>打开终端<br><img src="https://viabcde.github.io/images/201812/4.png" alt="enter descriptionhere"><br>cd /etc/sysconfig/network-scripts<br><img src="https://viabcde.github.io/images/201812/5.png" alt="enter descriptionhere"><br>vim ifcfg-eth0<br><img src="https://viabcde.github.io/images/201812/6.png" alt="enter descriptionhere"><br>修改hwaddr(硬件物理地址)<br>ipaddr(IP地址)<br>netmask(子网掩码)<br>gateway(网关)<br><img src="https://viabcde.github.io/images/201812/7.png" alt="enter descriptionhere"> </p>
+<h3 id="查看配置结果"><a href="#查看配置结果" class="headerlink" title="查看配置结果"></a><strong>查看配置结果</strong></h3><p>ifconfig<br><img src="https://viabcde.github.io/images/201812/8.png" alt="enter descriptionhere"> </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：图形化设置IP"><span class="toc-number">1.</span> <span class="toc-text">方法一：图形化设置IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：修改配置文件方式设置IP"><span class="toc-number">2.</span> <span class="toc-text">方法二：修改配置文件方式设置IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看配置结果"><span class="toc-number">3.</span> <span class="toc-text">查看配置结果</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

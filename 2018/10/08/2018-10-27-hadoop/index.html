@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Hadoop</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Hadoop</h1>
+        <div class="stuff">
+            <span>十月 08, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hadoop/">hadoop</a><span class="post-tags-list-count">5</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><img src="https://viabcde.github.io/images/2018-10-08/2018100801.png" alt="enter description here"><br>文件的每一行是一个键值对 ：<br>第一行从0开始 hello a共占7个，再加回车也占1位，所以是8位；<br>所以第二行从8开始，以此类推</p>
+<h3 id="ETL"><a href="#ETL" class="headerlink" title="ETL"></a><strong>ETL</strong></h3><p>数据从来源端经过抽取(extract)、交互转换(transform)、加载(load)至目的端的过程</p>
+<h3 id="hadoop生态圈"><a href="#hadoop生态圈" class="headerlink" title="hadoop生态圈"></a><strong>hadoop生态圈</strong></h3><p><img src="https://viabcde.github.io/images/2018-10-08/2018100802.png" alt="enter description here">  </p>
+<h3 id="一次性启动hadoop所有服务"><a href="#一次性启动hadoop所有服务" class="headerlink" title="一次性启动hadoop所有服务"></a><strong>一次性启动hadoop所有服务</strong></h3><p>start-all.sh</p>
+<h3 id="启动HDFS系统"><a href="#启动HDFS系统" class="headerlink" title="启动HDFS系统"></a><strong>启动HDFS系统</strong></h3><p>start-dfs.sh</p>
+<h3 id="查看HDFS系统是否启动"><a href="#查看HDFS系统是否启动" class="headerlink" title="查看HDFS系统是否启动"></a><strong>查看HDFS系统是否启动</strong></h3><p>jps</p>
+<h3 id="查看HDFS-shell命令的解释"><a href="#查看HDFS-shell命令的解释" class="headerlink" title="查看HDFS shell命令的解释"></a><strong>查看HDFS shell命令的解释</strong></h3><p>hdfs dfs -help</p>
+<h3 id="在本地simple文件夹下新建word-txt"><a href="#在本地simple文件夹下新建word-txt" class="headerlink" title="在本地simple文件夹下新建word.txt"></a><strong>在本地simple文件夹下新建word.txt</strong></h3><p>hdfs dfs -put /simple/word.txt/</p>
+<h3 id="查看hdfs目录下的文件"><a href="#查看hdfs目录下的文件" class="headerlink" title="查看hdfs目录下的文件"></a><strong>查看hdfs目录下的文件</strong></h3><p>hdfs dfs -cat /word.txt</p>
+<h3 id="把hdfs根目录下的words-txt下载到本地simple文件夹下"><a href="#把hdfs根目录下的words-txt下载到本地simple文件夹下" class="headerlink" title="把hdfs根目录下的words.txt下载到本地simple文件夹下"></a><strong>把hdfs根目录下的words.txt下载到本地simple文件夹下</strong></h3><p>hdfs dfs -get /words.txt   /simple/wordss.txt</p>
+<h3 id="把hdfs的文件移动到指定的hdfs位置"><a href="#把hdfs的文件移动到指定的hdfs位置" class="headerlink" title="把hdfs的文件移动到指定的hdfs位置"></a><strong>把hdfs的文件移动到指定的hdfs位置</strong></h3><p>hdfs dfs -mv  /word.txt   wordscp.txt</p>
+<h3 id="查看hdfs目录下的文件-1"><a href="#查看hdfs目录下的文件-1" class="headerlink" title="查看hdfs目录下的文件"></a><strong>查看hdfs目录下的文件</strong></h3><p>hdfs dfs -ls /</p>
+<h3 id="查看dfs管理命令注释"><a href="#查看dfs管理命令注释" class="headerlink" title="查看dfs管理命令注释"></a><strong>查看dfs管理命令注释</strong></h3><p>hadoop dfsadmin -help</p>
+<h3 id="访问某一文件如tmp受限"><a href="#访问某一文件如tmp受限" class="headerlink" title="访问某一文件如tmp受限"></a><strong>访问某一文件如tmp受限</strong></h3><p>解决方法：Hadoopdfs chmod -R 755   /tmp</p>
+<h2 id="Linux-环境下安装Eclipse"><a href="#Linux-环境下安装Eclipse" class="headerlink" title="Linux 环境下安装Eclipse"></a><strong>Linux 环境下安装Eclipse</strong></h2><h3 id="上传-eclipse-java-mars-2-llinux-gtk-X86-64-tar-gz到目录-soft下"><a href="#上传-eclipse-java-mars-2-llinux-gtk-X86-64-tar-gz到目录-soft下" class="headerlink" title="上传 eclipse-java-mars-2-llinux-gtk-X86_64.tar.gz到目录/soft下"></a><strong>上传 eclipse-java-mars-2-llinux-gtk-X86_64.tar.gz到目录/soft下</strong></h3><h3 id="解压到-usr"><a href="#解压到-usr" class="headerlink" title="解压到/usr"></a><strong>解压到/usr</strong></h3><p>tar -zxvf eclipse-java-mars-2-linux-gtk-X86_64.tar.gz   -C/usr</p>
+<p>##</p>
+<h3 id="进入hadoop目录"><a href="#进入hadoop目录" class="headerlink" title="进入hadoop目录"></a><strong>进入hadoop目录</strong></h3><p>cd $HADOOP_HOME/share/hadoop/hdfs</p>
+<h3 id="拷贝jar到hadoop工程的lib下"><a href="#拷贝jar到hadoop工程的lib下" class="headerlink" title="拷贝jar到hadoop工程的lib下"></a><strong>拷贝jar到hadoop工程的lib下</strong></h3><p>cp hadoop-hdfs-2.4.1.jar   /root/workspace/hadoop/lib/</p>
+<h3 id="将hadoop目录lib下的jar拷贝到java-工程的lib下"><a href="#将hadoop目录lib下的jar拷贝到java-工程的lib下" class="headerlink" title="将hadoop目录lib下的jar拷贝到java 工程的lib下"></a><strong>将hadoop目录lib下的jar拷贝到java 工程的lib下</strong></h3><p>cd $HADOOP_HOME/share/hadoop/hdfs/lib/<br>cp /root/workspace/hadoop/lib/</p>
+<h3 id="查看导入的jar"><a href="#查看导入的jar" class="headerlink" title="查看导入的jar"></a><strong>查看导入的jar</strong></h3><p>ls /root/workspace/hadoop/lib/</p>
+<h3 id="查看hadoop副本数量"><a href="#查看hadoop副本数量" class="headerlink" title="查看hadoop副本数量"></a><strong>查看hadoop副本数量</strong></h3><p>cd /simple/hadoop-2.4.1/etc/hadoop<br>cat hdfs-site.xml</p>
+<h3 id="上传大文件，将目录-soft下的jdk7u79-linux-x64-tar-gz上传到hdfs目录下"><a href="#上传大文件，将目录-soft下的jdk7u79-linux-x64-tar-gz上传到hdfs目录下" class="headerlink" title="上传大文件，将目录/soft下的jdk7u79-linux-x64.tar.gz上传到hdfs目录下"></a><strong>上传大文件，将目录/soft下的jdk7u79-linux-x64.tar.gz上传到hdfs目录下</strong></h3><p>hadoop fs  -put/soft/jdk7u79-linux-x64.tar.gz  /<br>查看是否上传成功：hadoop fs -ls  /</p>
+<h3 id="查看hadoop-dataNode信息"><a href="#查看hadoop-dataNode信息" class="headerlink" title="查看hadoop dataNode信息"></a><strong>查看hadoop dataNode信息</strong></h3><p>cd /simple/hadoop-2.4.1/hdfs/data/current/BP*/current/finalized<br>ls -lrt<br><img src="https://viabcde.github.io/images/201811/20181110.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/201811/20181111.png" alt="enter description here">  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ETL"><span class="toc-number">1.</span> <span class="toc-text">ETL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hadoop生态圈"><span class="toc-number">2.</span> <span class="toc-text">hadoop生态圈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一次性启动hadoop所有服务"><span class="toc-number">3.</span> <span class="toc-text">一次性启动hadoop所有服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动HDFS系统"><span class="toc-number">4.</span> <span class="toc-text">启动HDFS系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看HDFS系统是否启动"><span class="toc-number">5.</span> <span class="toc-text">查看HDFS系统是否启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看HDFS-shell命令的解释"><span class="toc-number">6.</span> <span class="toc-text">查看HDFS shell命令的解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在本地simple文件夹下新建word-txt"><span class="toc-number">7.</span> <span class="toc-text">在本地simple文件夹下新建word.txt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看hdfs目录下的文件"><span class="toc-number">8.</span> <span class="toc-text">查看hdfs目录下的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把hdfs根目录下的words-txt下载到本地simple文件夹下"><span class="toc-number">9.</span> <span class="toc-text">把hdfs根目录下的words.txt下载到本地simple文件夹下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把hdfs的文件移动到指定的hdfs位置"><span class="toc-number">10.</span> <span class="toc-text">把hdfs的文件移动到指定的hdfs位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看hdfs目录下的文件-1"><span class="toc-number">11.</span> <span class="toc-text">查看hdfs目录下的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看dfs管理命令注释"><span class="toc-number">12.</span> <span class="toc-text">查看dfs管理命令注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问某一文件如tmp受限"><span class="toc-number">13.</span> <span class="toc-text">访问某一文件如tmp受限</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-环境下安装Eclipse"><span class="toc-number"></span> <span class="toc-text">Linux 环境下安装Eclipse</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#上传-eclipse-java-mars-2-llinux-gtk-X86-64-tar-gz到目录-soft下"><span class="toc-number">1.</span> <span class="toc-text">上传 eclipse-java-mars-2-llinux-gtk-X86_64.tar.gz到目录/soft下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解压到-usr"><span class="toc-number">2.</span> <span class="toc-text">解压到/usr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入hadoop目录"><span class="toc-number">3.</span> <span class="toc-text">进入hadoop目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝jar到hadoop工程的lib下"><span class="toc-number">4.</span> <span class="toc-text">拷贝jar到hadoop工程的lib下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将hadoop目录lib下的jar拷贝到java-工程的lib下"><span class="toc-number">5.</span> <span class="toc-text">将hadoop目录lib下的jar拷贝到java 工程的lib下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看导入的jar"><span class="toc-number">6.</span> <span class="toc-text">查看导入的jar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看hadoop副本数量"><span class="toc-number">7.</span> <span class="toc-text">查看hadoop副本数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传大文件，将目录-soft下的jdk7u79-linux-x64-tar-gz上传到hdfs目录下"><span class="toc-number">8.</span> <span class="toc-text">上传大文件，将目录/soft下的jdk7u79-linux-x64.tar.gz上传到hdfs目录下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看hadoop-dataNode信息"><span class="toc-number">9.</span> <span class="toc-text">查看hadoop dataNode信息</span></a></li></ol>
+        </li></div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

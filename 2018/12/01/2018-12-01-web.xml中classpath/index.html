@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">web.xml中classpath:和classpath*</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">web.xml中classpath:和classpath*</h1>
+        <div class="stuff">
+            <span>十二月 01, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/配置文件/">配置文件</a><span class="post-tags-list-count">9</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><code>classpath：</code>只会到你的class路径中查找找文件;<br><code>classpath*：</code>不仅包含class路径，还包括jar文件中(class路径)进行查找.<br><strong>示例</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;  </span><br><span class="line">    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;  </span><br><span class="line">    &lt;param-value&gt;classpath*:applicationContext.xml,  </span><br><span class="line">        classpath*:app-datasource.xml,  </span><br><span class="line">        classpath*:app-memcached.xml,  </span><br><span class="line">        classpath*:app-ibatis.xml,  </span><br><span class="line">        classpath*:app-rest.xml  </span><br><span class="line">    &lt;/param-value&gt;  </span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>不同存放位置的配置：</strong><br><strong>1：src下面</strong><br>需要在web.xml中定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;  </span><br><span class="line">&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;  </span><br><span class="line">&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;  </span><br><span class="line">&lt; /context-param&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>2：WEB-INF下面</strong><br>需要在web.xml中定义如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;  </span><br><span class="line">&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;  </span><br><span class="line">&lt;param-value&gt;WEB-INF/applicationContext*.xml&lt;/param-value&gt;  </span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+<p>这些src目录下的配置文件会和class文件一样，在部署到tomcat后自动copy到应用的 classes目录下<br>spring的 配置文件<strong>在启动时</strong>，加载的是web-info目录下的applicationContext.xml, <strong>运行时</strong>使用的是web-info/classes目录下的applicationContext.xml。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;   </span><br><span class="line">&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;   </span><br><span class="line">&lt;param-value&gt;/WEB-INF/classes/applicationContext.xml&lt;/param-value&gt;   </span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>多个配置文件的加载</strong>   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;   </span><br><span class="line">&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;   </span><br><span class="line">&lt;param-value&gt;   </span><br><span class="line">classpath*:conf/spring/applicationContext_core*.xml,   </span><br><span class="line">classpath*:conf/spring/applicationContext_dict*.xml,   </span><br><span class="line">classpath*:conf/spring/applicationContext_hibernate.xml,   </span><br><span class="line">classpath*:conf/spring/applicationContext_staff*.xml,   </span><br><span class="line">classpath*:conf/spring/applicationContext_security.xml   </span><br><span class="line">classpath*:conf/spring/applicationContext_modules*.xml   </span><br><span class="line">classpath*:conf/spring/applicationContext_cti*.xml   </span><br><span class="line">classpath*:conf/spring/applicationContext_apm*.xml   </span><br><span class="line">&lt;/param-value&gt;   </span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>contextConfigLocation 参数</strong>定义了要装入的 Spring 配置文件。<br>与Spring相关的配置文件必须要以”applicationContext-“开头<br>在web.xml中的配置如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;   </span><br><span class="line">&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;   </span><br><span class="line">&lt;param-value&gt;classpath*:**/applicationContext-*.xml&lt;/param-value&gt;   </span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>建议配置如下，在同一目录下</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;   </span><br><span class="line">&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;   </span><br><span class="line">&lt;param-value&gt;classpath:/spring/applicationContext-*.xml&lt;/param-value&gt;   </span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">异常</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">异常</h1>
+        <div class="stuff">
+            <span>十一月 12, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java基础/">java基础</a><span class="post-tags-list-count">22</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a><strong>异常</strong></h3><p>异常分为ERROR和Exception<br>Error 环境问题 计算机问题<br>Exceprion包括运行时异常（数组越界等）和编译异常（语法错误）<br>运行异常 如IOException    编译异常 语法错误<br><strong>除了虚拟机给我们抛出的异常外，有时还需要程序员自己主动抛异常</strong><br>如在一个用户交互的环境下，想知道是哪个用户的输入导致了异常，这个时候系统产生的异常堆栈信息就不能满足我们的要求了，而这个信息在当前类的一个字段中，这时候我们就要主动捕获然后打印出我们想要的。</p>
+<h3 id="解决异常的常用方法思路"><a href="#解决异常的常用方法思路" class="headerlink" title="解决异常的常用方法思路"></a><strong>解决异常的常用方法思路</strong></h3><p>1.写个再试执行一次的代码<br>2.修饰错误页面为友好的错误提示<br>3.用try/catch捕获手工错误的异常<br> <strong>1.对于偶发异常 使用重复尝试</strong><br>例如：当前Socket连接不可用（长时间不用被服务器主动断开，或者网络抖动导致的断开），那么我们捕获这个异常，然后重新建立一个连接来发送。<br>这是最基本的解决方法，再高级一点的就是设置一个重复次数，当出现异常的时候重复发送指定的次数。<br>本质上并没有解决异常，而是解决了连接断开的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//有一个连接中的socket</span><br><span class="line">Socket socket=...</span><br><span class="line">//要发送的数据</span><br><span class="line">String data=&quot;&quot;;</span><br><span class="line">try&#123;</span><br><span class="line">    socket.write(data);</span><br><span class="line">&#125;catch (Excetption e)&#123;</span><br><span class="line">    //打印日志，并重连Socket</span><br><span class="line">    socket=new Socket(host,port);</span><br><span class="line">    socket.write(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-不想让用户看到堆栈-影响用户体验"><a href="#2-不想让用户看到堆栈-影响用户体验" class="headerlink" title="2.不想让用户看到堆栈 影响用户体验"></a><strong>2.不想让用户看到堆栈 影响用户体验</strong></h3><p>用一个最大的try catch包住一个个方法，当出现异常的时候跳转到友好的错误页面。<br>本质上也没有解决异常，而是用try/catch吞掉了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public String method(String param)&#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    //逻辑处理</span><br><span class="line">  &#125; catch (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    //跳转到错误页面</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="对于一定不会出现的异常"><a href="#对于一定不会出现的异常" class="headerlink" title="对于一定不会出现的异常"></a><strong>对于一定不会出现的异常</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import java.io.UnsupportedEncodingException;</span><br><span class="line">public class Utils &#123;</span><br><span class="line">  public static String utf8(byte[] bytes) throws UnsupportedEncodingException&#123;</span><br><span class="line">    return new String(bytes,&quot;UTF-8&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  public static byte[] utf8(String str) throws UnsupportedEncodingException&#123;</span><br><span class="line">    return str.getBytes(&quot;UTF-8&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就使用try/catch吞了，并打印异常信息，因为可能出现人为输入错误<br>修改如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static String utf8(byte[] bytes)&#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    return new String(bytes,&quot;UFO-8&quot;);</span><br><span class="line">  &#125; catch (UnsupportedEncodingException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">  return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#异常"><span class="toc-number">1.</span> <span class="toc-text">异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决异常的常用方法思路"><span class="toc-number">2.</span> <span class="toc-text">解决异常的常用方法思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-不想让用户看到堆栈-影响用户体验"><span class="toc-number">3.</span> <span class="toc-text">2.不想让用户看到堆栈 影响用户体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对于一定不会出现的异常"><span class="toc-number">4.</span> <span class="toc-text">对于一定不会出现的异常</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

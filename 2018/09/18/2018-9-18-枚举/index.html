@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>廖锡洪</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="viabcde,"> 
+    
+    <meta name="author" content="viacbde"> 
+    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">枚举</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">枚举</h1>
+        <div class="stuff">
+            <span>九月 18, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java基础/">java基础</a><span class="post-tags-list-count">22</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a><strong>枚举</strong></h3><p><strong>直观，不容易出错，提高代码可读性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">package com.ljq.test;</span><br><span class="line">/**</span><br><span class="line"> * 枚举用法详解</span><br><span class="line"> * @author jiqinlin</span><br><span class="line"> */</span><br><span class="line">public class TestEnum &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 普通枚举</span><br><span class="line">     * @author jiqinlin</span><br><span class="line">     */</span><br><span class="line">    public enum ColorEnum &#123;</span><br><span class="line">        red, green, yellow, blue;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 枚举像普通的类一样可以添加属性和方法，可以为它添加静态和非静态的属性或方法</span><br><span class="line">     * @author jiqinlin</span><br><span class="line">     */</span><br><span class="line">    public enum SeasonEnum &#123;</span><br><span class="line">        //注：枚举写在最前面，否则编译出错</span><br><span class="line">        spring, summer, autumn, winter;</span><br><span class="line">        private final static String position = &quot;test&quot;;</span><br><span class="line">        public static SeasonEnum getSeason() &#123;</span><br><span class="line">            if (&quot;test&quot;.equals(position))</span><br><span class="line">                return spring;</span><br><span class="line">            else</span><br><span class="line">                return winter;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">    /**</span><br><span class="line">     * 性别</span><br><span class="line">     * 实现带有构造器的枚举</span><br><span class="line">     * @author jiqinlin</span><br><span class="line">     */</span><br><span class="line">    public enum Gender&#123;</span><br><span class="line">        //通过括号赋值,而且必须带有一个参构造器和一个属性跟方法，否则编译出错</span><br><span class="line">        //赋值必须都赋值或都不赋值，不能一部分赋值一部分不赋值；如果不赋值则不能写构造器，赋值编译也出错</span><br><span class="line">        MAN(&quot;MAN&quot;), WOMEN(&quot;WOMEN&quot;);        </span><br><span class="line">        private final String value;</span><br><span class="line">        //构造器默认也只能是private, 从而保证构造函数只能在内部使用</span><br><span class="line">        Gender(String value) &#123;</span><br><span class="line">            this.value = value;</span><br><span class="line">        &#125;        </span><br><span class="line">        public String getValue() &#123;</span><br><span class="line">            return value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">   /**</span><br><span class="line">    * 订单状态</span><br><span class="line">    * 实现带有抽象方法的枚举</span><br><span class="line">    * @author jiqinlin</span><br><span class="line">    */</span><br><span class="line">    public enum OrderState &#123;</span><br><span class="line">        /** 已取消 */</span><br><span class="line">        CANCEL &#123;public String getName()&#123;return &quot;已取消&quot;;&#125;&#125;,</span><br><span class="line">        /** 待审核 */</span><br><span class="line">        WAITCONFIRM &#123;public String getName()&#123;return &quot;待审核&quot;;&#125;&#125;,</span><br><span class="line">        /** 等待付款 */</span><br><span class="line">        WAITPAYMENT &#123;public String getName()&#123;return &quot;等待付款&quot;;&#125;&#125;,</span><br><span class="line">        /** 正在配货 */</span><br><span class="line">        ADMEASUREPRODUCT &#123;public String getName()&#123;return &quot;正在配货&quot;;&#125;&#125;,</span><br><span class="line">        /** 等待发货 */</span><br><span class="line">        WAITDELIVER &#123;public String getName()&#123;return &quot;等待发货&quot;;&#125;&#125;,</span><br><span class="line">        /** 已发货 */</span><br><span class="line">        DELIVERED &#123;public String getName()&#123;return &quot;已发货&quot;;&#125;&#125;,</span><br><span class="line">        /** 已收货 */</span><br><span class="line">        RECEIVED &#123;public String getName()&#123;return &quot;已收货&quot;;&#125;&#125;;      </span><br><span class="line">        public abstract String getName();</span><br><span class="line">    &#125;    </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //枚举是一种类型，用于定义变量，以限制变量的赋值；赋值时通过“枚举名.值”取得枚举中的值</span><br><span class="line">        ColorEnum colorEnum = ColorEnum.blue;</span><br><span class="line">        switch (colorEnum) &#123;</span><br><span class="line">        case red:</span><br><span class="line">            System.out.println(&quot;color is red&quot;);</span><br><span class="line">            break;</span><br><span class="line">        case green:</span><br><span class="line">            System.out.println(&quot;color is green&quot;);</span><br><span class="line">            break;</span><br><span class="line">        case yellow:</span><br><span class="line">            System.out.println(&quot;color is yellow&quot;);</span><br><span class="line">            break;</span><br><span class="line">        case blue:</span><br><span class="line">            System.out.println(&quot;color is blue&quot;);</span><br><span class="line">            break;</span><br><span class="line">        &#125;        </span><br><span class="line">        //遍历枚举</span><br><span class="line">        System.out.println(&quot;遍历ColorEnum枚举中的值&quot;);</span><br><span class="line">        for(ColorEnum color : ColorEnum.values())&#123;</span><br><span class="line">            System.out.println(color);</span><br><span class="line">        &#125;        </span><br><span class="line">        //获取枚举的个数</span><br><span class="line">        System.out.println(&quot;ColorEnum枚举中的值有&quot;+ColorEnum.values().length+&quot;个&quot;);</span><br><span class="line">        //获取枚举的索引位置，默认从0开始</span><br><span class="line">        System.out.println(ColorEnum.red.ordinal());//0</span><br><span class="line">        System.out.println(ColorEnum.green.ordinal());//1</span><br><span class="line">        System.out.println(ColorEnum.yellow.ordinal());//2</span><br><span class="line">        System.out.println(ColorEnum.blue.ordinal());//3        </span><br><span class="line">        //枚举默认实现了java.lang.Comparable接口</span><br><span class="line">        System.out.println(ColorEnum.red.compareTo(ColorEnum.green));//-1        </span><br><span class="line">        //--------------------------</span><br><span class="line">        System.out.println(&quot;===========&quot;);</span><br><span class="line">        System.err.println(&quot;季节为&quot; + SeasonEnum.getSeason());                </span><br><span class="line">        //--------------</span><br><span class="line">        System.out.println(&quot;===========&quot;);</span><br><span class="line">        for(Gender gender : Gender.values())&#123;</span><br><span class="line">            System.out.println(gender.value);</span><br><span class="line">        &#125;      </span><br><span class="line">        //--------------</span><br><span class="line">        System.out.println(&quot;===========&quot;);</span><br><span class="line">        for(OrderState order : OrderState.values())&#123;</span><br><span class="line">            System.out.println(order.getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="/music/1.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举"><span class="toc-number">1.</span> <span class="toc-text">枚举</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
