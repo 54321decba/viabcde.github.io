@@ -99,17 +99,13 @@ andro...</p>
 
 
 <div class="post">
-    <a href="/2018/11/18/2018-11-18-Hibernate注解/" title="Hibernate注解">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/77.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/18/2018-11-18-LOAD and GET/" title="LOAD and GET">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/75.jpg" class="cover" width="580" height="440">
     </a>
     <div class="else">
         <p>十一月 18, 2018</p>
-        <h3><a href="/2018/11/18/2018-11-18-Hibernate注解/" title="Hibernate注解" class="posttitle">Hibernate注解</a></h3>
-        <p>@Transaction  
-指定时间的精度@Temporal  
-枚举类型注解@Enumerated写好枚举类引用枚举类并加上注解EnumType.ORDINAL这是按枚举类型的下标插入表，而不是按他的值插入表  
-@Table当表名和类名不一致 还需在类上加上 @Table 指明 数据库中对应的表的表名  
-ID生成策略在xml.让所使用的数据库选择ID策略（在mysql中，使用uuid...</p>
+        <h3><a href="/2018/11/18/2018-11-18-LOAD and GET/" title="LOAD and GET" class="posttitle">LOAD and GET</a></h3>
+        <p>LOAD and GETsession get 获取的是实际的对象，发出sql语句，有实际的数据而session load 获取对象的代理，commit后通过代理取不到相应的对象，只有在commit之前，需要用到数据才会发出sql语句，所以没有实际数据比如Teacher t = (Teacher)session.load(Teacher.class, 1000);即使数据库没有id=1000...</p>
     </div>
 </div>
 
@@ -180,29 +176,14 @@ ID生成策略在xml.让所使用的数据库选择ID策略（在mysql中，使�
 
 
 <div class="post">
-    <a href="/2018/11/18/2018-11-18-aop/" title="AOP事务">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/85.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/18/2018-11-18-Mybatis延迟加载/" title="Mybatis延迟加载">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/73.gif" class="cover" width="580" height="440">
     </a>
     <div class="else">
         <p>十一月 18, 2018</p>
-        <h3><a href="/2018/11/18/2018-11-18-aop/" title="AOP事务" class="posttitle">AOP事务</a></h3>
-        <p>Spring事务原子性事务要么一致完成，要么全部回滚。ps：一家人就要整整齐齐
-一致性事务开始前和结束后的状态保持一致eg . A向B转账过程出错，钱能原路返回，A和B的金额总和不变。
-持久性事务一经提交 不可改变。
-隔离性不同事务互不干扰。Spring是非侵入性的，不改动原有代码
-platformTransactionManager事务管理器,有3个方法： commit() getTran...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2018/11/15/2018-11-15-java代码执行机制/" title="Java代码执行机制">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/90.jpg" class="cover" width="580" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 15, 2018</p>
-        <h3><a href="/2018/11/15/2018-11-15-java代码执行机制/" title="Java代码执行机制" class="posttitle">Java代码执行机制</a></h3>
-        <p>java代码执行机制源代码编译机制第一步：  1.分析和输入到符号表（Parse and Enter）Parse  过程所做的是词法和语法分析 Enter  过程是将符号输入到符号表第二步：将annotation生成附加的代码第三步：语法分析后生产class文件，此时class文件可以放入jvm中执行类加载与执行机制第一步：加载class，标记已加载的class第二步：校验class格式，初...</p>
+        <h3><a href="/2018/11/18/2018-11-18-Mybatis延迟加载/" title="Mybatis延迟加载" class="posttitle">Mybatis延迟加载</a></h3>
+        <p>Mybatis是否支持延迟加载？实现原理是什么？association关联对象，association指的就是一对一collection关联集合对象，collection指的就是一对多查询。在Mybatis配置文件中，可以配置是否启用延迟加载lazyLoadingEnabled=true|false
+原理:使用cglib创建代理对象，当调用目标方法时，进入拦截器方法。比如调用a.getB()...</p>
     </div>
 </div>
 
@@ -215,6 +196,18 @@ platformTransactionManager事务管理器,有3个方法： commit() getTran...</
         <p>十一月 15, 2018</p>
         <h3><a href="/2018/11/15/2018-11-15-序列化与反序列化/" title="序列化与反序列化" class="posttitle">序列化与反序列化</a></h3>
         <p>实体类实现序列化需要比较是否已有重复的数据先比较首地址是否相同(hashcode)   相同不能存入不同再比较内容是否相同（equals）序列化 (Serialization)是将对象的状态信息转换为可以存储或传输的形式的过程。一般将一个对象存储至一个储存媒介，例如档案或是记亿体缓冲等。在网络传输过程中，可以是字节或是XML等格式。反序列化：由字节的或XML编码格式可以还原完全相等的对象。 ...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/15/2018-11-15-java代码执行机制/" title="Java代码执行机制">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/90.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 15, 2018</p>
+        <h3><a href="/2018/11/15/2018-11-15-java代码执行机制/" title="Java代码执行机制" class="posttitle">Java代码执行机制</a></h3>
+        <p>java代码执行机制源代码编译机制第一步：  1.分析和输入到符号表（Parse and Enter）Parse  过程所做的是词法和语法分析 Enter  过程是将符号输入到符号表第二步：将annotation生成附加的代码第三步：语法分析后生产class文件，此时class文件可以放入jvm中执行类加载与执行机制第一步：加载class，标记已加载的class第二步：校验class格式，初...</p>
     </div>
 </div>
 

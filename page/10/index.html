@@ -86,13 +86,26 @@ andro...</p>
     <div id="primary">
         
 <div class="post">
-    <a href="/2018/11/14/2018-11-14-日期的处理/" title="日期的处理">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/91.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/14/2018-11-14-配置文件/" title="配置文件（一）">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/92.jpg" class="cover" width="580" height="440">
     </a>
     <div class="else">
         <p>十一月 14, 2018</p>
-        <h3><a href="/2018/11/14/2018-11-14-日期的处理/" title="日期的处理" class="posttitle">日期的处理</a></h3>
-        <p>日期的处理把前端的传过来的数据通过属性编辑器initBind进行格式转换在setAsText时通过SimpleDateFormat转成字符串，在getAsText时再把字符串转为日期格式注入实体类中可以继承数据绑定编辑器的父类来自定义转换，也可以直接使用已经封装好的格式转换
+        <h3><a href="/2018/11/14/2018-11-14-配置文件/" title="配置文件（一）" class="posttitle">配置文件（一）</a></h3>
+        <p>编译不互相依赖即一个程序在编译成class时不需要等另外一个程序编译完成才能继续编译  运行时才互相调用  
+第一代解决方案： 使用反射解决编译级别依赖注意：虽然编译时没报错，但运行时真正去调用的时候如果找不到相应的class就会报错。缺点：当更换所依赖的程序时必须停止服务器找到源码更换后还需要把整个项目再重新编译一次改进： 用配置文件 通过读取配置文件来进行反射 不用改源码重新编译使用类加...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/14/2018-11-14-单例/" title="单例">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/93.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 14, 2018</p>
+        <h3><a href="/2018/11/14/2018-11-14-单例/" title="单例" class="posttitle">单例</a></h3>
+        <p>单例： 用map实现 而且map查找比链表方便  
 </p>
     </div>
 </div>
@@ -112,14 +125,14 @@ jsp+model+service时代改进：将model 、对数据库的访问 两者与jsp�
 
 
 <div class="post">
-    <a href="/2018/11/14/2018-11-14-单例/" title="单例">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/93.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/14/2018-11-14-random/" title="Random">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/98.png" class="cover" width="580" height="440">
     </a>
     <div class="else">
         <p>十一月 14, 2018</p>
-        <h3><a href="/2018/11/14/2018-11-14-单例/" title="单例" class="posttitle">单例</a></h3>
-        <p>单例： 用map实现 而且map查找比链表方便  
-</p>
+        <h3><a href="/2018/11/14/2018-11-14-random/" title="Random" class="posttitle">Random</a></h3>
+        <p>random第一种：需要说明的是：你在创建一个Random对象的时候可以给定任意一个合法的种子数，种子数只是随机算法的起源数字，和生成的随机数的区间没有任何关系。如下面的Java代码：123Random rand =new Random(25);int i;i=rand.nextInt(100);
+初始化时25并没有起直接作用（注意：不是没有起作用）,rand.nextInt(100);中的...</p>
     </div>
 </div>
 
@@ -137,26 +150,14 @@ jsp+model+service时代改进：将model 、对数据库的访问 两者与jsp�
 
 
 <div class="post">
-    <a href="/2018/11/14/2018-11-14-mysql/" title="Mysql">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/99.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/14/2018-11-14-日期的处理/" title="日期的处理">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/91.jpg" class="cover" width="580" height="440">
     </a>
     <div class="else">
         <p>十一月 14, 2018</p>
-        <h3><a href="/2018/11/14/2018-11-14-mysql/" title="Mysql" class="posttitle">Mysql</a></h3>
-        <p>传汉字到mysql数据库，显示问号的解决方法1、检查jsp显示页面，检查jsp开头有没有设置UTF-8的字符集12345&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;&lt;!DOCTYPE ht...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2018/11/14/2018-11-14-配置文件/" title="配置文件（一）">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/92.jpg" class="cover" width="580" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 14, 2018</p>
-        <h3><a href="/2018/11/14/2018-11-14-配置文件/" title="配置文件（一）" class="posttitle">配置文件（一）</a></h3>
-        <p>编译不互相依赖即一个程序在编译成class时不需要等另外一个程序编译完成才能继续编译  运行时才互相调用  
-第一代解决方案： 使用反射解决编译级别依赖注意：虽然编译时没报错，但运行时真正去调用的时候如果找不到相应的class就会报错。缺点：当更换所依赖的程序时必须停止服务器找到源码更换后还需要把整个项目再重新编译一次改进： 用配置文件 通过读取配置文件来进行反射 不用改源码重新编译使用类加...</p>
+        <h3><a href="/2018/11/14/2018-11-14-日期的处理/" title="日期的处理" class="posttitle">日期的处理</a></h3>
+        <p>日期的处理把前端的传过来的数据通过属性编辑器initBind进行格式转换在setAsText时通过SimpleDateFormat转成字符串，在getAsText时再把字符串转为日期格式注入实体类中可以继承数据绑定编辑器的父类来自定义转换，也可以直接使用已经封装好的格式转换
+</p>
     </div>
 </div>
 
@@ -174,19 +175,6 @@ jsp+model+service时代改进：将model 、对数据库的访问 两者与jsp�
 
 
 <div class="post">
-    <a href="/2018/11/14/2018-11-14-SpringBoot多环境配置/" title="SpringBoot多环境配置数据库地址，服务器端口等">
-        <img src="http://pmi6mt23n.bkt.clouddn.com/96.jpg" class="cover" width="580" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 14, 2018</p>
-        <h3><a href="/2018/11/14/2018-11-14-SpringBoot多环境配置/" title="SpringBoot多环境配置数据库地址，服务器端口等" class="posttitle">SpringBoot多环境配置数据库地址，服务器端口等</a></h3>
-        <p>多环境配置数据库地址，服务器端口等通过配置多份不同环境的配置文件，再通过打包命令指定需要打包的内容    
-配置文件名称的格式在Spring Boot中多环境配置文件名需要满足application-{profile}.properties的格式，其中{profile}对应环境，比如：application-dev.properties：开发环境application-test.proper...</p>
-    </div>
-</div>
-
-
-<div class="post">
     <a href="/2018/11/14/2018-11-14-IO流/" title="IO流">
         <img src="http://pmi6mt23n.bkt.clouddn.com/101.jpg" class="cover" width="580" height="440">
     </a>
@@ -195,6 +183,19 @@ jsp+model+service时代改进：将model 、对数据库的访问 两者与jsp�
         <h3><a href="/2018/11/14/2018-11-14-IO流/" title="IO流" class="posttitle">IO流</a></h3>
         <p>字节流与字符流字节流可以读取所有类型的文件而字符流无法读取二进制文件
 字节流InputStreamInputStream读取控制台输入BufferedReader缓冲区存放InputStream读取的内容由BufferedReader输出内容123456789101112131415public static void main(String args[]) &#123;  InputStr...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/14/2018-11-14-SpringBoot多环境配置/" title="SpringBoot多环境配置数据库地址，服务器端口等">
+        <img src="http://pmi6mt23n.bkt.clouddn.com/96.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 14, 2018</p>
+        <h3><a href="/2018/11/14/2018-11-14-SpringBoot多环境配置/" title="SpringBoot多环境配置数据库地址，服务器端口等" class="posttitle">SpringBoot多环境配置数据库地址，服务器端口等</a></h3>
+        <p>多环境配置数据库地址，服务器端口等通过配置多份不同环境的配置文件，再通过打包命令指定需要打包的内容    
+配置文件名称的格式在Spring Boot中多环境配置文件名需要满足application-{profile}.properties的格式，其中{profile}对应环境，比如：application-dev.properties：开发环境application-test.proper...</p>
     </div>
 </div>
 
