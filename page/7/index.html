@@ -86,14 +86,134 @@ andro...</p>
     <div id="primary">
         
 <div class="post">
-    <a href="/2018/12/20/2018-12-06-Oracle索引/" title="Oracle索引">
-        <img src="/picture/10.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/18/2018-11-18-清除缓存/" title="清除缓存">
+        <img src="/picture/63.gif" class="cover" width="580" height="440">
     </a>
     <div class="else">
-        <p>十二月 20, 2018</p>
-        <h3><a href="/2018/12/20/2018-12-06-Oracle索引/" title="Oracle索引" class="posttitle">Oracle索引</a></h3>
-        <p>索引是用于加速数据存取的数据对象。合理的使用索引可以大大降低i/o次数，从而提高数据访问性能使用原则1)、在大表上建立索引才有意义2)、在where子句或是连接条件上经常引用的列上建立索引3)、索引的层次不要超过4层系统会用更多的硬盘和内存空间来保存索引，而且在更新数据时，为了数据和索引的一致性，会花费更多时间更新索引所以，少用的 字段尽量不加索引   
-1B*树索引建立在重复值很少的列上，...</p>
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-清除缓存/" title="清除缓存" class="posttitle">清除缓存</a></h3>
+        <p>清除缓存session  
+强制session与数据库做同步：即flush一次相当于commit一次  
+</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-级联保存问题/" title="增删改">
+        <img src="/picture/66.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-级联保存问题/" title="增删改" class="posttitle">增删改</a></h3>
+        <p>级联保存CascadeTypemappedby设置在一的一方，解决了当多的一方增加，不需要修改一的一方的代码保存transient对象出问题如下图g 没有被save    many2one     one2many     user保存 group不会跟着自动保存   
+解决方法1把上图注释打开，先存g 再存 a
+解决方法2在group.java 保存group时自动保存其关联对象设置gro...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-获取xml文件/" title="获取Xml文件">
+        <img src="/picture/68.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-获取xml文件/" title="获取Xml文件" class="posttitle">获取Xml文件</a></h3>
+        <p>在test中如何获取xmlclasspathxml 按alt+/即可 然后根据补全接着就可以通过.getBean获取xml中的bean了  
+</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-获取插入的数据的主键/" title="获取插入的数据的主键">
+        <img src="/picture/67.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-获取插入的数据的主键/" title="获取插入的数据的主键" class="posttitle">获取插入的数据的主键</a></h3>
+        <p>一般插入数据后想知道插入的数据的主键是多少，我们可以通过以下的方式来获取需求：user对象插入到数据库后，新记录的主键要通过user对象返回，通过user获取主键值。解决思路：通过LAST_INSERT_ID()获取刚插入记录的自增主键值，在insert语句执行后，执行select LAST_INSERT_ID()就可以获取自增主键。mysql:123456&lt;insert id=&qu...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-装备bean的多种方式/" title="装备Bean的多种方式">
+        <img src="/picture/58.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-装备bean的多种方式/" title="装备Bean的多种方式" class="posttitle">装备Bean的多种方式</a></h3>
+        <p>service自动装配daobyname 是和 service的属性名相同的beanbytype 是和servicec属性类型相同的bean
+装备bean的多种方式第一种.注解的方式 自动装配dao autowired 在beans.xml中然后便可以在service 的setDao方法上加注解默认bytype 即按照service的 DAO属性类型注入如果按名称需要像下面在serUserD...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-将hibernate的SessionFactory交由spring管理/" title="将hibernate的SessionFactory交由spring管理">
+        <img src="/picture/65.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-将hibernate的SessionFactory交由spring管理/" title="将hibernate的SessionFactory交由spring管理" class="posttitle">将hibernate的SessionFactory交由spring管理</a></h3>
+        <p>将hibernate的SessionFactory交由spring管理:sessionFactory需要dataSource给session配置自动扫描使用方法  
+</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-实体类中的属性名和表中的字段名/" title="实体类中的属性名和表中的字段名">
+        <img src="/picture/62.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-实体类中的属性名和表中的字段名/" title="实体类中的属性名和表中的字段名" class="posttitle">实体类中的属性名和表中的字段名</a></h3>
+        <p>当实体类中的属性名和表中的字段名不一样 ，怎么办 ？1.在sql中设置别名2.在resultMap中通过属性映射数据库的字段示例第1种： 通过在查询的sql语句中定义字段名的别名，让字段名的别名和实体类的属性名一致123&lt;select id=”selectorder” parametertype=”int” resultetype=”me.gacl.domain.order”&gt; ...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-在mapper中如何传递多个参数/" title="在Mapper中如何传递多个参数">
+        <img src="/picture/60.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-在mapper中如何传递多个参数/" title="在Mapper中如何传递多个参数" class="posttitle">在Mapper中如何传递多个参数</a></h3>
+        <p>在mapper中如何传递多个参数第一种：使用占位符在映射文件中使用#{0},#{1}代表传递进来的第几个参数在java代码中使用@param注解:来命名参数#{0},#{1}方式//对应的xml,#{0}代表接收的是dao层中的第一个参数，#{1}代表dao层中第二参数123&lt;select id=&quot;selectUser&quot;resultMap=&quot;BaseRes...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-使用hibernatetemplate/" title="使用Hibernatetemplate">
+        <img src="/picture/61.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-使用hibernatetemplate/" title="使用Hibernatetemplate" class="posttitle">使用Hibernatetemplate</a></h3>
+        <p>使用hibernatetemplate示例  
+为dao注入hibernateTemplate  
+为hibernateTemplate注入session Factory  
+sessionFactory注入配置文件  
+查询所有记录使用hibernateTemplate的类必须先继承HibernateDaoSupportpublic class CategoryDao extends Hi...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-service的初始化以及结束方法/" title="Bean的生命周期用注解">
+        <img src="/picture/72.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-service的初始化以及结束方法/" title="Bean的生命周期用注解" class="posttitle">Bean的生命周期用注解</a></h3>
+        <p>service的初始化以及结束方法  
+bean的生命周期用注解  
+</p>
     </div>
 </div>
 

@@ -86,14 +86,131 @@ andro...</p>
     <div id="primary">
         
 <div class="post">
-    <a href="/2018/12/19/2018-12-06-Oracle遇到的问题/" title="Oracle遇到的问题">
-        <img src="/picture/9.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/14/2018-11-14-JDBC/" title="JDBC">
+        <img src="/picture/100.jpg" class="cover" width="580" height="440">
     </a>
     <div class="else">
-        <p>十二月 19, 2018</p>
-        <h3><a href="/2018/12/19/2018-12-06-Oracle遇到的问题/" title="Oracle遇到的问题" class="posttitle">Oracle遇到的问题</a></h3>
-        <p>登录时遇到：ORA-28009：connection as SYS should be as SYSDBA OR SYSOPER解决方法：例如我的oracle 密码为 Oracle12c 输入口令应该填 Oracle12c as sysdba记住中间有空格  
-在查询字段为null的记录时注意使用is null  /  is not null 而不是 = nullselect * from ...</p>
+        <p>十一月 14, 2018</p>
+        <h3><a href="/2018/11/14/2018-11-14-JDBC/" title="JDBC" class="posttitle">JDBC</a></h3>
+        <p>文件与数据库对比文件不安全 查询功能单一 不利于查询数据库按一定的规律存储数据 可用于海量数据的存储
+数据库的选择成本 功能多与少 并发量大不大 安全要求高不高
+jdbcjdbc是规范，而hibernate是对jdbc的进一步封装，如写不同sql语句的jdbc层，只需要面对hibernate层面编程即可 
+java使用jdbc连接mysql数据库12345678910111213141516...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/14/2018-11-09-Servlet/" title="Servlet">
+        <img src="/picture/119.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 14, 2018</p>
+        <h3><a href="/2018/11/14/2018-11-09-Servlet/" title="Servlet" class="posttitle">Servlet</a></h3>
+        <p>doGet与doPost方法的两个参数是什么HttpServletRequest：封装请求信息HttpServletResponse：封装响应信息   
+为什么get比post更快post必须等待服务器有请求回应才会发送下一个请求而get则是不管有没有收到回应都不断发送请求（利用管道传输直接把多个请求发送出去，但不安全，当发送过程中服务器关闭，则之前的请求都相当于做了无用功）get会缓存数据...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/14/2018-11-14-mysql/" title="Mysql">
+        <img src="/picture/99.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 14, 2018</p>
+        <h3><a href="/2018/11/14/2018-11-14-mysql/" title="Mysql" class="posttitle">Mysql</a></h3>
+        <p>传汉字到mysql数据库，显示问号的解决方法1、检查jsp显示页面，检查jsp开头有没有设置UTF-8的字符集12345&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;&lt;!DOCTYPE ht...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/13/2018-11-13-forward和redirect的区别/" title="Forward和redirect的区别">
+        <img src="/picture/111.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 13, 2018</p>
+        <h3><a href="/2018/11/13/2018-11-13-forward和redirect的区别/" title="Forward和redirect的区别" class="posttitle">Forward和redirect的区别</a></h3>
+        <p>forward和redirect的区别请求转发forword 一次请求，地址栏不变。比如你要问小李借钱，小李说没钱，但是小李帮你从小王那借了钱。这样借钱的路径就一条：到小李家借钱  
+请求重定向redirect 两次请求，地址栏变。   同样是问小李借钱，小李说没钱，但是小李告诉你小王有钱，告诉你了小王在哪，这时你就得去小王家借钱，最终借到了钱。这样借钱的路径变成2条，先到小李家，再到小王家...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/13/2018-11-13-Statement PreparedStatement CallableStatement的区别/" title="Statement PreparedStatement CallableStatement的区别">
+        <img src="/picture/105.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 13, 2018</p>
+        <h3><a href="/2018/11/13/2018-11-13-Statement PreparedStatement CallableStatement的区别/" title="Statement PreparedStatement CallableStatement的区别" class="posttitle">Statement PreparedStatement CallableStatement的区别</a></h3>
+        <p>Statement PreparedStatement CallableStatement的区别1.Statement、PreparedStatement和CallableStatement都是接口(interface)。2.Statement继承自Wrapper、PreparedStatement继承自Statement、CallableStatement继承自PreparedStatem...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/13/2018-11-13-SpringBoot访问时怎么没有项目路径/" title="SpringBoot访问时怎么没有项目路径？">
+        <img src="/picture/108.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 13, 2018</p>
+        <h3><a href="/2018/11/13/2018-11-13-SpringBoot访问时怎么没有项目路径/" title="SpringBoot访问时怎么没有项目路径？" class="posttitle">SpringBoot访问时怎么没有项目路径？</a></h3>
+        <p>按照之前的web项目习惯，你可能会问，SpringBoot怎么没有项目路径？这就是Spring Boot的默认设置了，将项目路径直接设为根路径。当然，我们也可以设置自己的项目路径 – 在classpath下的 application.properties 或者 application.yaml 文件中设置即可。内容如下：1234567891011121314# application.yam...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/13/2018-11-13-SpringBoot遇到的问题/" title="SpringBoot遇到的问题">
+        <img src="/picture/107.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 13, 2018</p>
+        <h3><a href="/2018/11/13/2018-11-13-SpringBoot遇到的问题/" title="SpringBoot遇到的问题" class="posttitle">SpringBoot遇到的问题</a></h3>
+        <p>遇到的问题：端口占用问题运行独立jar包时可能会出现端口占用问题，springboot的内嵌tomcat的端口8080可能会被oracle (我就是)占用或者 tomcat（默认8080）占用    
+解决方法重新配置内嵌tomcat的端口号步骤如下    
+
+在resource目录下新建application.properties文件（文件名一定要application.propertie...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/13/2018-11-13-SpringBoot的配置文件/" title="SpringBoot的配置文件application.properties">
+        <img src="/picture/109.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 13, 2018</p>
+        <h3><a href="/2018/11/13/2018-11-13-SpringBoot的配置文件/" title="SpringBoot的配置文件application.properties" class="posttitle">SpringBoot的配置文件application.properties</a></h3>
+        <p>SpringBoot的配置文件用来配置数据库连接、日志相关配置等自定义属性与加载我们在使用Spring Boot的时候，通常也需要定义一些自己使用的属性，我们可以如下方式直接定义：12345678910111213com.didispace.blog.name=程序猿DDcom.didispace.blog.title=Spring Boot教程``` 然后通过@Value(&quot;$&...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/13/2018-11-13-SpringBoot注解/" title="注解EnableAutoConfiguration 和 SpringApplication">
+        <img src="/picture/106.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 13, 2018</p>
+        <h3><a href="/2018/11/13/2018-11-13-SpringBoot注解/" title="注解EnableAutoConfiguration 和 SpringApplication" class="posttitle">注解EnableAutoConfiguration 和 SpringApplication</a></h3>
+        <p>@EnableAutoConfiguration用于自动配置。根据你的pom配置（实际上应该是根据具体的依赖）来判断这是一个什么应用，并创建相应的环境。在上面这个例子中，@EnableAutoConfiguration 会判断出这是一个web应用，所以会创建相应的web环境。  
+SpringApplication用于从main方法启动Spring应用的类。默认，它会执行以下步骤：12345...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/13/2018-11-13-回调函数/" title="回调函数">
+        <img src="/picture/104.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 13, 2018</p>
+        <h3><a href="/2018/11/13/2018-11-13-回调函数/" title="回调函数" class="posttitle">回调函数</a></h3>
+        <p>回调函数回调也称委托即类a执行过程中无法完成的逻辑交由类b来完成，完成后并继续执行该委托任务的后续所有方法（这些方法在类a中已有定义，称为回调函数）。A：这工程我做了一半，后面的我做不了了，交给你吧，需要资料找我要B: 好的。我需要xxx这里的xxx就是回调函数 
+</p>
     </div>
 </div>
 

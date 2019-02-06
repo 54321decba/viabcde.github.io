@@ -86,14 +86,132 @@ andro...</p>
     <div id="primary">
         
 <div class="post">
-    <a href="/2018/12/20/2018-12-06-java程序中如何使用事务/" title="Java程序中如何使用事务">
-        <img src="/picture/15.jpg" class="cover" width="580" height="440">
+    <a href="/2018/11/18/2018-11-18-接口绑定的实现方式/" title="Mybatis接口绑定的实现方式">
+        <img src="/picture/64.gif" class="cover" width="580" height="440">
     </a>
     <div class="else">
-        <p>十二月 20, 2018</p>
-        <h3><a href="/2018/12/20/2018-12-06-java程序中如何使用事务/" title="Java程序中如何使用事务" class="posttitle">Java程序中如何使用事务</a></h3>
-        <p>java程序中如何使用事务在java操作数据库时，为了保证数据的一致性，比如账户操作(1)从一个账户中减掉10$(2)在另一个账户上加入10$,我们看看如何使用事务？   
-123456789101112131415161718192021222324252627282930313233343536373839package junit.test;import java.sql.Connec...</p>
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-接口绑定的实现方式/" title="Mybatis接口绑定的实现方式" class="posttitle">Mybatis接口绑定的实现方式</a></h3>
+        <p>一种是通过注解绑定,就是在接口的方法上面加上@Select@Update等注解里面包含Sql语句来绑定另外一种就是通过xml里面写SQL来绑定,在这种情况下,要指定xml映射文件里面的namespace必须为接口的全路径名 
+</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-Mybatis延迟加载/" title="Mybatis延迟加载">
+        <img src="/picture/73.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-Mybatis延迟加载/" title="Mybatis延迟加载" class="posttitle">Mybatis延迟加载</a></h3>
+        <p>Mybatis是否支持延迟加载？实现原理是什么？association关联对象，association指的就是一对一collection关联集合对象，collection指的就是一对多查询。在Mybatis配置文件中，可以配置是否启用延迟加载lazyLoadingEnabled=true|false
+原理:使用cglib创建代理对象，当调用目标方法时，进入拦截器方法。比如调用a.getB()...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-Hibernate注解/" title="Hibernate注解">
+        <img src="/picture/77.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-Hibernate注解/" title="Hibernate注解" class="posttitle">Hibernate注解</a></h3>
+        <p>@Transaction  
+指定时间的精度@Temporal  
+枚举类型注解@Enumerated写好枚举类引用枚举类并加上注解EnumType.ORDINAL这是按枚举类型的下标插入表，而不是按他的值插入表  
+@Table当表名和类名不一致 还需在类上加上 @Table 指明 数据库中对应的表的表名  
+ID生成策略在xml.让所使用的数据库选择ID策略（在mysql中，使用uuid...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-Bean创建的2种规则/" title="Bean创建的2种规则">
+        <img src="/picture/82.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-Bean创建的2种规则/" title="Bean创建的2种规则" class="posttitle">Bean创建的2种规则</a></h3>
+        <p>BeanFactory:延迟加载思想创建对象，即用到bean时才创建beanApplicationContext:立即加载思想创建对象，即解析完配置文件就创建bean⑴. 继承了 BeanFactory，拥有了基本的 IoC 功能；⑵. 除此之外，ApplicationContext 还提供了以下功能：① 支持国际化；② 支持消息机制；③ 支持统一的资源加载；④ 支持AOP功能；【推荐使用】...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18- 读取配置文件的方法/" title="读取配置文件的方法">
+        <img src="/picture/86.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18- 读取配置文件的方法/" title="读取配置文件的方法" class="posttitle">读取配置文件的方法</a></h3>
+        <p>读取配置文件的方法1.流读取   
+2使用bundle    
+</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18- Spring的web.xml配置/" title="Spring的web.xml配置">
+        <img src="/picture/87.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18- Spring的web.xml配置/" title="Spring的web.xml配置" class="posttitle">Spring的web.xml配置</a></h3>
+        <p>web.xml内容一：配置默认页面：当用户在浏览器中输入的URL不包含某个servlet名或JSP页面时，welcome-file-list元素可指定显示的默认文件。
+12345&lt;!-- displayname 只是用来显示项目名称 可配置可不配置 --&gt;	&lt;display-name&gt;ssm-demo&lt;/display-name&gt;    &lt;welco...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18- Hibernate对象关系映射/" title="Hibernate对象关系映射">
+        <img src="/picture/88.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18- Hibernate对象关系映射/" title="Hibernate对象关系映射" class="posttitle">Hibernate对象关系映射</a></h3>
+        <p>一对一 单向_外键 关联1.husband的id是参考wife的;2.2.husband有个wifiId字段是参考wife的husband有一个外键wifeid,只需要在husband配置即可husabnd.java中有个属性:wife,而wife.java没有husband这个属性或者【不推荐】xml方式配置  
+12studentIdCard有student的id而student没有St...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/18/2018-11-18-Sprign的注入方式/" title="Sprign的注入方式">
+        <img src="/picture/71.gif" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 18, 2018</p>
+        <h3><a href="/2018/11/18/2018-11-18-Sprign的注入方式/" title="Sprign的注入方式" class="posttitle">Sprign的注入方式</a></h3>
+        <p>Spring是一个轻量级的控制反转（IOC）和面向切面（AOP）的容器框架–通过控制反转（IOC）的技术达到松耦合的目的–包含并管理应用对象的配置和生命周期，这个意义上是一种容器。–将简单的组件配置、组合成为复杂的应用，这个意义上是框架控制反转与依赖注入：Spring是依赖注入的容器 控制反转时指依赖关系的管理由代码转到容器由Spring容器进行依赖注入
+2种常用的注入方式设值注入1234&...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/15/2018-11-15-序列化与反序列化/" title="序列化与反序列化">
+        <img src="/picture/89.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 15, 2018</p>
+        <h3><a href="/2018/11/15/2018-11-15-序列化与反序列化/" title="序列化与反序列化" class="posttitle">序列化与反序列化</a></h3>
+        <p>实体类实现序列化需要比较是否已有重复的数据先比较首地址是否相同(hashcode)   相同不能存入不同再比较内容是否相同（equals）序列化 (Serialization)是将对象的状态信息转换为可以存储或传输的形式的过程。一般将一个对象存储至一个储存媒介，例如档案或是记亿体缓冲等。在网络传输过程中，可以是字节或是XML等格式。反序列化：由字节的或XML编码格式可以还原完全相等的对象。 ...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/11/15/2018-11-15-java代码执行机制/" title="Java代码执行机制">
+        <img src="/picture/90.jpg" class="cover" width="580" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 15, 2018</p>
+        <h3><a href="/2018/11/15/2018-11-15-java代码执行机制/" title="Java代码执行机制" class="posttitle">Java代码执行机制</a></h3>
+        <p>java代码执行机制源代码编译机制第一步：  1.分析和输入到符号表（Parse and Enter）Parse  过程所做的是词法和语法分析 Enter  过程是将符号输入到符号表第二步：将annotation生成附加的代码第三步：语法分析后生产class文件，此时class文件可以放入jvm中执行类加载与执行机制第一步：加载class，标记已加载的class第二步：校验class格式，初...</p>
     </div>
 </div>
 
