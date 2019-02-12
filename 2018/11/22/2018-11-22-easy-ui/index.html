@@ -1,157 +1,1080 @@
+<!DOCTYPE HTML>
+<html lang="">
 
-<!DOCTYPE html>
-<html lang="" class="loading">
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>廖锡洪</title>
-
+    <meta charset="utf-8">
+    <meta name="keywords" content="Easy-Ui, viabcde">
+    <meta name="description" content="jquery中datagrid中getSelected和getSelections的用法说明data是table表格的某一列的id选中一行：  
+var get = $(&amp;quot;#dg&amp;quot;).datagrid(&amp;quot;get">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate">
-    <meta name="keywords" content="viabcde,"> 
+    <title>Easy-Ui | 廖锡洪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">廖锡洪</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
     
-    <meta name="author" content="viacbde"> 
-    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-</html>
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">Easy-Ui</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-    <div class="section">
-        <div class="article">
-    <div class="main">
-        <h1 class="title">Easy-Ui</h1>
-        <div class="stuff">
-            <span>十一月 22, 2018</span>
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/前端/">前端</a><span class="post-tags-list-count">2</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
-
-
-        </div>
-        <div class="content markdown">
-            <h3 id="jquery中datagrid中getSelected和getSelections的用法"><a href="#jquery中datagrid中getSelected和getSelections的用法" class="headerlink" title="jquery中datagrid中getSelected和getSelections的用法"></a><strong>jquery中datagrid中getSelected和getSelections的用法</strong></h3><p>说明data是table表格的某一列的id<br>选中一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var get = $(&quot;#dg&quot;).datagrid(&quot;getSelected&quot;);</span><br></pre></td></tr></table></figure></p>
-<p>获取列值：get.data，<br>选中多行：<br>遍历多行的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var get = $(&quot;#dg&quot;).datagrid(&quot;getSelections&quot;);</span><br><span class="line">for(var i=0;i&lt;get.length;i++)&#123;</span><br><span class="line">  var data = get[i].data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="easyui-datagrid"><a href="#easyui-datagrid" class="headerlink" title="easyui-datagrid"></a><strong>easyui-datagrid</strong></h3><p>pagination    ：    设置为 true，则在数据网格（datagrid）底部显示分页工具栏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id=&quot;dg&quot; title=&quot;活动管理&quot; class=&quot;easyui-datagrid&quot; pagination=&quot;true&quot;</span><br><span class="line">       rownumbers=&quot;true&quot; fit=&quot;true&quot; data-options=&quot;pageSize:10&quot;</span><br><span class="line">       url=&quot;$&#123;pageContext.request.contextPath&#125;/activity/list.do&quot; toolbar=&quot;#tb1&quot;&gt;</span><br><span class="line">     &lt;thead data-options=&quot;frozen:true&quot;&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;th field=&quot;cb&quot; checkbox=&quot;true&quot; align=&quot;center&quot;&gt;&lt;/th&gt;</span><br><span class="line">        &lt;th field=&quot;id&quot; width=&quot;10%&quot; align=&quot;center&quot; hidden=&quot;true&quot;&gt;编号&lt;/th&gt;</span><br><span class="line">        &lt;th field=&quot;activityTitle&quot; width=&quot;200&quot; align=&quot;center&quot;&gt;标题&lt;/th&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt; </span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="div-easyui-window-生成一个window窗口样式。"><a href="#div-easyui-window-生成一个window窗口样式。" class="headerlink" title="div easyui-window        生成一个window窗口样式。"></a><strong>div easyui-window        生成一个window窗口样式。</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">属性如下：   </span><br><span class="line">                   <span class="number">1</span>)<span class="string">modal:</span>是否生成模态窗口。<span class="literal">true</span>[是] <span class="literal">false</span>[否]   </span><br><span class="line">                   <span class="number">2</span>)<span class="string">shadow:</span>是否显示窗口阴影。<span class="literal">true</span>[显示] <span class="literal">false</span>[不显示]</span><br></pre></td></tr></table></figure>
-<p>==    </p>
-<h3 id="div-easyui-panel-生成一个面板。"><a href="#div-easyui-panel-生成一个面板。" class="headerlink" title="div easyui-panel           生成一个面板。"></a><strong>div easyui-panel           生成一个面板。</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">       属性如下:   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">title:</span>该标题文本显示在面板头部。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">iconCls:</span>在面板上通过一个CSS类显示<span class="number">16</span>x16图标。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">width:</span>设置面板宽度。默认auto。   </span><br><span class="line">                 <span class="number">4</span>)<span class="string">height:</span>设置面板高度。默认auto。   </span><br><span class="line">                 <span class="number">5</span>)<span class="string">left:</span>设置面板左边距。   </span><br><span class="line">                 <span class="number">6</span>)<span class="string">top:</span>设置面板顶部位置。   </span><br><span class="line">                 <span class="number">7</span>)<span class="string">cls:</span>在面板中增加一个Class类。   </span><br><span class="line">                 <span class="number">8</span>)<span class="string">headerCls:</span>在面板头部中增加一个Class类。   </span><br><span class="line">                 <span class="number">9</span>)<span class="string">bodyCls:</span>在面板内容中增加一个Class类。   </span><br><span class="line">                <span class="number">10</span>)<span class="string">style:</span>在面板中增加一个指定样式。   </span><br><span class="line">                <span class="number">11</span>)<span class="string">fit:</span>当True时设置该面板尺寸适合于它的父容器。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">12</span>)<span class="string">border:</span>当定义时显示面板边界。默认<span class="literal">true</span>。   </span><br><span class="line">                <span class="number">13</span>)<span class="string">doSize:</span>如果设置为True，该面板将重绘大小，并重建布局。默认<span class="literal">true</span>。   </span><br><span class="line">                <span class="number">14</span>)<span class="string">collapsible:</span>当定义时显示可折叠面板的按钮。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">15</span>)<span class="string">minimizable:</span>当定义时显示最小化面板的按钮。默认<span class="literal">false</span>。    </span><br><span class="line">                <span class="number">16</span>)<span class="string">maximizable:</span>当定义时显示最大化面板的按钮。默认<span class="literal">false</span>。    </span><br><span class="line">                <span class="number">17</span>)<span class="string">closable:</span>当定义时显示关闭面板的按钮。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">18</span>)<span class="string">tools:</span>自定义工具栏，每个工具都包含两个属性:iconCls、handler。    </span><br><span class="line">                <span class="number">19</span>)<span class="string">collapsed:</span>当定义时该面板初始化时处于收缩状态。默认<span class="literal">false</span>。    </span><br><span class="line">                <span class="number">20</span>)<span class="string">minimized:</span>当定义时该面板初始化时处于最小化状态。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">21</span>)<span class="string">maximized:</span>当定义时该面板初始化时处于最大化状态。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">22</span>)closed：当定义时该面板初始化时处于关闭状态。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">23</span>)<span class="string">href:</span>一个url，加载远程数据并显示在面板中。   </span><br><span class="line">                <span class="number">24</span>)<span class="string">loadingMessage:</span>当加载远程数据时，在面板中显示一个消息。默认Loading…   </span><br><span class="line">             事件如下:   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">onLoad:</span>当远程数据加载完毕后激活。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">onBeforeOpen:</span>当面板打开前激活。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">onOpen:</span>当面板打开后激活。   </span><br><span class="line">                 <span class="number">4</span>)<span class="string">onBeforeClose:</span>当面板关闭前激活。   </span><br><span class="line">                 <span class="number">5</span>)<span class="string">onClose:</span>当面板关闭后激活。   </span><br><span class="line">                 <span class="number">6</span>)<span class="string">onBeforeDestroy:</span>当面板销毁前激活。   </span><br><span class="line">                 <span class="number">7</span>)<span class="string">onDestroy:</span>当面板销毁后激活。   </span><br><span class="line">                 <span class="number">8</span>)<span class="string">onBeforeCollpase:</span>当面板收缩前激活。   </span><br><span class="line">                 <span class="number">9</span>)<span class="string">onCollapse:</span>当面板收缩后激活。   </span><br><span class="line">                <span class="number">10</span>)<span class="string">onBeforeExpand:</span>当面板扩展前激活。      </span><br><span class="line">                <span class="number">11</span>)<span class="string">onExpand:</span>当面板扩展后激活。   </span><br><span class="line">                <span class="number">12</span>)<span class="string">onResize:</span>当面板重绘后激活。   </span><br><span class="line"><span class="symbol">                      width:</span>新建的外部宽度   </span><br><span class="line"><span class="symbol">                      height:</span>新建的外部高度   </span><br><span class="line">                <span class="number">13</span>)<span class="string">onMove:</span>当面板移动后激活。   </span><br><span class="line"><span class="symbol">                     left:</span>左侧新位置。   </span><br><span class="line"><span class="symbol">                     top:</span>顶部新位置。   </span><br><span class="line">                <span class="number">14</span>)<span class="string">onMaximize:</span>当窗口最大化后激活。   </span><br><span class="line">                <span class="number">15</span>)<span class="string">onRestore:</span>当窗口恢复到原来大小时激活。   </span><br><span class="line">                <span class="number">16</span>)<span class="string">onMinimize:</span>当窗口最小化后激活。   </span><br><span class="line">             方法如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">options:</span>返回options属性。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">panel:</span>返回面板对象。  </span><br><span class="line">                 <span class="number">3</span>)<span class="string">header:</span>返回面板头部对象。   </span><br><span class="line">                 <span class="number">4</span>)<span class="string">body:</span>返回面板主体对象。   </span><br><span class="line">                 <span class="number">5</span>)<span class="string">setTitle:</span>设置头部的标题文本。   </span><br><span class="line">                 <span class="number">6</span>)<span class="string">open:</span>当forceOpen参数设置为<span class="literal">true</span>时，面板打开时绕过onBeforeOpen回调函数。   </span><br><span class="line">                 <span class="number">7</span>)<span class="string">close:</span>当forceClose参数设置为<span class="literal">true</span>时，该面板关闭时绕过onBeforeClose回调函数。   </span><br><span class="line">                 <span class="number">8</span>)<span class="string">destroy:</span>当forceDestroy参数设置为<span class="literal">true</span>时该面板销毁时绕过onBeforeDestroy回调函数。   </span><br><span class="line">                 <span class="number">9</span>)<span class="string">refresh:</span>当href属性设置后刷新该面板以加载远程数据。   </span><br><span class="line">                <span class="number">10</span>)<span class="string">resize:</span>设置面板的大小和布局。该options对象包含以下属性:   </span><br><span class="line">                     width：新的面板宽度。   </span><br><span class="line">                     height：新的面板高度。   </span><br><span class="line">                     left：新的面板左侧位置。   </span><br><span class="line">                     top：新的面板顶部位置。   </span><br><span class="line">                <span class="number">11</span>)<span class="string">move:</span>移动面板到一个新的位置。该options对象包含以下属性：   </span><br><span class="line">                     left：新的面板左侧位置。   </span><br><span class="line">                     top：新的面板顶部位置。</span><br></pre></td></tr></table></figure>
-<h3 id="a-easyui-linkbutton-生成链接类型的按钮。"><a href="#a-easyui-linkbutton-生成链接类型的按钮。" class="headerlink" title="a  easyui-linkbutton                    生成链接类型的按钮。"></a><strong>a  easyui-linkbutton                    生成链接类型的按钮。</strong></h3><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">       属性如下：   </span><br><span class="line">            <span class="number">1</span>)disabled:当<span class="literal">True</span>时禁用该按钮。默认<span class="literal">false</span>。   </span><br><span class="line">            <span class="number">2</span>)plain:当<span class="literal">True</span>时显示一个普通效果。默认<span class="literal">false</span>。</span><br></pre></td></tr></table></figure>
-<h3 id="input-textarea-easyui-validatebox-生成字段验证。"><a href="#input-textarea-easyui-validatebox-生成字段验证。" class="headerlink" title="input/textarea easyui-validatebox       生成字段验证。"></a><strong>input/textarea easyui-validatebox       生成字段验证。</strong></h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">              属性如下：   </span><br><span class="line">              <span class="number">1</span>)required:<span class="literal">true</span>[必需] <span class="literal">false</span>[不必需] 默认<span class="literal">false</span>   </span><br><span class="line">              <span class="number">2</span>)validType:   </span><br><span class="line">                 <span class="keyword">a</span>、<span class="built_in">length</span>[<span class="keyword">a</span>,b] 字段长度控制在<span class="keyword">a</span>至b之间。   </span><br><span class="line">                 b、email       验证Email。   </span><br><span class="line">                 c、url      验证网络地址。    </span><br><span class="line">              <span class="number">3</span>)missingMessage：当文本时出现空时弹出该工具提示，系统有默认[英文]，自定义可覆盖它。   </span><br><span class="line">              <span class="number">4</span>)invalidMessage：当文本内容无效后弹出该工具提示，系统有默认[英文]，自定义可覆盖它。</span><br></pre></td></tr></table></figure>
-<h3 id="ul-easyui-tree-生成一个树形结构。"><a href="#ul-easyui-tree-生成一个树形结构。" class="headerlink" title="ul easyui-tree         生成一个树形结构。"></a><strong>ul easyui-tree         生成一个树形结构。</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">             属性如下：   </span><br><span class="line">              <span class="number">1</span>)<span class="string">url:</span>一个获取远程数据的地址。   </span><br><span class="line">              <span class="number">2</span>)<span class="string">animate:</span>当展开或折叠节点时是否定义动画效果。<span class="literal">true</span>[是] <span class="literal">false</span>[否] 默认<span class="literal">false</span>   </span><br><span class="line">             节点属性如下：   </span><br><span class="line">             <span class="number">1</span>)<span class="string">text:</span>节点的显示文本。   </span><br><span class="line">             <span class="number">2</span>)<span class="string">id:</span>节点ID，对于加载远程数据时非常重要。   </span><br><span class="line">             <span class="number">3</span>)<span class="string">state:</span>节点状态，<span class="string">'open'</span>或<span class="string">'closed'</span>，默认为<span class="string">'open'</span>。当设置为<span class="string">'关闭'</span>，该节点包含子节点，并将远程站点加载它们(并非触发再加载)。   </span><br><span class="line">             <span class="number">4</span>)<span class="string">attributes:</span>为节点添加自定义属性。   </span><br><span class="line">             <span class="number">5</span>)<span class="string">children:</span>以数组节点的方式定义一些字节点。   </span><br><span class="line">             事件如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">onClick:</span>   </span><br><span class="line">                    当用户点击一个节点时激活，该节点参数包含如下属性：   </span><br><span class="line">                    id：节点ID    </span><br><span class="line"><span class="symbol">                    text:</span>节点文本    </span><br><span class="line"><span class="symbol">                    attributes:</span>节点自定义属性。  </span><br><span class="line"><span class="symbol">                    target:</span>目标点击的DOM对象。   </span><br><span class="line">              <span class="number">2</span>)<span class="string">onLoadSuccess:</span>  </span><br><span class="line">                   当数据成功加载数据时激活，该参数跟jQuery.ajax的<span class="string">'success'</span>函数效果相同。  </span><br><span class="line">              <span class="number">3</span>)<span class="string">onLoadError:</span>  </span><br><span class="line">                  当数据加载数据失败时激活，该参数跟jQuery.ajax的<span class="string">'error'</span>函数效果相同。  </span><br><span class="line">             方法如下:  </span><br><span class="line">                 <span class="number">1</span>)<span class="string">reload:</span>重新加载树数据。  </span><br><span class="line">                 <span class="number">2</span>)<span class="string">getSelected:</span>获取选中的节点并返回它，如果没有选择节点将返回<span class="literal">null</span>。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">collapse:</span>折叠一个节点，该目标参数是该节点的DOM对象。   </span><br><span class="line">              <span class="number">4</span>)<span class="string">expand:</span>展开一个节点，该目标参数是该节点的DOM对象。     </span><br><span class="line">              <span class="number">5</span>)<span class="string">append:</span>在一个父节点追加一些子节点。   </span><br><span class="line">                    param有两个属性：   </span><br><span class="line"><span class="symbol">                    parent:</span>DOM对象，把它作为父节点追加(它们)。   </span><br><span class="line"><span class="symbol">                    data:</span>array，或者节点数据。   </span><br><span class="line">              <span class="number">6</span>)<span class="string">remove:</span>删除它以及它以下的子节点，该目标参数是该节点的DOM对象。</span><br></pre></td></tr></table></figure>
-<h3 id="table-easyui-datagrid-生成一个表格。"><a href="#table-easyui-datagrid-生成一个表格。" class="headerlink" title="table easyui-datagrid                   生成一个表格。"></a><strong>table easyui-datagrid                   生成一个表格。</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">             属性如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">title:</span>该DataGrid面板的标题文本。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">iconCls:</span>一个CSS类，将提供一个背景图片作为标题图标。   </span><br><span class="line">                 <span class="number">3</span>)border：当<span class="literal">true</span>时，显示该datagrid面板的边框。   </span><br><span class="line">                 <span class="number">4</span>)<span class="string">width:</span>面板宽度，自动列宽。   </span><br><span class="line">                 <span class="number">5</span>)<span class="string">height:</span>面板高度，自动列高。   </span><br><span class="line">                 <span class="number">6</span>)<span class="string">columns:</span>该DataGrid列配置对象，查看column属性可获取更多信息。   </span><br><span class="line">                 <span class="number">7</span>)<span class="string">frozenColumns:</span>跟Columns属性相同，但是这些列将会被固定在左边。   </span><br><span class="line">                 <span class="number">8</span>)<span class="string">striped:</span>当<span class="literal">true</span>时，单元格显示条纹。默认<span class="literal">false</span>。   </span><br><span class="line">                 <span class="number">9</span>)<span class="string">method:</span>通过该方法类型请求远程数据。默认post。   </span><br><span class="line">                <span class="number">10</span>)<span class="string">nowrap:</span>当<span class="literal">true</span>时，显示数据在同一行上。默认<span class="literal">true</span>。   </span><br><span class="line">                <span class="number">11</span>)<span class="string">idField:</span>说明哪个字段是一个标识字段。   </span><br><span class="line">                <span class="number">12</span>)<span class="string">url:</span>一个URL，从远程站点获取数据。   </span><br><span class="line">                <span class="number">13</span>)<span class="string">loadMsg:</span>当从远程站点加载数据时，显示一个提示信息。默认<span class="string">"Processing,please wait …"</span>。自定义覆盖。   </span><br><span class="line">                <span class="number">14</span>)<span class="string">pagination:</span>当<span class="literal">true</span>时在DataGrid底部显示一个分页工具栏。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">15</span>)<span class="string">rownumbers:</span>当<span class="literal">true</span>时显示行号。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">16</span>)<span class="string">singleSelect:</span>当<span class="literal">true</span>时只允许当前选择一行。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">17</span>)<span class="string">fit:</span>当<span class="literal">true</span>时，设置大小以适应它的父容器。默认<span class="literal">false</span>。   </span><br><span class="line">                <span class="number">18</span>)<span class="string">pageNumber:</span>当设置分页属性时，初始化的页码编号。默认从<span class="number">1</span>开始   </span><br><span class="line">                <span class="number">19</span>)<span class="string">pageSize:</span>当设置分页属性是，初始化的页面大小。默认<span class="number">10</span>行   </span><br><span class="line">                <span class="number">20</span>)<span class="string">pageList:</span>当设置分页属性时，初始化页面的大小选择清单。默认[<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>]   </span><br><span class="line">                <span class="number">21</span>)<span class="string">queryParams:</span>当请求远程数据时，也可以发送额外的参数。   </span><br><span class="line">                <span class="number">22</span>)<span class="string">sortName:</span>定义哪列可以排序。   </span><br><span class="line">                <span class="number">23</span>)<span class="string">sortOrder:</span>定义列的排列顺序，只能是<span class="string">'asc'</span>或<span class="string">'desc'</span>。默认asc。   </span><br><span class="line">             Column属性如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">title:</span>该列标题文本。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">field:</span>该列对应的字段名称。   </span><br><span class="line">                 <span class="number">3</span>)width：列宽。   </span><br><span class="line">                 <span class="number">4</span>)<span class="string">rowspan:</span>说明该单元格需要多少行数。   </span><br><span class="line">                 <span class="number">5</span>)<span class="string">colspan:</span>说明该单元格需要多少列数。   </span><br><span class="line">                 <span class="number">6</span>)<span class="string">align:</span>说明Column数据的对齐方式。<span class="string">'left'</span>，<span class="string">'right'</span>，<span class="string">'center'</span> 都可以使用。   </span><br><span class="line">                 <span class="number">7</span>)<span class="string">sortable:</span>当<span class="literal">true</span>时，允许该列进行排序。   </span><br><span class="line">                 <span class="number">8</span>)<span class="string">checkbox:</span>当<span class="literal">true</span>时，允许该列出现checkbox。   </span><br><span class="line">             事件如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">onLoadSuccess:</span>当远程数据加载成功是激活。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">onLoadError:</span>当远程数据加载发现一些错误时激活。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">onClickRow:</span>当用户点击某行时激活，参数包含：   </span><br><span class="line"><span class="symbol">                    rowIndex:</span> 点击的行索引，从<span class="number">0</span>开始。   </span><br><span class="line"><span class="symbol">                    rowData:</span> 点击行时对应的记录。   </span><br><span class="line">                <span class="number">4</span>)<span class="string">onDblClickRow:</span>当用户双击某行时激活，参数包含：   </span><br><span class="line"><span class="symbol">                    rowIndex:</span> 点击的行索引，从<span class="number">0</span>开始。   </span><br><span class="line"><span class="symbol">                    rowData:</span> 点击行时对应的记录。   </span><br><span class="line">                <span class="number">5</span>)<span class="string">onSortColumn:</span>当用户对某列排序时激活，参数包含：   </span><br><span class="line"><span class="symbol">                   sort:</span>排序字段名称。   </span><br><span class="line"><span class="symbol">                   order:</span>排序字段类型。   </span><br><span class="line">                <span class="number">6</span>)<span class="string">onSelect:</span>当用户选择某行时激活，参数包含:   </span><br><span class="line"><span class="symbol">                   rowIndex:</span> 点击的行索引，从<span class="number">0</span>开始。   </span><br><span class="line"><span class="symbol">                   rowData:</span> 点击行时对应的记录。   </span><br><span class="line">                <span class="number">7</span>)<span class="string">onUnselect:</span>当用户取消选择某行时激活，参数包含:   </span><br><span class="line"><span class="symbol">                    rowIndex:</span> 点击的行索引，从<span class="number">0</span>开始。   </span><br><span class="line"><span class="symbol">                    rowData:</span> 点击行时对应的记录。   </span><br><span class="line">             方法如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">options:</span>返回选择对象。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">resize:</span>重调大小，生成布局。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">reload:</span>重新加载数据。   </span><br><span class="line">                 <span class="number">4</span>)<span class="string">fixColumnSize:</span>固定列大小。   </span><br><span class="line">                 <span class="number">5</span>)<span class="string">loadData:</span>加载本地数据，过去的行会被删除。   </span><br><span class="line">                 <span class="number">6</span>)<span class="string">getSelected:</span>返回第一个选中行的记录，若未选返回<span class="literal">null</span>。   </span><br><span class="line">                 <span class="number">7</span>)<span class="string">getSelections:</span>返回选中的所有行，当没有选择记录时将返回空数组。   </span><br><span class="line">                 <span class="number">8</span>)<span class="string">clearSelections:</span>清除所有选项的选择状态。   </span><br><span class="line">                 <span class="number">9</span>)<span class="string">selectRow:</span>选择一行，行索引从<span class="number">0</span>开始。   </span><br><span class="line">                <span class="number">10</span>)<span class="string">selectRecord:</span>通过传递一个ID值参数，选择一行。   </span><br><span class="line">                <span class="number">11</span>)<span class="string">unselectRow:</span>取消选择一行。</span><br></pre></td></tr></table></figure>
-<h3 id="div-easyui-tabs-生成一个tab容器。"><a href="#div-easyui-tabs-生成一个tab容器。" class="headerlink" title="div easyui-tabs                         生成一个tab容器。"></a><strong>div easyui-tabs                         生成一个tab容器。</strong></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">             属性如下：    </span><br><span class="line">                 1)width:容器宽度，自动列宽。   </span><br><span class="line">                 2)height:容器高度，自动列高。   </span><br><span class="line">                 3)idSeed:该根id衍生成标签面板DOM id属性。默认0   </span><br><span class="line">                 4)plain：当true时，该<span class="keyword">Tab</span>渲染不使用容器背景图片。默认false   </span><br><span class="line">                 5)<span class="keyword">fit</span>:当true时，设置该<span class="keyword">Tab</span>大小以适应它的父容器。默认false    </span><br><span class="line">                 6)border:当true时，显示该<span class="keyword">Tab</span>边框。   </span><br><span class="line">                 7)scrollIncrement:   </span><br><span class="line">                 8)scrollDuration:   </span><br><span class="line">             事件如下：   </span><br><span class="line">                 1)onLoad:当一个ajax <span class="keyword">Tab</span>面板需要加载远程数据时激活。该参数跟jQuery.ajax的'success'函数效果相同。   </span><br><span class="line">                 2)onSelect:当用户选择一个<span class="keyword">Tab</span>面板时激活。    </span><br><span class="line">                 3)onClose:当用户关闭一个<span class="keyword">Tab</span>面板时激活。   </span><br><span class="line">             方法如下:   </span><br><span class="line">                 1)resize:重绘该<span class="keyword">Tab</span>容器的布局。   </span><br><span class="line">                 2)add:新增加一个<span class="keyword">Tab</span>面板，该选项参数是一个配置对象，看<span class="keyword">Tab</span>面板属性可获取更多信息。   </span><br><span class="line">                 3)<span class="keyword">close</span>：关闭该<span class="keyword">Tab</span>面板，标题参数显示你要关闭的对象。   </span><br><span class="line">                 4)select:选择一个<span class="keyword">Tab</span>面板。   </span><br><span class="line">                 5)exists:如果该<span class="keyword">Tab</span>面板存在即显示。   </span><br><span class="line">             <span class="keyword">Tab</span>面板属性如下：   </span><br><span class="line">                 1)id:该<span class="keyword">Tab</span>面板DOM id属性。   </span><br><span class="line">                 2)text:该<span class="keyword">Tab</span>面板标题文本。   </span><br><span class="line">                 3)content:该<span class="keyword">Tab</span>面板内容。   </span><br><span class="line">                 4)href:一个URL，加载远程内容以填充<span class="keyword">Tab</span>面板。   </span><br><span class="line">                 5)cache:当true时，缓存<span class="keyword">Tab</span>面板，当href 属性设置后有效。默认true    </span><br><span class="line">                 6)icon:增加一个CSS <span class="keyword">class</span>图标以显示在<span class="keyword">Tab</span>面板的标题旁。    </span><br><span class="line">                 7)closable:当true时，该<span class="keyword">Tab</span>面板将显示可关闭按钮，点击能关闭该<span class="keyword">Tab</span>面板。默认false    </span><br><span class="line">                 8)selected:当true时，该<span class="keyword">Tab</span>面板将被选中。默认false    </span><br><span class="line">                 9)width:面板宽度，自动列宽。    </span><br><span class="line">                10)height:面板高度，自动列高。</span><br></pre></td></tr></table></figure>
-<h3 id="div-menu-sep-生成一个菜单分隔线。"><a href="#div-menu-sep-生成一个菜单分隔线。" class="headerlink" title="div menu-sep              生成一个菜单分隔线。"></a>div menu-sep              生成一个菜单分隔线。</h3><h3 id="a-easyui-splitbutton-生成一个菜单列。"><a href="#a-easyui-splitbutton-生成一个菜单列。" class="headerlink" title="a easyui-splitbutton         生成一个菜单列。"></a>a easyui-splitbutton         生成一个菜单列。</h3><h3 id="div-easyui-accordion-生成手风琴式下拉框。继承自panel"><a href="#div-easyui-accordion-生成手风琴式下拉框。继承自panel" class="headerlink" title="div easyui-accordion        生成手风琴式下拉框。继承自panel"></a>div easyui-accordion        生成手风琴式下拉框。继承自panel</h3><h3 id="select-easyui-combobox-生成一个组合下拉框。"><a href="#select-easyui-combobox-生成一个组合下拉框。" class="headerlink" title="select easyui-combobox       生成一个组合下拉框。"></a><strong>select easyui-combobox       生成一个组合下拉框</strong>。</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">             属性如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">width:</span>容器宽度，自动列宽。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">listWidth:</span>该组合下拉框的宽度。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">listHeight:</span>该组合下拉框的高度。   </span><br><span class="line">                 <span class="number">4</span>)valueField：把该基础数据的值名称绑定到组合下拉框中[value]。   </span><br><span class="line">                 <span class="number">5</span>)<span class="string">textField:</span>把该基础数据的字段名称绑定到组合下拉框中[text]。   </span><br><span class="line">                 <span class="number">6</span>)<span class="string">editable:</span>当True时，可直接在文字域中键入文本。默认<span class="literal">true</span>。   </span><br><span class="line">                 <span class="number">7</span>)<span class="string">url:</span>一个URL，从远程加载列表数据。   </span><br><span class="line">             事件如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">onLoadSuccess:</span>当远程数据加载成功是激活。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">onLoadError:</span>当远程数据加载发现一些错误时激活。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">onSelect:</span>当用户选择一个列表选项时激活。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">onChange:</span>当该字段的值发生改变时激活。   </span><br><span class="line">             方法如下:   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">select:</span> 在下拉列表中选择一个值。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">setValue:</span> 设置指定值到该字段。在<span class="string">'param'</span> 参数可以是一个字符串或者一个JS对象。注:JS对象包含的属性对应valueField和TextField两个属性。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">getValue:</span> 获取该字段的值。    </span><br><span class="line">                 <span class="number">4</span>)<span class="string">reload:</span>   重新请求远程列表数据。</span><br></pre></td></tr></table></figure>
-<h3 id="select-easyui-combotree-生成一个组合树形框。"><a href="#select-easyui-combotree-生成一个组合树形框。" class="headerlink" title="select easyui-combotree      生成一个组合树形框。"></a><strong>select easyui-combotree      生成一个组合树形框。</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">            属性如下：   </span><br><span class="line">            <span class="number">1</span>)<span class="string">width:</span>容器宽度，自动列宽。   </span><br><span class="line">            <span class="number">2</span>)<span class="string">treeWidth:</span>该树形下拉框的宽度。   </span><br><span class="line">            <span class="number">3</span>)<span class="string">treeHeight:</span>该树形下拉框的高度。   </span><br><span class="line">            <span class="number">4</span>)<span class="string">url:</span>一个URL，从远程加载树形数据。   </span><br><span class="line">             事件如下：   </span><br><span class="line">             <span class="number">1</span>)<span class="string">onSelect:</span>当用户选择一个树形节点时激活。   </span><br><span class="line">             <span class="number">2</span>)<span class="string">onChange:</span>当该字段的值发生改变时激活。   </span><br><span class="line">             方法如下:   </span><br><span class="line">             <span class="number">1</span>)<span class="string">setValue:</span> 设置指定值到该字段。在<span class="string">'param'</span> 参数可以是一个树形节点ID值或者一个JS对象。注:JS对象包含的属性对应id和text两个属性。   </span><br><span class="line">             <span class="number">2</span>)<span class="string">getValue:</span> 获取该字段的值。    </span><br><span class="line">             <span class="number">3</span>)<span class="string">reload:</span>   重新请求远程列表数据。</span><br></pre></td></tr></table></figure>
-<h3 id="body-div-easyui-layout生成一个布局"><a href="#body-div-easyui-layout生成一个布局" class="headerlink" title="body[div] easyui-layout生成一个布局"></a><strong>body[div] easyui-layout生成一个布局</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">            属性如下：   </span><br><span class="line">            <span class="number">1</span>)<span class="string">title:</span>该面板标题文本。   </span><br><span class="line">            <span class="number">2</span>)<span class="string">region:</span>定义布局面板的位置，包含下列值:north,south, east, west, center。   </span><br><span class="line">            <span class="number">3</span>)<span class="string">border:</span>当True时显示布局面板的边框。默认为True。   </span><br><span class="line">            <span class="number">4</span>)<span class="string">split:</span> 当True时显示一个分割符以使用户改变面板的尺寸。默认<span class="literal">false</span>。   </span><br><span class="line">            <span class="number">5</span>)<span class="string">icon:</span>一个图标CSS类，在面板头部显示一个图标。    </span><br><span class="line">            <span class="number">6</span>)<span class="string">href:</span>一个URL,以从远程站点加载数据。</span><br></pre></td></tr></table></figure>
-<h3 id="div-easyui-menu-生成一个菜单"><a href="#div-easyui-menu-生成一个菜单" class="headerlink" title="div easyui-menu        生成一个菜单"></a><strong>div easyui-menu        生成一个菜单</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">            属性如下：   </span><br><span class="line">            <span class="number">1</span>)<span class="string">zIndex:</span> Menu z-index样式。注释：z-index 属性设置元素的堆叠顺序。    </span><br><span class="line">            <span class="number">2</span>)<span class="string">left:</span>菜单左起位置。默认<span class="number">0</span>。   </span><br><span class="line">            <span class="number">3</span>)<span class="string">top:</span> 菜单顶部位置。默认<span class="number">0</span>。    </span><br><span class="line">            <span class="number">4</span>)<span class="string">href:</span>当点击菜单项时能在当前浏览器窗口显示不同的网址。   </span><br><span class="line">            事件如下:   </span><br><span class="line">            <span class="number">1</span>)<span class="string">onShow:</span>激活后显示菜单。   </span><br><span class="line">            <span class="number">2</span>)<span class="string">onHide:</span>激活后隐藏菜单。   </span><br><span class="line">            方法如下:   </span><br><span class="line">            <span class="number">1</span>)<span class="string">show:</span>在指定的位置显示一个菜单。该位置上包含两个参数：   </span><br><span class="line"><span class="symbol">                left:</span>新的左起位置。   </span><br><span class="line"><span class="symbol">               top:</span>新的顶部位置。   </span><br><span class="line">            <span class="number">2</span>)<span class="string">hide:</span>隐藏一个菜单。</span><br></pre></td></tr></table></figure>
-<h3 id="a-easyui-menubutton-生成一个菜单按钮。"><a href="#a-easyui-menubutton-生成一个菜单按钮。" class="headerlink" title="a easyui-menubutton       生成一个菜单按钮。"></a><strong>a easyui-menubutton       生成一个菜单按钮。</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">            属性如下：   </span><br><span class="line">            <span class="number">1</span>)<span class="string">disabled:</span>当True时禁用该按钮。默认<span class="literal">false</span>。   </span><br><span class="line">            <span class="number">2</span>)<span class="string">plain:</span>当True时显示一个普通效果。默认<span class="literal">false</span>。    </span><br><span class="line">            <span class="number">3</span>)<span class="string">menu:</span>一个选择器名称，用来创建相应的菜单。   </span><br><span class="line">            <span class="number">4</span>)<span class="string">duration:</span> 当悬停该按钮时，定义菜单的持续显示时间，单位为毫秒。默认<span class="number">100</span>。</span><br></pre></td></tr></table></figure>
-<h3 id="input-easyui-numberbox-生成一个数字输入框。"><a href="#input-easyui-numberbox-生成一个数字输入框。" class="headerlink" title="input easyui-numberbox      生成一个数字输入框。"></a><strong>input easyui-numberbox      生成一个数字输入框</strong>。</h3><figure class="highlight irpf90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">            选项如下:   </span><br><span class="line">            <span class="number">1</span>)<span class="built_in">min</span>:允许的最小值。当输入值小于最小值时，显示最小值。   </span><br><span class="line">            <span class="number">2</span>)<span class="built_in">max</span>:允许的最大值。当输入值大于最大值时，显示最大值。   </span><br><span class="line">            <span class="number">3</span>)<span class="keyword">precision</span>:分隔符后能精确的小数点位数。整数默认会追加小数点位数。</span><br></pre></td></tr></table></figure>
-<h2 id="JS定义："><a href="#JS定义：" class="headerlink" title="JS定义："></a><strong>JS定义：</strong></h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、 .window            生成一个window窗口。   </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、 .tree                  生成一个树形结构。   </span><br><span class="line">  </span><br><span class="line"><span class="number">3</span>、 .datagrid           生成一个表格。   </span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、 .combobox        生成一个组合下拉框。   </span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、 .combotree       生成一个组合树形框。   </span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、 .dialog               生成一个对话框。它继承自window   </span><br><span class="line">      私有属性如下：   </span><br><span class="line">                 <span class="number">1</span>)<span class="string">title:</span>该对话框标题文本。默认<span class="string">"New Dialog"</span>。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">collapsible:</span>当True时可显示折叠按钮。默认<span class="literal">false</span>。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">minimizable:</span>当True时可显示最小化按钮。默认<span class="literal">false</span>。   </span><br><span class="line">                 <span class="number">4</span>)<span class="string">maximizable:</span>当True时可显示最大化按钮。默认<span class="literal">false</span>。   </span><br><span class="line">                 <span class="number">5</span>)<span class="string">resizable:</span>当True时能重绘对话框大小。默认<span class="literal">false</span>。   </span><br><span class="line">                 <span class="number">6</span>)<span class="string">toolbar:</span>该工具栏置于对话框的顶部，每个工具栏包含:text, iconCls, disabled, handler等属性。   </span><br><span class="line">                 <span class="number">7</span>)<span class="string">buttons:</span>这个按钮置于对话框的底部，每个按钮包含:text, iconCls, handler等属性。   </span><br><span class="line"></span><br><span class="line"><span class="number">7</span>、 .draggable          生成一个可自由拖动的块。   </span><br><span class="line">      属性如下:   </span><br><span class="line">              <span class="number">1</span>)<span class="string">handle:</span>选择<span class="string">"#id"</span>进行拖动。   </span><br><span class="line">              <span class="number">2</span>)<span class="string">disabled:</span>当True时停止自由拖动。默认<span class="literal">false</span>。   </span><br><span class="line">              <span class="number">3</span>)<span class="string">edge:</span>开始拖动拖动块时的宽度。默认<span class="number">0</span>。   </span><br><span class="line">              <span class="number">4</span>)<span class="string">axis:</span>当拖动块移动时定义轴，可选值是<span class="string">'v'</span>或者<span class="string">'h'</span>,当超出<span class="string">'v'</span>和<span class="string">'h'</span>的方位时将设置为<span class="literal">null</span>。   </span><br><span class="line">     事件如下：    </span><br><span class="line">                 <span class="number">1</span>)<span class="string">onStartDrag:</span>当目标对象开始拖动时激活。   </span><br><span class="line">                 <span class="number">2</span>)<span class="string">onDrag:</span>在拖动期间激活。返回<span class="literal">false</span>将不会实际拖动它(的位置)。   </span><br><span class="line">                 <span class="number">3</span>)<span class="string">onStopDrag:</span>当目标对象停止拖动时激活。    </span><br><span class="line"></span><br><span class="line"><span class="number">8</span>、 .linkbutton          生成一个链式按钮。</span><br></pre></td></tr></table></figure>
-<h3 id="messager-生成一个消息框。"><a href="#messager-生成一个消息框。" class="headerlink" title="messager  生成一个消息框。"></a><strong>messager  生成一个消息框。</strong></h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">选项如下：</span></span><br><span class="line">                 <span class="number">1</span><span class="string">)ok:显示确定按钮文本。</span>    </span><br><span class="line">                 <span class="number">2</span><span class="string">)cancel:显示取消按钮文本。</span>    </span><br><span class="line">             <span class="string">方法如下:</span>   </span><br><span class="line">             <span class="number">1</span><span class="string">)show:在屏幕的右下角出现一个消息框。该选项参数是一个配置对象，它包括：</span>    </span><br><span class="line">                <span class="attr">showType:定义消息框显示的模式，可选值包括:null,slide,fade,show.默认slide.</span>   </span><br><span class="line">                <span class="attr">showSpeed:</span> <span class="string">定义消息框完成显示的时间。默认600毫秒。</span>   </span><br><span class="line">                <span class="attr">width:</span> <span class="string">定义消息框的宽度。默认250。</span>    </span><br><span class="line">                <span class="attr">height:定义消息框的高度。默认100。</span>    </span><br><span class="line">                <span class="attr">msg:定义消息框显示的文本。</span>    </span><br><span class="line">                <span class="attr">title:</span> <span class="string">在消息框面板头部显示标题文本。</span>    </span><br><span class="line">                <span class="attr">timeout:</span> <span class="string">如果定义为0,消息框将不会自动关闭，除非用户手动关闭它。如果定义为非0值，消息框会在超时结束时自动关闭它。单位毫秒。</span>    </span><br><span class="line">             <span class="number">2</span><span class="string">)alert:显示一个打印窗口。它的参数如下:</span>    </span><br><span class="line">                <span class="attr">title:</span> <span class="string">在头部显示标题文本。</span>   </span><br><span class="line">                <span class="attr">msg:显示文本内容。</span>   </span><br><span class="line">                <span class="attr">icon:</span> <span class="string">显示图标。可选值:error,question,info,warning。</span>   </span><br><span class="line">                <span class="attr">fn:</span> <span class="string">当窗口关闭后触发回调函数。</span>   </span><br><span class="line">             <span class="number">3</span><span class="string">)confirm:显示一个包含确定和取消按钮的确认消息框。参数包括:</span>    </span><br><span class="line">                <span class="attr">title:在头部显示标题文本。</span>   </span><br><span class="line">                <span class="attr">msg:</span> <span class="string">显示文本内容。</span>   </span><br><span class="line">                <span class="string">fn(b):回调函数，当用户点击OK按钮，返回True,才会处理该函数，其它按钮返回false,不处理。</span>   </span><br><span class="line">             <span class="number">4</span><span class="string">)prompt:显示一个消息框，包含OK和Cancel按钮并提示用户输入一些文本。参数包括:</span>   </span><br><span class="line">                <span class="attr">title:在头部显示标题文本。</span>   </span><br><span class="line">                <span class="attr">msg:显示文本内容。</span>   </span><br><span class="line">                <span class="string">fn(val):该回调函数处理用户输入的参数值。</span></span><br></pre></td></tr></table></figure>
-<h3 id="pagination生成一个页码工具条"><a href="#pagination生成一个页码工具条" class="headerlink" title=".pagination生成一个页码工具条"></a><strong>.pagination生成一个页码工具条</strong></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">属性如下：   </span><br><span class="line">            <span class="number">1</span>)<span class="string">total:</span>当分页条创建后设置的记录数。默认<span class="number">1</span>。   </span><br><span class="line">            <span class="number">2</span>)<span class="string">pageSize:</span>页面大小。默认<span class="number">10</span>。   </span><br><span class="line">            <span class="number">3</span>)<span class="string">pageNumber:</span>当分页创建后显示的页码。默认<span class="number">1</span>。   </span><br><span class="line">            <span class="number">4</span>)<span class="string">pageList:</span>用户能更改页面的大小。您也可以改变该属性定义的默认大小。默认`[<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">50</span>]`。</span><br><span class="line">            <span class="number">5</span>)<span class="string">loading:</span>定义是否正在加载。默认<span class="literal">false</span>。  </span><br><span class="line">            <span class="number">6</span>)<span class="string">buttons:</span>定义自定义按钮，每个按钮都包含两个属性:  </span><br><span class="line"><span class="symbol">               iconCls:</span> 该CSS类将显示一个背景图标。   </span><br><span class="line"><span class="symbol">               handler:</span> 当按钮点击时触发一个处理函数。   </span><br><span class="line">            <span class="number">7</span>)<span class="string">beforePageText:</span>当输入组件前显示一个标签文本。   </span><br><span class="line">            <span class="number">8</span>)<span class="string">afterPageText:</span>当输入组件后显示一个标签文本。   </span><br><span class="line">            <span class="number">9</span>)<span class="string">displayMsg:</span>显示一个页面信息。  </span><br><span class="line">           方法如下:  </span><br><span class="line">            <span class="number">1</span>)<span class="string">onSelectPage:</span>当用户选择一个新页面时激活。该回调函数包括两个参数:   </span><br><span class="line"><span class="symbol">               pageNumber:</span> 该新页面的页码。  </span><br><span class="line"><span class="symbol">               pageSize:</span>该新页面的大小</span><br></pre></td></tr></table></figure>
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="/music/1.mp3">
-            </audio>
+            <i class="fa fa-home"></i>
             
-        </div>
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
         
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
-
-
-    </div>
-    
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jquery中datagrid中getSelected和getSelections的用法"><span class="toc-number">1.</span> <span class="toc-text">jquery中datagrid中getSelected和getSelections的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#easyui-datagrid"><span class="toc-number">2.</span> <span class="toc-text">easyui-datagrid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div-easyui-window-生成一个window窗口样式。"><span class="toc-number">3.</span> <span class="toc-text">div easyui-window        生成一个window窗口样式。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div-easyui-panel-生成一个面板。"><span class="toc-number">4.</span> <span class="toc-text">div easyui-panel           生成一个面板。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a-easyui-linkbutton-生成链接类型的按钮。"><span class="toc-number">5.</span> <span class="toc-text">a  easyui-linkbutton                    生成链接类型的按钮。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#input-textarea-easyui-validatebox-生成字段验证。"><span class="toc-number">6.</span> <span class="toc-text">input/textarea easyui-validatebox       生成字段验证。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ul-easyui-tree-生成一个树形结构。"><span class="toc-number">7.</span> <span class="toc-text">ul easyui-tree         生成一个树形结构。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#table-easyui-datagrid-生成一个表格。"><span class="toc-number">8.</span> <span class="toc-text">table easyui-datagrid                   生成一个表格。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div-easyui-tabs-生成一个tab容器。"><span class="toc-number">9.</span> <span class="toc-text">div easyui-tabs                         生成一个tab容器。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div-menu-sep-生成一个菜单分隔线。"><span class="toc-number">10.</span> <span class="toc-text">div menu-sep              生成一个菜单分隔线。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a-easyui-splitbutton-生成一个菜单列。"><span class="toc-number">11.</span> <span class="toc-text">a easyui-splitbutton         生成一个菜单列。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div-easyui-accordion-生成手风琴式下拉框。继承自panel"><span class="toc-number">12.</span> <span class="toc-text">div easyui-accordion        生成手风琴式下拉框。继承自panel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#select-easyui-combobox-生成一个组合下拉框。"><span class="toc-number">13.</span> <span class="toc-text">select easyui-combobox       生成一个组合下拉框。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#select-easyui-combotree-生成一个组合树形框。"><span class="toc-number">14.</span> <span class="toc-text">select easyui-combotree      生成一个组合树形框。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#body-div-easyui-layout生成一个布局"><span class="toc-number">15.</span> <span class="toc-text">body[div] easyui-layout生成一个布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div-easyui-menu-生成一个菜单"><span class="toc-number">16.</span> <span class="toc-text">div easyui-menu        生成一个菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a-easyui-menubutton-生成一个菜单按钮。"><span class="toc-number">17.</span> <span class="toc-text">a easyui-menubutton       生成一个菜单按钮。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#input-easyui-numberbox-生成一个数字输入框。"><span class="toc-number">18.</span> <span class="toc-text">input easyui-numberbox      生成一个数字输入框。</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#JS定义："><span class="toc-number"></span> <span class="toc-text">JS定义：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#messager-生成一个消息框。"><span class="toc-number">1.</span> <span class="toc-text">messager  生成一个消息框。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pagination生成一个页码工具条"><span class="toc-number">2.</span> <span class="toc-text">.pagination生成一个页码工具条</span></a></li></ol>
-        </li></div>
-    
-</div>
-
-
-    </div>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">廖锡洪</div>
+        <div class="logo-desc">
+            
+            廖锡洪
+            
         </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Easy-Ui
                     </div>
                 </div>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
         </div>
     </div>
 </div>
 
 
 
+<main class="container content">
 
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/标签/" target="_blank">
+                                <span class="chip bg-color">标签</span>
+                            </a>
+                        
+                            <a href="/tags/前端/" target="_blank">
+                                <span class="chip bg-color">前端</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-11-22
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="jquery中datagrid中getSelected和getSelections的用法"><a href="#jquery中datagrid中getSelected和getSelections的用法" class="headerlink" title="jquery中datagrid中getSelected和getSelections的用法"></a><strong>jquery中datagrid中getSelected和getSelections的用法</strong></h3><p>说明data是table表格的某一列的id<br>选中一行：  </p>
+<pre><code>var get = $(&quot;#dg&quot;).datagrid(&quot;getSelected&quot;);
+</code></pre><p>获取列值：get.data，<br>选中多行：<br>遍历多行的数据  </p>
+<pre><code>var get = $(&quot;#dg&quot;).datagrid(&quot;getSelections&quot;);
+for(var i=0;i&lt;get.length;i++){
+  var data = get[i].data;
+}
+</code></pre><h3 id="easyui-datagrid"><a href="#easyui-datagrid" class="headerlink" title="easyui-datagrid"></a><strong>easyui-datagrid</strong></h3><p>pagination    ：    设置为 true，则在数据网格（datagrid）底部显示分页工具栏。   </p>
+<pre><code>&lt;table id=&quot;dg&quot; title=&quot;活动管理&quot; class=&quot;easyui-datagrid&quot; pagination=&quot;true&quot;
+       rownumbers=&quot;true&quot; fit=&quot;true&quot; data-options=&quot;pageSize:10&quot;
+       url=&quot;${pageContext.request.contextPath}/activity/list.do&quot; toolbar=&quot;#tb1&quot;&gt;
+     &lt;thead data-options=&quot;frozen:true&quot;&gt;
+    &lt;tr&gt;
+        &lt;th field=&quot;cb&quot; checkbox=&quot;true&quot; align=&quot;center&quot;&gt;&lt;/th&gt;
+        &lt;th field=&quot;id&quot; width=&quot;10%&quot; align=&quot;center&quot; hidden=&quot;true&quot;&gt;编号&lt;/th&gt;
+        &lt;th field=&quot;activityTitle&quot; width=&quot;200&quot; align=&quot;center&quot;&gt;标题&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt; 
+&lt;/table&gt;
+</code></pre><h3 id="div-easyui-window-生成一个window窗口样式。"><a href="#div-easyui-window-生成一个window窗口样式。" class="headerlink" title="div easyui-window        生成一个window窗口样式。"></a><strong>div easyui-window        生成一个window窗口样式。</strong></h3><pre class=" language-groovy"><code class="language-groovy">属性如下：   
+                   <span class="token number">1</span><span class="token punctuation">)</span>modal<span class="token punctuation">:</span>是否生成模态窗口。<span class="token boolean">true</span><span class="token punctuation">[</span>是<span class="token punctuation">]</span> <span class="token boolean">false</span><span class="token punctuation">[</span>否<span class="token punctuation">]</span>   
+                   <span class="token number">2</span><span class="token punctuation">)</span>shadow<span class="token punctuation">:</span>是否显示窗口阴影。<span class="token boolean">true</span><span class="token punctuation">[</span>显示<span class="token punctuation">]</span> <span class="token boolean">false</span><span class="token punctuation">[</span>不显示<span class="token punctuation">]</span>
+</code></pre>
+<p>==    </p>
+<h3 id="div-easyui-panel-生成一个面板。"><a href="#div-easyui-panel-生成一个面板。" class="headerlink" title="div easyui-panel           生成一个面板。"></a><strong>div easyui-panel           生成一个面板。</strong></h3><pre class=" language-groovy"><code class="language-groovy">       属性如下<span class="token punctuation">:</span>   
+                 <span class="token number">1</span><span class="token punctuation">)</span>title<span class="token punctuation">:</span>该标题文本显示在面板头部。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>iconCls<span class="token punctuation">:</span>在面板上通过一个CSS类显示16x16图标。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>width<span class="token punctuation">:</span>设置面板宽度。默认auto。   
+                 <span class="token number">4</span><span class="token punctuation">)</span>height<span class="token punctuation">:</span>设置面板高度。默认auto。   
+                 <span class="token number">5</span><span class="token punctuation">)</span>left<span class="token punctuation">:</span>设置面板左边距。   
+                 <span class="token number">6</span><span class="token punctuation">)</span>top<span class="token punctuation">:</span>设置面板顶部位置。   
+                 <span class="token number">7</span><span class="token punctuation">)</span>cls<span class="token punctuation">:</span>在面板中增加一个Class类。   
+                 <span class="token number">8</span><span class="token punctuation">)</span>headerCls<span class="token punctuation">:</span>在面板头部中增加一个Class类。   
+                 <span class="token number">9</span><span class="token punctuation">)</span>bodyCls<span class="token punctuation">:</span>在面板内容中增加一个Class类。   
+                <span class="token number">10</span><span class="token punctuation">)</span>style<span class="token punctuation">:</span>在面板中增加一个指定样式。   
+                <span class="token number">11</span><span class="token punctuation">)</span>fit<span class="token punctuation">:</span>当True时设置该面板尺寸适合于它的父容器。默认<span class="token boolean">false</span>。   
+                <span class="token number">12</span><span class="token punctuation">)</span>border<span class="token punctuation">:</span>当定义时显示面板边界。默认<span class="token boolean">true</span>。   
+                <span class="token number">13</span><span class="token punctuation">)</span>doSize<span class="token punctuation">:</span>如果设置为True，该面板将重绘大小，并重建布局。默认<span class="token boolean">true</span>。   
+                <span class="token number">14</span><span class="token punctuation">)</span>collapsible<span class="token punctuation">:</span>当定义时显示可折叠面板的按钮。默认<span class="token boolean">false</span>。   
+                <span class="token number">15</span><span class="token punctuation">)</span>minimizable<span class="token punctuation">:</span>当定义时显示最小化面板的按钮。默认<span class="token boolean">false</span>。    
+                <span class="token number">16</span><span class="token punctuation">)</span>maximizable<span class="token punctuation">:</span>当定义时显示最大化面板的按钮。默认<span class="token boolean">false</span>。    
+                <span class="token number">17</span><span class="token punctuation">)</span>closable<span class="token punctuation">:</span>当定义时显示关闭面板的按钮。默认<span class="token boolean">false</span>。   
+                <span class="token number">18</span><span class="token punctuation">)</span>tools<span class="token punctuation">:</span>自定义工具栏，每个工具都包含两个属性<span class="token punctuation">:</span>iconCls、handler。    
+                <span class="token number">19</span><span class="token punctuation">)</span>collapsed<span class="token punctuation">:</span>当定义时该面板初始化时处于收缩状态。默认<span class="token boolean">false</span>。    
+                <span class="token number">20</span><span class="token punctuation">)</span>minimized<span class="token punctuation">:</span>当定义时该面板初始化时处于最小化状态。默认<span class="token boolean">false</span>。   
+                <span class="token number">21</span><span class="token punctuation">)</span>maximized<span class="token punctuation">:</span>当定义时该面板初始化时处于最大化状态。默认<span class="token boolean">false</span>。   
+                <span class="token number">22</span><span class="token punctuation">)</span>closed：当定义时该面板初始化时处于关闭状态。默认<span class="token boolean">false</span>。   
+                <span class="token number">23</span><span class="token punctuation">)</span>href<span class="token punctuation">:</span>一个url，加载远程数据并显示在面板中。   
+                <span class="token number">24</span><span class="token punctuation">)</span>loadingMessage<span class="token punctuation">:</span>当加载远程数据时，在面板中显示一个消息。默认Loading…   
+             事件如下<span class="token punctuation">:</span>   
+                 <span class="token number">1</span><span class="token punctuation">)</span>onLoad<span class="token punctuation">:</span>当远程数据加载完毕后激活。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>onBeforeOpen<span class="token punctuation">:</span>当面板打开前激活。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>onOpen<span class="token punctuation">:</span>当面板打开后激活。   
+                 <span class="token number">4</span><span class="token punctuation">)</span>onBeforeClose<span class="token punctuation">:</span>当面板关闭前激活。   
+                 <span class="token number">5</span><span class="token punctuation">)</span>onClose<span class="token punctuation">:</span>当面板关闭后激活。   
+                 <span class="token number">6</span><span class="token punctuation">)</span>onBeforeDestroy<span class="token punctuation">:</span>当面板销毁前激活。   
+                 <span class="token number">7</span><span class="token punctuation">)</span>onDestroy<span class="token punctuation">:</span>当面板销毁后激活。   
+                 <span class="token number">8</span><span class="token punctuation">)</span>onBeforeCollpase<span class="token punctuation">:</span>当面板收缩前激活。   
+                 <span class="token number">9</span><span class="token punctuation">)</span>onCollapse<span class="token punctuation">:</span>当面板收缩后激活。   
+                <span class="token number">10</span><span class="token punctuation">)</span>onBeforeExpand<span class="token punctuation">:</span>当面板扩展前激活。      
+                <span class="token number">11</span><span class="token punctuation">)</span>onExpand<span class="token punctuation">:</span>当面板扩展后激活。   
+                <span class="token number">12</span><span class="token punctuation">)</span>onResize<span class="token punctuation">:</span>当面板重绘后激活。   
+                      width<span class="token punctuation">:</span>新建的外部宽度   
+                      height<span class="token punctuation">:</span>新建的外部高度   
+                <span class="token number">13</span><span class="token punctuation">)</span>onMove<span class="token punctuation">:</span>当面板移动后激活。   
+                     left<span class="token punctuation">:</span>左侧新位置。   
+                     top<span class="token punctuation">:</span>顶部新位置。   
+                <span class="token number">14</span><span class="token punctuation">)</span>onMaximize<span class="token punctuation">:</span>当窗口最大化后激活。   
+                <span class="token number">15</span><span class="token punctuation">)</span>onRestore<span class="token punctuation">:</span>当窗口恢复到原来大小时激活。   
+                <span class="token number">16</span><span class="token punctuation">)</span>onMinimize<span class="token punctuation">:</span>当窗口最小化后激活。   
+             方法如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>options<span class="token punctuation">:</span>返回options属性。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>panel<span class="token punctuation">:</span>返回面板对象。  
+                 <span class="token number">3</span><span class="token punctuation">)</span>header<span class="token punctuation">:</span>返回面板头部对象。   
+                 <span class="token number">4</span><span class="token punctuation">)</span>body<span class="token punctuation">:</span>返回面板主体对象。   
+                 <span class="token number">5</span><span class="token punctuation">)</span>setTitle<span class="token punctuation">:</span>设置头部的标题文本。   
+                 <span class="token number">6</span><span class="token punctuation">)</span>open<span class="token punctuation">:</span>当forceOpen参数设置为<span class="token boolean">true</span>时，面板打开时绕过onBeforeOpen回调函数。   
+                 <span class="token number">7</span><span class="token punctuation">)</span>close<span class="token punctuation">:</span>当forceClose参数设置为<span class="token boolean">true</span>时，该面板关闭时绕过onBeforeClose回调函数。   
+                 <span class="token number">8</span><span class="token punctuation">)</span>destroy<span class="token punctuation">:</span>当forceDestroy参数设置为<span class="token boolean">true</span>时该面板销毁时绕过onBeforeDestroy回调函数。   
+                 <span class="token number">9</span><span class="token punctuation">)</span>refresh<span class="token punctuation">:</span>当href属性设置后刷新该面板以加载远程数据。   
+                <span class="token number">10</span><span class="token punctuation">)</span>resize<span class="token punctuation">:</span>设置面板的大小和布局。该options对象包含以下属性<span class="token punctuation">:</span>   
+                     width：新的面板宽度。   
+                     height：新的面板高度。   
+                     left：新的面板左侧位置。   
+                     top：新的面板顶部位置。   
+                <span class="token number">11</span><span class="token punctuation">)</span>move<span class="token punctuation">:</span>移动面板到一个新的位置。该options对象包含以下属性：   
+                     left：新的面板左侧位置。   
+                     top：新的面板顶部位置。 
+</code></pre>
+<h3 id="a-easyui-linkbutton-生成链接类型的按钮。"><a href="#a-easyui-linkbutton-生成链接类型的按钮。" class="headerlink" title="a  easyui-linkbutton                    生成链接类型的按钮。"></a><strong>a  easyui-linkbutton                    生成链接类型的按钮。</strong></h3><pre class=" language-vbscript"><code class="language-vbscript">       属性如下：   
+            1)disabled:当True时禁用该按钮。默认false。   
+            2)plain:当True时显示一个普通效果。默认false。 
+</code></pre>
+<h3 id="input-textarea-easyui-validatebox-生成字段验证。"><a href="#input-textarea-easyui-validatebox-生成字段验证。" class="headerlink" title="input/textarea easyui-validatebox       生成字段验证。"></a><strong>input/textarea easyui-validatebox       生成字段验证。</strong></h3><pre class=" language-livecodeserver"><code class="language-livecodeserver">              属性如下：   
+              1)required:true[必需] false[不必需] 默认false   
+              2)validType:   
+                 a、length[a,b] 字段长度控制在a至b之间。   
+                 b、email       验证Email。   
+                 c、url      验证网络地址。    
+              3)missingMessage：当文本时出现空时弹出该工具提示，系统有默认[英文]，自定义可覆盖它。   
+              4)invalidMessage：当文本内容无效后弹出该工具提示，系统有默认[英文]，自定义可覆盖它。   
+</code></pre>
+<h3 id="ul-easyui-tree-生成一个树形结构。"><a href="#ul-easyui-tree-生成一个树形结构。" class="headerlink" title="ul easyui-tree         生成一个树形结构。"></a><strong>ul easyui-tree         生成一个树形结构。</strong></h3><pre class=" language-groovy"><code class="language-groovy">             属性如下：   
+              <span class="token number">1</span><span class="token punctuation">)</span>url<span class="token punctuation">:</span>一个获取远程数据的地址。   
+              <span class="token number">2</span><span class="token punctuation">)</span>animate<span class="token punctuation">:</span>当展开或折叠节点时是否定义动画效果。<span class="token boolean">true</span><span class="token punctuation">[</span>是<span class="token punctuation">]</span> <span class="token boolean">false</span><span class="token punctuation">[</span>否<span class="token punctuation">]</span> 默认<span class="token boolean">false</span>   
+             节点属性如下：   
+             <span class="token number">1</span><span class="token punctuation">)</span>text<span class="token punctuation">:</span>节点的显示文本。   
+             <span class="token number">2</span><span class="token punctuation">)</span>id<span class="token punctuation">:</span>节点ID，对于加载远程数据时非常重要。   
+             <span class="token number">3</span><span class="token punctuation">)</span>state<span class="token punctuation">:</span>节点状态，<span class="token string">'open'</span>或<span class="token string">'closed'</span>，默认为<span class="token string">'open'</span>。当设置为<span class="token string">'关闭'</span>，该节点包含子节点，并将远程站点加载它们<span class="token punctuation">(</span>并非触发再加载<span class="token punctuation">)</span>。   
+             <span class="token number">4</span><span class="token punctuation">)</span>attributes<span class="token punctuation">:</span>为节点添加自定义属性。   
+             <span class="token number">5</span><span class="token punctuation">)</span>children<span class="token punctuation">:</span>以数组节点的方式定义一些字节点。   
+             事件如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>onClick<span class="token punctuation">:</span>   
+                    当用户点击一个节点时激活，该节点参数包含如下属性：   
+                    id：节点ID    
+                    text<span class="token punctuation">:</span>节点文本    
+                    attributes<span class="token punctuation">:</span>节点自定义属性。  
+                    target<span class="token punctuation">:</span>目标点击的DOM对象。   
+              <span class="token number">2</span><span class="token punctuation">)</span>onLoadSuccess<span class="token punctuation">:</span>  
+                   当数据成功加载数据时激活，该参数跟jQuery<span class="token operator">.</span>ajax的<span class="token string">'success'</span>函数效果相同。  
+              <span class="token number">3</span><span class="token punctuation">)</span>onLoadError<span class="token punctuation">:</span>  
+                  当数据加载数据失败时激活，该参数跟jQuery<span class="token operator">.</span>ajax的<span class="token string">'error'</span>函数效果相同。  
+             方法如下<span class="token punctuation">:</span>  
+                 <span class="token number">1</span><span class="token punctuation">)</span>reload<span class="token punctuation">:</span>重新加载树数据。  
+                 <span class="token number">2</span><span class="token punctuation">)</span>getSelected<span class="token punctuation">:</span>获取选中的节点并返回它，如果没有选择节点将返回null。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>collapse<span class="token punctuation">:</span>折叠一个节点，该目标参数是该节点的DOM对象。   
+              <span class="token number">4</span><span class="token punctuation">)</span>expand<span class="token punctuation">:</span>展开一个节点，该目标参数是该节点的DOM对象。     
+              <span class="token number">5</span><span class="token punctuation">)</span>append<span class="token punctuation">:</span>在一个父节点追加一些子节点。   
+                    param有两个属性：   
+                    parent<span class="token punctuation">:</span>DOM对象，把它作为父节点追加<span class="token punctuation">(</span>它们<span class="token punctuation">)</span>。   
+                    data<span class="token punctuation">:</span>array，或者节点数据。   
+              <span class="token number">6</span><span class="token punctuation">)</span>remove<span class="token punctuation">:</span>删除它以及它以下的子节点，该目标参数是该节点的DOM对象。   
+</code></pre>
+<h3 id="table-easyui-datagrid-生成一个表格。"><a href="#table-easyui-datagrid-生成一个表格。" class="headerlink" title="table easyui-datagrid                   生成一个表格。"></a><strong>table easyui-datagrid                   生成一个表格。</strong></h3><pre class=" language-groovy"><code class="language-groovy">             属性如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>title<span class="token punctuation">:</span>该DataGrid面板的标题文本。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>iconCls<span class="token punctuation">:</span>一个CSS类，将提供一个背景图片作为标题图标。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>border：当<span class="token boolean">true</span>时，显示该datagrid面板的边框。   
+                 <span class="token number">4</span><span class="token punctuation">)</span>width<span class="token punctuation">:</span>面板宽度，自动列宽。   
+                 <span class="token number">5</span><span class="token punctuation">)</span>height<span class="token punctuation">:</span>面板高度，自动列高。   
+                 <span class="token number">6</span><span class="token punctuation">)</span>columns<span class="token punctuation">:</span>该DataGrid列配置对象，查看column属性可获取更多信息。   
+                 <span class="token number">7</span><span class="token punctuation">)</span>frozenColumns<span class="token punctuation">:</span>跟Columns属性相同，但是这些列将会被固定在左边。   
+                 <span class="token number">8</span><span class="token punctuation">)</span>striped<span class="token punctuation">:</span>当<span class="token boolean">true</span>时，单元格显示条纹。默认<span class="token boolean">false</span>。   
+                 <span class="token number">9</span><span class="token punctuation">)</span>method<span class="token punctuation">:</span>通过该方法类型请求远程数据。默认post。   
+                <span class="token number">10</span><span class="token punctuation">)</span>nowrap<span class="token punctuation">:</span>当<span class="token boolean">true</span>时，显示数据在同一行上。默认<span class="token boolean">true</span>。   
+                <span class="token number">11</span><span class="token punctuation">)</span>idField<span class="token punctuation">:</span>说明哪个字段是一个标识字段。   
+                <span class="token number">12</span><span class="token punctuation">)</span>url<span class="token punctuation">:</span>一个URL，从远程站点获取数据。   
+                <span class="token number">13</span><span class="token punctuation">)</span>loadMsg<span class="token punctuation">:</span>当从远程站点加载数据时，显示一个提示信息。默认<span class="token string">"Processing,please wait …"</span>。自定义覆盖。   
+                <span class="token number">14</span><span class="token punctuation">)</span>pagination<span class="token punctuation">:</span>当<span class="token boolean">true</span>时在DataGrid底部显示一个分页工具栏。默认<span class="token boolean">false</span>。   
+                <span class="token number">15</span><span class="token punctuation">)</span>rownumbers<span class="token punctuation">:</span>当<span class="token boolean">true</span>时显示行号。默认<span class="token boolean">false</span>。   
+                <span class="token number">16</span><span class="token punctuation">)</span>singleSelect<span class="token punctuation">:</span>当<span class="token boolean">true</span>时只允许当前选择一行。默认<span class="token boolean">false</span>。   
+                <span class="token number">17</span><span class="token punctuation">)</span>fit<span class="token punctuation">:</span>当<span class="token boolean">true</span>时，设置大小以适应它的父容器。默认<span class="token boolean">false</span>。   
+                <span class="token number">18</span><span class="token punctuation">)</span>pageNumber<span class="token punctuation">:</span>当设置分页属性时，初始化的页码编号。默认从<span class="token number">1</span>开始   
+                <span class="token number">19</span><span class="token punctuation">)</span>pageSize<span class="token punctuation">:</span>当设置分页属性是，初始化的页面大小。默认<span class="token number">10</span>行   
+                <span class="token number">20</span><span class="token punctuation">)</span>pageList<span class="token punctuation">:</span>当设置分页属性时，初始化页面的大小选择清单。默认<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span>   
+                <span class="token number">21</span><span class="token punctuation">)</span>queryParams<span class="token punctuation">:</span>当请求远程数据时，也可以发送额外的参数。   
+                <span class="token number">22</span><span class="token punctuation">)</span>sortName<span class="token punctuation">:</span>定义哪列可以排序。   
+                <span class="token number">23</span><span class="token punctuation">)</span>sortOrder<span class="token punctuation">:</span>定义列的排列顺序，只能是<span class="token string">'asc'</span>或<span class="token string">'desc'</span>。默认asc。   
+             Column属性如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>title<span class="token punctuation">:</span>该列标题文本。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>field<span class="token punctuation">:</span>该列对应的字段名称。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>width：列宽。   
+                 <span class="token number">4</span><span class="token punctuation">)</span>rowspan<span class="token punctuation">:</span>说明该单元格需要多少行数。   
+                 <span class="token number">5</span><span class="token punctuation">)</span>colspan<span class="token punctuation">:</span>说明该单元格需要多少列数。   
+                 <span class="token number">6</span><span class="token punctuation">)</span>align<span class="token punctuation">:</span>说明Column数据的对齐方式。<span class="token string">'left'</span>，<span class="token string">'right'</span>，<span class="token string">'center'</span> 都可以使用。   
+                 <span class="token number">7</span><span class="token punctuation">)</span>sortable<span class="token punctuation">:</span>当<span class="token boolean">true</span>时，允许该列进行排序。   
+                 <span class="token number">8</span><span class="token punctuation">)</span>checkbox<span class="token punctuation">:</span>当<span class="token boolean">true</span>时，允许该列出现checkbox。   
+             事件如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>onLoadSuccess<span class="token punctuation">:</span>当远程数据加载成功是激活。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>onLoadError<span class="token punctuation">:</span>当远程数据加载发现一些错误时激活。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>onClickRow<span class="token punctuation">:</span>当用户点击某行时激活，参数包含：   
+                    rowIndex<span class="token punctuation">:</span> 点击的行索引，从<span class="token number">0</span>开始。   
+                    rowData<span class="token punctuation">:</span> 点击行时对应的记录。   
+                <span class="token number">4</span><span class="token punctuation">)</span>onDblClickRow<span class="token punctuation">:</span>当用户双击某行时激活，参数包含：   
+                    rowIndex<span class="token punctuation">:</span> 点击的行索引，从<span class="token number">0</span>开始。   
+                    rowData<span class="token punctuation">:</span> 点击行时对应的记录。   
+                <span class="token number">5</span><span class="token punctuation">)</span>onSortColumn<span class="token punctuation">:</span>当用户对某列排序时激活，参数包含：   
+                   sort<span class="token punctuation">:</span>排序字段名称。   
+                   order<span class="token punctuation">:</span>排序字段类型。   
+                <span class="token number">6</span><span class="token punctuation">)</span>onSelect<span class="token punctuation">:</span>当用户选择某行时激活，参数包含<span class="token punctuation">:</span>   
+                   rowIndex<span class="token punctuation">:</span> 点击的行索引，从<span class="token number">0</span>开始。   
+                   rowData<span class="token punctuation">:</span> 点击行时对应的记录。   
+                <span class="token number">7</span><span class="token punctuation">)</span>onUnselect<span class="token punctuation">:</span>当用户取消选择某行时激活，参数包含<span class="token punctuation">:</span>   
+                    rowIndex<span class="token punctuation">:</span> 点击的行索引，从<span class="token number">0</span>开始。   
+                    rowData<span class="token punctuation">:</span> 点击行时对应的记录。   
+             方法如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>options<span class="token punctuation">:</span>返回选择对象。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>resize<span class="token punctuation">:</span>重调大小，生成布局。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>reload<span class="token punctuation">:</span>重新加载数据。   
+                 <span class="token number">4</span><span class="token punctuation">)</span>fixColumnSize<span class="token punctuation">:</span>固定列大小。   
+                 <span class="token number">5</span><span class="token punctuation">)</span>loadData<span class="token punctuation">:</span>加载本地数据，过去的行会被删除。   
+                 <span class="token number">6</span><span class="token punctuation">)</span>getSelected<span class="token punctuation">:</span>返回第一个选中行的记录，若未选返回null。   
+                 <span class="token number">7</span><span class="token punctuation">)</span>getSelections<span class="token punctuation">:</span>返回选中的所有行，当没有选择记录时将返回空数组。   
+                 <span class="token number">8</span><span class="token punctuation">)</span>clearSelections<span class="token punctuation">:</span>清除所有选项的选择状态。   
+                 <span class="token number">9</span><span class="token punctuation">)</span>selectRow<span class="token punctuation">:</span>选择一行，行索引从<span class="token number">0</span>开始。   
+                <span class="token number">10</span><span class="token punctuation">)</span>selectRecord<span class="token punctuation">:</span>通过传递一个ID值参数，选择一行。   
+                <span class="token number">11</span><span class="token punctuation">)</span>unselectRow<span class="token punctuation">:</span>取消选择一行。
+</code></pre>
+<h3 id="div-easyui-tabs-生成一个tab容器。"><a href="#div-easyui-tabs-生成一个tab容器。" class="headerlink" title="div easyui-tabs                         生成一个tab容器。"></a><strong>div easyui-tabs                         生成一个tab容器。</strong></h3><pre class=" language-stata"><code class="language-stata">             属性如下：    
+                 1)width:容器宽度，自动列宽。   
+                 2)height:容器高度，自动列高。   
+                 3)idSeed:该根id衍生成标签面板DOM id属性。默认0   
+                 4)plain：当true时，该Tab渲染不使用容器背景图片。默认false   
+                 5)fit:当true时，设置该Tab大小以适应它的父容器。默认false    
+                 6)border:当true时，显示该Tab边框。   
+                 7)scrollIncrement:   
+                 8)scrollDuration:   
+             事件如下：   
+                 1)onLoad:当一个ajax Tab面板需要加载远程数据时激活。该参数跟jQuery.ajax的'success'函数效果相同。   
+                 2)onSelect:当用户选择一个Tab面板时激活。    
+                 3)onClose:当用户关闭一个Tab面板时激活。   
+             方法如下:   
+                 1)resize:重绘该Tab容器的布局。   
+                 2)add:新增加一个Tab面板，该选项参数是一个配置对象，看Tab面板属性可获取更多信息。   
+                 3)close：关闭该Tab面板，标题参数显示你要关闭的对象。   
+                 4)select:选择一个Tab面板。   
+                 5)exists:如果该Tab面板存在即显示。   
+             Tab面板属性如下：   
+                 1)id:该Tab面板DOM id属性。   
+                 2)text:该Tab面板标题文本。   
+                 3)content:该Tab面板内容。   
+                 4)href:一个URL，加载远程内容以填充Tab面板。   
+                 5)cache:当true时，缓存Tab面板，当href 属性设置后有效。默认true    
+                 6)icon:增加一个CSS class图标以显示在Tab面板的标题旁。    
+                 7)closable:当true时，该Tab面板将显示可关闭按钮，点击能关闭该Tab面板。默认false    
+                 8)selected:当true时，该Tab面板将被选中。默认false    
+                 9)width:面板宽度，自动列宽。    
+                10)height:面板高度，自动列高。
+</code></pre>
+<h3 id="div-menu-sep-生成一个菜单分隔线。"><a href="#div-menu-sep-生成一个菜单分隔线。" class="headerlink" title="div menu-sep              生成一个菜单分隔线。"></a>div menu-sep              生成一个菜单分隔线。</h3><h3 id="a-easyui-splitbutton-生成一个菜单列。"><a href="#a-easyui-splitbutton-生成一个菜单列。" class="headerlink" title="a easyui-splitbutton         生成一个菜单列。"></a>a easyui-splitbutton         生成一个菜单列。</h3><h3 id="div-easyui-accordion-生成手风琴式下拉框。继承自panel"><a href="#div-easyui-accordion-生成手风琴式下拉框。继承自panel" class="headerlink" title="div easyui-accordion        生成手风琴式下拉框。继承自panel"></a>div easyui-accordion        生成手风琴式下拉框。继承自panel</h3><h3 id="select-easyui-combobox-生成一个组合下拉框。"><a href="#select-easyui-combobox-生成一个组合下拉框。" class="headerlink" title="select easyui-combobox       生成一个组合下拉框。"></a><strong>select easyui-combobox       生成一个组合下拉框</strong>。</h3><pre class=" language-groovy"><code class="language-groovy">             属性如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>width<span class="token punctuation">:</span>容器宽度，自动列宽。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>listWidth<span class="token punctuation">:</span>该组合下拉框的宽度。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>listHeight<span class="token punctuation">:</span>该组合下拉框的高度。   
+                 <span class="token number">4</span><span class="token punctuation">)</span>valueField：把该基础数据的值名称绑定到组合下拉框中<span class="token punctuation">[</span>value<span class="token punctuation">]</span>。   
+                 <span class="token number">5</span><span class="token punctuation">)</span>textField<span class="token punctuation">:</span>把该基础数据的字段名称绑定到组合下拉框中<span class="token punctuation">[</span>text<span class="token punctuation">]</span>。   
+                 <span class="token number">6</span><span class="token punctuation">)</span>editable<span class="token punctuation">:</span>当True时，可直接在文字域中键入文本。默认<span class="token boolean">true</span>。   
+                 <span class="token number">7</span><span class="token punctuation">)</span>url<span class="token punctuation">:</span>一个URL，从远程加载列表数据。   
+             事件如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>onLoadSuccess<span class="token punctuation">:</span>当远程数据加载成功是激活。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>onLoadError<span class="token punctuation">:</span>当远程数据加载发现一些错误时激活。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>onSelect<span class="token punctuation">:</span>当用户选择一个列表选项时激活。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>onChange<span class="token punctuation">:</span>当该字段的值发生改变时激活。   
+             方法如下<span class="token punctuation">:</span>   
+                 <span class="token number">1</span><span class="token punctuation">)</span>select<span class="token punctuation">:</span> 在下拉列表中选择一个值。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>setValue<span class="token punctuation">:</span> 设置指定值到该字段。在<span class="token string">'param'</span> 参数可以是一个字符串或者一个JS对象。注<span class="token punctuation">:</span>JS对象包含的属性对应valueField和TextField两个属性。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>getValue<span class="token punctuation">:</span> 获取该字段的值。    
+                 <span class="token number">4</span><span class="token punctuation">)</span>reload<span class="token punctuation">:</span>   重新请求远程列表数据。
+</code></pre>
+<h3 id="select-easyui-combotree-生成一个组合树形框。"><a href="#select-easyui-combotree-生成一个组合树形框。" class="headerlink" title="select easyui-combotree      生成一个组合树形框。"></a><strong>select easyui-combotree      生成一个组合树形框。</strong></h3><pre class=" language-groovy"><code class="language-groovy">            属性如下：   
+            <span class="token number">1</span><span class="token punctuation">)</span>width<span class="token punctuation">:</span>容器宽度，自动列宽。   
+            <span class="token number">2</span><span class="token punctuation">)</span>treeWidth<span class="token punctuation">:</span>该树形下拉框的宽度。   
+            <span class="token number">3</span><span class="token punctuation">)</span>treeHeight<span class="token punctuation">:</span>该树形下拉框的高度。   
+            <span class="token number">4</span><span class="token punctuation">)</span>url<span class="token punctuation">:</span>一个URL，从远程加载树形数据。   
+             事件如下：   
+             <span class="token number">1</span><span class="token punctuation">)</span>onSelect<span class="token punctuation">:</span>当用户选择一个树形节点时激活。   
+             <span class="token number">2</span><span class="token punctuation">)</span>onChange<span class="token punctuation">:</span>当该字段的值发生改变时激活。   
+             方法如下<span class="token punctuation">:</span>   
+             <span class="token number">1</span><span class="token punctuation">)</span>setValue<span class="token punctuation">:</span> 设置指定值到该字段。在<span class="token string">'param'</span> 参数可以是一个树形节点ID值或者一个JS对象。注<span class="token punctuation">:</span>JS对象包含的属性对应id和text两个属性。   
+             <span class="token number">2</span><span class="token punctuation">)</span>getValue<span class="token punctuation">:</span> 获取该字段的值。    
+             <span class="token number">3</span><span class="token punctuation">)</span>reload<span class="token punctuation">:</span>   重新请求远程列表数据。 
+</code></pre>
+<h3 id="body-div-easyui-layout生成一个布局"><a href="#body-div-easyui-layout生成一个布局" class="headerlink" title="body[div] easyui-layout生成一个布局"></a><strong>body[div] easyui-layout生成一个布局</strong></h3><pre class=" language-groovy"><code class="language-groovy">            属性如下：   
+            <span class="token number">1</span><span class="token punctuation">)</span>title<span class="token punctuation">:</span>该面板标题文本。   
+            <span class="token number">2</span><span class="token punctuation">)</span>region<span class="token punctuation">:</span>定义布局面板的位置，包含下列值<span class="token punctuation">:</span>north<span class="token punctuation">,</span>south<span class="token punctuation">,</span> east<span class="token punctuation">,</span> west<span class="token punctuation">,</span> center。   
+            <span class="token number">3</span><span class="token punctuation">)</span>border<span class="token punctuation">:</span>当True时显示布局面板的边框。默认为True。   
+            <span class="token number">4</span><span class="token punctuation">)</span>split<span class="token punctuation">:</span> 当True时显示一个分割符以使用户改变面板的尺寸。默认<span class="token boolean">false</span>。   
+            <span class="token number">5</span><span class="token punctuation">)</span>icon<span class="token punctuation">:</span>一个图标CSS类，在面板头部显示一个图标。    
+            <span class="token number">6</span><span class="token punctuation">)</span>href<span class="token punctuation">:</span>一个URL<span class="token punctuation">,</span>以从远程站点加载数据。
+</code></pre>
+<h3 id="div-easyui-menu-生成一个菜单"><a href="#div-easyui-menu-生成一个菜单" class="headerlink" title="div easyui-menu        生成一个菜单"></a><strong>div easyui-menu        生成一个菜单</strong></h3><pre class=" language-groovy"><code class="language-groovy">            属性如下：   
+            <span class="token number">1</span><span class="token punctuation">)</span>zIndex<span class="token punctuation">:</span> Menu z<span class="token operator">-</span>index样式。注释：z<span class="token operator">-</span>index 属性设置元素的堆叠顺序。    
+            <span class="token number">2</span><span class="token punctuation">)</span>left<span class="token punctuation">:</span>菜单左起位置。默认<span class="token number">0</span>。   
+            <span class="token number">3</span><span class="token punctuation">)</span>top<span class="token punctuation">:</span> 菜单顶部位置。默认<span class="token number">0</span>。    
+            <span class="token number">4</span><span class="token punctuation">)</span>href<span class="token punctuation">:</span>当点击菜单项时能在当前浏览器窗口显示不同的网址。   
+            事件如下<span class="token punctuation">:</span>   
+            <span class="token number">1</span><span class="token punctuation">)</span>onShow<span class="token punctuation">:</span>激活后显示菜单。   
+            <span class="token number">2</span><span class="token punctuation">)</span>onHide<span class="token punctuation">:</span>激活后隐藏菜单。   
+            方法如下<span class="token punctuation">:</span>   
+            <span class="token number">1</span><span class="token punctuation">)</span>show<span class="token punctuation">:</span>在指定的位置显示一个菜单。该位置上包含两个参数：   
+                left<span class="token punctuation">:</span>新的左起位置。   
+               top<span class="token punctuation">:</span>新的顶部位置。   
+            <span class="token number">2</span><span class="token punctuation">)</span>hide<span class="token punctuation">:</span>隐藏一个菜单。   
+</code></pre>
+<h3 id="a-easyui-menubutton-生成一个菜单按钮。"><a href="#a-easyui-menubutton-生成一个菜单按钮。" class="headerlink" title="a easyui-menubutton       生成一个菜单按钮。"></a><strong>a easyui-menubutton       生成一个菜单按钮。</strong></h3><pre class=" language-groovy"><code class="language-groovy">            属性如下：   
+            <span class="token number">1</span><span class="token punctuation">)</span>disabled<span class="token punctuation">:</span>当True时禁用该按钮。默认<span class="token boolean">false</span>。   
+            <span class="token number">2</span><span class="token punctuation">)</span>plain<span class="token punctuation">:</span>当True时显示一个普通效果。默认<span class="token boolean">false</span>。    
+            <span class="token number">3</span><span class="token punctuation">)</span>menu<span class="token punctuation">:</span>一个选择器名称，用来创建相应的菜单。   
+            <span class="token number">4</span><span class="token punctuation">)</span>duration<span class="token punctuation">:</span> 当悬停该按钮时，定义菜单的持续显示时间，单位为毫秒。默认<span class="token number">100</span>。
+</code></pre>
+<h3 id="input-easyui-numberbox-生成一个数字输入框。"><a href="#input-easyui-numberbox-生成一个数字输入框。" class="headerlink" title="input easyui-numberbox      生成一个数字输入框。"></a><strong>input easyui-numberbox      生成一个数字输入框</strong>。</h3><pre class=" language-irpf90"><code class="language-irpf90">            选项如下:   
+            1)min:允许的最小值。当输入值小于最小值时，显示最小值。   
+            2)max:允许的最大值。当输入值大于最大值时，显示最大值。   
+            3)precision:分隔符后能精确的小数点位数。整数默认会追加小数点位数。 
+</code></pre>
+<h2 id="JS定义："><a href="#JS定义：" class="headerlink" title="JS定义："></a><strong>JS定义：</strong></h2><pre class=" language-groovy"><code class="language-groovy"><span class="token number">1</span>、 <span class="token operator">.</span>window            生成一个window窗口。   
+
+<span class="token number">2</span>、 <span class="token operator">.</span>tree                  生成一个树形结构。   
+
+<span class="token number">3</span>、 <span class="token operator">.</span>datagrid           生成一个表格。   
+
+<span class="token number">4</span>、 <span class="token operator">.</span>combobox        生成一个组合下拉框。   
+
+<span class="token number">5</span>、 <span class="token operator">.</span>combotree       生成一个组合树形框。   
+
+<span class="token number">6</span>、 <span class="token operator">.</span>dialog               生成一个对话框。它继承自window   
+      私有属性如下：   
+                 <span class="token number">1</span><span class="token punctuation">)</span>title<span class="token punctuation">:</span>该对话框标题文本。默认<span class="token string">"New Dialog"</span>。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>collapsible<span class="token punctuation">:</span>当True时可显示折叠按钮。默认<span class="token boolean">false</span>。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>minimizable<span class="token punctuation">:</span>当True时可显示最小化按钮。默认<span class="token boolean">false</span>。   
+                 <span class="token number">4</span><span class="token punctuation">)</span>maximizable<span class="token punctuation">:</span>当True时可显示最大化按钮。默认<span class="token boolean">false</span>。   
+                 <span class="token number">5</span><span class="token punctuation">)</span>resizable<span class="token punctuation">:</span>当True时能重绘对话框大小。默认<span class="token boolean">false</span>。   
+                 <span class="token number">6</span><span class="token punctuation">)</span>toolbar<span class="token punctuation">:</span>该工具栏置于对话框的顶部，每个工具栏包含<span class="token punctuation">:</span>text<span class="token punctuation">,</span> iconCls<span class="token punctuation">,</span> disabled<span class="token punctuation">,</span> handler等属性。   
+                 <span class="token number">7</span><span class="token punctuation">)</span>buttons<span class="token punctuation">:</span>这个按钮置于对话框的底部，每个按钮包含<span class="token punctuation">:</span>text<span class="token punctuation">,</span> iconCls<span class="token punctuation">,</span> handler等属性。   
+
+<span class="token number">7</span>、 <span class="token operator">.</span>draggable          生成一个可自由拖动的块。   
+      属性如下<span class="token punctuation">:</span>   
+              <span class="token number">1</span><span class="token punctuation">)</span>handle<span class="token punctuation">:</span>选择<span class="token string">"#id"</span>进行拖动。   
+              <span class="token number">2</span><span class="token punctuation">)</span>disabled<span class="token punctuation">:</span>当True时停止自由拖动。默认<span class="token boolean">false</span>。   
+              <span class="token number">3</span><span class="token punctuation">)</span>edge<span class="token punctuation">:</span>开始拖动拖动块时的宽度。默认<span class="token number">0</span>。   
+              <span class="token number">4</span><span class="token punctuation">)</span>axis<span class="token punctuation">:</span>当拖动块移动时定义轴，可选值是<span class="token string">'v'</span>或者<span class="token string">'h'</span><span class="token punctuation">,</span>当超出<span class="token string">'v'</span>和<span class="token string">'h'</span>的方位时将设置为null。   
+     事件如下：    
+                 <span class="token number">1</span><span class="token punctuation">)</span>onStartDrag<span class="token punctuation">:</span>当目标对象开始拖动时激活。   
+                 <span class="token number">2</span><span class="token punctuation">)</span>onDrag<span class="token punctuation">:</span>在拖动期间激活。返回<span class="token boolean">false</span>将不会实际拖动它<span class="token punctuation">(</span>的位置<span class="token punctuation">)</span>。   
+                 <span class="token number">3</span><span class="token punctuation">)</span>onStopDrag<span class="token punctuation">:</span>当目标对象停止拖动时激活。    
+
+<span class="token number">8</span>、 <span class="token operator">.</span>linkbutton          生成一个链式按钮。   
+</code></pre>
+<h3 id="messager-生成一个消息框。"><a href="#messager-生成一个消息框。" class="headerlink" title="messager  生成一个消息框。"></a><strong>messager  生成一个消息框。</strong></h3><pre class=" language-yaml"><code class="language-yaml"> 选项如下：
+                 1)ok<span class="token punctuation">:</span>显示确定按钮文本。    
+                 2)cancel<span class="token punctuation">:</span>显示取消按钮文本。    
+             <span class="token key atrule">方法如下</span><span class="token punctuation">:</span>   
+             1)show<span class="token punctuation">:</span>在屏幕的右下角出现一个消息框。该选项参数是一个配置对象，它包括：    
+                showType<span class="token punctuation">:</span>定义消息框显示的模式，可选值包括<span class="token punctuation">:</span><span class="token null important">null</span><span class="token punctuation">,</span>slide<span class="token punctuation">,</span>fade<span class="token punctuation">,</span>show.默认slide.   
+                <span class="token key atrule">showSpeed</span><span class="token punctuation">:</span> 定义消息框完成显示的时间。默认600毫秒。   
+                <span class="token key atrule">width</span><span class="token punctuation">:</span> 定义消息框的宽度。默认250。    
+                height<span class="token punctuation">:</span>定义消息框的高度。默认100。    
+                msg<span class="token punctuation">:</span>定义消息框显示的文本。    
+                <span class="token key atrule">title</span><span class="token punctuation">:</span> 在消息框面板头部显示标题文本。    
+                <span class="token key atrule">timeout</span><span class="token punctuation">:</span> 如果定义为0<span class="token punctuation">,</span>消息框将不会自动关闭，除非用户手动关闭它。如果定义为非0值，消息框会在超时结束时自动关闭它。单位毫秒。    
+             <span class="token key atrule">2)alert:显示一个打印窗口。它的参数如下</span><span class="token punctuation">:</span>    
+                <span class="token key atrule">title</span><span class="token punctuation">:</span> 在头部显示标题文本。   
+                msg<span class="token punctuation">:</span>显示文本内容。   
+                <span class="token key atrule">icon</span><span class="token punctuation">:</span> 显示图标。可选值<span class="token punctuation">:</span>error<span class="token punctuation">,</span>question<span class="token punctuation">,</span>info<span class="token punctuation">,</span>warning。   
+                <span class="token key atrule">fn</span><span class="token punctuation">:</span> 当窗口关闭后触发回调函数。   
+             <span class="token key atrule">3)confirm:显示一个包含确定和取消按钮的确认消息框。参数包括</span><span class="token punctuation">:</span>    
+                title<span class="token punctuation">:</span>在头部显示标题文本。   
+                <span class="token key atrule">msg</span><span class="token punctuation">:</span> 显示文本内容。   
+                fn(b)<span class="token punctuation">:</span>回调函数，当用户点击OK按钮，返回True<span class="token punctuation">,</span>才会处理该函数，其它按钮返回false<span class="token punctuation">,</span>不处理。   
+             <span class="token key atrule">4)prompt:显示一个消息框，包含OK和Cancel按钮并提示用户输入一些文本。参数包括</span><span class="token punctuation">:</span>   
+                title<span class="token punctuation">:</span>在头部显示标题文本。   
+                msg<span class="token punctuation">:</span>显示文本内容。   
+                fn(val)<span class="token punctuation">:</span>该回调函数处理用户输入的参数值。   
+</code></pre>
+<h3 id="pagination生成一个页码工具条"><a href="#pagination生成一个页码工具条" class="headerlink" title=".pagination生成一个页码工具条"></a><strong>.pagination生成一个页码工具条</strong></h3><pre class=" language-groovy"><code class="language-groovy">属性如下：   
+            <span class="token number">1</span><span class="token punctuation">)</span>total<span class="token punctuation">:</span>当分页条创建后设置的记录数。默认<span class="token number">1</span>。   
+            <span class="token number">2</span><span class="token punctuation">)</span>pageSize<span class="token punctuation">:</span>页面大小。默认<span class="token number">10</span>。   
+            <span class="token number">3</span><span class="token punctuation">)</span>pageNumber<span class="token punctuation">:</span>当分页创建后显示的页码。默认<span class="token number">1</span>。   
+            <span class="token number">4</span><span class="token punctuation">)</span>pageList<span class="token punctuation">:</span>用户能更改页面的大小。您也可以改变该属性定义的默认大小。默认`<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span>`。
+            <span class="token number">5</span><span class="token punctuation">)</span>loading<span class="token punctuation">:</span>定义是否正在加载。默认<span class="token boolean">false</span>。  
+            <span class="token number">6</span><span class="token punctuation">)</span>buttons<span class="token punctuation">:</span>定义自定义按钮，每个按钮都包含两个属性<span class="token punctuation">:</span>  
+               iconCls<span class="token punctuation">:</span> 该CSS类将显示一个背景图标。   
+               handler<span class="token punctuation">:</span> 当按钮点击时触发一个处理函数。   
+            <span class="token number">7</span><span class="token punctuation">)</span>beforePageText<span class="token punctuation">:</span>当输入组件前显示一个标签文本。   
+            <span class="token number">8</span><span class="token punctuation">)</span>afterPageText<span class="token punctuation">:</span>当输入组件后显示一个标签文本。   
+            <span class="token number">9</span><span class="token punctuation">)</span>displayMsg<span class="token punctuation">:</span>显示一个页面信息。  
+           方法如下<span class="token punctuation">:</span>  
+            <span class="token number">1</span><span class="token punctuation">)</span>onSelectPage<span class="token punctuation">:</span>当用户选择一个新页面时激活。该回调函数包括两个参数<span class="token punctuation">:</span>   
+               pageNumber<span class="token punctuation">:</span> 该新页面的页码。  
+               pageSize<span class="token punctuation">:</span>该新页面的大小  
+</code></pre>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://viabcde.github.io" class="b-link-green">廖锡洪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/11/22/2018-11-22-easy-ui/" class="b-link-green">Easy-Ui</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/11/22/2018-11-22-SSM(一)---用户管理/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="SSM(一)---用户管理">
+                        
+                        <span class="card-title">SSM(一)---用户管理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">main.jsp  
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;
+         pageEncoding=</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/系统/" target="_blank">
+                        <span class="chip bg-color">系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/11/22/2018-11-22-分页/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="分页">
+                        
+                        <span class="card-title">分页</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">pageBean的作用主要用来存储页面的相关元素的信息
+public String findAll(){
+        PageBean&lt;Employee&gt; pageBean = employeeService.findByP</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/Hibernate/" target="_blank">
+                        <span class="chip bg-color">Hibernate</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"search":null,"path":"search.xml","field":"post","log":false});</script></body>
 </html>

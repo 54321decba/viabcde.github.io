@@ -1,58 +1,359 @@
+<!DOCTYPE HTML>
+<html lang="">
 
-<!DOCTYPE html>
-<html lang="" class="loading">
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>廖锡洪</title>
-
+    <meta charset="utf-8">
+    <meta name="keywords" content="Maven常用命令, viabcde">
+    <meta name="description" content="Maven常用命令：1. 创建Maven的普通Java项目mvn archetype:create    -DgroupId=packageName    -DartifactId=projectName  
+2. 创建Maven的Web项">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate">
-    <meta name="keywords" content="viabcde,"> 
+    <title>Maven常用命令 | 廖锡洪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">廖锡洪</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
     
-    <meta name="author" content="viacbde"> 
-    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-</html>
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">Maven常用命令</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">廖锡洪</div>
+        <div class="logo-desc">
+            
+            廖锡洪
+            
         </div>
     </div>
-    <div class="scrollbar"></div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
-    <div class="section">
-        <div class="article">
-    <div class="main">
-        <h1 class="title">Maven常用命令</h1>
-        <div class="stuff">
-            <span>九月 28, 2018</span>
-            
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Maven/">Maven</a><span class="post-tags-list-count">2</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+</div>
 
-
+            </div>
         </div>
-        <div class="content markdown">
-            <h2 id="Maven常用命令："><a href="#Maven常用命令：" class="headerlink" title="Maven常用命令："></a>Maven常用命令：</h2><h3 id="1-创建Maven的普通Java项目"><a href="#1-创建Maven的普通Java项目" class="headerlink" title="1. 创建Maven的普通Java项目"></a><strong>1. 创建Maven的普通Java项目</strong></h3><p>mvn archetype:create<br>    -DgroupId=packageName<br>    -DartifactId=projectName  </p>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Maven常用命令
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/标签/" target="_blank">
+                                <span class="chip bg-color">标签</span>
+                            </a>
+                        
+                            <a href="/tags/Maven/" target="_blank">
+                                <span class="chip bg-color">Maven</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-09-28
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Maven常用命令："><a href="#Maven常用命令：" class="headerlink" title="Maven常用命令："></a>Maven常用命令：</h2><h3 id="1-创建Maven的普通Java项目"><a href="#1-创建Maven的普通Java项目" class="headerlink" title="1. 创建Maven的普通Java项目"></a><strong>1. 创建Maven的普通Java项目</strong></h3><p>mvn archetype:create<br>    -DgroupId=packageName<br>    -DartifactId=projectName  </p>
 <h3 id="2-创建Maven的Web项目"><a href="#2-创建Maven的Web项目" class="headerlink" title="2. 创建Maven的Web项目"></a><strong>2. 创建Maven的Web项目</strong></h3><p>mvn archetype:create<br>    -DgroupId=packageName<br>    -DartifactId=webappName<br>    -DarchetypeArtifactId=maven-archetype-webapp  </p>
 <h3 id="3-反向生成-maven-项目的骨架"><a href="#3-反向生成-maven-项目的骨架" class="headerlink" title="3. 反向生成 maven 项目的骨架"></a><strong>3. 反向生成 maven 项目的骨架</strong></h3><p>mvn archetype:generate<br>　　你是怎么创建你的maven项目的?是不是像这样:<br>mvn archetype:create -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.ryanote -Dartifact=common<br>　　如果你还再用的话,那你就out了,现代人都用mvn archetype:generate了,它将创建项目这件枯燥的事更加人性化,你再也不需要记那么多的archetypeArtifactId,你只需输入archetype:generate,剩下的就是做”选择题”了.<br>　　缩写写法：<br>mvn archetype:generate -DgroupId=otowa.user.dao -DartifactId=user-dao -Dversion=0.01-SNAPSHOT  </p>
 <h3 id="4-编译源代码"><a href="#4-编译源代码" class="headerlink" title="4. 编译源代码"></a><strong>4. 编译源代码</strong></h3><p>mvn compile  </p>
@@ -98,93 +399,374 @@
 <h3 id="21-mvn-exec命令可以执行项目中的main函数"><a href="#21-mvn-exec命令可以执行项目中的main函数" class="headerlink" title="21. mvn exec命令可以执行项目中的main函数"></a><strong>21. mvn exec命令可以执行项目中的main函数</strong></h3><p>首先需要编译java工程：mvn compile<br>不存在参数的情况下：mvn exec:java -Dexec.mainClass=”<strong><em>.Main”<br>存在参数：mvn exec:java -Dexec.mainClass=”</em></strong>.Main” -Dexec.args=”arg0 arg1 arg2”<br>指定运行时库：mvn exec:java -Dexec.mainClass=”***.Main” -Dexec.classpathScope=runtime  </p>
 <h3 id="22-打印出已解决依赖的列表"><a href="#22-打印出已解决依赖的列表" class="headerlink" title="22. 打印出已解决依赖的列表"></a><strong>22. 打印出已解决依赖的列表</strong></h3><p>mvn dependency:resolve</p>
 <h3 id="23-打印整个依赖树"><a href="#23-打印整个依赖树" class="headerlink" title="23. 打印整个依赖树"></a><strong>23. 打印整个依赖树</strong></h3><p>mvn dependency:tree</p>
-<h3 id="在应用程序用使用多个存储库"><a href="#在应用程序用使用多个存储库" class="headerlink" title="在应用程序用使用多个存储库"></a><strong>在应用程序用使用多个存储库</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;repositories&gt;    </span><br><span class="line">    &lt;repository&gt;     </span><br><span class="line">        &lt;id&gt;Ibiblio&lt;/id&gt;     </span><br><span class="line">        &lt;name&gt;Ibiblio&lt;/name&gt;     </span><br><span class="line">        &lt;url&gt;http://www.ibiblio.org/maven/&lt;/url&gt;   </span><br><span class="line">    &lt;/repository&gt;   </span><br><span class="line">    &lt;repository&gt;     </span><br><span class="line">        &lt;id&gt;PlanetMirror&lt;/id&gt;     </span><br><span class="line">        &lt;name&gt;Planet Mirror&lt;/name&gt;     </span><br><span class="line">        &lt;url&gt;http://public.planetmirror.com/pub/maven/&lt;/url&gt;   </span><br><span class="line">    &lt;/repository&gt;  </span><br><span class="line">&lt;/repositories&gt;</span><br></pre></td></tr></table></figure>
-<p>mvn deploy:deploy-file -DgroupId=com -DartifactId=client -Dversion=0.1.0 -Dpackaging=jar -Dfile=d:\client-0.1.0.jar -DrepositoryId=maven-repository-inner -Durl=<a href="ftp://xxxxxxx/opt/maven/repository/" target="_blank" rel="noopener">ftp://xxxxxxx/opt/maven/repository/</a></p>
+<h3 id="在应用程序用使用多个存储库"><a href="#在应用程序用使用多个存储库" class="headerlink" title="在应用程序用使用多个存储库"></a><strong>在应用程序用使用多个存储库</strong></h3><pre><code>&lt;repositories&gt;    
+    &lt;repository&gt;     
+        &lt;id&gt;Ibiblio&lt;/id&gt;     
+        &lt;name&gt;Ibiblio&lt;/name&gt;     
+        &lt;url&gt;http://www.ibiblio.org/maven/&lt;/url&gt;   
+    &lt;/repository&gt;   
+    &lt;repository&gt;     
+        &lt;id&gt;PlanetMirror&lt;/id&gt;     
+        &lt;name&gt;Planet Mirror&lt;/name&gt;     
+        &lt;url&gt;http://public.planetmirror.com/pub/maven/&lt;/url&gt;   
+    &lt;/repository&gt;  
+&lt;/repositories&gt;
+</code></pre><p>mvn deploy:deploy-file -DgroupId=com -DartifactId=client -Dversion=0.1.0 -Dpackaging=jar -Dfile=d:\client-0.1.0.jar -DrepositoryId=maven-repository-inner -Durl=<a href="ftp://xxxxxxx/opt/maven/repository/" target="_blank" rel="noopener">ftp://xxxxxxx/opt/maven/repository/</a></p>
 <h3 id="发布第三方Jar到本地库中"><a href="#发布第三方Jar到本地库中" class="headerlink" title="发布第三方Jar到本地库中"></a><strong>发布第三方Jar到本地库中</strong></h3><p>mvn install:install-file -DgroupId=com -DartifactId=client -Dversion=0.1.0 -Dpackaging=jar -Dfile=d:\client-0.1.0.jar<br>-DdownloadSources=true<br>-DdownloadJavadocs=true  </p>
 <h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a><strong>附加</strong></h2><p>mvn help:describe<br>你是否因为记不清某个插件有哪些goal而痛苦过,你是否因为想不起某个goal有哪些参数而苦恼,那就试试这个命令吧,它会告诉你一切的.<br>参数: 1. -Dplugin=pluginName   2. -Dgoal(或-Dmojo)=goalName:与-Dplugin一起使用,它会列出某个插件的goal信息,<br>如果嫌不够详细,同样可以加-Ddetail.(注:一个插件goal也被认为是一个 “Mojo”)<br>下面大家就运行mvn help:describe -Dplugin=help -Dmojo=describe感受一下吧!<br>mvn tomcat:run<br>用了maven后,你再也不需要用eclipse里的tomcat来运行web项目(实际工作中经常会发现用它会出现不同步更新的情况),只需在对应目录里运行 mvn tomat:run命令,然后就可在浏览器里运行查看了.如果你想要更多的定制,可以在pom.xml文件里加下面配置:<br>01 02 03 04 org.codehaus.mojo 05 tomcat-maven-plugin 06 07 /web 08 9090 09 10 11 12 当然你也可以在命令里加参数来实现特定的功能,<br>下面几个比较常用:<br>　　1&gt;. 跳过测试:-Dmaven.test.skip(=true)<br>　　2&gt;. 指定端口:-Dmaven.tomcat.port=9090<br>　　3&gt;. 忽略测试失败:-Dmaven.test.failure.ignore=true 当然,如果你的其它关联项目有过更新的话,一定要在项目根目录下运行mvn clean install来执行更新,再运行mvn tomcat:run使改动生效.   </p>
 <h3 id="mvnDebug-tomcat-run"><a href="#mvnDebug-tomcat-run" class="headerlink" title="mvnDebug tomcat:run"></a><strong>mvnDebug tomcat:run</strong></h3><p>这条命令主要用来远程测试,它会监听远程测试用的8000端口,在eclipse里打开远程测试后,它就会跑起来了,设断点,调试,一切都是这么简单.上面提到的那几个参数在这里同样适用.</p>
 <h3 id="mvn-dependency-sources"><a href="#mvn-dependency-sources" class="headerlink" title="mvn dependency:sources"></a><strong>mvn dependency:sources</strong></h3><p>故名思义,有了它,你就不用到处找源码了,运行一下,你项目里所依赖的jar包的源码就都有了</p>
 
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="/music/1.mp3">
-            </audio>
+            </div>
+            <hr>
+
             
-        </div>
-        
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
-    </div>
-    
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Maven常用命令："><span class="toc-number">1.</span> <span class="toc-text">Maven常用命令：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建Maven的普通Java项目"><span class="toc-number">1.1.</span> <span class="toc-text">1. 创建Maven的普通Java项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-创建Maven的Web项目"><span class="toc-number">1.2.</span> <span class="toc-text">2. 创建Maven的Web项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-反向生成-maven-项目的骨架"><span class="toc-number">1.3.</span> <span class="toc-text">3. 反向生成 maven 项目的骨架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-编译源代码"><span class="toc-number">1.4.</span> <span class="toc-text">4. 编译源代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-编译测试代码"><span class="toc-number">1.5.</span> <span class="toc-text">5. 编译测试代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-运行测试"><span class="toc-number">1.6.</span> <span class="toc-text">6. 运行测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-产生site"><span class="toc-number">1.7.</span> <span class="toc-text">7. 产生site</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-打包"><span class="toc-number">1.8.</span> <span class="toc-text">8. 打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-在本地Repository中安装jar"><span class="toc-number">1.9.</span> <span class="toc-text">9. 在本地Repository中安装jar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-清除产生的项目"><span class="toc-number">1.10.</span> <span class="toc-text">10. 清除产生的项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-生成eclipse项目"><span class="toc-number">1.11.</span> <span class="toc-text">11. 生成eclipse项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-生成idea项目"><span class="toc-number">1.12.</span> <span class="toc-text">12. 生成idea项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-组合使用goal命令，如只打包不测试"><span class="toc-number">1.13.</span> <span class="toc-text">13. 组合使用goal命令，如只打包不测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-编译测试的内容"><span class="toc-number">1.14.</span> <span class="toc-text">14. 编译测试的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-只打jar包"><span class="toc-number">1.15.</span> <span class="toc-text">15. 只打jar包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-只测试而不编译，也不测试编译"><span class="toc-number">1.16.</span> <span class="toc-text">16. 只测试而不编译，也不测试编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-清除eclipse的一些系统设置"><span class="toc-number">1.17.</span> <span class="toc-text">17. 清除eclipse的一些系统设置:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-查看当前项目已被解析的依赖"><span class="toc-number">1.18.</span> <span class="toc-text">18.查看当前项目已被解析的依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-上传到私服"><span class="toc-number">1.19.</span> <span class="toc-text">19.上传到私服</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-强制检查更新，由于快照版本的更新策略-一天更新几次、隔段时间更新一次-存在，如果想强制更新就会用到此命令"><span class="toc-number">1.20.</span> <span class="toc-text">20. 强制检查更新，由于快照版本的更新策略(一天更新几次、隔段时间更新一次)存在，如果想强制更新就会用到此命令:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-源码打包"><span class="toc-number">1.21.</span> <span class="toc-text">21. 源码打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mvn-compile与mvn-install、mvn-deploy的区别"><span class="toc-number">1.22.</span> <span class="toc-text">mvn compile与mvn install、mvn deploy的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS"><span class="toc-number">2.</span> <span class="toc-text">PS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-显示版本信息"><span class="toc-number">2.1.</span> <span class="toc-text">1. 显示版本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-创建mvn项目"><span class="toc-number">2.2.</span> <span class="toc-text">2. 创建mvn项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-生成target目录，编译、测试代码，生成测试报告，生成jar-war文件"><span class="toc-number">2.3.</span> <span class="toc-text">3. 生成target目录，编译、测试代码，生成测试报告，生成jar/war文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-运行项目于jetty上"><span class="toc-number">2.4.</span> <span class="toc-text">4. 运行项目于jetty上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-显示详细错误-信息"><span class="toc-number">2.5.</span> <span class="toc-text">5. 显示详细错误 信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-验证工程是否正确，所有需要的资源是否可用"><span class="toc-number">2.6.</span> <span class="toc-text">6. 验证工程是否正确，所有需要的资源是否可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-在集成测试可以运行的环境中处理和发布包"><span class="toc-number">2.7.</span> <span class="toc-text">7. 在集成测试可以运行的环境中处理和发布包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-运行任何检查，验证包是否有效且达到质量标准"><span class="toc-number">2.8.</span> <span class="toc-text">8. 运行任何检查，验证包是否有效且达到质量标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-产生应用需要的任何额外的源代码，如xdoclet"><span class="toc-number">2.9.</span> <span class="toc-text">9. 产生应用需要的任何额外的源代码，如xdoclet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-使用-help-插件的-describe-目标来输出-Maven-Help-插件的信息"><span class="toc-number">2.10.</span> <span class="toc-text">10. 使用 help 插件的  describe 目标来输出 Maven Help 插件的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-使用Help-插件输出完整的带有参数的目标列"><span class="toc-number">2.11.</span> <span class="toc-text">11. 使用Help 插件输出完整的带有参数的目标列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-获取单个目标的信息-设置-mojo-参数和-plugin-参数。此命令列出了Compiler-插件的compile-目标的所有信息"><span class="toc-number">2.12.</span> <span class="toc-text">12. 获取单个目标的信息,设置  mojo 参数和  plugin 参数。此命令列出了Compiler 插件的compile 目标的所有信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-列出所有-Maven-Exec-插件可用的目标"><span class="toc-number">2.13.</span> <span class="toc-text">13. 列出所有 Maven Exec 插件可用的目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-看这个“有效的-effective-”POM，它暴露了-Maven的默认设置"><span class="toc-number">2.14.</span> <span class="toc-text">14. 看这个“有效的 (effective)”POM，它暴露了 Maven的默认设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-想要查看完整的依赖踪迹，包含那些因为冲突或者其它原因而被拒绝引入的构件，打开-Maven-的调试标记运行"><span class="toc-number">2.15.</span> <span class="toc-text">15. 想要查看完整的依赖踪迹，包含那些因为冲突或者其它原因而被拒绝引入的构件，打开 Maven 的调试标记运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-给任何目标添加maven-test-skip-属性就能跳过测试"><span class="toc-number">2.16.</span> <span class="toc-text">16. 给任何目标添加maven.test.skip 属性就能跳过测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-构建装配Maven-Assembly-插件是一个用来创建你应用程序特有分发包的插件"><span class="toc-number">2.17.</span> <span class="toc-text">17. 构建装配Maven Assembly 插件是一个用来创建你应用程序特有分发包的插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-生成Wtp插件的Web项目"><span class="toc-number">2.18.</span> <span class="toc-text">18. 生成Wtp插件的Web项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-清除Eclipse项目的配置信息-Web项目"><span class="toc-number">2.19.</span> <span class="toc-text">19. 清除Eclipse项目的配置信息(Web项目)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-将项目转化为Eclipse项目"><span class="toc-number">2.20.</span> <span class="toc-text">20. 将项目转化为Eclipse项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-mvn-exec命令可以执行项目中的main函数"><span class="toc-number">2.21.</span> <span class="toc-text">21. mvn exec命令可以执行项目中的main函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-打印出已解决依赖的列表"><span class="toc-number">2.22.</span> <span class="toc-text">22. 打印出已解决依赖的列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-打印整个依赖树"><span class="toc-number">2.23.</span> <span class="toc-text">23. 打印整个依赖树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在应用程序用使用多个存储库"><span class="toc-number">2.24.</span> <span class="toc-text">在应用程序用使用多个存储库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布第三方Jar到本地库中"><span class="toc-number">2.25.</span> <span class="toc-text">发布第三方Jar到本地库中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附加"><span class="toc-number">3.</span> <span class="toc-text">附加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mvnDebug-tomcat-run"><span class="toc-number">3.1.</span> <span class="toc-text">mvnDebug tomcat:run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mvn-dependency-sources"><span class="toc-number">3.2.</span> <span class="toc-text">mvn dependency:sources</span></a></li></ol></li></ol>
-        </div>
-    
-</div>
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-    </div>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                 </div>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
         </div>
     </div>
 </div>
 
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://viabcde.github.io" class="b-link-green">廖锡洪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/09/28/2018-9-28-Maven常用命令/" class="b-link-green">Maven常用命令</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/10/08/2018-10-27-hadoop/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hadoop">
+                        
+                        <span class="card-title">Hadoop</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">文件的每一行是一个键值对 ：第一行从0开始 hello a共占7个，再加回车也占1位，所以是8位；所以第二行从8开始，以此类推
+ETL数据从来源端经过抽取(extract)、交互转换(transform)、加载(load)至目的端的过程
+h</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/" target="_blank">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/09/28/2018-9-28-Maven/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Maven">
+                        
+                        <span class="card-title">Maven</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Maven库命令行模式安装maven jar包mvn install:install-file -Dfile=C:\Users\Administrator\Desktop\hibernate-c3p0-4.2.1.final.jar -Dg</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/Maven/" target="_blank">
+                        <span class="chip bg-color">Maven</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
 
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"search":null,"path":"search.xml","field":"post","log":false});</script></body>
 </html>

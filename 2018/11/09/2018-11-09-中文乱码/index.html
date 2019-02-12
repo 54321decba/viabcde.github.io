@@ -1,165 +1,914 @@
+<!DOCTYPE HTML>
+<html lang="">
 
-<!DOCTYPE html>
-<html lang="" class="loading">
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>廖锡洪</title>
-
+    <meta charset="utf-8">
+    <meta name="keywords" content="中文乱码问题, viabcde">
+    <meta name="description" content="jsp中四种传递参数的方法1、form表单  
+2、request.setAttribute();和request.getAttribute();  
+3、超链接  
+&amp;lt;a herf=&amp;quot;index.jsp&amp;quot;?a=a">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate">
-    <meta name="keywords" content="viabcde,"> 
+    <title>中文乱码问题 | 廖锡洪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">廖锡洪</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
     
-    <meta name="author" content="viacbde"> 
-    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-</html>
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">中文乱码问题</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">廖锡洪</div>
+        <div class="logo-desc">
+            
+            廖锡洪
+            
         </div>
     </div>
-    <div class="scrollbar"></div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
-    <div class="section">
-        <div class="article">
-    <div class="main">
-        <h1 class="title">中文乱码问题</h1>
-        <div class="stuff">
-            <span>十一月 09, 2018</span>
-            
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/BUG/">BUG</a><span class="post-tags-list-count">1</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+</div>
 
-
+            </div>
         </div>
-        <div class="content markdown">
-            <h2 id="jsp中四种传递参数的方法"><a href="#jsp中四种传递参数的方法" class="headerlink" title="jsp中四种传递参数的方法"></a>jsp中四种传递参数的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、form表单  </span><br><span class="line">2、request.setAttribute();和request.getAttribute();  </span><br><span class="line">3、超链接  </span><br><span class="line">&lt;a herf=&quot;index.jsp&quot;?a=a&amp;b=b&amp;c=c&gt;name&lt;/a&gt;</span><br><span class="line">4、&lt;jsp:param&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="form表单"><a href="#form表单" class="headerlink" title="form表单"></a><strong>form表单</strong></h3><p><strong>form.jsp</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			form.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line"> </span><br><span class="line">		&lt;h2 style=&quot;font-family:arial;color:red;font-size:25px;text-align:center&quot;&gt;登录页面&lt;/h2&gt;</span><br><span class="line"> </span><br><span class="line">		&lt;form action=&quot;result.jsp&quot; method=&quot;get&quot; align=&quot;center&quot;&gt;</span><br><span class="line">			姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; size=&quot;20&quot; value=&quot;&quot; maxlength=&quot;20&quot;&gt;&lt;br/&gt;</span><br><span class="line">	</span><br><span class="line">			密码：&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot; value=&quot;&quot; maxlength=&quot;20&quot;&gt;&lt;br/&gt;</span><br><span class="line"> </span><br><span class="line">			 &lt;!--在爱好前空一个空格，是为了排版好看些--&gt;</span><br><span class="line"> </span><br><span class="line">			&amp;nbsp;爱好：&lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;唱歌&quot;&gt;唱歌</span><br><span class="line">				  &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;足球&quot;&gt;足球</span><br><span class="line">				  &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;篮球&quot;&gt;篮球&lt;br/&gt;&lt;br/&gt;</span><br><span class="line">			</span><br><span class="line">			&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;登录&quot;&gt;</span><br><span class="line">			&lt;input type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;重置&quot;&gt;&lt;br/&gt;</span><br><span class="line">		&lt;/form&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong>result.jsp</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			result.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body bgcolor=&quot;ffffff&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">		  request.setCharacterEncoding(&quot;GB2312&quot;);</span><br><span class="line">		  String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">		  name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);</span><br><span class="line">		  String pwd=request.getParameter(&quot;password&quot;);</span><br><span class="line">		  String[] hobby=request.getParameterValues(&quot;hobby&quot;);//注意这里的函数是getParameterValues()接受一个数组的数据</span><br><span class="line">		%&gt;</span><br><span class="line">		  </span><br><span class="line">		&lt;%</span><br><span class="line">			if(!name.equals(&quot;&quot;) &amp;&amp; !pwd.equals(&quot;&quot;))</span><br><span class="line">			&#123;</span><br><span class="line">		%&gt;</span><br><span class="line">				</span><br><span class="line">				您好！登录成功！&lt;br/&gt;</span><br><span class="line">				姓名：&lt;%=name%&gt;&lt;br/&gt;</span><br><span class="line">				密码：&lt;%=pwd%&gt;&lt;br/&gt;</span><br><span class="line">				爱好：&lt;%</span><br><span class="line">						 for(String ho: hobby)</span><br><span class="line">						 &#123;</span><br><span class="line">							ho=new String(ho.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);</span><br><span class="line">							out.print(ho+&quot; &quot;);</span><br><span class="line">						 &#125;</span><br><span class="line">				       %&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			&#125;</span><br><span class="line">			else</span><br><span class="line">			&#123;</span><br><span class="line">		%&gt;</span><br><span class="line">			        请输入姓名或密码！</span><br><span class="line">		&lt;%</span><br><span class="line">			&#125;</span><br><span class="line">		%&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>注意：form表单的提交方式为get，在参数传递时会遇到中文乱码的问题:<br><strong>解决方法</strong>:将接受到的字符串先转换成一个byte数组，再用String构造一个新的编码格式的String，如：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name=request.getParameter(&quot;name&quot;);  </span><br><span class="line"> name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);</span><br></pre></td></tr></table></figure>
-<p>如果form表单的提交方式为post<br><strong>解决办法:</strong> 使用 request.setCharacterEncoding(“GB2312”);设置request的编码方式。    </p>
-<h2 id="ps-为什么会出现中文乱码问题呢？"><a href="#ps-为什么会出现中文乱码问题呢？" class="headerlink" title="ps: 为什么会出现中文乱码问题呢？"></a><strong>ps: 为什么会出现中文乱码问题呢？</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">因为Tomcat服务器默认的系统编码方式为iso-8859-1，你传递参数给服务器时，使用的是默认的iso-8859-1的编码方式，但是服务器向你返回信息时，是按page指令中设置的编码方式，如：&lt;%@page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;GB2312&quot;%&gt;，这样就混合了两种编码方式，所以会出现乱码，所以解决之道就是统一传递和接收的编码方式。</span><br></pre></td></tr></table></figure>
-<h3 id="request-setAttribute-和request-getAttribute"><a href="#request-setAttribute-和request-getAttribute" class="headerlink" title="request.setAttribute()和request.getAttribute()"></a><strong>request.setAttribute()和request.getAttribute()</strong></h3><p><strong>set.jsp</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			set.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			request.setAttribute(&quot;name&quot;,&quot;心雨&quot;);</span><br><span class="line">		%&gt;</span><br><span class="line">		&lt;jsp:forward page=&quot;get.jsp&quot;/&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>get.jsp</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			get.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			out.println(&quot;传递过来的参数是：&quot;+request.getAttribute(&quot;name&quot;));</span><br><span class="line">		%&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>request.setAttribute()和request.getAttribute()是配合<a href="jsp:forward" target="_blank" rel="noopener">jsp:forward</a>或是include指令来实现的。</p>
-<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a herf=&quot;index.jsp?a=a&amp;b=b&amp;c=c&quot;&gt;name&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>href.jsp</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			href.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;a href=&quot;getHerf.jsp?name=心雨&amp;password=123&quot;&gt;传递参数&lt;/a&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>getHref.jsp</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			getHref.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">			name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;gb2312&quot;);</span><br><span class="line">			out.print(&quot;name:&quot;+name);</span><br><span class="line">		%&gt;</span><br><span class="line">		&lt;br/&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			out.print(&quot;password:&quot;+request.getParameter(&quot;password&quot;));</span><br><span class="line">		%&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>这种传递参数的方法和form表单的get方式类似，是通过地址栏传递的参数，其乱码解决方法也和form 的get方式一样。</p>
-<h3 id="第四种"><a href="#第四种" class="headerlink" title="第四种"></a><strong>第四种</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:param&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>param.jsp</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			param.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line"> </span><br><span class="line">		&lt;%request.setCharacterEncoding(&quot;GB2312&quot;);%&gt;</span><br><span class="line"> </span><br><span class="line">		&lt;jsp:forward page=&quot;getParam.jsp&quot;&gt;</span><br><span class="line">			&lt;jsp:param name=&quot;name&quot; value=&quot;心雨&quot;/&gt;</span><br><span class="line">			&lt;jsp:param name=&quot;password&quot; value=&quot;123&quot;/&gt;</span><br><span class="line">		&lt;/jsp:forward&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>getParam.jsp</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;</span><br><span class="line">			getParam.jsp file</span><br><span class="line">		&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;body style=&quot;background-color:lightblue&quot;&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">			out.print(&quot;name:&quot;+name);</span><br><span class="line">		%&gt;</span><br><span class="line">		&lt;br/&gt;</span><br><span class="line">		&lt;%</span><br><span class="line">			out.print(&quot;password:&quot;+request.getParameter(&quot;password&quot;));</span><br><span class="line">		%&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在form表单的例子中，如果传递方式为post，则只需要在接收参数的页面设置request的编码方式就可以了，即request.setCharacterEncoding(“GB2312”);<br>注意是在接收参数的页面，如果将该句放到form表单里，那么不起作用，仍然是乱码。而在本例中，为了使传递的参数不出现乱码，却是将request.setCharacterEncoding(“GB2312”);放在发送参数的页面中，才会正常显示中文，放在接收参数的页面中，不起作用。<br>也许这就是<a href="jsp:param" target="_blank" rel="noopener">jsp:param</a>和form表单传递参数不同的地方。    </p>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        中文乱码问题
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/标签/" target="_blank">
+                                <span class="chip bg-color">标签</span>
+                            </a>
+                        
+                            <a href="/tags/BUG/" target="_blank">
+                                <span class="chip bg-color">BUG</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-11-09
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="jsp中四种传递参数的方法"><a href="#jsp中四种传递参数的方法" class="headerlink" title="jsp中四种传递参数的方法"></a>jsp中四种传递参数的方法</h2><pre><code>1、form表单  
+2、request.setAttribute();和request.getAttribute();  
+3、超链接  
+&lt;a herf=&quot;index.jsp&quot;?a=a&amp;b=b&amp;c=c&gt;name&lt;/a&gt;
+4、&lt;jsp:param&gt;  
+</code></pre><h3 id="form表单"><a href="#form表单" class="headerlink" title="form表单"></a><strong>form表单</strong></h3><p><strong>form.jsp</strong></p>
+<pre><code>&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+            form.jsp file
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body style=&quot;background-color:lightblue&quot;&gt;
+
+        &lt;h2 style=&quot;font-family:arial;color:red;font-size:25px;text-align:center&quot;&gt;登录页面&lt;/h2&gt;
+
+        &lt;form action=&quot;result.jsp&quot; method=&quot;get&quot; align=&quot;center&quot;&gt;
+            姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; size=&quot;20&quot; value=&quot;&quot; maxlength=&quot;20&quot;&gt;&lt;br/&gt;
+
+            密码：&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot; value=&quot;&quot; maxlength=&quot;20&quot;&gt;&lt;br/&gt;
+
+             &lt;!--在爱好前空一个空格，是为了排版好看些--&gt;
+
+            &amp;nbsp;爱好：&lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;唱歌&quot;&gt;唱歌
+                  &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;足球&quot;&gt;足球
+                  &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;篮球&quot;&gt;篮球&lt;br/&gt;&lt;br/&gt;
+
+            &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;登录&quot;&gt;
+            &lt;input type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;重置&quot;&gt;&lt;br/&gt;
+        &lt;/form&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p><strong>result.jsp</strong></p>
+<pre><code>&lt;%@page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;GB2312&quot;%&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+            result.jsp file
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body bgcolor=&quot;ffffff&quot;&gt;
+        &lt;%
+          request.setCharacterEncoding(&quot;GB2312&quot;);
+          String name=request.getParameter(&quot;name&quot;);
+          name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);
+          String pwd=request.getParameter(&quot;password&quot;);
+          String[] hobby=request.getParameterValues(&quot;hobby&quot;);//注意这里的函数是getParameterValues()接受一个数组的数据
+        %&gt;
+
+        &lt;%
+            if(!name.equals(&quot;&quot;) &amp;&amp; !pwd.equals(&quot;&quot;))
+            {
+        %&gt;
+
+                您好！登录成功！&lt;br/&gt;
+                姓名：&lt;%=name%&gt;&lt;br/&gt;
+                密码：&lt;%=pwd%&gt;&lt;br/&gt;
+                爱好：&lt;%
+                         for(String ho: hobby)
+                         {
+                            ho=new String(ho.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);
+                            out.print(ho+&quot; &quot;);
+                         }
+                       %&gt;
+        &lt;%
+            }
+            else
+            {
+        %&gt;
+                    请输入姓名或密码！
+        &lt;%
+            }
+        %&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p>注意：form表单的提交方式为get，在参数传递时会遇到中文乱码的问题:<br><strong>解决方法</strong>:将接受到的字符串先转换成一个byte数组，再用String构造一个新的编码格式的String，如：  </p>
+<pre><code>String name=request.getParameter(&quot;name&quot;);  
+ name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;GB2312&quot;);  
+</code></pre><p>如果form表单的提交方式为post<br><strong>解决办法:</strong> 使用 request.setCharacterEncoding(“GB2312”);设置request的编码方式。    </p>
+<h2 id="ps-为什么会出现中文乱码问题呢？"><a href="#ps-为什么会出现中文乱码问题呢？" class="headerlink" title="ps: 为什么会出现中文乱码问题呢？"></a><strong>ps: 为什么会出现中文乱码问题呢？</strong></h2><pre><code>因为Tomcat服务器默认的系统编码方式为iso-8859-1，你传递参数给服务器时，使用的是默认的iso-8859-1的编码方式，但是服务器向你返回信息时，是按page指令中设置的编码方式，如：&lt;%@page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;GB2312&quot;%&gt;，这样就混合了两种编码方式，所以会出现乱码，所以解决之道就是统一传递和接收的编码方式。  
+
+</code></pre><h3 id="request-setAttribute-和request-getAttribute"><a href="#request-setAttribute-和request-getAttribute" class="headerlink" title="request.setAttribute()和request.getAttribute()"></a><strong>request.setAttribute()和request.getAttribute()</strong></h3><p><strong>set.jsp</strong></p>
+<pre><code>&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+            set.jsp file
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body style=&quot;background-color:lightblue&quot;&gt;
+        &lt;%
+            request.setAttribute(&quot;name&quot;,&quot;心雨&quot;);
+        %&gt;
+        &lt;jsp:forward page=&quot;get.jsp&quot;/&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p><strong>get.jsp</strong></p>
+<pre><code>&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+            get.jsp file
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body style=&quot;background-color:lightblue&quot;&gt;
+        &lt;%
+            out.println(&quot;传递过来的参数是：&quot;+request.getAttribute(&quot;name&quot;));
+        %&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p>request.setAttribute()和request.getAttribute()是配合<a href="jsp:forward" target="_blank" rel="noopener">jsp:forward</a>或是include指令来实现的。</p>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><pre><code>&lt;a herf=&quot;index.jsp?a=a&amp;b=b&amp;c=c&quot;&gt;name&lt;/a&gt;
+</code></pre><p><strong>href.jsp</strong></p>
+<pre><code>&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+            href.jsp file
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body style=&quot;background-color:lightblue&quot;&gt;
+        &lt;a href=&quot;getHerf.jsp?name=心雨&amp;password=123&quot;&gt;传递参数&lt;/a&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p><strong>getHref.jsp</strong></p>
+<pre><code>&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+            getHref.jsp file
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body style=&quot;background-color:lightblue&quot;&gt;
+        &lt;%
+            String name=request.getParameter(&quot;name&quot;);
+            name=new String(name.getBytes(&quot;iso-8859-1&quot;),&quot;gb2312&quot;);
+            out.print(&quot;name:&quot;+name);
+        %&gt;
+        &lt;br/&gt;
+        &lt;%
+            out.print(&quot;password:&quot;+request.getParameter(&quot;password&quot;));
+        %&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p>这种传递参数的方法和form表单的get方式类似，是通过地址栏传递的参数，其乱码解决方法也和form 的get方式一样。</p>
+<h3 id="第四种"><a href="#第四种" class="headerlink" title="第四种"></a><strong>第四种</strong></h3><pre><code>&lt;jsp:param&gt;
+</code></pre><p><strong>param.jsp</strong></p>
+<pre><code>&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+            param.jsp file
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body style=&quot;background-color:lightblue&quot;&gt;
+
+        &lt;%request.setCharacterEncoding(&quot;GB2312&quot;);%&gt;
+
+        &lt;jsp:forward page=&quot;getParam.jsp&quot;&gt;
+            &lt;jsp:param name=&quot;name&quot; value=&quot;心雨&quot;/&gt;
+            &lt;jsp:param name=&quot;password&quot; value=&quot;123&quot;/&gt;
+        &lt;/jsp:forward&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p><strong>getParam.jsp</strong></p>
+<pre><code>&lt;%@page contentType=&quot;text/html; charset=GB2312&quot;%&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+            getParam.jsp file
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body style=&quot;background-color:lightblue&quot;&gt;
+        &lt;%
+            String name=request.getParameter(&quot;name&quot;);
+            out.print(&quot;name:&quot;+name);
+        %&gt;
+        &lt;br/&gt;
+        &lt;%
+            out.print(&quot;password:&quot;+request.getParameter(&quot;password&quot;));
+        %&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>在form表单的例子中，如果传递方式为post，则只需要在接收参数的页面设置request的编码方式就可以了，即request.setCharacterEncoding(“GB2312”);<br>注意是在接收参数的页面，如果将该句放到form表单里，那么不起作用，仍然是乱码。而在本例中，为了使传递的参数不出现乱码，却是将request.setCharacterEncoding(“GB2312”);放在发送参数的页面中，才会正常显示中文，放在接收参数的页面中，不起作用。<br>也许这就是<a href="jsp:param" target="_blank" rel="noopener">jsp:param</a>和form表单传递参数不同的地方。    </p>
 <h2 id="为什么会有这个不同呢？"><a href="#为什么会有这个不同呢？" class="headerlink" title="为什么会有这个不同呢？"></a>为什么会有这个不同呢？</h2><p>可能是因为form表单中的参数是由客户端传送到服务端上的，需要经过一个request的打包过程，但是<a href="jsp:param" target="_blank" rel="noopener">jsp:param</a>传递的参数本身就是在服务器端的，不需要经历由客户端到服务端这么一个过程，但是服务器里的参数传递是这么回事呢？这个问题，我不知道了！真是知识是一个扩大的圆圈，你知道的越多，那么不知道的就越多！努力吧！</p>
 <h3 id="1-对于-POST-请求："><a href="#1-对于-POST-请求：" class="headerlink" title="1.对于 POST 请求："></a><strong>1.对于 POST 请求：</strong></h3><p> 设置请求的编码方式：request.setCharacterEncoding(“UTF-8”);<br>注意：必须在获取第一个参数之前设置，并且该方式只对 POST 方式有效。</p>
 <h3 id="2-对于-GET-请求："><a href="#2-对于-GET-请求：" class="headerlink" title="2.对于 GET 请求："></a><strong>2.对于 GET 请求：</strong></h3><p> 重新设置 Tomcat 的编码方式，修改 Tomcat 的配置文件:<br>Tomcat根目录/conf/server.xml(修改端口的那一行)<br><img src="https://viabcde.github.io/images/2018-10-10/2018101007.png" alt="duotai"> </p>
 
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="/music/1.mp3">
-            </audio>
+            </div>
+            <hr>
+
             
-        </div>
-        
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
-    </div>
-    
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp中四种传递参数的方法"><span class="toc-number">1.</span> <span class="toc-text">jsp中四种传递参数的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#form表单"><span class="toc-number">1.1.</span> <span class="toc-text">form表单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps-为什么会出现中文乱码问题呢？"><span class="toc-number">2.</span> <span class="toc-text">ps: 为什么会出现中文乱码问题呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#request-setAttribute-和request-getAttribute"><span class="toc-number">2.1.</span> <span class="toc-text">request.setAttribute()和request.getAttribute()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超链接"><span class="toc-number">2.2.</span> <span class="toc-text">超链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四种"><span class="toc-number">2.3.</span> <span class="toc-text">第四种</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会有这个不同呢？"><span class="toc-number">3.</span> <span class="toc-text">为什么会有这个不同呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-对于-POST-请求："><span class="toc-number">3.1.</span> <span class="toc-text">1.对于 POST 请求：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-对于-GET-请求："><span class="toc-number">3.2.</span> <span class="toc-text">2.对于 GET 请求：</span></a></li></ol></li></ol>
-        </div>
-    
-</div>
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-    </div>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                 </div>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
         </div>
     </div>
 </div>
 
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://viabcde.github.io" class="b-link-green">廖锡洪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/11/09/2018-11-09-中文乱码/" class="b-link-green">中文乱码问题</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/11/09/2018-11-09-JSP/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="JSP">
+                        
+                        <span class="card-title">JSP</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">JSP全名为Java Server Pages，中文名叫java服务器页面，其根本是一个简化的Servlet设计。它是指在传统的HTML页面中可以插入Java代码段。在处理请求时，JSP引擎从磁盘载入JSP，将所有的JSP元素转为java代</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/JSP/" target="_blank">
+                        <span class="chip bg-color">JSP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/10/31/2018-10-31-Mybatis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
+                        
+                        <span class="card-title">Mybatis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Hibernate和Mybatis的区别首先Hibernate和Mybatis都是对数据库的封装。区别只是在于封装得彻不彻底。hibernate封装得很彻底,屏蔽了sql语句的编写，更加面向对象，但导致了sql调优的困难，怎么设计O/R映射</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
 
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"search":null,"path":"search.xml","field":"post","log":false});</script></body>
 </html>

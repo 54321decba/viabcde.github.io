@@ -1,131 +1,554 @@
+<!DOCTYPE HTML>
+<html lang="">
 
-<!DOCTYPE html>
-<html lang="" class="loading">
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>廖锡洪</title>
-
+    <meta charset="utf-8">
+    <meta name="keywords" content="SQL语句示例及调优, viabcde">
+    <meta name="description" content="1.去除重复记录Select Distinct mgr From offices  
+2.不等于Select city,mgr from offices  
+    Where mgr&amp;lt;&amp;gt;108
+3. IN列出1990-01的每">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate">
-    <meta name="keywords" content="viabcde,"> 
+    <title>SQL语句示例及调优 | 廖锡洪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">廖锡洪</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
     
-    <meta name="author" content="viacbde"> 
-    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-</html>
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">SQL语句示例及调优</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">廖锡洪</div>
+        <div class="logo-desc">
+            
+            廖锡洪
+            
         </div>
     </div>
-    <div class="scrollbar"></div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
-    <div class="section">
-        <div class="article">
-    <div class="main">
-        <h1 class="title">SQL语句示例及调优</h1>
-        <div class="stuff">
-            <span>九月 19, 2018</span>
-            
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/数据库/">数据库</a><span class="post-tags-list-count">6</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+</div>
 
-
+            </div>
         </div>
-        <div class="content markdown">
-            <h3 id="1-去除重复记录"><a href="#1-去除重复记录" class="headerlink" title="1.去除重复记录"></a><strong>1.去除重复记录</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Select Distinct mgr From offices  </span><br><span class="line">```  </span><br><span class="line">### **2.不等于**  </span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">Select city,mgr from offices  </span><br><span class="line">    Where mgr&lt;&gt;108</span><br><span class="line">```  </span><br><span class="line">### **3. IN** </span><br><span class="line">列出1990-01的每个星期三的订单  </span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">Select Order_Num,Order_Date,Amount  </span><br><span class="line">    From Orders  </span><br><span class="line">    Where Order_Date In(&apos;04-Jan-90&apos;,&apos;11-Jan-90&apos;,</span><br><span class="line">    &apos;18-Jan-90&apos;,&apos;25-Jan-90&apos;)</span><br></pre></td></tr></table></figure>
-<h3 id="4-NOT"><a href="#4-NOT" class="headerlink" title="4.NOT"></a><strong>4.NOT</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Select * From Student</span><br><span class="line">    Where Not id &gt; 009</span><br></pre></td></tr></table></figure>
-<h3 id="5-Order-By"><a href="#5-Order-By" class="headerlink" title="5.Order By"></a><strong>5.Order By</strong></h3><p>先按地区首字母升序/降序排列，再在有相同地区的按城市首字母排列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select City,Region,Sales</span><br><span class="line">    From Offides</span><br><span class="line">Order By Region,City Asc/Desc</span><br></pre></td></tr></table></figure>
-<p>如果查询的结果字段是组合字段 可以用序号代替  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select City,Region,(Sales-Targer)</span><br><span class="line">    From Offices  </span><br><span class="line">Order By 3 Desc</span><br></pre></td></tr></table></figure>
-<p>这里用3代替(Sales-Targer)</p>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        SQL语句示例及调优
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/标签/" target="_blank">
+                                <span class="chip bg-color">标签</span>
+                            </a>
+                        
+                            <a href="/tags/数据库/" target="_blank">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-09-19
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="1-去除重复记录"><a href="#1-去除重复记录" class="headerlink" title="1.去除重复记录"></a><strong>1.去除重复记录</strong></h3><pre><code>Select Distinct mgr From offices  
+</code></pre><h3 id="2-不等于"><a href="#2-不等于" class="headerlink" title="2.不等于"></a><strong>2.不等于</strong></h3><pre><code>Select city,mgr from offices  
+    Where mgr&lt;&gt;108
+</code></pre><h3 id="3-IN"><a href="#3-IN" class="headerlink" title="3. IN"></a><strong>3. IN</strong></h3><p>列出1990-01的每个星期三的订单  </p>
+<pre><code>Select Order_Num,Order_Date,Amount  
+    From Orders  
+    Where Order_Date In(&#39;04-Jan-90&#39;,&#39;11-Jan-90&#39;,
+    &#39;18-Jan-90&#39;,&#39;25-Jan-90&#39;)
+
+</code></pre><h3 id="4-NOT"><a href="#4-NOT" class="headerlink" title="4.NOT"></a><strong>4.NOT</strong></h3><pre><code>Select * From Student
+    Where Not id &gt; 009
+</code></pre><h3 id="5-Order-By"><a href="#5-Order-By" class="headerlink" title="5.Order By"></a><strong>5.Order By</strong></h3><p>先按地区首字母升序/降序排列，再在有相同地区的按城市首字母排列</p>
+<pre><code>Select City,Region,Sales
+    From Offides
+Order By Region,City Asc/Desc
+</code></pre><p>如果查询的结果字段是组合字段 可以用序号代替  </p>
+<pre><code>Select City,Region,(Sales-Targer)
+    From Offices  
+Order By 3 Desc
+</code></pre><p>这里用3代替(Sales-Targer)</p>
 <h3 id="6-union"><a href="#6-union" class="headerlink" title="6.union"></a><strong>6.union</strong></h3><p>在2个查询中间 加 union 表示默认去除重复<br>union all 表示不去除重复<br>union 后排序 在第二个查询结果中指定排序规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Select Mfr_Id,Product_Id</span><br><span class="line">    From Products</span><br><span class="line">Where Price&gt;2000</span><br><span class="line">Union all</span><br><span class="line">Select Distinct Mfr,Product</span><br><span class="line">    From Orders</span><br><span class="line">Where Amount&gt;3000</span><br><span class="line">Order By 1,2</span><br></pre></td></tr></table></figure>
-<p>多表联合(如果查询结果不去重则无执行顺序，需要去重则必须先执行括号内的)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Select * From A</span><br><span class="line">Union(</span><br><span class="line">    Select * From B</span><br><span class="line">    Union</span><br><span class="line">        Select * From C</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h3 id="7-等连接（根据字段相等连接后可获取2个表的任意内容）"><a href="#7-等连接（根据字段相等连接后可获取2个表的任意内容）" class="headerlink" title="7.等连接（根据字段相等连接后可获取2个表的任意内容）"></a><strong>7.等连接（根据字段相等连接后可获取2个表的任意内容）</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select Order_Num,Amount,Company,Credit_Limot</span><br><span class="line">    From Orders,Customers</span><br><span class="line">Where Cust=Cust_Num</span><br></pre></td></tr></table></figure>
-<h3 id="8-汇总查询"><a href="#8-汇总查询" class="headerlink" title="8.汇总查询"></a><strong>8.汇总查询</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Select AVG(Sales) From Salesreps</span><br><span class="line">Sum(..) Min(..) Max(..) Count(..) Count(*)</span><br></pre></td></tr></table></figure>
-<h3 id="9-group-by-指定字段"><a href="#9-group-by-指定字段" class="headerlink" title="9.group by 指定字段"></a><strong>9.group by 指定字段</strong></h3><p>按指定字段分组 通常和Having搭配使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Select Sno</span><br><span class="line">From SC</span><br><span class="line">Group by Sno</span><br><span class="line">Having Count(*)&gt;3</span><br></pre></td></tr></table></figure>
-<h3 id="10-Join"><a href="#10-Join" class="headerlink" title="10.Join"></a><strong>10.Join</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT 课程名称,AVG(考试成绩)平均分,MAX(考试成绩)最高分,MIN(考试成绩)最低分</span><br><span class="line">FROM 选课 JOIN 课程 ON 选课.课程编号=课程.课程编号</span><br><span class="line">GROUP BY 课程名称</span><br></pre></td></tr></table></figure>
-<h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a><strong>建表</strong></h3><p>示例1创建院系表<br>在建立表的同时，必须定义表名，列，以及列的数据类型和大小    ，还有列的完整性约束NOT NULL等，表的完整性约束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table 院系(</span><br><span class="line">编号 INT,</span><br><span class="line">名称 CHAR(10)CONSTRAINT 名称 NOT NULL UNIQUE,</span><br><span class="line">负责人 CHAR(8),</span><br><span class="line">办公地点 CHAR(50),</span><br><span class="line">CONSTRAINT 编号 PRIMARY KEY (编号))</span><br></pre></td></tr></table></figure></p>
-<p>笔记：CONSTRAINT表示对字段的约束<br>Constraint+约束名称+约束条件</p>
+<pre><code>Select Mfr_Id,Product_Id
+    From Products
+Where Price&gt;2000
+Union all
+Select Distinct Mfr,Product
+    From Orders
+Where Amount&gt;3000
+Order By 1,2
+</code></pre><p>多表联合(如果查询结果不去重则无执行顺序，需要去重则必须先执行括号内的)</p>
+<pre><code>Select * From A
+Union(
+    Select * From B
+    Union
+        Select * From C
+)
+</code></pre><h3 id="7-等连接（根据字段相等连接后可获取2个表的任意内容）"><a href="#7-等连接（根据字段相等连接后可获取2个表的任意内容）" class="headerlink" title="7.等连接（根据字段相等连接后可获取2个表的任意内容）"></a><strong>7.等连接（根据字段相等连接后可获取2个表的任意内容）</strong></h3><pre><code>Select Order_Num,Amount,Company,Credit_Limot
+    From Orders,Customers
+Where Cust=Cust_Num
+</code></pre><h3 id="8-汇总查询"><a href="#8-汇总查询" class="headerlink" title="8.汇总查询"></a><strong>8.汇总查询</strong></h3><pre><code>Select AVG(Sales) From Salesreps
+Sum(..) Min(..) Max(..) Count(..) Count(*)
+</code></pre><h3 id="9-group-by-指定字段"><a href="#9-group-by-指定字段" class="headerlink" title="9.group by 指定字段"></a><strong>9.group by 指定字段</strong></h3><p>按指定字段分组 通常和Having搭配使用</p>
+<pre><code>Select Sno
+From SC
+Group by Sno
+Having Count(*)&gt;3
+</code></pre><h3 id="10-Join"><a href="#10-Join" class="headerlink" title="10.Join"></a><strong>10.Join</strong></h3><pre><code>SELECT 课程名称,AVG(考试成绩)平均分,MAX(考试成绩)最高分,MIN(考试成绩)最低分
+FROM 选课 JOIN 课程 ON 选课.课程编号=课程.课程编号
+GROUP BY 课程名称
+</code></pre><h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a><strong>建表</strong></h3><p>示例1创建院系表<br>在建立表的同时，必须定义表名，列，以及列的数据类型和大小    ，还有列的完整性约束NOT NULL等，表的完整性约束   </p>
+<pre><code>create table 院系(
+编号 INT,
+名称 CHAR(10)CONSTRAINT 名称 NOT NULL UNIQUE,
+负责人 CHAR(8),
+办公地点 CHAR(50),
+CONSTRAINT 编号 PRIMARY KEY (编号))
+</code></pre><p>笔记：CONSTRAINT表示对字段的约束<br>Constraint+约束名称+约束条件</p>
 <h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a><strong>修改表</strong></h3><p>–添加一个字段<br>sql&gt;alter table student add (classid number(2));<br>–修改一个字段的长度<br>sql&gt;alter table student modify (xm varchar2(30));<br>–修改字段的类型或是名字（不能有数据） 不建议做<br>sql&gt;alter table student modify (xm char(30));<br>–删除一个字段 不建议做(删了之后，顺序就变了。加就没问题，应该是加在后面)<br>sql&gt;alter table student drop column sal;<br>–修改表的名字 很少有这种需求<br>sql&gt;rename student to stu;   </p>
 <h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a><strong>删除表</strong></h3><p>sql&gt;drop table student;<br>示例2创建学生表  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">create table 学生</span><br><span class="line">(</span><br><span class="line">学号 CHAR(9)CONSTRAINT 学号 PRIMARY KEY,</span><br><span class="line">院系  AS CONVERT(INT,SUBSTRING(学号,3,2))PERSISTED CONSTRAINT 院系 NOT NULL,</span><br><span class="line">CONSTRAINT 院系key FOREIGN KEY (院系) REFERENCES 院系(编号),</span><br><span class="line">姓名 CHAR(8)CONSTRAINT 姓名 NOT NULL,</span><br><span class="line">性别 CHAR(2)CONSTRAINT 性别 CHECK(性别 IN(&apos;男&apos;,&apos;女&apos;)),</span><br><span class="line">生源 CHAR(50),</span><br><span class="line">状态 CHAR(4)CONSTRAINT 状态 CHECK(状态 IN(&apos;正常&apos;,&apos;留学&apos;,&apos;休学&apos;,&apos;退学&apos;))</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>笔记：  这里写成别名院系key 而不直接写字段名 防止名称和其他表名混淆<br>FOREIGN KEY (院系) REFERENCES 院系(编号)<br>第一个院系是外码，第二个院系是被参照表，编号是被参照列<br>自身表中的属性来自于其他表的主码，该属性就是外码，自身是参照关系，其他关系是被参照关系。</p>
+<pre><code>create table 学生
+(
+学号 CHAR(9)CONSTRAINT 学号 PRIMARY KEY,
+院系  AS CONVERT(INT,SUBSTRING(学号,3,2))PERSISTED CONSTRAINT 院系 NOT NULL,
+CONSTRAINT 院系key FOREIGN KEY (院系) REFERENCES 院系(编号),
+姓名 CHAR(8)CONSTRAINT 姓名 NOT NULL,
+性别 CHAR(2)CONSTRAINT 性别 CHECK(性别 IN(&#39;男&#39;,&#39;女&#39;)),
+生源 CHAR(50),
+状态 CHAR(4)CONSTRAINT 状态 CHECK(状态 IN(&#39;正常&#39;,&#39;留学&#39;,&#39;休学&#39;,&#39;退学&#39;))
+)
+</code></pre><p>笔记：  这里写成别名院系key 而不直接写字段名 防止名称和其他表名混淆<br>FOREIGN KEY (院系) REFERENCES 院系(编号)<br>第一个院系是外码，第二个院系是被参照表，编号是被参照列<br>自身表中的属性来自于其他表的主码，该属性就是外码，自身是参照关系，其他关系是被参照关系。</p>
 <p>院系 AS CONVERT(INT,SUBSTRING(学号,3,2))PERSISTED<br>(院系为计算列（AS CONVERT()PERSISTED）,INT 输出数据类型，SUBSTRING(),取学号的从第3个字符始的2个字符)</p>
 <p>CHECK(性别 IN(‘男’,’女’))  取值必须为男或者女</p>
 <p>示例2创建选课表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table 选课</span><br><span class="line">(</span><br><span class="line">学号 CHAR(9),</span><br><span class="line">CONSTRAINT 学号key FOREIGN KEY(学号)REFERENCES 学生(学号),</span><br><span class="line">课程编号 CHAR(6),</span><br><span class="line">CONSTRAINT 课程编号key FOREIGN KEY(课程编号)REFERENCES 课程(课程编号),</span><br><span class="line">考试成绩 INT CONSTRAINT 考试成绩 CHECK(考试成绩 BETWEEN 0 AND 100)DEFAULT NULL</span><br><span class="line">CONSTRAINT sno_cno PRIMARY KEY(学号,课程编号)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>笔记：DEFAULT NULL  默认空值</p>
+<pre><code>create table 选课
+(
+学号 CHAR(9),
+CONSTRAINT 学号key FOREIGN KEY(学号)REFERENCES 学生(学号),
+课程编号 CHAR(6),
+CONSTRAINT 课程编号key FOREIGN KEY(课程编号)REFERENCES 课程(课程编号),
+考试成绩 INT CONSTRAINT 考试成绩 CHECK(考试成绩 BETWEEN 0 AND 100)DEFAULT NULL
+CONSTRAINT sno_cno PRIMARY KEY(学号,课程编号)
+)
+</code></pre><p>笔记：DEFAULT NULL  默认空值</p>
 <h3 id="修改表-1"><a href="#修改表-1" class="headerlink" title="修改表"></a><strong>修改表</strong></h3><p>示例1规定学生表的性别字段不允许为空值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 学生 ALTER COLUMN 性别 CHAR(2)NOT NULL</span><br></pre></td></tr></table></figure>
-<p>示例2删除课程表中的责任教师列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 课程 DROP CONSTRAINT 责任教师key </span><br><span class="line">ALTER TABLE 课程 DROP COLUMN 责任教师</span><br></pre></td></tr></table></figure>
-<p>问题：直接删除不了列？<br>解决方法：删除时，因为默认是RESTRICT 如果被其他约束引用，要先删除约束，如果选择CASCADE，则不需要。<br>示例3为课程表增加责任教师列，列描述如下：<br>字符类型，长度为6；<br>允许空值；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 课程 add 责任教师 char(6)constraint 责任教师 null</span><br></pre></td></tr></table></figure>
-<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a><strong>插入数据</strong></h3><p>示例1插入院系表的第1个元组(记录)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO  院系(编号,名称,负责人,办公地点)</span><br><span class="line">VALUES(&apos;1&apos;,&apos;信息管理学院&apos;,&apos;李嘉&apos;,&apos;教一楼3层&apos;)</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 院系</span><br><span class="line">VALUES(&apos;2&apos;,&apos;经济管理学院&apos;,&apos;吴鸿忠&apos;,&apos;教三楼4层&apos;)</span><br><span class="line">问题：怎么添加多条记录？解决方法示例：</span><br><span class="line">insert into tableName(字段1, 字段2, 字段3)</span><br><span class="line">select val1,val2,val3</span><br><span class="line">union all</span><br><span class="line">select val1,val2,val3</span><br><span class="line">union all。。。</span><br></pre></td></tr></table></figure>
-<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a><strong>删除数据</strong></h3><p>示例1删除考试成绩为NULL的记录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DELETE </span><br><span class="line">FROM 选课</span><br><span class="line">WHERE 考试成绩=NULL</span><br></pre></td></tr></table></figure>
-<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a><strong>更新数据</strong></h3><p>示例1将04014122号学生的B00101课程的考试成绩修改为78分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 选课</span><br><span class="line">SET 考试成绩=78</span><br><span class="line">WHERE 学号=&apos;04014122&apos;AND 课程编号=&apos;B00101&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a><strong>查询</strong></h3><p>示例1查询学生的全部信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM 学生</span><br><span class="line">示例2查询所有课程名称和学时信息。</span><br><span class="line">SELECT 课程名称,学时</span><br><span class="line">FROM 课程</span><br></pre></td></tr></table></figure>
-<p>示例3查询学时大于等于40的课程编号和课程名称。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT 课程编号,课程名称</span><br><span class="line">FROM 课程</span><br><span class="line">WHERE 学时&gt;=40</span><br></pre></td></tr></table></figure>
-<p>示例4查询课时在50到60（含）之间的课程信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM 课程</span><br><span class="line">WHERE 学时 &gt;50 AND 学时&lt;=60</span><br><span class="line">或者</span><br><span class="line">SELECT *</span><br><span class="line">FROM 课程</span><br><span class="line">WHERE 学时 BETWEEN 50 AND  60</span><br></pre></td></tr></table></figure>
-<p>示例5查询具有教授和副教授职称的教师信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM 教师</span><br><span class="line">WHERE 职称=&apos;教授&apos;OR 职称=&apos;副教授&apos;</span><br><span class="line">示例6查询责任教师字段为空值的记录。</span><br><span class="line">SELECT *</span><br><span class="line">FROM 课程</span><br><span class="line">WHERE 责任教师 IS NULL</span><br></pre></td></tr></table></figure>
-<p>示例7查询“专业基础”课程的信息，并将结果存储到Student模式下、表名为“专业基础”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * INTO student.专业基础 </span><br><span class="line">FROM 课程 </span><br><span class="line">WHERE 课程性质=&apos;专业基础&apos;</span><br></pre></td></tr></table></figure>
-<p>示例8按教师编号升序列出所有教师信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM 教师</span><br><span class="line">ORDER BY 教师编号 ASC</span><br></pre></td></tr></table></figure>
-<p>示例9查询所有学生信息，先按生源升序排序、再按学号升序排序。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM 学生</span><br><span class="line">ORDER BY 生源 ASC,学号 ASC</span><br></pre></td></tr></table></figure>
-<p>示例10从选课表中查询考试成绩最高的3条选课信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT TOP 3* </span><br><span class="line">FROM 选课</span><br><span class="line">ORDER BY 考试成绩 DESC</span><br></pre></td></tr></table></figure>
-<p>示例11从选课表中查询考试成绩在前15%的选课记录信息，如果随后有成绩并列的记录也一起列出。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT TOP 15PERCENT*</span><br><span class="line">FROM 选课</span><br><span class="line">ORDER BY 考试成绩 DESC</span><br></pre></td></tr></table></figure>
-<p>示例12查询考试成绩在90分以上（含）的学生的学号、姓名、相应的课程名称和考试成绩(使用CROSS JOIN连接完成查询)。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT 学生.学号,姓名,课程名称,考试成绩 </span><br><span class="line">from 学生 left join 选课 on (学生.学号=选课.学号) </span><br><span class="line">left join 课程 on (选课.课程编号=课程.课程编号) </span><br><span class="line">where 考试成绩&gt;= 90</span><br></pre></td></tr></table></figure>
-<p>示例13查询目前有多少责任教师。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(责任教师)</span><br><span class="line">FROM 课程</span><br></pre></td></tr></table></figure>
-<p>示例14查询数据库课程的平均成绩。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT AVG(考试成绩)</span><br><span class="line">FROM 选课</span><br><span class="line">WHERE 课程编号 IN</span><br><span class="line">(</span><br><span class="line">SELECT 课程编号</span><br><span class="line">FROM 课程</span><br><span class="line">WHERE 课程名称=&apos;数据库&apos;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>示例15查询各院系教师的人数（显示院系名称和教师人数）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT 名称,COUNT(教师编号)教师人数</span><br><span class="line">FROM 院系  JOIN 教师 ON 院系.编号=教师.院系</span><br><span class="line">GROUP BY 名称</span><br></pre></td></tr></table></figure>
-<p>示例16查询各门课程考试成绩的平均分、最高分和最低分。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT 课程名称,AVG(考试成绩)平均分,MAX(考试成绩)最高分,MIN(考试成绩)最低分</span><br><span class="line">FROM 选课 JOIN 课程 ON 选课.课程编号=课程.课程编号</span><br><span class="line">GROUP BY 课程名称</span><br></pre></td></tr></table></figure>
-<p>示例17查询专业基础课平均分大于等于60分的各门课程考试成绩的平均分、最高分和最低分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT 课程名称,AVG(考试成绩)平均分,MAX(考试成绩)最高分,MIN(考试成绩)最低分</span><br><span class="line">FROM 选课 JOIN 课程 ON 选课.课程编号=课程.课程编号 </span><br><span class="line">WHERE 课程性质=&apos;专业基础&apos;</span><br><span class="line">GROUP BY 课程名称</span><br><span class="line">HAVING AVG(考试成绩)&gt;=60</span><br></pre></td></tr></table></figure>
-<p>示例18查询所有专业基础课的信息，并计算其总学时。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW 课程_总学时(总学时)</span><br><span class="line">AS</span><br><span class="line">SELECT SUM(学时)总学时</span><br><span class="line">FROM 课程</span><br></pre></td></tr></table></figure>
-<h3 id="1NF"><a href="#1NF" class="headerlink" title="1NF"></a><strong>1NF</strong></h3><p>属性具有原子性</p>
+<pre><code>ALTER TABLE 学生 ALTER COLUMN 性别 CHAR(2)NOT NULL
+</code></pre><p>示例2删除课程表中的责任教师列</p>
+<pre><code>ALTER TABLE 课程 DROP CONSTRAINT 责任教师key 
+ALTER TABLE 课程 DROP COLUMN 责任教师
+</code></pre><p>问题：直接删除不了列？<br>解决方法：删除时，因为默认是RESTRICT 如果被其他约束引用，要先删除约束，如果选择CASCADE，则不需要。<br>示例3为课程表增加责任教师列，列描述如下：<br>字符类型，长度为6；<br>允许空值；</p>
+<pre><code>alter table 课程 add 责任教师 char(6)constraint 责任教师 null
+</code></pre><h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a><strong>插入数据</strong></h3><p>示例1插入院系表的第1个元组(记录)</p>
+<pre><code>INSERT INTO  院系(编号,名称,负责人,办公地点)
+VALUES(&#39;1&#39;,&#39;信息管理学院&#39;,&#39;李嘉&#39;,&#39;教一楼3层&#39;)
+</code></pre><p>或者</p>
+<pre><code>INSERT INTO 院系
+VALUES(&#39;2&#39;,&#39;经济管理学院&#39;,&#39;吴鸿忠&#39;,&#39;教三楼4层&#39;)
+问题：怎么添加多条记录？解决方法示例：
+insert into tableName(字段1, 字段2, 字段3)
+select val1,val2,val3
+union all
+select val1,val2,val3
+union all。。。
+</code></pre><h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a><strong>删除数据</strong></h3><p>示例1删除考试成绩为NULL的记录。</p>
+<pre><code>DELETE 
+FROM 选课
+WHERE 考试成绩=NULL
+</code></pre><h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a><strong>更新数据</strong></h3><p>示例1将04014122号学生的B00101课程的考试成绩修改为78分</p>
+<pre><code>UPDATE 选课
+SET 考试成绩=78
+WHERE 学号=&#39;04014122&#39;AND 课程编号=&#39;B00101&#39;
+</code></pre><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a><strong>查询</strong></h3><p>示例1查询学生的全部信息</p>
+<pre><code>SELECT *
+FROM 学生
+示例2查询所有课程名称和学时信息。
+SELECT 课程名称,学时
+FROM 课程
+</code></pre><p>示例3查询学时大于等于40的课程编号和课程名称。</p>
+<pre><code>SELECT 课程编号,课程名称
+FROM 课程
+WHERE 学时&gt;=40
+</code></pre><p>示例4查询课时在50到60（含）之间的课程信息。</p>
+<pre><code>SELECT *
+FROM 课程
+WHERE 学时 &gt;50 AND 学时&lt;=60
+或者
+SELECT *
+FROM 课程
+WHERE 学时 BETWEEN 50 AND  60
+</code></pre><p>示例5查询具有教授和副教授职称的教师信息。</p>
+<pre><code>SELECT *
+FROM 教师
+WHERE 职称=&#39;教授&#39;OR 职称=&#39;副教授&#39;
+示例6查询责任教师字段为空值的记录。
+SELECT *
+FROM 课程
+WHERE 责任教师 IS NULL
+</code></pre><p>示例7查询“专业基础”课程的信息，并将结果存储到Student模式下、表名为“专业基础”。</p>
+<pre><code>SELECT * INTO student.专业基础 
+FROM 课程 
+WHERE 课程性质=&#39;专业基础&#39;
+</code></pre><p>示例8按教师编号升序列出所有教师信息。</p>
+<pre><code>SELECT *
+FROM 教师
+ORDER BY 教师编号 ASC
+</code></pre><p>示例9查询所有学生信息，先按生源升序排序、再按学号升序排序。 </p>
+<pre><code>SELECT *
+FROM 学生
+ORDER BY 生源 ASC,学号 ASC 
+</code></pre><p>示例10从选课表中查询考试成绩最高的3条选课信息。</p>
+<pre><code>SELECT TOP 3* 
+FROM 选课
+ORDER BY 考试成绩 DESC
+</code></pre><p>示例11从选课表中查询考试成绩在前15%的选课记录信息，如果随后有成绩并列的记录也一起列出。 </p>
+<pre><code>SELECT TOP 15PERCENT*
+FROM 选课
+ORDER BY 考试成绩 DESC
+</code></pre><p>示例12查询考试成绩在90分以上（含）的学生的学号、姓名、相应的课程名称和考试成绩(使用CROSS JOIN连接完成查询)。</p>
+<pre><code>SELECT 学生.学号,姓名,课程名称,考试成绩 
+from 学生 left join 选课 on (学生.学号=选课.学号) 
+left join 课程 on (选课.课程编号=课程.课程编号) 
+where 考试成绩&gt;= 90
+</code></pre><p>示例13查询目前有多少责任教师。 </p>
+<pre><code>SELECT COUNT(责任教师)
+FROM 课程
+</code></pre><p>示例14查询数据库课程的平均成绩。</p>
+<pre><code>SELECT AVG(考试成绩)
+FROM 选课
+WHERE 课程编号 IN
+(
+SELECT 课程编号
+FROM 课程
+WHERE 课程名称=&#39;数据库&#39;
+)
+</code></pre><p>示例15查询各院系教师的人数（显示院系名称和教师人数）。</p>
+<pre><code>SELECT 名称,COUNT(教师编号)教师人数
+FROM 院系  JOIN 教师 ON 院系.编号=教师.院系
+GROUP BY 名称
+</code></pre><p>示例16查询各门课程考试成绩的平均分、最高分和最低分。 </p>
+<pre><code>SELECT 课程名称,AVG(考试成绩)平均分,MAX(考试成绩)最高分,MIN(考试成绩)最低分
+FROM 选课 JOIN 课程 ON 选课.课程编号=课程.课程编号
+GROUP BY 课程名称
+</code></pre><p>示例17查询专业基础课平均分大于等于60分的各门课程考试成绩的平均分、最高分和最低分。</p>
+<pre><code>SELECT 课程名称,AVG(考试成绩)平均分,MAX(考试成绩)最高分,MIN(考试成绩)最低分
+FROM 选课 JOIN 课程 ON 选课.课程编号=课程.课程编号 
+WHERE 课程性质=&#39;专业基础&#39;
+GROUP BY 课程名称
+HAVING AVG(考试成绩)&gt;=60
+</code></pre><p>示例18查询所有专业基础课的信息，并计算其总学时。</p>
+<pre><code>CREATE VIEW 课程_总学时(总学时)
+AS
+SELECT SUM(学时)总学时
+FROM 课程
+
+</code></pre><h3 id="1NF"><a href="#1NF" class="headerlink" title="1NF"></a><strong>1NF</strong></h3><p>属性具有原子性</p>
 <h3 id="2NF"><a href="#2NF" class="headerlink" title="2NF"></a><strong>2NF</strong></h3><p>能根据主键得到表中的其他属性<br>如果是联合主键则必须是根据联合主键得到表的其他属性 而不能只是联合主键其中的一个属性得到表中的其他属性</p>
 <h3 id="3NF"><a href="#3NF" class="headerlink" title="3NF"></a><strong>3NF</strong></h3><p>除主键外 表中的非主键属性不能根据非主键属性得到</p>
 <h3 id="BCNF"><a href="#BCNF" class="headerlink" title="BCNF"></a><strong>BCNF</strong></h3><p>非主键属性不能根据非主键属性得到 主键属性也不能根据非主键属性得到<br>性能不行时 第一反应是再试一次<br>第二反应是优化一下SQL<br>第三反应是调大buffer pool<br>实在不行就面向搜索引擎编程了  </p>
@@ -294,8 +717,48 @@
 
 
 
-<p></p><h2 id="尽量避免大事务操作提高系统并发能力"><a name="t29"></a>尽量避免大事务操作，提高系统并发能力。</h2>            <br>            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/markdown_views-ea0013b516.css"><br>                <br>            <br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">创建表</span><br><span class="line">create table Employee(</span><br><span class="line">    id int primary key,</span><br><span class="line">    name varchar(20),</span><br><span class="line">    age int</span><br><span class="line">);</span><br><span class="line">import java.sql;</span><br><span class="line">public class test&#123;</span><br><span class="line">    public static void main(String[] args)throws Exception&#123;</span><br><span class="line">        String user = &quot;user1&quot;;</span><br><span class="line">        String password = &quot;pwd1&quot;;</span><br><span class="line">        String url = &quot;jdbc:mysql://localhost:3306/Test&quot;;</span><br><span class="line">        String driver = &quot;com.mysql.jdbc.Driver&quot;;</span><br><span class="line">        Connection con = null;</span><br><span class="line">        Statement stmt = null;</span><br><span class="line">        ResultSet rs = null;</span><br><span class="line">        try&#123;</span><br><span class="line">            Class.forName(driver);</span><br><span class="line">            con = DriverManager.getConnection(url,user,password);</span><br><span class="line">            stmt = con.createStatement();</span><br><span class="line">            stmt.execute(&quot;insert into Employee values(1,&apos;James1&apos;,25)&quot;);</span><br><span class="line">            stmt.execute(&quot;insert into Employee values(2,&apos;James2&apos;,26)&quot;);</span><br><span class="line">            rs = stmt.executeQuery(&quot;select * from Employee&quot;);</span><br><span class="line">            while(rs.next())&#123;</span><br><span class="line">                System.out.println(rs.getInt(1)+&quot; &quot;+rs.getString(s)+&quot; &quot;+rs.getInt(3));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch(SQLException e1)&#123;</span><br><span class="line">            e1.printStack();</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line">            try&#123;</span><br><span class="line">                if(rs != null) rs.close();</span><br><span class="line">                if(stmt != null) stmt.close();</span><br><span class="line">                if(con != null) con.close();</span><br><span class="line">            &#125;catch(SQLException e)&#123;</span><br><span class="line">                System.out.println(e.getMessage());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
-<h3 id="关系表R"><a href="#关系表R" class="headerlink" title="关系表R"></a><strong>关系表R</strong></h3><table>
+<p></p><h2 id="尽量避免大事务操作提高系统并发能力"><a name="t29"></a>尽量避免大事务操作，提高系统并发能力。</h2>            <br>            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/markdown_views-ea0013b516.css"><br>                <br>            <p></p>
+<pre><code>创建表
+create table Employee(
+    id int primary key,
+    name varchar(20),
+    age int
+);
+import java.sql;
+public class test{
+    public static void main(String[] args)throws Exception{
+        String user = &quot;user1&quot;;
+        String password = &quot;pwd1&quot;;
+        String url = &quot;jdbc:mysql://localhost:3306/Test&quot;;
+        String driver = &quot;com.mysql.jdbc.Driver&quot;;
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url,user,password);
+            stmt = con.createStatement();
+            stmt.execute(&quot;insert into Employee values(1,&#39;James1&#39;,25)&quot;);
+            stmt.execute(&quot;insert into Employee values(2,&#39;James2&#39;,26)&quot;);
+            rs = stmt.executeQuery(&quot;select * from Employee&quot;);
+            while(rs.next()){
+                System.out.println(rs.getInt(1)+&quot; &quot;+rs.getString(s)+&quot; &quot;+rs.getInt(3));
+            }
+        }
+        catch(SQLException e1){
+            e1.printStack();
+        }finally{
+            try{
+                if(rs != null) rs.close();
+                if(stmt != null) stmt.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+}
+</code></pre><h3 id="关系表R"><a href="#关系表R" class="headerlink" title="关系表R"></a><strong>关系表R</strong></h3><table>
 <thead>
 <tr>
 <th>A</th>
@@ -399,86 +862,360 @@
 <h2 id="如果让你设计一个数据库连接池，你可能会考虑到哪些方面的问题？"><a href="#如果让你设计一个数据库连接池，你可能会考虑到哪些方面的问题？" class="headerlink" title="如果让你设计一个数据库连接池，你可能会考虑到哪些方面的问题？"></a><strong>如果让你设计一个数据库连接池，你可能会考虑到哪些方面的问题？</strong></h2><p>需要统一实现javax.sql.DataSource接口，以适应于不同的场合。<br>连接被动关闭问题。为了保证连接的复用性，将连接一直保存在池中。有些数据库服务器会将已经连接很久的客户端连接主动踢掉，如果碰到这种情况，在池中的这个连接池就会变为不可用状态，如果客户端使用的话将会抛出连接被关闭的SQLException。<br>及时地将不需要使用的连接关闭还给数据库服务器，保留一些基本连接数。<br>网络中断能自动重连</p>
 <h3 id="minus"><a href="#minus" class="headerlink" title="minus"></a><strong>minus</strong></h3><p>使用该操作符用于取得两个结果集的差集，他只会显示存在第一个集合中，而不存在第二个集合中的数据。<br>SELECT ename, sal, job FROM emp WHERE sal &gt;2500<br>MINUS<br>SELECT ename, sal, job FROM emp WHERE job = ‘MANAGER’;<br>（MINUS就是减法的意思）   </p>
 
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="/music/1.mp3">
-            </audio>
+            </div>
+            <hr>
+
             
-        </div>
-        
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
-    </div>
-    
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-去除重复记录"><span class="toc-number">1.</span> <span class="toc-text">1.去除重复记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-NOT"><span class="toc-number">2.</span> <span class="toc-text">4.NOT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Order-By"><span class="toc-number">3.</span> <span class="toc-text">5.Order By</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-union"><span class="toc-number">4.</span> <span class="toc-text">6.union</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-等连接（根据字段相等连接后可获取2个表的任意内容）"><span class="toc-number">5.</span> <span class="toc-text">7.等连接（根据字段相等连接后可获取2个表的任意内容）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-汇总查询"><span class="toc-number">6.</span> <span class="toc-text">8.汇总查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-group-by-指定字段"><span class="toc-number">7.</span> <span class="toc-text">9.group by 指定字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Join"><span class="toc-number">8.</span> <span class="toc-text">10.Join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建表"><span class="toc-number">9.</span> <span class="toc-text">建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改表"><span class="toc-number">10.</span> <span class="toc-text">修改表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除表"><span class="toc-number">11.</span> <span class="toc-text">删除表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改表-1"><span class="toc-number">12.</span> <span class="toc-text">修改表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入数据"><span class="toc-number">13.</span> <span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除数据"><span class="toc-number">14.</span> <span class="toc-text">删除数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新数据"><span class="toc-number">15.</span> <span class="toc-text">更新数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询"><span class="toc-number">16.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1NF"><span class="toc-number">17.</span> <span class="toc-text">1NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2NF"><span class="toc-number">18.</span> <span class="toc-text">2NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF"><span class="toc-number">19.</span> <span class="toc-text">3NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF"><span class="toc-number">20.</span> <span class="toc-text">BCNF</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#避免在-where-子句中使用或"><span class="toc-number"></span> <span class="toc-text">避免在 where 子句中使用!=或&lt;&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优先考虑在-where-及-order-by"><span class="toc-number"></span> <span class="toc-text">优先考虑在 where 及 order by</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#避免在-where-子句中对字段进行-null-值判断"><span class="toc-number"></span> <span class="toc-text">避免在 where 子句中对字段进行 null 值判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量避免在-where-子句中使用-or-来连接条件"><span class="toc-number"></span> <span class="toc-text">尽量避免在 where 子句中使用 or 来连接条件，</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下面的查询也将导致全表扫描不能前置百分号"><span class="toc-number"></span> <span class="toc-text">下面的查询也将导致全表扫描：(不能前置百分号)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#in-和-not-in-也要慎用"><span class="toc-number"></span> <span class="toc-text">in 和 not in 也要慎用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果在-where-子句中使用参数也会导致全表扫描"><span class="toc-number"></span> <span class="toc-text">如果在 where 子句中使用参数，也会导致全表扫描。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应尽量避免在-where-子句中对字段进行表达式操作"><span class="toc-number"></span> <span class="toc-text">应尽量避免在 where 子句中对字段进行表达式操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应尽量避免在where子句中对字段进行函数操作"><span class="toc-number"></span> <span class="toc-text">应尽量避免在where子句中对字段进行函数操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不要在-where-子句中的左边进行函数算术运算或其他表达式运算"><span class="toc-number"></span> <span class="toc-text">不要在 where 子句中的“=”左边进行函数、算术运算或其他表达式运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-number"></span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不要写一些没有意义的查询"><span class="toc-number"></span> <span class="toc-text">不要写一些没有意义的查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#很多时候用-exists-代替-in-是一个好的选择"><span class="toc-number"></span> <span class="toc-text">很多时候用 exists 代替 in 是一个好的选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并不是所有索引对查询都有效"><span class="toc-number"></span> <span class="toc-text">并不是所有索引对查询都有效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引并不是越多越好"><span class="toc-number"></span> <span class="toc-text">索引并不是越多越好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应尽可能的避免更新-clustered-索引数据列"><span class="toc-number"></span> <span class="toc-text">应尽可能的避免更新 clustered 索引数据列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量使用数字型字段"><span class="toc-number"></span> <span class="toc-text">尽量使用数字型字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽可能的使用-varcharnvarchar-代替-charnchar"><span class="toc-number"></span> <span class="toc-text">尽可能的使用 varchar/nvarchar 代替 char/nchar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任何地方都不要使用-select-from-t"><span class="toc-number"></span> <span class="toc-text">任何地方都不要使用 select * from t</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量使用表变量来代替临时表"><span class="toc-number"></span> <span class="toc-text">尽量使用表变量来代替临时表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#避免频繁创建和删除临时表以减少系统表资源的消耗"><span class="toc-number"></span> <span class="toc-text">避免频繁创建和删除临时表，以减少系统表资源的消耗。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#临时表并不是不可使用适当地使用它们可以使某些例程更有效"><span class="toc-number"></span> <span class="toc-text">临时表并不是不可使用，适当地使用它们可以使某些例程更有效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在新建临时表时如果一次性插入数据量很大"><span class="toc-number"></span> <span class="toc-text">在新建临时表时，如果一次性插入数据量很大</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果使用到了临时表"><span class="toc-number"></span> <span class="toc-text">如果使用到了临时表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量避免使用游标"><span class="toc-number"></span> <span class="toc-text">尽量避免使用游标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用基于游标的方法或临时表方法之前应先寻找基于集的解决方案来解决问题基于集的方法通常更有效"><span class="toc-number"></span> <span class="toc-text">使用基于游标的方法或临时表方法之前，应先寻找基于集的解决方案来解决问题，基于集的方法通常更有效。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与临时表一样游标并不是不可使用"><span class="toc-number"></span> <span class="toc-text">与临时表一样，游标并不是不可使用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储过程和触发器"><span class="toc-number"></span> <span class="toc-text">存储过程和触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量避免向客户端返回大数据量若数据量过大应该考虑相应需求是否合理"><span class="toc-number"></span> <span class="toc-text">尽量避免向客户端返回大数据量，若数据量过大，应该考虑相应需求是否合理。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量避免大事务操作提高系统并发能力"><span class="toc-number"></span> <span class="toc-text">尽量避免大事务操作，提高系统并发能力。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关系表R"><span class="toc-number">1.</span> <span class="toc-text">关系表R</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关系表S"><span class="toc-number">2.</span> <span class="toc-text">关系表S</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自然连接"><span class="toc-number">3.</span> <span class="toc-text">自然连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作数据库"><span class="toc-number">4.</span> <span class="toc-text">操作数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作表"><span class="toc-number">5.</span> <span class="toc-text">操作表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作数据"><span class="toc-number">6.</span> <span class="toc-text">操作数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果让你设计一个数据库连接池，你可能会考虑到哪些方面的问题？"><span class="toc-number"></span> <span class="toc-text">如果让你设计一个数据库连接池，你可能会考虑到哪些方面的问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#minus"><span class="toc-number">1.</span> <span class="toc-text">minus</span></a></li></ol>
-        </li></div>
-    
-</div>
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-    </div>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                 </div>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
         </div>
     </div>
 </div>
 
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://viabcde.github.io" class="b-link-green">廖锡洪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/09/19/2018-9-19-SQL/" class="b-link-green">SQL语句示例及调优</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/09/19/2018-9-19-模板/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="配置文件模板">
+                        
+                        <span class="card-title">配置文件模板</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">struts2.xml模板&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE struts PUBLIC
+    &quot;-//A</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/配置文件/" target="_blank">
+                        <span class="chip bg-color">配置文件</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/09/18/2018-9-18-Shell脚本/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Linux与Shell脚本编程">
+                        
+                        <span class="card-title">Linux与Shell脚本编程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Linux内核的功能①系统内存管理  
+②软件程序管理  
+③硬件设备管理  
+④文件系统管理  
+GNU coreutils软件包由三部分构成：用以处理文件、操作文本、管理进程的工具GNU/Linux shell是一种特殊的交互式工具。它</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
 
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"search":null,"path":"search.xml","field":"post","log":false});</script></body>
 </html>

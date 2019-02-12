@@ -1,149 +1,890 @@
+<!DOCTYPE HTML>
+<html lang="">
 
-<!DOCTYPE html>
-<html lang="" class="loading">
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>廖锡洪</title>
-
+    <meta charset="utf-8">
+    <meta name="keywords" content="SSM(一)---用户管理, viabcde">
+    <meta name="description" content="main.jsp  
+&amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text/html; charset=utf-8&amp;quot;
+         pageEncoding=">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate">
-    <meta name="keywords" content="viabcde,"> 
+    <title>SSM(一)---用户管理 | 廖锡洪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">廖锡洪</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
     
-    <meta name="author" content="viacbde"> 
-    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-</html>
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">SSM(一)---用户管理</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-    <div class="section">
-        <div class="article">
-    <div class="main">
-        <h1 class="title">SSM(一)---用户管理</h1>
-        <div class="stuff">
-            <span>十一月 22, 2018</span>
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/系统/">系统</a><span class="post-tags-list-count">3</span></li></ul>
-
-
-        </div>
-        <div class="content markdown">
-            <p><strong>main.jsp</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;</span><br><span class="line">         pageEncoding=&quot;utf-8&quot; %&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;ssm-maven系统主页&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;</span><br><span class="line">          href=&quot;$&#123;pageContext.request.contextPath&#125;/jquery-easyui-1.3.3/themes/default/easyui.css&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;</span><br><span class="line">          href=&quot;$&#123;pageContext.request.contextPath&#125;/jquery-easyui-1.3.3/themes/icon.css&quot;&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;</span><br><span class="line">            src=&quot;$&#123;pageContext.request.contextPath&#125;/jquery-easyui-1.3.3/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;</span><br><span class="line">            src=&quot;$&#123;pageContext.request.contextPath&#125;/jquery-easyui-1.3.3/jquery.easyui.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;</span><br><span class="line">            src=&quot;$&#123;pageContext.request.contextPath&#125;/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var url;</span><br><span class="line">        function addTab(url, text, iconCls) &#123;</span><br><span class="line">            var content = &quot;&lt;iframe frameborder=0 scrolling=&apos;auto&apos; style=&apos;width:100%;height:100%&apos; src=&apos;$&#123;pageContext.request.contextPath&#125;/views/&quot;</span><br><span class="line">                    + url + &quot;&apos;&gt;&lt;/iframe&gt;&quot;;</span><br><span class="line">            $(&quot;#tabs&quot;).tabs(&quot;add&quot;, &#123;</span><br><span class="line">                title: text,</span><br><span class="line">                iconCls: iconCls,</span><br><span class="line">                closable: true,</span><br><span class="line">                content: content</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        function openTab(text, url, iconCls) &#123;</span><br><span class="line">            if ($(&quot;#tabs&quot;).tabs(&quot;exists&quot;, text)) &#123;</span><br><span class="line">                $(&quot;#tabs&quot;).tabs(&quot;close&quot;, text);</span><br><span class="line">                addTab(url, text, iconCls);</span><br><span class="line">                $(&quot;#tabs&quot;).tabs(&quot;select&quot;, text);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                addTab(url, text, iconCls);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        function logout() &#123;</span><br><span class="line">            $.messager</span><br><span class="line">                    .confirm(</span><br><span class="line">                            &quot;系统提示&quot;,</span><br><span class="line">                            &quot;您确定要退出系统吗&quot;,</span><br><span class="line">                            function (r) &#123;</span><br><span class="line">                                if (r) &#123;</span><br><span class="line">                                    window.location.href = &quot;$&#123;pageContext.request.contextPath&#125;/user/logout.do&quot;;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;jsp:include page=&quot;login_chk.jsp&quot;&gt;&lt;/jsp:include&gt;</span><br><span class="line">&lt;body class=&quot;easyui-layout&quot;&gt;</span><br><span class="line">&lt;div region=&quot;north&quot; style=&quot;height: 78px;background-color: #ffff&quot;&gt;</span><br><span class="line">    &lt;table width=&quot;100%&quot;&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td width=&quot;50%&quot;&gt;&lt;/td&gt;</span><br><span class="line">            &lt;td valign=&quot;bottom&quot;</span><br><span class="line">                style=&quot;font-size: 20px;color:#8B8B8B;font-family: &apos;楷体&apos;;&quot;</span><br><span class="line">                align=&quot;right&quot; width=&quot;50%&quot;&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;strong&gt;当前管理员：&lt;/strong&gt;$&#123;currentUser.userName</span><br><span class="line">                    &#125;&lt;/font&gt;【管理员】</span><br><span class="line">            &lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div region=&quot;center&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;easyui-tabs&quot; fit=&quot;true&quot; border=&quot;false&quot; id=&quot;tabs&quot;&gt;</span><br><span class="line">        &lt;div title=&quot;首页&quot; data-options=&quot;iconCls:&apos;icon-home&apos;&quot;&gt;</span><br><span class="line">                        &lt;div align=&quot;center&quot; style=&quot;padding-top: 20px;&quot;&gt;&lt;a</span><br><span class="line">                    href=&quot;https://git.oschina.net/zhenfeng13/ssm-demo&quot;</span><br><span class="line">                    target=&quot;_blank&quot; style=&quot;font-size: 20px;&quot;&gt;开源中国仓库地址&lt;/a&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div align=&quot;center&quot; style=&quot;padding-top: 20px;&quot;&gt;&lt;a href=&quot;https://github.com/ZHENFENG13/ssm-demo&quot;</span><br><span class="line">                                                              target=&quot;_blank&quot;</span><br><span class="line">                                                              style=&quot;font-size: 20px;&quot;&gt;Gitub仓库地址&lt;/a&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div align=&quot;center&quot; style=&quot;padding-top: 50px;&quot;&gt;&lt;a</span><br><span class="line">                    href=&quot;http://download.csdn.net/detail/zhenfengshisan/9813721&quot;</span><br><span class="line">                    target=&quot;_blank&quot; style=&quot;font-size: 20px;&quot;&gt;项目源码下载(最新代码)&lt;/a&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div align=&quot;center&quot; style=&quot;padding-top: 20px;&quot;&gt;&lt;a</span><br><span class="line">                    href=&quot;http://download.csdn.net/detail/zhenfengshisan/9765855&quot;</span><br><span class="line">                    target=&quot;_blank&quot; style=&quot;font-size: 20px;&quot;&gt;项目源码下载(非maven)&lt;/a&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div align=&quot;center&quot; style=&quot;padding-top: 50px&quot;&gt;</span><br><span class="line">                &lt;font color=&quot;grey&quot; size=&quot;10&quot;&gt;ssm demo&lt;/font&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div region=&quot;west&quot; style=&quot;width: 200px;height:500px;&quot; title=&quot;导航菜单&quot;</span><br><span class="line">     split=&quot;true&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;easyui-accordion&quot;&gt;</span><br><span class="line">        &lt;div title=&quot;文章管理&quot;</span><br><span class="line">             data-options=&quot;selected:true,iconCls:&apos;icon-wenzhangs&apos;&quot;</span><br><span class="line">             style=&quot;padding: 10px;height:10px;&quot;&gt;</span><br><span class="line">            &lt;a</span><br><span class="line">                    href=&quot;javascript:openTab(&apos; 文章管理&apos;,&apos;articleManage.jsp&apos;,&apos;icon-wenzhang&apos;)&quot;</span><br><span class="line">                    class=&quot;easyui-linkbutton&quot;</span><br><span class="line">                    data-options=&quot;plain:true,iconCls:&apos;icon-wenzhang&apos;&quot;</span><br><span class="line">                    style=&quot;width: 150px;&quot;&gt; 文章管理&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div title=&quot;图片管理&quot; data-options=&quot;iconCls:&apos;icon-shouye&apos;&quot;</span><br><span class="line">             style=&quot;padding:10px&quot;&gt;</span><br><span class="line">            &lt;a</span><br><span class="line">                    href=&quot;javascript:openTab(&apos; 图片设置&apos;,&apos;pictureManage.jsp?type=1&amp;grade=1&apos;,&apos;icon-tupians&apos;)&quot;</span><br><span class="line">                    class=&quot;easyui-linkbutton&quot;</span><br><span class="line">                    data-options=&quot;plain:true,iconCls:&apos;icon-tupian&apos;&quot;</span><br><span class="line">                    style=&quot;width: 150px;&quot;&gt; 图片设置&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div title=&quot;书籍管理&quot; data-options=&quot;iconCls:&apos;icon-shuji&apos;&quot;</span><br><span class="line">             style=&quot;padding:10px&quot;&gt;</span><br><span class="line">            &lt;a</span><br><span class="line">                    href=&quot;javascript:openTab(&apos; 全部书籍&apos;,&apos;allBooksManage.jsp&apos;,&apos;icon-shuben&apos;)&quot;</span><br><span class="line">                    class=&quot;easyui-linkbutton&quot;</span><br><span class="line">                    data-options=&quot;plain:true,iconCls:&apos;icon-shuben&apos;&quot;</span><br><span class="line">                    style=&quot;width: 150px;&quot;&gt;全部书籍&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div title=&quot;系统管理&quot; data-options=&quot;iconCls:&apos;icon-item&apos;&quot;</span><br><span class="line">             style=&quot;padding:10px;border:none;&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;javascript:openTab(&apos; 管理员列表&apos;,&apos;userManage.jsp&apos;,&apos;icon-lxr&apos;)&quot;</span><br><span class="line">               class=&quot;easyui-linkbutton&quot;</span><br><span class="line">               data-options=&quot;plain:true,iconCls:&apos;icon-lxr&apos;&quot; style=&quot;width: 150px;&quot;&gt;</span><br><span class="line">                管理员列表&lt;/a&gt;&lt;a href=&quot;javascript:logout()&quot;</span><br><span class="line">                            class=&quot;easyui-linkbutton&quot;</span><br><span class="line">                            data-options=&quot;plain:true,iconCls:&apos;icon-exit&apos;&quot;</span><br><span class="line">                            style=&quot;width: 150px;&quot;&gt;</span><br><span class="line">            安全退出&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>main.jsp在执行其他代码之前先验证session里是否有用户，没有返回登录页面（这样可以防止强制跳转）<br><strong>loginchk.jsp</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;</span><br><span class="line">         pageEncoding=&quot;utf-8&quot; %&gt;</span><br><span class="line">&lt;%--防强值跳转 --%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    if (session.getAttribute(&quot;currentUser&quot;) == null) &#123;</span><br><span class="line">        out.println(&quot;&lt;script&gt;window.location.href=&apos;&quot; + session.getServletContext().getContextPath() + &quot;/login.jsp&apos;;&lt;/script&gt;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-<p>用户管理：usermanager.jsp<br>list.do从后台获取所有用户信息并列出  （前台需要给后台的信息是：username,开始的索引数start,往后的搜索的记录数size）并把他们封装在map里<br>相关查询语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;findUsers&quot; parameterType=&quot;Map&quot; resultMap=&quot;UserResult&quot;&gt;</span><br><span class="line">        select id,user_name,password,role_name from ssm_user</span><br><span class="line">        &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;userName!=null and userName!=&apos;&apos; &quot;&gt;</span><br><span class="line">                and user_name like #&#123;userName&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">        &lt;if test=&quot;start!=null and size!=null&quot;&gt;</span><br><span class="line">            limit #&#123;start&#125;,#&#123;size&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
-<p>增加/更新用户：save.do （需要给后台传递的信息：user的username和password）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id=&quot;addUser&quot; parameterType=&quot;User&quot;&gt;</span><br><span class="line">    insert into ssm_user(user_name,password)</span><br><span class="line">    values(#&#123;userName&#125;,#&#123;password&#125;)</span><br><span class="line">&lt;/insert&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;update id=&quot;updateUser&quot; parameterType=&quot;User&quot;&gt;</span><br><span class="line">    update ssm_user</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">        &lt;if test=&quot;userName!=null and userName!=&apos;&apos; &quot;&gt;</span><br><span class="line">            user_name=#&#123;userName&#125;,</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;password!=null and password!=&apos;&apos; &quot;&gt;</span><br><span class="line">            password=#&#123;password&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/set&gt;</span><br><span class="line">    where id=#&#123;id&#125; and &lt;![CDATA[ id &lt;&gt; 2 ]]&gt;</span><br><span class="line">&lt;/update&gt;</span><br></pre></td></tr></table></figure>
-<p>删除用户：delete.do</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete id=&quot;deleteUser&quot; parameterType=&quot;Integer&quot;&gt;</span><br><span class="line">    delete from ssm_user</span><br><span class="line">    where id=#&#123;id&#125;</span><br><span class="line">&lt;/delete&gt;</span><br></pre></td></tr></table></figure>
-<p>安全退出：logout.do<br>清除session<code>session.invalidate();</code><br>返回登录页面<code>return &quot;redirect:/login.jsp&quot;;</code>  </p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="/music/1.mp3">
-            </audio>
+            <i class="fa fa-home"></i>
             
-        </div>
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
         
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
-
-
-    </div>
-    
-        <div class="side">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">廖锡洪</div>
+        <div class="logo-desc">
+            
+            廖锡洪
             
         </div>
-    
-</div>
-
-
     </div>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+</div>
+
+            </div>
         </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        SSM(一)---用户管理
                     </div>
                 </div>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
         </div>
     </div>
 </div>
 
 
 
+<main class="container content">
 
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/标签/" target="_blank">
+                                <span class="chip bg-color">标签</span>
+                            </a>
+                        
+                            <a href="/tags/系统/" target="_blank">
+                                <span class="chip bg-color">系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-11-22
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>main.jsp</strong>  </p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;
+         pageEncoding=&quot;utf-8&quot; %&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+    &lt;title&gt;ssm-maven系统主页&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
+          href=&quot;${pageContext.request.contextPath}/jquery-easyui-1.3.3/themes/default/easyui.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
+          href=&quot;${pageContext.request.contextPath}/jquery-easyui-1.3.3/themes/icon.css&quot;&gt;
+    &lt;script type=&quot;text/javascript&quot;
+            src=&quot;${pageContext.request.contextPath}/jquery-easyui-1.3.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;
+            src=&quot;${pageContext.request.contextPath}/jquery-easyui-1.3.3/jquery.easyui.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;
+            src=&quot;${pageContext.request.contextPath}/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var url;
+        function addTab(url, text, iconCls) {
+            var content = &quot;&lt;iframe frameborder=0 scrolling=&#39;auto&#39; style=&#39;width:100%;height:100%&#39; src=&#39;${pageContext.request.contextPath}/views/&quot;
+                    + url + &quot;&#39;&gt;&lt;/iframe&gt;&quot;;
+            $(&quot;#tabs&quot;).tabs(&quot;add&quot;, {
+                title: text,
+                iconCls: iconCls,
+                closable: true,
+                content: content
+            });
+        }
+        function openTab(text, url, iconCls) {
+            if ($(&quot;#tabs&quot;).tabs(&quot;exists&quot;, text)) {
+                $(&quot;#tabs&quot;).tabs(&quot;close&quot;, text);
+                addTab(url, text, iconCls);
+                $(&quot;#tabs&quot;).tabs(&quot;select&quot;, text);
+            } else {
+                addTab(url, text, iconCls);
+            }
+        }
+
+        function logout() {
+            $.messager
+                    .confirm(
+                            &quot;系统提示&quot;,
+                            &quot;您确定要退出系统吗&quot;,
+                            function (r) {
+                                if (r) {
+                                    window.location.href = &quot;${pageContext.request.contextPath}/user/logout.do&quot;;
+                                }
+                            });
+        }
+    &lt;/script&gt;
+    &lt;jsp:include page=&quot;login_chk.jsp&quot;&gt;&lt;/jsp:include&gt;
+&lt;body class=&quot;easyui-layout&quot;&gt;
+&lt;div region=&quot;north&quot; style=&quot;height: 78px;background-color: #ffff&quot;&gt;
+    &lt;table width=&quot;100%&quot;&gt;
+        &lt;tr&gt;
+            &lt;td width=&quot;50%&quot;&gt;&lt;/td&gt;
+            &lt;td valign=&quot;bottom&quot;
+                style=&quot;font-size: 20px;color:#8B8B8B;font-family: &#39;楷体&#39;;&quot;
+                align=&quot;right&quot; width=&quot;50%&quot;&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;strong&gt;当前管理员：&lt;/strong&gt;${currentUser.userName
+                    }&lt;/font&gt;【管理员】
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;div region=&quot;center&quot;&gt;
+    &lt;div class=&quot;easyui-tabs&quot; fit=&quot;true&quot; border=&quot;false&quot; id=&quot;tabs&quot;&gt;
+        &lt;div title=&quot;首页&quot; data-options=&quot;iconCls:&#39;icon-home&#39;&quot;&gt;
+                        &lt;div align=&quot;center&quot; style=&quot;padding-top: 20px;&quot;&gt;&lt;a
+                    href=&quot;https://git.oschina.net/zhenfeng13/ssm-demo&quot;
+                    target=&quot;_blank&quot; style=&quot;font-size: 20px;&quot;&gt;开源中国仓库地址&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div align=&quot;center&quot; style=&quot;padding-top: 20px;&quot;&gt;&lt;a href=&quot;https://github.com/ZHENFENG13/ssm-demo&quot;
+                                                              target=&quot;_blank&quot;
+                                                              style=&quot;font-size: 20px;&quot;&gt;Gitub仓库地址&lt;/a&gt;&lt;/div&gt;
+
+            &lt;div align=&quot;center&quot; style=&quot;padding-top: 50px;&quot;&gt;&lt;a
+                    href=&quot;http://download.csdn.net/detail/zhenfengshisan/9813721&quot;
+                    target=&quot;_blank&quot; style=&quot;font-size: 20px;&quot;&gt;项目源码下载(最新代码)&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div align=&quot;center&quot; style=&quot;padding-top: 20px;&quot;&gt;&lt;a
+                    href=&quot;http://download.csdn.net/detail/zhenfengshisan/9765855&quot;
+                    target=&quot;_blank&quot; style=&quot;font-size: 20px;&quot;&gt;项目源码下载(非maven)&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div align=&quot;center&quot; style=&quot;padding-top: 50px&quot;&gt;
+                &lt;font color=&quot;grey&quot; size=&quot;10&quot;&gt;ssm demo&lt;/font&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div region=&quot;west&quot; style=&quot;width: 200px;height:500px;&quot; title=&quot;导航菜单&quot;
+     split=&quot;true&quot;&gt;
+    &lt;div class=&quot;easyui-accordion&quot;&gt;
+        &lt;div title=&quot;文章管理&quot;
+             data-options=&quot;selected:true,iconCls:&#39;icon-wenzhangs&#39;&quot;
+             style=&quot;padding: 10px;height:10px;&quot;&gt;
+            &lt;a
+                    href=&quot;javascript:openTab(&#39; 文章管理&#39;,&#39;articleManage.jsp&#39;,&#39;icon-wenzhang&#39;)&quot;
+                    class=&quot;easyui-linkbutton&quot;
+                    data-options=&quot;plain:true,iconCls:&#39;icon-wenzhang&#39;&quot;
+                    style=&quot;width: 150px;&quot;&gt; 文章管理&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div title=&quot;图片管理&quot; data-options=&quot;iconCls:&#39;icon-shouye&#39;&quot;
+             style=&quot;padding:10px&quot;&gt;
+            &lt;a
+                    href=&quot;javascript:openTab(&#39; 图片设置&#39;,&#39;pictureManage.jsp?type=1&amp;grade=1&#39;,&#39;icon-tupians&#39;)&quot;
+                    class=&quot;easyui-linkbutton&quot;
+                    data-options=&quot;plain:true,iconCls:&#39;icon-tupian&#39;&quot;
+                    style=&quot;width: 150px;&quot;&gt; 图片设置&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div title=&quot;书籍管理&quot; data-options=&quot;iconCls:&#39;icon-shuji&#39;&quot;
+             style=&quot;padding:10px&quot;&gt;
+            &lt;a
+                    href=&quot;javascript:openTab(&#39; 全部书籍&#39;,&#39;allBooksManage.jsp&#39;,&#39;icon-shuben&#39;)&quot;
+                    class=&quot;easyui-linkbutton&quot;
+                    data-options=&quot;plain:true,iconCls:&#39;icon-shuben&#39;&quot;
+                    style=&quot;width: 150px;&quot;&gt;全部书籍&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div title=&quot;系统管理&quot; data-options=&quot;iconCls:&#39;icon-item&#39;&quot;
+             style=&quot;padding:10px;border:none;&quot;&gt;
+            &lt;a href=&quot;javascript:openTab(&#39; 管理员列表&#39;,&#39;userManage.jsp&#39;,&#39;icon-lxr&#39;)&quot;
+               class=&quot;easyui-linkbutton&quot;
+               data-options=&quot;plain:true,iconCls:&#39;icon-lxr&#39;&quot; style=&quot;width: 150px;&quot;&gt;
+                管理员列表&lt;/a&gt;&lt;a href=&quot;javascript:logout()&quot;
+                            class=&quot;easyui-linkbutton&quot;
+                            data-options=&quot;plain:true,iconCls:&#39;icon-exit&#39;&quot;
+                            style=&quot;width: 150px;&quot;&gt;
+            安全退出&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p>main.jsp在执行其他代码之前先验证session里是否有用户，没有返回登录页面（这样可以防止强制跳转）<br><strong>loginchk.jsp</strong>  </p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;
+         pageEncoding=&quot;utf-8&quot; %&gt;
+&lt;%--防强值跳转 --%&gt;
+&lt;%
+    if (session.getAttribute(&quot;currentUser&quot;) == null) {
+        out.println(&quot;&lt;script&gt;window.location.href=&#39;&quot; + session.getServletContext().getContextPath() + &quot;/login.jsp&#39;;&lt;/script&gt;&quot;);
+    }
+%&gt;
+
+</code></pre><p>用户管理：usermanager.jsp<br>list.do从后台获取所有用户信息并列出  （前台需要给后台的信息是：username,开始的索引数start,往后的搜索的记录数size）并把他们封装在map里<br>相关查询语句  </p>
+<pre><code>&lt;select id=&quot;findUsers&quot; parameterType=&quot;Map&quot; resultMap=&quot;UserResult&quot;&gt;
+        select id,user_name,password,role_name from ssm_user
+        &lt;where&gt;
+            &lt;if test=&quot;userName!=null and userName!=&#39;&#39; &quot;&gt;
+                and user_name like #{userName}
+            &lt;/if&gt;
+        &lt;/where&gt;
+        &lt;if test=&quot;start!=null and size!=null&quot;&gt;
+            limit #{start},#{size}
+        &lt;/if&gt;
+    &lt;/select&gt;
+
+</code></pre><p>增加/更新用户：save.do （需要给后台传递的信息：user的username和password）</p>
+<pre><code>    &lt;insert id=&quot;addUser&quot; parameterType=&quot;User&quot;&gt;
+        insert into ssm_user(user_name,password)
+        values(#{userName},#{password})
+    &lt;/insert&gt;
+</code></pre><pre><code>    &lt;update id=&quot;updateUser&quot; parameterType=&quot;User&quot;&gt;
+        update ssm_user
+        &lt;set&gt;
+            &lt;if test=&quot;userName!=null and userName!=&#39;&#39; &quot;&gt;
+                user_name=#{userName},
+            &lt;/if&gt;
+            &lt;if test=&quot;password!=null and password!=&#39;&#39; &quot;&gt;
+                password=#{password}
+            &lt;/if&gt;
+        &lt;/set&gt;
+        where id=#{id} and &lt;![CDATA[ id &lt;&gt; 2 ]]&gt;
+    &lt;/update&gt;
+</code></pre><p>删除用户：delete.do</p>
+<pre><code>    &lt;delete id=&quot;deleteUser&quot; parameterType=&quot;Integer&quot;&gt;
+        delete from ssm_user
+        where id=#{id}
+    &lt;/delete&gt;
+</code></pre><p>安全退出：logout.do<br>清除session<code>session.invalidate();</code><br>返回登录页面<code>return &quot;redirect:/login.jsp&quot;;</code>  </p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://viabcde.github.io" class="b-link-green">廖锡洪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/11/22/2018-11-22-SSM(一)---用户管理/" class="b-link-green">SSM(一)---用户管理</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/11/23/2018-11-23-Spring配置文件/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Spring.xml">
+                        
+                        <span class="card-title">Spring.xml</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">第一种该文件主要是配置Hibernate事务（而事务需要sessionFactory，sessionFactory需要数据源等信息）配置Hibernate事务(需要sessionFactory)配置sessionFactory(需要数据源及</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/配置文件/" target="_blank">
+                        <span class="chip bg-color">配置文件</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/11/22/2018-11-22-easy-ui/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Easy-Ui">
+                        
+                        <span class="card-title">Easy-Ui</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">jquery中datagrid中getSelected和getSelections的用法说明data是table表格的某一列的id选中一行：  
+var get = $(&quot;#dg&quot;).datagrid(&quot;get</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/前端/" target="_blank">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"search":null,"path":"search.xml","field":"post","log":false});</script></body>
 </html>

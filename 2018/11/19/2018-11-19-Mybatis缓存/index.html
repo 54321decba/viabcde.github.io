@@ -1,152 +1,772 @@
+<!DOCTYPE HTML>
+<html lang="">
 
-<!DOCTYPE html>
-<html lang="" class="loading">
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>廖锡洪</title>
-
+    <meta charset="utf-8">
+    <meta name="keywords" content="Mybatis缓存, viabcde">
+    <meta name="description" content="Hibernate二级缓存的注意要点一级缓存是必需的，位于Session（是一个HashMap,存放对象的引用）在 session commit 时 清空一级缓存 (防止其他用户 读取到 修改的脏数据)    
+二级缓存非必需，跨多个ses">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate">
-    <meta name="keywords" content="viabcde,"> 
+    <title>Mybatis缓存 | 廖锡洪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">廖锡洪</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
     
-    <meta name="author" content="viacbde"> 
-    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-</html>
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">Mybatis缓存</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">廖锡洪</div>
+        <div class="logo-desc">
+            
+            廖锡洪
+            
         </div>
     </div>
-    <div class="scrollbar"></div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
-    <div class="section">
-        <div class="article">
-    <div class="main">
-        <h1 class="title">Mybatis缓存</h1>
-        <div class="stuff">
-            <span>十一月 19, 2018</span>
-            
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Mybatis/">Mybatis</a><span class="post-tags-list-count">18</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+</div>
 
-
+            </div>
         </div>
-        <div class="content markdown">
-            <h2 id="Hibernate二级缓存的注意要点"><a href="#Hibernate二级缓存的注意要点" class="headerlink" title="Hibernate二级缓存的注意要点"></a><strong>Hibernate二级缓存的注意要点</strong></h2><h2 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a><strong>一级缓存</strong></h2><p>是必需的，位于Session（是一个HashMap,存放对象的引用）在 session commit 时 清空一级缓存 (防止其他用户 读取到 修改的脏数据)    </p>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Mybatis缓存
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/标签/" target="_blank">
+                                <span class="chip bg-color">标签</span>
+                            </a>
+                        
+                            <a href="/tags/Mybatis/" target="_blank">
+                                <span class="chip bg-color">Mybatis</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-11-19
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Hibernate二级缓存的注意要点"><a href="#Hibernate二级缓存的注意要点" class="headerlink" title="Hibernate二级缓存的注意要点"></a><strong>Hibernate二级缓存的注意要点</strong></h2><h2 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a><strong>一级缓存</strong></h2><p>是必需的，位于Session（是一个HashMap,存放对象的引用）在 session commit 时 清空一级缓存 (防止其他用户 读取到 修改的脏数据)    </p>
 <h2 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a><strong>二级缓存</strong></h2><p>非必需，跨多个session，由SessionFactory控制<br>二级缓存可指定使用何种Cache工具，Hibernate 3以后的版本默认使用的是Ehcache，也可以切换为Oscache、JbossCache.  </p>
 <h2 id="缓存策略："><a href="#缓存策略：" class="headerlink" title="缓存策略："></a><strong>缓存策略：</strong></h2><p>比如最大缓存数、缓存过期时间等，将这些参数降低至一个合理的范围<br>首先判断二级缓存有没有 再判断一级缓存有没有 都没有后 才执行sql语句<br>session 共享一个namespace为Usermapper二级缓存 但不共享 namespace为goodsmapper二级缓存<br>如果要这两个mapper.xml使用相同的namespace那么就共享同一个二级缓存   </p>
 <h2 id="开启全部二级缓存"><a href="#开启全部二级缓存" class="headerlink" title="开启全部二级缓存"></a><strong>开启全部二级缓存</strong></h2><p><strong>在sqlmapconfig.xml中</strong><br><img src="https://viabcde.github.io/images/blog/20180928137.png" alt="enter descriptionhere"><br>仅开启一个mapper的二级缓存 usermapper,xml中<br><img src="https://viabcde.github.io/images/blog/20180928138.png" alt="enter descriptionhere">  </p>
 <h2 id="整合echache"><a href="#整合echache" class="headerlink" title="整合echache"></a><strong>整合echache</strong></h2><p><strong>加入2个jar包</strong><br><img src="https://viabcde.github.io/images/blog/20180928138_1.png" alt="enter descriptionhere"><br><strong>usermapper.xml中加入</strong><br><img src="https://viabcde.github.io/images/blog/20180928139.png" alt="enter descriptionhere"><br><strong>echache配置文件classpath下</strong><br><img src="https://viabcde.github.io/images/blog/20180928140.png" alt="enter descriptionhere"><br>po实体类 实现序列化接口(因为二级缓存 可能存在硬盘中  当从硬盘中读取需要反序列化读取)<br>只要sqlsession不提交 就不会清空二级缓存  </p>
 <h2 id="何时清空二级缓存"><a href="#何时清空二级缓存" class="headerlink" title="何时清空二级缓存"></a><strong>何时清空二级缓存</strong></h2><p>请求频繁、对实时数据要求不高的数据 不要求每次都是最新数据  （设置刷新频率久一点 30分钟 24小时）<br>实时性高的 操作后会自动更新缓存 即把缓存清空了  </p>
 <h2 id="二级缓存-局限性"><a href="#二级缓存-局限性" class="headerlink" title="二级缓存 局限性"></a><strong>二级缓存 局限性</strong></h2><p>A客户查询 了 a 商品 B客户查询了 b商品 …都存入了二级缓存 （有1w个商品）<br>当有一个更新商品的操作 那么二级缓存全部被清空了 因此可以说mybatis二级缓存只能针对整个mapper 而不是某一种操作设置二级缓存，粒度不够细<br><strong>缓存</strong><br>同hibernate一样，一级缓存（session级）是默认开启的，如果需要开启二级缓存，就需要加以下配置：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在核心配置文件中加入配置 --&gt;</span><br><span class="line">&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 在mapper文件中加入配置 --&gt;</span><br><span class="line">&lt;cache /&gt;</span><br></pre></td></tr></table></figure>
-<p><code>&lt;cache /&gt;</code> 语句的效果如下：<br>映射语句文件中的所有 <code>select</code> 语句将会被缓存。<br>映射语句文件中的所有 <code>insert， update 和 delete</code>语句会刷新缓存。<br>缓存会使用 Least Recently Used（ LRU，最近最少使用的）算法来收回。<br>根据时间表（比如 no Flush Interval，没有刷新间隔），缓存不会以任何时间顺序来刷新。<br>缓存会存储列表集合或对象（无论查询方法返回什么）的 1024 个引用。<br>缓存会被视为是 read/write（可读/可写）的缓存，意味着对象检索不是共享的，而且可以安全地被调用者修改，而不干扰其他调用者或线程所做的潜在修改。<br>所有的这些属性都可以通过缓存元素的属性来修改。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;cache eviction=&quot;FIFO&quot; flushInterval=&quot;60000&quot; size=&quot;512&quot; readOnly=&quot;true&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这个配置创建了一个 FIFO 缓存，并每隔 60 秒刷新， 存数结果对象或列表的512 个引用，而且返回的对象是只读的，因此在不同线程中的调用者之间修改它们会导致冲突。<br>可用的收回策略有：<br>LRU – 最近最少使用的：移除最长时间不被使用的对象。<br>FIFO – 先进先出：按对象进入缓存的顺序来移除它们。<br>SOFT – 软引用：移除基于垃圾回收器状态和软引用规则的对象。<br>WEAK – 弱引用：更积极地移除基于垃圾收集器状态和弱引用规则的对象。<br>默认的是 LRU。<br><strong>flushInterval</strong>（刷新间隔）可以被设置为任意的正整数，它们代表一个合理的毫秒形式的时间段。默认不设置，即没有刷新间隔，缓存仅仅调用语句时刷新。<br><strong>size</strong>（引用数目）可以被设置为任意正整数，要记住你缓存的对象数目和你运行环境的可用内存资源数目。默认值是 1024。<br><strong>readOnly</strong>（只读）属性可以被设置为 true 或 false。只读的缓存会给所有调用者返回缓存对象的相同实例,可读写的缓存会返回缓存对象的拷贝（通过序列化）,默认是 false。   </p>
-<h2 id="动态sql"><a href="#动态sql" class="headerlink" title="动态sql"></a><strong>动态sql</strong></h2><p><strong>if 和 choose when otherwise</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=”findActiveBlogLike” parameterType=”Blog” resultType=”Blog”&gt;</span><br><span class="line">  SELECT * FROM BLOG WHERE state = „ACTIVE‟</span><br><span class="line">  &lt;choose&gt;</span><br><span class="line">    &lt;when test=”title != null”&gt;</span><br><span class="line">      AND title like #&#123;title&#125;</span><br><span class="line">    &lt;/when&gt;</span><br><span class="line">    &lt;when test=”author != null and author.name != null”&gt;</span><br><span class="line">      AND title like #&#123;author.name&#125;</span><br><span class="line">    &lt;/when&gt;</span><br><span class="line">    &lt;otherwise&gt;</span><br><span class="line">      AND featured = 1</span><br><span class="line">    &lt;/otherwise&gt;</span><br><span class="line">  &lt;/choose&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
-<p>关键字<br><strong>where 和 set</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 取代where关键字，当所有if条件不成立时就不会出现where关键字 --&gt;</span><br><span class="line">&lt;select id=”findActiveBlogLike” parameterType=”Blog” resultType=”Blog”&gt;</span><br><span class="line">  SELECT * FROM BLOG</span><br><span class="line">  &lt;where&gt;</span><br><span class="line">    &lt;if test=”state != null”&gt;</span><br><span class="line">      state = #&#123;state&#125;</span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">    &lt;if test=”title != null”&gt;</span><br><span class="line">      AND title like #&#123;title&#125;</span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">    &lt;if test=”author != null and author.name != null”&gt;</span><br><span class="line">      AND title like #&#123;author.name&#125;</span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">  &lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br><span class="line">&lt;update id=&quot;updateAuthorIfNecessary&quot; parameterType=&quot;domain.blog.Author&quot;&gt;</span><br><span class="line">  update Author</span><br><span class="line">  &lt;set&gt;</span><br><span class="line">    &lt;if test=&quot;username != null&quot;&gt;username=#&#123;username&#125;,&lt;/if&gt;</span><br><span class="line">    &lt;if test=&quot;password != null&quot;&gt;password=#&#123;password&#125;,&lt;/if&gt;</span><br><span class="line">    &lt;if test=&quot;email != null&quot;&gt;email=#&#123;email&#125;,&lt;/if&gt;</span><br><span class="line">    &lt;if test=&quot;bio != null&quot;&gt;bio=#&#123;bio&#125;&lt;/if&gt;</span><br><span class="line">  &lt;/set&gt;</span><br><span class="line">  where id=#&#123;id&#125;</span><br><span class="line">&lt;/update&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong>foreach</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;selectPostIn&quot; resultType=&quot;domain.blog.Post&quot;&gt;</span><br><span class="line">  SELECT * FROM POST P WHERE ID in</span><br><span class="line">  &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;</span><br><span class="line">    #&#123;item&#125;</span><br><span class="line">  &lt;/foreach&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;!-- 在核心配置文件中加入配置 --&gt;
+&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
 
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="/music/1.mp3">
-            </audio>
+&lt;!-- 在mapper文件中加入配置 --&gt;
+&lt;cache /&gt;
+</code></pre><p><code>&lt;cache /&gt;</code> 语句的效果如下：<br>映射语句文件中的所有 <code>select</code> 语句将会被缓存。<br>映射语句文件中的所有 <code>insert， update 和 delete</code>语句会刷新缓存。<br>缓存会使用 Least Recently Used（ LRU，最近最少使用的）算法来收回。<br>根据时间表（比如 no Flush Interval，没有刷新间隔），缓存不会以任何时间顺序来刷新。<br>缓存会存储列表集合或对象（无论查询方法返回什么）的 1024 个引用。<br>缓存会被视为是 read/write（可读/可写）的缓存，意味着对象检索不是共享的，而且可以安全地被调用者修改，而不干扰其他调用者或线程所做的潜在修改。<br>所有的这些属性都可以通过缓存元素的属性来修改。比如：     </p>
+<pre><code>&lt;cache eviction=&quot;FIFO&quot; flushInterval=&quot;60000&quot; size=&quot;512&quot; readOnly=&quot;true&quot;/&gt;
+</code></pre><p>这个配置创建了一个 FIFO 缓存，并每隔 60 秒刷新， 存数结果对象或列表的512 个引用，而且返回的对象是只读的，因此在不同线程中的调用者之间修改它们会导致冲突。<br>可用的收回策略有：<br>LRU – 最近最少使用的：移除最长时间不被使用的对象。<br>FIFO – 先进先出：按对象进入缓存的顺序来移除它们。<br>SOFT – 软引用：移除基于垃圾回收器状态和软引用规则的对象。<br>WEAK – 弱引用：更积极地移除基于垃圾收集器状态和弱引用规则的对象。<br>默认的是 LRU。<br><strong>flushInterval</strong>（刷新间隔）可以被设置为任意的正整数，它们代表一个合理的毫秒形式的时间段。默认不设置，即没有刷新间隔，缓存仅仅调用语句时刷新。<br><strong>size</strong>（引用数目）可以被设置为任意正整数，要记住你缓存的对象数目和你运行环境的可用内存资源数目。默认值是 1024。<br><strong>readOnly</strong>（只读）属性可以被设置为 true 或 false。只读的缓存会给所有调用者返回缓存对象的相同实例,可读写的缓存会返回缓存对象的拷贝（通过序列化）,默认是 false。   </p>
+<h2 id="动态sql"><a href="#动态sql" class="headerlink" title="动态sql"></a><strong>动态sql</strong></h2><p><strong>if 和 choose when otherwise</strong>    </p>
+<pre><code>&lt;select id=”findActiveBlogLike” parameterType=”Blog” resultType=”Blog”&gt;
+  SELECT * FROM BLOG WHERE state = „ACTIVE‟
+  &lt;choose&gt;
+    &lt;when test=”title != null”&gt;
+      AND title like #{title}
+    &lt;/when&gt;
+    &lt;when test=”author != null and author.name != null”&gt;
+      AND title like #{author.name}
+    &lt;/when&gt;
+    &lt;otherwise&gt;
+      AND featured = 1
+    &lt;/otherwise&gt;
+  &lt;/choose&gt;
+&lt;/select&gt;
+</code></pre><p>关键字<br><strong>where 和 set</strong>    </p>
+<pre><code>&lt;!-- 取代where关键字，当所有if条件不成立时就不会出现where关键字 --&gt;
+&lt;select id=”findActiveBlogLike” parameterType=”Blog” resultType=”Blog”&gt;
+  SELECT * FROM BLOG
+  &lt;where&gt;
+    &lt;if test=”state != null”&gt;
+      state = #{state}
+    &lt;/if&gt;
+    &lt;if test=”title != null”&gt;
+      AND title like #{title}
+    &lt;/if&gt;
+    &lt;if test=”author != null and author.name != null”&gt;
+      AND title like #{author.name}
+    &lt;/if&gt;
+  &lt;/where&gt;
+&lt;/select&gt;
+&lt;update id=&quot;updateAuthorIfNecessary&quot; parameterType=&quot;domain.blog.Author&quot;&gt;
+  update Author
+  &lt;set&gt;
+    &lt;if test=&quot;username != null&quot;&gt;username=#{username},&lt;/if&gt;
+    &lt;if test=&quot;password != null&quot;&gt;password=#{password},&lt;/if&gt;
+    &lt;if test=&quot;email != null&quot;&gt;email=#{email},&lt;/if&gt;
+    &lt;if test=&quot;bio != null&quot;&gt;bio=#{bio}&lt;/if&gt;
+  &lt;/set&gt;
+  where id=#{id}
+&lt;/update&gt;
+</code></pre><p><strong>foreach</strong>  </p>
+<pre><code>&lt;select id=&quot;selectPostIn&quot; resultType=&quot;domain.blog.Post&quot;&gt;
+  SELECT * FROM POST P WHERE ID in
+  &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;
+    #{item}
+  &lt;/foreach&gt;
+&lt;/select&gt;
+</code></pre>
+            </div>
+            <hr>
+
             
-        </div>
-        
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
-    </div>
-    
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hibernate二级缓存的注意要点"><span class="toc-number">1.</span> <span class="toc-text">Hibernate二级缓存的注意要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一级缓存"><span class="toc-number">2.</span> <span class="toc-text">一级缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二级缓存"><span class="toc-number">3.</span> <span class="toc-text">二级缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存策略："><span class="toc-number">4.</span> <span class="toc-text">缓存策略：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启全部二级缓存"><span class="toc-number">5.</span> <span class="toc-text">开启全部二级缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整合echache"><span class="toc-number">6.</span> <span class="toc-text">整合echache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#何时清空二级缓存"><span class="toc-number">7.</span> <span class="toc-text">何时清空二级缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二级缓存-局限性"><span class="toc-number">8.</span> <span class="toc-text">二级缓存 局限性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态sql"><span class="toc-number">9.</span> <span class="toc-text">动态sql</span></a></li></ol>
-        </div>
-    
-</div>
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-    </div>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                 </div>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
         </div>
     </div>
 </div>
 
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://viabcde.github.io" class="b-link-green">廖锡洪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/11/19/2018-11-19-Mybatis缓存/" class="b-link-green">Mybatis缓存</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/11/19/2018-11-19-SqlSessionFactoryBuilder/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="SqlSessionFactoryBuilder、SqlSessionFactory、SqlSession、数据库会话器">
+                        
+                        <span class="card-title">SqlSessionFactoryBuilder、SqlSessionFactory、SqlSession、数据库会话器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">SqlSessionFactoryBuilder（构造器）用处：根据配置信息或者代码来生成SqlSessionFactory该类有多个重载方法build()。如下图：SqlSessionFactoryBuilder真正重载build方法只有</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/11/19/2018-11-19-Config配置/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Config配置">
+                        
+                        <span class="card-title">Config配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">properties 3种配置方式：  
+第一种：property元素，配置代码示例如下&lt;properties&gt;
+    &lt;properties name=&quot;driver&quot; value=&quot;co</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
 
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"search":null,"path":"search.xml","field":"post","log":false});</script></body>
 </html>

@@ -1,58 +1,358 @@
+<!DOCTYPE HTML>
+<html lang="">
 
-<!DOCTYPE html>
-<html lang="" class="loading">
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>廖锡洪</title>
-
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux，Git，vi, viabcde">
+    <meta name="description" content="Linux肯汤姆孙 里奇 unix大学教授 塔能鲍勃 mini-unixlinus linux安卓 =linux + java + 其他linux中除了home文件夹其他的最好不改动  在用户的家目录中用户可以随意修改打开终端（ctrl+a">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate">
-    <meta name="keywords" content="viabcde,"> 
+    <title>Linux，Git，vi | 廖锡洪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">廖锡洪</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
     
-    <meta name="author" content="viacbde"> 
-    <link rel="alternative" href="atom.xml" title="廖锡洪" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-</html>
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">Linux，Git，vi</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">廖锡洪</div>
+        <div class="logo-desc">
+            
+            廖锡洪
+            
         </div>
     </div>
-    <div class="scrollbar"></div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
-    <div class="section">
-        <div class="article">
-    <div class="main">
-        <h1 class="title">Linux，Git，vi</h1>
-        <div class="stuff">
-            <span>九月 18, 2018</span>
-            
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/">Linux</a><span class="post-tags-list-count">7</span></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/标签/">标签</a><span class="post-tags-list-count">162</span></li></ul>
+</div>
 
-
+            </div>
         </div>
-        <div class="content markdown">
-            <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a><strong>Linux</strong></h2><p>肯汤姆孙 里奇 <strong>unix</strong><br>大学教授 塔能鲍勃 <strong>mini-unix</strong><br>linus <strong>linux</strong><br><strong>安卓</strong> =linux + java + 其他<br><strong>linux中除了home文件夹其他的最好不改动</strong>  在用户的家目录中用户可以随意修改<br><strong>打开终端（ctrl+alt+T）时默认的最顶层</strong>是用户的家目录<br>linux没有分盘 只有一个home 下分多个用户  </p>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Linux，Git，vi
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/标签/" target="_blank">
+                                <span class="chip bg-color">标签</span>
+                            </a>
+                        
+                            <a href="/tags/Linux/" target="_blank">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-09-18
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a><strong>Linux</strong></h2><p>肯汤姆孙 里奇 <strong>unix</strong><br>大学教授 塔能鲍勃 <strong>mini-unix</strong><br>linus <strong>linux</strong><br><strong>安卓</strong> =linux + java + 其他<br><strong>linux中除了home文件夹其他的最好不改动</strong>  在用户的家目录中用户可以随意修改<br><strong>打开终端（ctrl+alt+T）时默认的最顶层</strong>是用户的家目录<br>linux没有分盘 只有一个home 下分多个用户  </p>
 <h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a><strong>touch</strong></h2><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a><strong>创建文件</strong></h3><p>touch 加文件名</p>
 <h3 id="创建隐藏文件"><a href="#创建隐藏文件" class="headerlink" title="创建隐藏文件"></a><strong>创建隐藏文件</strong></h3><p>touch .a.txt  </p>
 <h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a><strong>ls</strong></h2><h3 id="以列表显示详细信息"><a href="#以列表显示详细信息" class="headerlink" title="以列表显示详细信息"></a><strong>以列表显示详细信息</strong></h3><p>ls -l </p>
@@ -132,8 +432,9 @@
 <h3 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a><strong>配置网络</strong></h3><p>第一种方法：<br><img src="https://viabcde.github.io/images/2018-09-28/2018092827.png" alt="enter description here"><br>第二种方法：<br><img src="https://viabcde.github.io/images/2018-09-28/2018092828.png" alt="enter description here"></p>
 <h3 id="使用rpm包安装软件"><a href="#使用rpm包安装软件" class="headerlink" title="使用rpm包安装软件"></a><strong>使用rpm包安装软件</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-28/2018092829.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092830.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092831.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092832.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092833.png" alt="enter description here"></p>
 <h3 id="安装samba-实现Linux和Windows联网"><a href="#安装samba-实现Linux和Windows联网" class="headerlink" title="安装samba 实现Linux和Windows联网"></a><strong>安装samba 实现Linux和Windows联网</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-28/2018092834.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092835.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092836.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092837.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092838.png" alt="enter description here"><br>配置好之后就可以在windows中输入Linux的IP地址访问了<br><img src="https://viabcde.github.io/images/2018-09-28/2018092839.png" alt="enter description here"><br>然后输入samba的用户名密码<br><img src="https://viabcde.github.io/images/2018-09-28/2018092840.png" alt="enter description here"><br>在windows中上传文件后在Linux中便可查看到<br><img src="https://viabcde.github.io/images/2018-09-28/2018092841.png" alt="enter description here"><br>而在Linux创建文件 在windows也能看到<br><img src="https://viabcde.github.io/images/2018-09-28/2018092842.png" alt="enter description here"></p>
-<h3 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a><strong>任务调度</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-28/2018092843.png" alt="enter description here"><br>输入 crontab -e<br>然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 * * * date &gt;&gt;  /hime/mydata1 02***</span><br></pre></td></tr></table></figure></p>
-<p>分别对应下面的表字段<br>意思是每天2点去&gt;&gt;  /hime/mydata1<br>保存退出：wq<br><img src="https://viabcde.github.io/images/2018-09-28/2018092844.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092845.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092846.png" alt="enter description here"><br>在mytask.sh 文本写入<br><img src="https://viabcde.github.io/images/2018-09-28/2018092847.png" alt="enter description here"><br>：wq<br>ls –l   发现mytask.sh 不可执行<br>修改<br><img src="https://viabcde.github.io/images/2018-09-28/2018092871.png" alt="enter description here"><br>输入 crontab -e<br>输入<br><img src="https://viabcde.github.io/images/2018-09-28/2018092848.png" alt="enter description here"><br>：wq<br><img src="https://viabcde.github.io/images/2018-09-28/2018092849.png" alt="enter description here"></p>
+<h3 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a><strong>任务调度</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-28/2018092843.png" alt="enter description here"><br>输入 crontab -e<br>然后输入</p>
+<pre><code> 0 2 * * * date &gt;&gt;  /hime/mydata1 02***
+</code></pre><p>分别对应下面的表字段<br>意思是每天2点去&gt;&gt;  /hime/mydata1<br>保存退出：wq<br><img src="https://viabcde.github.io/images/2018-09-28/2018092844.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092845.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092846.png" alt="enter description here"><br>在mytask.sh 文本写入<br><img src="https://viabcde.github.io/images/2018-09-28/2018092847.png" alt="enter description here"><br>：wq<br>ls –l   发现mytask.sh 不可执行<br>修改<br><img src="https://viabcde.github.io/images/2018-09-28/2018092871.png" alt="enter description here"><br>输入 crontab -e<br>输入<br><img src="https://viabcde.github.io/images/2018-09-28/2018092848.png" alt="enter description here"><br>：wq<br><img src="https://viabcde.github.io/images/2018-09-28/2018092849.png" alt="enter description here"></p>
 <h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a><strong>进程</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-28/2018092850.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092851.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092852.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-28/2018092853.png" alt="enter description here"><br>显示进程号<br><img src="https://viabcde.github.io/images/2018-09-28/2018092854.png" alt="enter description here"></p>
 <h3 id="设置系统时间"><a href="#设置系统时间" class="headerlink" title="设置系统时间"></a><strong>设置系统时间</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-28/2018092855.png" alt="enter description here"></p>
 <h3 id="查看网络状态"><a href="#查看网络状态" class="headerlink" title="查看网络状态"></a><strong>查看网络状态</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-28/2018092856.png" alt="enter description here"></p>
@@ -173,88 +474,513 @@ here">  </p>
 here">  </p>
 <h3 id="更新到本地仓库时，-出现冲突，解决冲突"><a href="#更新到本地仓库时，-出现冲突，解决冲突" class="headerlink" title="更新到本地仓库时， 出现冲突，解决冲突"></a><strong>更新到本地仓库时， 出现冲突，解决冲突</strong></h3><p>出现冲突的原因，远程仓库被修改过<br>最直接的方法，右键删除工程，再次colne远程仓库<br>但是git是何许人也，如此强大，可以用原来本地仓库代码覆盖修改过本地工作区代码<br>git checkout head .<br>(注意： 别遗漏 “head” 后的 “ .” )<br>然后更新远程仓库的代码就不会出现冲突了:<br>git pull<br>总结：就是恢复修改前的代码，然后把远程仓库同步到工作间，在做自己想要的修改，再push即可<br><img src="https://viabcde.github.io/images/2018-10-10/2018101010.png" alt="enter description
 here"><br>高手的解决方法：利用缓存区<br>先把修改过的代码存到缓存区<br>在把本地代码与远程做同步<br>在把缓存区的代码提出来merge后push</p>
-<h2 id="常用的命令"><a href="#常用的命令" class="headerlink" title="常用的命令"></a>常用的命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line">1. 查看内存使用情况</span><br><span class="line">free -m</span><br><span class="line"> </span><br><span class="line">2. 查看系统版本信息</span><br><span class="line">sudo lsb_release -a</span><br><span class="line"> </span><br><span class="line">3. 查看磁盘使用情况</span><br><span class="line">df -l</span><br><span class="line"> </span><br><span class="line">4. 查看当前所有进程</span><br><span class="line">ps -e</span><br><span class="line"> </span><br><span class="line">5. 查看外网ip</span><br><span class="line">curl ifconfig.me</span><br><span class="line"> </span><br><span class="line">6. 查看网卡信息</span><br><span class="line">mii-tool</span><br><span class="line">mii-tool -v</span><br><span class="line"> </span><br><span class="line">7.路由信息</span><br><span class="line">tracepath -n www.baidu.com</span><br><span class="line"> </span><br><span class="line">8.查看dns</span><br><span class="line">去/etc/resolv.conf中查看</span><br><span class="line"> </span><br><span class="line">9.ADSL拨号上网命令：</span><br><span class="line">pppoeconf         #开始设置</span><br><span class="line">pon dsl-provider  #启动ADSL连接</span><br><span class="line">poff              #断开连接</span><br><span class="line">plog              #日志</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">10.ubuntu关闭图形界面方法</span><br><span class="line">改GRUB 的配置文件（不建议直接改 grub.conf) sudo vi /etc/default/grub 找到这一行： GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;</span><br><span class="line">改为： GRUB_CMDLINE_LINUX_DEFAULT=&quot;text &quot;</span><br><span class="line">保存后 sudo update-grub 重启即可。</span><br><span class="line"> </span><br><span class="line">11.恢复模式(recovery mode)中root改成对文件系统的读写模式：</span><br><span class="line">mount -o remount,rw /</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">12.vi删除所有文本</span><br><span class="line">d+G</span><br><span class="line"> </span><br><span class="line">13.vi查找文本</span><br><span class="line">/sometext Enter (Enter表示按下回车键)</span><br><span class="line">n，继续朝同一方向搜索。</span><br><span class="line">N，反方向进行搜索。</span><br><span class="line"> </span><br><span class="line">14.解压缩命令</span><br><span class="line">tar –xvf file.tar //解压 tar包</span><br><span class="line"> </span><br><span class="line">tar -xzvf file.tar.gz //解压tar.gz</span><br><span class="line"> </span><br><span class="line">tar -zxvf /home/images.tar.gz -C /specificdir  //解压到指定的目录</span><br><span class="line"> </span><br><span class="line">tar -xjvf file.tar.bz2   //解压 tar.bz2</span><br><span class="line"> </span><br><span class="line">tar –xZvf file.tar.Z   //解压tar.Z</span><br><span class="line"> </span><br><span class="line">unrar e file.rar //解压rar</span><br><span class="line"> </span><br><span class="line">unzip file.zip //解压zip</span><br><span class="line"> </span><br><span class="line">15.关闭/启动网卡</span><br><span class="line">sudo ifconfig eth0 up</span><br><span class="line">sudo ifconfig eth0 down</span><br><span class="line"> </span><br><span class="line">16.添加用户到组：</span><br><span class="line">gpasswd -a 用户名 组名</span><br><span class="line">举例：gpasswd -a hello linux</span><br><span class="line">说明：表示将用户hello添加到linux组中。</span><br><span class="line"> </span><br><span class="line">17 .在组中删除用户：</span><br><span class="line">gpasswd -d 用户名 组名</span><br><span class="line">举例：gpasswd -d hello linux</span><br><span class="line">说明：表示将用户hello从组linux中删除。</span><br><span class="line"> </span><br><span class="line">18.指定组的管理员：</span><br><span class="line">gpasswd -A 用户名 组名</span><br><span class="line">举例：gpasswd -A hello linux</span><br><span class="line">说明：表示将用户hello设置为组linux的管理员。</span><br><span class="line"> </span><br><span class="line">19. 查看linux的内核版本号</span><br><span class="line">uname -r</span><br><span class="line"> </span><br><span class="line">20.以root权限执行上一条命令</span><br><span class="line">sudo !!</span><br><span class="line"> </span><br><span class="line">21. 利用python搭建一个简单的web服务器，可通过http://$HOSTNAME:8000访问</span><br><span class="line">python -m SimpleHTTPServer   </span><br><span class="line"> </span><br><span class="line">22 更改到上一次访问的目录</span><br><span class="line">cd -</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">23) 宿主机往虚拟机上上传文件：</span><br><span class="line">$ sftp -i ~/.ssh/id_rsa ubuntu@10.0.0.2</span><br><span class="line">连通之后</span><br><span class="line">sftp&gt; put path/to/file</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">24) 查看网卡的生产厂家和型号</span><br><span class="line">lspci | grep -i net</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">25) 查看网卡速率</span><br><span class="line">cat /sys/class/net/eth0/speed</span><br><span class="line">or</span><br><span class="line">sudo mii-tool</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">26) 查看CPU型号</span><br><span class="line">cat /proc/cpuinfo</span><br><span class="line"> </span><br><span class="line">27) 宿主机与虚拟机互传文件</span><br><span class="line">scp path/to/file username@x.x.x.x:path/to/</span><br><span class="line">eg: </span><br><span class="line">scp 0-out-none.result ustack@192.168.1.2:~/devstack/files/precise/result</span><br><span class="line">scp test.sh ubuntu@10.0.0.2:~/</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">28) 查找某个目录下包含某个字符串的所有文件：</span><br><span class="line">grep -r somestring path/to/*</span><br><span class="line">29) 打包压缩/解压解包命令</span><br><span class="line">tar czvf file.tar.gz /path/to/   #打包压缩</span><br><span class="line">tar xzvf file.tar.gz -C /path/to/  #解包解压</span><br><span class="line">30）递归改变目录下所有文件的拥有者：</span><br><span class="line">chown -R suo:suo dir</span><br><span class="line">Linux之netstat</span><br><span class="line">1.查看哪些IP连接本机</span><br><span class="line">$ netstat -an</span><br><span class="line">2.查看TCP连接数</span><br><span class="line">1).统计80端口连接数</span><br><span class="line">$ netstat -nat|grep -i &quot;80&quot;|wc -l</span><br><span class="line">2).统计httpd协议连接数</span><br><span class="line">$ ps -ef|grep httpd|wc -l</span><br><span class="line">3).统计已连接上的，状态为“established”</span><br><span class="line">$ netstat -na|grep ESTABLISHED|wc -l</span><br><span class="line">4).查出哪个IP地址连接最多</span><br><span class="line">$ netstat -na|grep ESTABLISHED|awk &#123;print $5&#125;|awk -F: &#123;print $1&#125;|sort|uniq -c|sort -r +0n</span><br><span class="line">#将其查封</span><br><span class="line">$ netstat -na|grep SYN|awk &#123;print $5&#125;|awk -F: &#123;print $1&#125;|sort|uniq -c|sort -r +0n</span><br><span class="line">3.查看正在监听状态的端口 </span><br><span class="line">1).netstat -nupl</span><br><span class="line"># n表示用数字形式显示端口号，u，表示UDP协议类型，p是程序PID，l表示处于监听状态的；</span><br><span class="line">$ netstat -nupl</span><br><span class="line">2).netstat -ntp</span><br><span class="line"># n表示用数字形式显示端口号，t，表示TCP协议类型，p是程序PID，l表示处于监听状态的；</span><br><span class="line">$ netstat -ntpl</span><br><span class="line">3).netstat -nuplf | grep 3306</span><br><span class="line"># 这个表示查找处于监听状态的，端口号为3306的进程；</span><br><span class="line">$ netstat -nuplf | grep 3306</span><br></pre></td></tr></table></figure>
+<h2 id="常用的命令"><a href="#常用的命令" class="headerlink" title="常用的命令"></a>常用的命令</h2><pre><code>1. 查看内存使用情况
+free -m
 
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="/music/1.mp3">
-            </audio>
+2. 查看系统版本信息
+sudo lsb_release -a
+
+3. 查看磁盘使用情况
+df -l
+
+4. 查看当前所有进程
+ps -e
+
+5. 查看外网ip
+curl ifconfig.me
+
+6. 查看网卡信息
+mii-tool
+mii-tool -v
+
+7.路由信息
+tracepath -n www.baidu.com
+
+8.查看dns
+去/etc/resolv.conf中查看
+
+9.ADSL拨号上网命令：
+pppoeconf         #开始设置
+pon dsl-provider  #启动ADSL连接
+poff              #断开连接
+plog              #日志
+
+
+10.ubuntu关闭图形界面方法
+改GRUB 的配置文件（不建议直接改 grub.conf) sudo vi /etc/default/grub 找到这一行： GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;
+改为： GRUB_CMDLINE_LINUX_DEFAULT=&quot;text &quot;
+保存后 sudo update-grub 重启即可。
+
+11.恢复模式(recovery mode)中root改成对文件系统的读写模式：
+mount -o remount,rw /
+
+
+12.vi删除所有文本
+d+G
+
+13.vi查找文本
+/sometext Enter (Enter表示按下回车键)
+n，继续朝同一方向搜索。
+N，反方向进行搜索。
+
+14.解压缩命令
+tar –xvf file.tar //解压 tar包
+
+tar -xzvf file.tar.gz //解压tar.gz
+
+tar -zxvf /home/images.tar.gz -C /specificdir  //解压到指定的目录
+
+tar -xjvf file.tar.bz2   //解压 tar.bz2
+
+tar –xZvf file.tar.Z   //解压tar.Z
+
+unrar e file.rar //解压rar
+
+unzip file.zip //解压zip
+
+15.关闭/启动网卡
+sudo ifconfig eth0 up
+sudo ifconfig eth0 down
+
+16.添加用户到组：
+gpasswd -a 用户名 组名
+举例：gpasswd -a hello linux
+说明：表示将用户hello添加到linux组中。
+
+17 .在组中删除用户：
+gpasswd -d 用户名 组名
+举例：gpasswd -d hello linux
+说明：表示将用户hello从组linux中删除。
+
+18.指定组的管理员：
+gpasswd -A 用户名 组名
+举例：gpasswd -A hello linux
+说明：表示将用户hello设置为组linux的管理员。
+
+19. 查看linux的内核版本号
+uname -r
+
+20.以root权限执行上一条命令
+sudo !!
+
+21. 利用python搭建一个简单的web服务器，可通过http://$HOSTNAME:8000访问
+python -m SimpleHTTPServer   
+
+22 更改到上一次访问的目录
+cd -
+
+
+
+23) 宿主机往虚拟机上上传文件：
+$ sftp -i ~/.ssh/id_rsa ubuntu@10.0.0.2
+连通之后
+sftp&gt; put path/to/file
+
+
+24) 查看网卡的生产厂家和型号
+lspci | grep -i net
+
+
+25) 查看网卡速率
+cat /sys/class/net/eth0/speed
+or
+sudo mii-tool
+
+
+26) 查看CPU型号
+cat /proc/cpuinfo
+
+27) 宿主机与虚拟机互传文件
+scp path/to/file username@x.x.x.x:path/to/
+eg: 
+scp 0-out-none.result ustack@192.168.1.2:~/devstack/files/precise/result
+scp test.sh ubuntu@10.0.0.2:~/
+
+
+28) 查找某个目录下包含某个字符串的所有文件：
+grep -r somestring path/to/*
+29) 打包压缩/解压解包命令
+tar czvf file.tar.gz /path/to/   #打包压缩
+tar xzvf file.tar.gz -C /path/to/  #解包解压
+30）递归改变目录下所有文件的拥有者：
+chown -R suo:suo dir
+Linux之netstat
+1.查看哪些IP连接本机
+$ netstat -an
+2.查看TCP连接数
+1).统计80端口连接数
+$ netstat -nat|grep -i &quot;80&quot;|wc -l
+2).统计httpd协议连接数
+$ ps -ef|grep httpd|wc -l
+3).统计已连接上的，状态为“established”
+$ netstat -na|grep ESTABLISHED|wc -l
+4).查出哪个IP地址连接最多
+$ netstat -na|grep ESTABLISHED|awk {print $5}|awk -F: {print $1}|sort|uniq -c|sort -r +0n
+#将其查封
+$ netstat -na|grep SYN|awk {print $5}|awk -F: {print $1}|sort|uniq -c|sort -r +0n
+3.查看正在监听状态的端口 
+1).netstat -nupl
+# n表示用数字形式显示端口号，u，表示UDP协议类型，p是程序PID，l表示处于监听状态的；
+$ netstat -nupl
+2).netstat -ntp
+# n表示用数字形式显示端口号，t，表示TCP协议类型，p是程序PID，l表示处于监听状态的；
+$ netstat -ntpl
+3).netstat -nuplf | grep 3306
+# 这个表示查找处于监听状态的，端口号为3306的进程；
+$ netstat -nuplf | grep 3306 
+</code></pre>
+            </div>
+            <hr>
+
             
-        </div>
-        
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="55316b017b800ec5c0da" data-cs="fbe9f4aafee144a34ec283ca34c833ad6da91507" data-r="talk" data-o="viacbde" data-a="viabcde" data-d="false">查看评论</div>
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
-    </div>
-    
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#touch"><span class="toc-number">2.</span> <span class="toc-text">touch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建文件"><span class="toc-number">2.1.</span> <span class="toc-text">创建文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建隐藏文件"><span class="toc-number">2.2.</span> <span class="toc-text">创建隐藏文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ls"><span class="toc-number">3.</span> <span class="toc-text">ls</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#以列表显示详细信息"><span class="toc-number">3.1.</span> <span class="toc-text">以列表显示详细信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以带单位的格式显示信息"><span class="toc-number">3.2.</span> <span class="toc-text">以带单位的格式显示信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帮助文档"><span class="toc-number">3.3.</span> <span class="toc-text">帮助文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帮助文档-1"><span class="toc-number">3.4.</span> <span class="toc-text">帮助文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看文件"><span class="toc-number">3.5.</span> <span class="toc-text">查看文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#历史命令"><span class="toc-number">3.6.</span> <span class="toc-text">历史命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示以2开头的文件"><span class="toc-number">3.7.</span> <span class="toc-text">显示以2开头的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示开头结尾1-5中间是2、3、4的文件"><span class="toc-number">3.8.</span> <span class="toc-text">显示开头结尾1 5中间是2、3、4的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重定向-："><span class="toc-number">3.9.</span> <span class="toc-text">重定向 ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把ls所显示的内容存入到xxx文件中"><span class="toc-number">3.10.</span> <span class="toc-text">把ls所显示的内容存入到xxx文件中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#more可以分屏显示-按b-或-f-切换上下屏"><span class="toc-number">3.11.</span> <span class="toc-text">more可以分屏显示 按b 或 f 切换上下屏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cd"><span class="toc-number">4.</span> <span class="toc-text">cd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#会显示该目录下的所有文件，用以帮助提示用户"><span class="toc-number">4.1.</span> <span class="toc-text">会显示该目录下的所有文件，用以帮助提示用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换到上一层目录"><span class="toc-number">4.2.</span> <span class="toc-text">切换到上一层目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换到上一层目录后再切换到上一层目录"><span class="toc-number">4.3.</span> <span class="toc-text">切换到上一层目录后再切换到上一层目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换到上次所在的路径"><span class="toc-number">4.4.</span> <span class="toc-text">切换到上次所在的路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快速回到根目录"><span class="toc-number">4.5.</span> <span class="toc-text">快速回到根目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以树形结构显示内容"><span class="toc-number">4.6.</span> <span class="toc-text">以树形结构显示内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连续创建多个文件夹-："><span class="toc-number">4.7.</span> <span class="toc-text">连续创建多个文件夹 ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除文件夹"><span class="toc-number">4.8.</span> <span class="toc-text">删除文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重命名文件"><span class="toc-number">4.9.</span> <span class="toc-text">重命名文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建快捷方式（软链接）"><span class="toc-number">4.10.</span> <span class="toc-text">创建快捷方式（软链接）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链接文件"><span class="toc-number">4.11.</span> <span class="toc-text">硬链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把1-txt-和2-txt-复制到3-txt"><span class="toc-number">4.12.</span> <span class="toc-text">把1.txt 和2.txt 复制到3.txt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在q-txt中查找包含aaa字段的内容"><span class="toc-number">4.13.</span> <span class="toc-text">在q.txt中查找包含aaa字段的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在q-txt中查找不包含aaa字段的内容"><span class="toc-number">4.14.</span> <span class="toc-text">在q.txt中查找不包含aaa字段的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在q-txt中查找包含aaa字段的内容-并显示行号"><span class="toc-number">4.15.</span> <span class="toc-text">在q.txt中查找包含aaa字段的内容 并显示行号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在q-txt中查找包含aaa字段开头的内容-表示以xxx结尾的内容"><span class="toc-number">4.16.</span> <span class="toc-text">在q.txt中查找包含aaa字段开头的内容 $表示以xxx结尾的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#剪切文件并粘贴到其他目录"><span class="toc-number">4.17.</span> <span class="toc-text">剪切文件并粘贴到其他目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以管理员的身份-在根目录-根据名称查找内容"><span class="toc-number">4.18.</span> <span class="toc-text">以管理员的身份 在根目录 根据名称查找内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打包"><span class="toc-number">4.19.</span> <span class="toc-text">打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解包"><span class="toc-number">4.20.</span> <span class="toc-text">解包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#压缩"><span class="toc-number">4.21.</span> <span class="toc-text">压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解压缩"><span class="toc-number">4.22.</span> <span class="toc-text">解压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解压到指定目录"><span class="toc-number">4.23.</span> <span class="toc-text">解压到指定目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个命令在哪个目录下"><span class="toc-number">4.24.</span> <span class="toc-text">查看某个命令在哪个目录下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看日历"><span class="toc-number">4.25.</span> <span class="toc-text">查看日历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某一年日历"><span class="toc-number">4.26.</span> <span class="toc-text">查看某一年日历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看时间"><span class="toc-number">4.27.</span> <span class="toc-text">查看时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看当前终端下开的进程"><span class="toc-number">4.28.</span> <span class="toc-text">查看当前终端下开的进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看所有进程"><span class="toc-number">4.29.</span> <span class="toc-text">查看所有进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态显示进程情况"><span class="toc-number">4.30.</span> <span class="toc-text">动态显示进程情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比top更好地显示情况"><span class="toc-number">4.31.</span> <span class="toc-text">比top更好地显示情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退出当前用户"><span class="toc-number">4.32.</span> <span class="toc-text">退出当前用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入其他用户"><span class="toc-number">4.33.</span> <span class="toc-text">进入其他用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看用户密码"><span class="toc-number">4.34.</span> <span class="toc-text">查看用户密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程登陆用户"><span class="toc-number">4.35.</span> <span class="toc-text">远程登陆用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vi"><span class="toc-number">5.</span> <span class="toc-text">vi </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#保存退出"><span class="toc-number">5.1.</span> <span class="toc-text">保存退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入命令行模式"><span class="toc-number">5.2.</span> <span class="toc-text">进入命令行模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启图形界面命令"><span class="toc-number">5.3.</span> <span class="toc-text">开启图形界面命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用户注销"><span class="toc-number">5.4.</span> <span class="toc-text">用户注销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入Hello-java文件"><span class="toc-number">5.5.</span> <span class="toc-text">进入Hello.java文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入插入模式"><span class="toc-number">5.6.</span> <span class="toc-text">进入插入模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入-命令模式"><span class="toc-number">5.7.</span> <span class="toc-text">进入 命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保存并退出-wq-退出不保存-q"><span class="toc-number">5.8.</span> <span class="toc-text">保存并退出 wq  退出不保存 q!</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在终端编译-c程序"><span class="toc-number">5.9.</span> <span class="toc-text">在终端编译 c程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行c程序-a-out-即打开a-out"><span class="toc-number">5.10.</span> <span class="toc-text">运行c程序 ./a.out 即打开a.out</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home目录下各个文件存放的内容"><span class="toc-number">5.11.</span> <span class="toc-text">Home目录下各个文件存放的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#只能root用户来设置-设置用户进入系统的运行级别"><span class="toc-number">5.12.</span> <span class="toc-text">只能root用户来设置 设置用户进入系统的运行级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行级别怎么改回来"><span class="toc-number">5.13.</span> <span class="toc-text">运行级别怎么改回来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-单用户级别可以改用户的密码"><span class="toc-number">5.14.</span> <span class="toc-text">bug  单用户级别可以改用户的密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用户所属组的信息存放在etc-group文件夹下"><span class="toc-number">5.15.</span> <span class="toc-text">用户所属组的信息存放在etc/group文件夹下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#挂载iso文件"><span class="toc-number">5.16.</span> <span class="toc-text">挂载iso文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装jdk"><span class="toc-number">5.17.</span> <span class="toc-text">安装jdk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装eclipse"><span class="toc-number">5.18.</span> <span class="toc-text">安装eclipse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装myeclipse"><span class="toc-number">5.19.</span> <span class="toc-text">安装myeclipse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Tomcat"><span class="toc-number">5.20.</span> <span class="toc-text">安装Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制作镜像文件步骤"><span class="toc-number">5.21.</span> <span class="toc-text">制作镜像文件步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看磁盘及分区情况"><span class="toc-number">5.22.</span> <span class="toc-text">查看磁盘及分区情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将boot下的文件卸载-即boot与磁盘关联断开"><span class="toc-number">5.23.</span> <span class="toc-text">将boot下的文件卸载 即boot与磁盘关联断开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将dev-sda1下的文件-挂载到-test下"><span class="toc-number">5.24.</span> <span class="toc-text">将dev/sda1下的文件 挂载到 test下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三种Shell"><span class="toc-number">5.25.</span> <span class="toc-text">三种Shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history"><span class="toc-number">5.26.</span> <span class="toc-text">history</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向网络号为192-168的子网中的所有主机发送信息"><span class="toc-number">5.27.</span> <span class="toc-text">向网络号为192.168的子网中的所有主机发送信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试本主机在局域网能否走通"><span class="toc-number">5.28.</span> <span class="toc-text">测试本主机在局域网能否走通</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置网络"><span class="toc-number">5.29.</span> <span class="toc-text">配置网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用rpm包安装软件"><span class="toc-number">5.30.</span> <span class="toc-text">使用rpm包安装软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装samba-实现Linux和Windows联网"><span class="toc-number">5.31.</span> <span class="toc-text">安装samba 实现Linux和Windows联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务调度"><span class="toc-number">5.32.</span> <span class="toc-text">任务调度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程"><span class="toc-number">5.33.</span> <span class="toc-text">进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置系统时间"><span class="toc-number">5.34.</span> <span class="toc-text">设置系统时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看网络状态"><span class="toc-number">5.35.</span> <span class="toc-text">查看网络状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装mysql"><span class="toc-number">5.36.</span> <span class="toc-text">安装mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置环境变量"><span class="toc-number">5.37.</span> <span class="toc-text">配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份和恢复数据库"><span class="toc-number">5.38.</span> <span class="toc-text">备份和恢复数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在etc-bashrc-中添加开启启动项-tomcat"><span class="toc-number">5.39.</span> <span class="toc-text">在etc/bashrc 中添加开启启动项 tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#export临时配置环境变量"><span class="toc-number">5.40.</span> <span class="toc-text">export临时配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将-ls-–l-home-取别名-即输入-llh-等于-输入-ls-–l-home"><span class="toc-number">5.41.</span> <span class="toc-text">将 ls –l /home 取别名 即输入 llh 等于 输入 ls –l /home</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-number">6.</span> <span class="toc-text">git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#svn和git的区别"><span class="toc-number">7.</span> <span class="toc-text">svn和git的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先建好文件夹（可以自己手动在win环境下建，也可以通过命令行建）"><span class="toc-number">7.1.</span> <span class="toc-text">先建好文件夹（可以自己手动在win环境下建，也可以通过命令行建）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd-要建的目录（比如f盘）"><span class="toc-number">7.2.</span> <span class="toc-text">cd 要建的目录（比如f盘）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立文件夹myproject"><span class="toc-number">7.3.</span> <span class="toc-text">建立文件夹myproject</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立仓库"><span class="toc-number">7.4.</span> <span class="toc-text">建立仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">7.5.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将main-c-加入仓库"><span class="toc-number">7.6.</span> <span class="toc-text">将main.c 加入仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除myproject下的main-c"><span class="toc-number">7.7.</span> <span class="toc-text">删除myproject下的main.c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从-git中把文件恢复到myproject"><span class="toc-number">7.8.</span> <span class="toc-text">从.git中把文件恢复到myproject</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制文件"><span class="toc-number">7.9.</span> <span class="toc-text">复制文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看文件-1"><span class="toc-number">7.10.</span> <span class="toc-text">查看文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取一个文件的hashcode"><span class="toc-number">7.11.</span> <span class="toc-text">获取一个文件的hashcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看git-下的对象-比如-commit对象-tree对象-blod对象等"><span class="toc-number">7.12.</span> <span class="toc-text">查看git 下的对象 比如 commit对象 tree对象 blod对象等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询对象的类型"><span class="toc-number">7.13.</span> <span class="toc-text">查询对象的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询某个commit-的详细信息"><span class="toc-number">7.14.</span> <span class="toc-text">查询某个commit 的详细信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打上tag标签"><span class="toc-number">7.15.</span> <span class="toc-text">打上tag标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过标签获取对应版本的资源-并打成tar包到当前目录下"><span class="toc-number">7.16.</span> <span class="toc-text">通过标签获取对应版本的资源 并打成tar包到当前目录下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个目录有多少个文件"><span class="toc-number">7.17.</span> <span class="toc-text">查看某个目录有多少个文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新的分支"><span class="toc-number">7.18.</span> <span class="toc-text">创建新的分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换分支-此后commit-都是在现在活动分支之后"><span class="toc-number">7.19.</span> <span class="toc-text">切换分支 此后commit 都是在现在活动分支之后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支合并"><span class="toc-number">7.20.</span> <span class="toc-text">分支合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除不需要的分支"><span class="toc-number">7.21.</span> <span class="toc-text">删除不需要的分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将该新建的工程提交至远程仓库，关键的git-指令如下："><span class="toc-number">7.22.</span> <span class="toc-text">将该新建的工程提交至远程仓库，关键的git 指令如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将远程仓库代码更新到本地"><span class="toc-number">7.23.</span> <span class="toc-text">将远程仓库代码更新到本地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新到本地仓库时，-出现冲突，解决冲突"><span class="toc-number">7.24.</span> <span class="toc-text">更新到本地仓库时， 出现冲突，解决冲突</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的命令"><span class="toc-number">8.</span> <span class="toc-text">常用的命令</span></a></li></ol>
-        </div>
-    
-</div>
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-    </div>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                 </div>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
         </div>
     </div>
 </div>
 
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://viabcde.github.io" class="b-link-green">廖锡洪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/09/18/2018-9-18-Linux/" class="b-link-green">Linux，Git，vi</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/09/18/2018-9-18-Linux安装软件/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Linux上安装软件">
+                        
+                        <span class="card-title">Linux上安装软件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">PMSPMS利用一个数据库来记录各种相关内容  
+Linux系统上已经安装了什么软件包  
+每个包安装了什么文件  
+每个已安装软件包的版本  
+软件包存储在服务器上，可以利用本地Linux系统上的PMS工具通过互联网访问。这些服务器称为仓</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/09/18/2018-9-26-ActionContext/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="ActionContext">
+                        
+                        <span class="card-title">ActionContext</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">是Sruts2内置对象，通过该对象可以获得之前Servlet中的对象，比如：requst对象，response对象每次发送一次请求就会创建一个ActionContextActionContext是一个Map集合  内部记录了name = r</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            viacbde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/标签/" target="_blank">
+                        <span class="chip bg-color">标签</span>
+                    </a>
+                    
+                    <a href="/tags/Struts2/" target="_blank">
+                        <span class="chip bg-color">Struts2</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
 
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"search":null,"path":"search.xml","field":"post","log":false});</script></body>
 </html>
