@@ -524,17 +524,16 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-实体类中的属性名和表中的字段名/">
+                <a href="/2018/11/18/2018-11-18-级联保存问题/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/62.gif" class="responsive-img" alt="实体类中的属性名和表中的字段名">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/66.gif" class="responsive-img" alt="增删改">
                         
-                        <span class="card-title">实体类中的属性名和表中的字段名</span>
+                        <span class="card-title">增删改</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">当实体类中的属性名和表中的字段名不一样 ，怎么办 ？1.在sql中设置别名2.在resultMap中通过属性映射数据库的字段示例第1种： 通过在查询的sql语句中定义字段名的别名，让字段名的别名和实体类的属性名一致
-&lt;select i</div>
+                    <div class="summary">级联保存CascadeTypemappedby设置在一的一方，解决了当多的一方增加，不需要修改一的一方的代码保存transient对象出问题如下图g 没有被save    many2one     one2many     user保存 g</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -554,8 +553,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/" target="_blank">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/Hibernate/" target="_blank">
+                        <span class="chip bg-color">Hibernate</span>
                     </a>
                     
                 </div>
@@ -569,16 +568,16 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-getcurrentsession/">
+                <a href="/2018/11/18/2018-11-18-在mapper中如何传递多个参数/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/78.jpg" class="responsive-img" alt="Getcurrentsession">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/60.gif" class="responsive-img" alt="在Mapper中如何传递多个参数">
                         
-                        <span class="card-title">Getcurrentsession</span>
+                        <span class="card-title">在Mapper中如何传递多个参数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">getcurrentsession不需要close，事务提交，自动clsoe，在commit前的session都是同一个好处在adduser中要添加setlog方法时，事务的边界是在service层不能使用opensession，因为这是打</div>
+                    <div class="summary">在mapper中如何传递多个参数第一种：使用占位符在映射文件中使用#{0},#{1}代表传递进来的第几个参数在java代码中使用@param注解:来命名参数#{0},#{1}方式//对应的xml,#{0}代表接收的是dao层中的第一个参数，</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -598,8 +597,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hibernate/" target="_blank">
-                        <span class="chip bg-color">Hibernate</span>
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>

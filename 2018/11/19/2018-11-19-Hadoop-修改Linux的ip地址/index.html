@@ -527,19 +527,17 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-映射器/">
+                <a href="/2018/11/19/2018-11-19-执行器/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/49.gif" class="responsive-img" alt="映射器">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/48.gif" class="responsive-img" alt="执行器Executor">
                         
-                        <span class="card-title">映射器</span>
+                        <span class="card-title">执行器Executor</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">映射器是mybatis最复杂最核心的组件
-Sql Mapper（映射器）作用：1）定义参数、2）描述缓存、3）描述SQL语句、4）定义查询结果和POJO的映射关系  
-主要元素： 
-引入映射器mapper的方法用文件路径引入映射器     </div>
+                    <div class="summary">作用：调度StatementHandler、ParameterHandler、ResultHandler等来执行对应的SQL。  
+SimpleExecutor每执行一次update或select，就开启一个Statement对象，用完立刻</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
@@ -574,19 +572,19 @@ Sql Mapper（映射器）作用：1）定义参数、2）描述缓存、3）描�
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-LOAD and GET/">
+                <a href="/2018/11/19/2018-11-19-mapper.xml文件sql语句编写/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/75.jpg" class="responsive-img" alt="LOAD and GET">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/54.gif" class="responsive-img" alt="mapper.xml文件sql语句编写">
                         
-                        <span class="card-title">LOAD and GET</span>
+                        <span class="card-title">mapper.xml文件sql语句编写</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">LOAD and GETsession get 获取的是实际的对象，发出sql语句，有实际的数据而session load 获取对象的代理，commit后通过代理取不到相应的对象，只有在commit之前，需要用到数据才会发出sql语句，所以</div>
+                    <div class="summary">resultType和resultMap区别resultType是自定义除实体额外的pojo来接收查询结果resultMap是在xml组装好的映射结果，不需要额外的pojo一对一查询（resulttype）    需要些pojo 来接收查询</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
                             </span>
                         <span class="publish-author">
                             
@@ -603,8 +601,8 @@ Sql Mapper（映射器）作用：1）定义参数、2）描述缓存、3）描�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hibernate/" target="_blank">
-                        <span class="chip bg-color">Hibernate</span>
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>
