@@ -572,18 +572,16 @@ sessionFactory注入配置文件
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-清除缓存/">
+                <a href="/2018/11/18/2018-11-18-级联保存问题/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/63.gif" class="responsive-img" alt="清除缓存">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/66.gif" class="responsive-img" alt="增删改">
                         
-                        <span class="card-title">清除缓存</span>
+                        <span class="card-title">增删改</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">清除缓存session  
-强制session与数据库做同步：即flush一次相当于commit一次  
-</div>
+                    <div class="summary">级联保存CascadeTypemappedby设置在一的一方，解决了当多的一方增加，不需要修改一的一方的代码保存transient对象出问题如下图g 没有被save    many2one     one2many     user保存 g</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -618,16 +616,18 @@ sessionFactory注入配置文件
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-getcurrentsession/">
+                <a href="/2018/11/18/2018-11-18-主键生成机制/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/78.jpg" class="responsive-img" alt="Getcurrentsession">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/59.gif" class="responsive-img" alt="主键生成机制">
                         
-                        <span class="card-title">Getcurrentsession</span>
+                        <span class="card-title">主键生成机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">getcurrentsession不需要close，事务提交，自动clsoe，在commit前的session都是同一个好处在adduser中要添加setlog方法时，事务的边界是在service层不能使用opensession，因为这是打</div>
+                    <div class="summary">Hibernate 的的不同属性含义assigned主键由外部程序生成。
+hilo通过hi/lo 算法生成主键，需要额外的数据库表保存主键生成历史状态。
+seqhilo与hilo 类似，通过hi/lo 算法生成主键，只是主键历史状态保存在S</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18

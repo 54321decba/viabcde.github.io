@@ -539,16 +539,18 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-对象的三种状态/">
+                <a href="/2018/11/18/2018-11-18-清除缓存/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/69.gif" class="responsive-img" alt="对象的三种状态">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/63.gif" class="responsive-img" alt="清除缓存">
                         
-                        <span class="card-title">对象的三种状态</span>
+                        <span class="card-title">清除缓存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">对象的三种状态save之后session中有指向实体的引用（persist）缓存，数据库有idcommit之后数据库中有实体（detach），session中对其的缓存销毁了save 之后的数据都暂时保存在session中  persist</div>
+                    <div class="summary">清除缓存session  
+强制session与数据库做同步：即flush一次相当于commit一次  
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -583,16 +585,17 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-在mapper中如何传递多个参数/">
+                <a href="/2018/11/18/2018-11-18-接口绑定的实现方式/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/60.gif" class="responsive-img" alt="在Mapper中如何传递多个参数">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/64.gif" class="responsive-img" alt="Mybatis接口绑定的实现方式">
                         
-                        <span class="card-title">在Mapper中如何传递多个参数</span>
+                        <span class="card-title">Mybatis接口绑定的实现方式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">在mapper中如何传递多个参数第一种：使用占位符在映射文件中使用#{0},#{1}代表传递进来的第几个参数在java代码中使用@param注解:来命名参数#{0},#{1}方式//对应的xml,#{0}代表接收的是dao层中的第一个参数，</div>
+                    <div class="summary">一种是通过注解绑定,就是在接口的方法上面加上@Select@Update等注解里面包含Sql语句来绑定另外一种就是通过xml里面写SQL来绑定,在这种情况下,要指定xml映射文件里面的namespace必须为接口的全路径名 
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
