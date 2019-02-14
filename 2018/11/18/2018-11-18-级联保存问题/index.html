@@ -357,14 +357,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="级联保存CascadeType"><a href="#级联保存CascadeType" class="headerlink" title="级联保存CascadeType"></a><strong>级联保存CascadeType</strong></h2><p>mappedby设置在一的一方，解决了当多的一方增加，不需要修改一的一方的代码<br>保存transient对象出问题<br>如下图g 没有被save    many2one     one2many     user保存 group不会跟着自动保存<br><img src="https://viabcde.github.io/images/blog/2018092883.png" alt="enter descriptionhere">   </p>
+                <h2 id="级联保存CascadeType"><a href="#级联保存CascadeType" class="headerlink" title="级联保存CascadeType"></a><strong>级联保存CascadeType</strong></h2><p>mappedby设置在一的一方，解决了当多的一方增加，不需要修改一的一方的代码<br>保存transient对象出问题<br>如下图g 没有被save    many2one     one2many     user保存 group不会跟着自动保存<br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092883.png?raw=true" alt="">   </p>
 <h3 id="解决方法1"><a href="#解决方法1" class="headerlink" title="解决方法1"></a><strong>解决方法1</strong></h3><p>把上图注释打开，先存g 再存 a</p>
-<h3 id="解决方法2"><a href="#解决方法2" class="headerlink" title="解决方法2"></a><strong>解决方法2</strong></h3><p>在group.java 保存group时自动保存其关联对象<br><strong>设置group能级联保存</strong><br><img src="https://viabcde.github.io/images/blog/2018092884.png" alt="enter descriptionhere"><br><strong>测试</strong><br><img src="https://viabcde.github.io/images/blog/2018092885.png" alt="enter descriptionhere"><br>【不建议，因为一的一方设置了mappedby，在它的表中不用保存多的一方，所以自动保存一的一方那个不会出现null，而自动保存多的一方会出现null值】同理，可以在user.java即多的这一方设置 保存user时自动保存其关联对象g<br><strong>解决方法</strong><br><img src="https://viabcde.github.io/images/blog/2018092886.png" alt="enter descriptionhere"><br><strong>问题：在数据库里u没有g的数据</strong><br><img src="https://viabcde.github.io/images/blog/2018092887.png" alt="enter descriptionhere"><br><strong>解决方法：user设置group属性</strong><br><img src="https://viabcde.github.io/images/blog/2018092888.png" alt="enter descriptionhere">      </p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a><strong>结论</strong></h2><p>存储时在save多的一方较容易只需要设多的一方即可 如果save一的一方则后需要 把多地一方再设一遍<br>many-to-one默认取多的一方user会把一的一方group取出来，即使不设置cascade为ALL而取一的一方group不会把多的一方user取出来<br><strong>测试</strong><br><img src="https://viabcde.github.io/images/blog/2018092890.png" alt="enter descriptionhere">    </p>
-<h2 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a><strong>结论</strong></h2><p>cascade管增删改 而fetch管读取<br><img src="https://viabcde.github.io/images/blog/2018092891.png" alt="enter descriptionhere"><br>group的fetch是eager user是lazy 则在用user .getGroup时会发2条sql，一次是取user和group联合的,另一次因为group是eager的所以在第一次取group时，会顺带着把user再取一遍<br>在xml中懒加载设置<br><img src="https://viabcde.github.io/images/blog/2018092892.png" alt="enter descriptionhere"><br>一对多设置eager情况：查看用户的权限；  </p>
-<h2 id="update"><a href="#update" class="headerlink" title="update"></a><strong>update</strong></h2><p>(一般cascade设为all，否则可能更新其他的方法不成功，比如设为merge,就只有用merge方法时能更新)<br><img src="https://viabcde.github.io/images/blog/2018092893.png" alt="enter descriptionhere">  </p>
-<h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a><strong>delete</strong></h3><p>在删除前如果不先删除其级联对象会把一个一方group也给删了，如果此时有其他对象级联了group，那么该对象也被清除，才能清除group<br>解决方法1：打破级联关系 先把级联对象设为空<br>解决方法二：使用sql语句<br><img src="https://viabcde.github.io/images/blog/2018092894.png" alt="enter descriptionhere">  </p>
-<h3 id="deletegroup"><a href="#deletegroup" class="headerlink" title="deletegroup"></a><strong>deletegroup</strong></h3><p><img src="https://viabcde.github.io/images/blog/2018092895.png" alt="enter descriptionhere">  </p>
+<h3 id="解决方法2"><a href="#解决方法2" class="headerlink" title="解决方法2"></a><strong>解决方法2</strong></h3><p>在group.java 保存group时自动保存其关联对象<br><strong>设置group能级联保存</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092884.png?raw=true" alt=""><br><strong>测试</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092885.png?raw=true" alt=""><br>【不建议，因为一的一方设置了mappedby，在它的表中不用保存多的一方，所以自动保存一的一方那个不会出现null，而自动保存多的一方会出现null值】同理，可以在user.java即多的这一方设置 保存user时自动保存其关联对象g<br><strong>解决方法</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092886.png?raw=true" alt=""><br><strong>问题：在数据库里u没有g的数据</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092887.png?raw=true" alt=""><br><strong>解决方法：user设置group属性</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092888.png?raw=true" alt="">      </p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a><strong>结论</strong></h2><p>存储时在save多的一方较容易只需要设多的一方即可 如果save一的一方则后需要 把多地一方再设一遍<br>many-to-one默认取多的一方user会把一的一方group取出来，即使不设置cascade为ALL而取一的一方group不会把多的一方user取出来<br><strong>测试</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092890.png?raw=true" alt="">    </p>
+<h2 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a><strong>结论</strong></h2><p>cascade管增删改 而fetch管读取<br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092891.png?raw=true" alt=""><br>group的fetch是eager user是lazy 则在用user .getGroup时会发2条sql，一次是取user和group联合的,另一次因为group是eager的所以在第一次取group时，会顺带着把user再取一遍<br>在xml中懒加载设置<br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092892.png?raw=true" alt=""><br>一对多设置eager情况：查看用户的权限；  </p>
+<h2 id="update"><a href="#update" class="headerlink" title="update"></a><strong>update</strong></h2><p>(一般cascade设为all，否则可能更新其他的方法不成功，比如设为merge,就只有用merge方法时能更新)<br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092893.png?raw=true" alt="">  </p>
+<h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a><strong>delete</strong></h3><p>在删除前如果不先删除其级联对象会把一个一方group也给删了，如果此时有其他对象级联了group，那么该对象也被清除，才能清除group<br>解决方法1：打破级联关系 先把级联对象设为空<br>解决方法二：使用sql语句<br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092894.png?raw=true" alt="">  </p>
+<h3 id="deletegroup"><a href="#deletegroup" class="headerlink" title="deletegroup"></a><strong>deletegroup</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/blog/2018092895.png?raw=true" alt="">  </p>
 <h3 id="list和iterate区别"><a href="#list和iterate区别" class="headerlink" title="list和iterate区别"></a><strong>list和iterate区别</strong></h3><p>list取的是id+所有信息 iterate取的是id 当用到的时候再根据id取相应的值<br>list每执行一次都会发出sql语句，而iterate会利用session级的缓存，只会发出一次sql语句</p>
 
             </div>
@@ -531,16 +531,17 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-对象的三种状态/">
+                <a href="/2018/11/18/2018-11-18- Spring的web.xml配置/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/69.gif" class="responsive-img" alt="对象的三种状态">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/87.jpg" class="responsive-img" alt="Spring的web.xml配置">
                         
-                        <span class="card-title">对象的三种状态</span>
+                        <span class="card-title">Spring的web.xml配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">对象的三种状态save之后session中有指向实体的引用（persist）缓存，数据库有idcommit之后数据库中有实体（detach），session中对其的缓存销毁了save 之后的数据都暂时保存在session中  persist</div>
+                    <div class="summary">web.xml内容一：配置默认页面：当用户在浏览器中输入的URL不包含某个servlet名或JSP页面时，welcome-file-list元素可指定显示的默认文件。
+&lt;!-- displayname 只是用来显示项目名称 可配置可不</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -560,8 +561,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hibernate/" target="_blank">
-                        <span class="chip bg-color">Hibernate</span>
+                    <a href="/tags/配置文件/" target="_blank">
+                        <span class="chip bg-color">配置文件</span>
                     </a>
                     
                 </div>
@@ -575,16 +576,17 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-接口绑定的实现方式/">
+                <a href="/2018/11/18/2018-11-18-获取xml文件/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/64.gif" class="responsive-img" alt="Mybatis接口绑定的实现方式">
                         
-                        <span class="card-title">Mybatis接口绑定的实现方式</span>
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="获取Xml文件">
+                        
+                        <span class="card-title">获取Xml文件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">一种是通过注解绑定,就是在接口的方法上面加上@Select@Update等注解里面包含Sql语句来绑定另外一种就是通过xml里面写SQL来绑定,在这种情况下,要指定xml映射文件里面的namespace必须为接口的全路径名 
+                    <div class="summary">在test中如何获取xmlclasspathxml 按alt+/即可 然后根据补全接着就可以通过.getBean获取xml中的bean了  
 </div>
                     <div class="publish-info">
                             <span class="publish-date">
@@ -605,8 +607,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/" target="_blank">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/测试/" target="_blank">
+                        <span class="chip bg-color">测试</span>
                     </a>
                     
                 </div>

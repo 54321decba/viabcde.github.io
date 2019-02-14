@@ -357,14 +357,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="resultType和resultMap区别"><a href="#resultType和resultMap区别" class="headerlink" title="resultType和resultMap区别"></a><strong>resultType和resultMap区别</strong></h3><p>resultType是自定义除实体额外的pojo来接收查询结果<br>resultMap是在xml组装好的映射结果，不需要额外的pojo<br>一对一查询（resulttype）<br>    需要些pojo 来接收查询结果 可以继承属性较多的一方 这样子类可以少写一些属性<br><img src="https://viabcde.github.io/images/blog/20180928141.png" alt="enter description
-here"><br>一对一查询（resultMap）<br><img src="https://viabcde.github.io/images/blog/20180928142.png" alt="enter description
-here"><br>column是指数据库里的字段 而property是po里的属性名<br><img src="https://viabcde.github.io/images/blog/20180928143.png" alt="enter description
-here"><br>延迟加载<br><img src="https://viabcde.github.io/images/blog/20180928144.png" alt="enter description
-here"><br><img src="https://viabcde.github.io/images/blog/20180928145.png" alt="enter description
-here"><br>开启延迟加载 在sqlmapconfig.xml<br><img src="https://viabcde.github.io/images/blog/20180928146.png" alt="enter description
-here"><br>测试<br><img src="https://viabcde.github.io/images/blog/20180928147.png" alt="enter description
-here"><br>测试环境<br><img src="https://viabcde.github.io/images/blog/20180928148.png" alt="enter description
+                <h3 id="resultType和resultMap区别"><a href="#resultType和resultMap区别" class="headerlink" title="resultType和resultMap区别"></a><strong>resultType和resultMap区别</strong></h3><p>resultType是自定义除实体额外的pojo来接收查询结果<br>resultMap是在xml组装好的映射结果，不需要额外的pojo<br>一对一查询（resulttype）<br>    需要些pojo 来接收查询结果 可以继承属性较多的一方 这样子类可以少写一些属性<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928141.png?raw=true" alt="enter description
+here"><br>一对一查询（resultMap）<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928142.png?raw=true" alt="enter description
+here"><br>column是指数据库里的字段 而property是po里的属性名<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928143.png?raw=true" alt="enter description
+here"><br>延迟加载<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928144.png?raw=true" alt="enter description
+here"><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928145.png?raw=true" alt="enter description
+here"><br>开启延迟加载 在sqlmapconfig.xml<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928146.png?raw=true" alt="enter description
+here"><br>测试<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928147.png?raw=true" alt="enter description
+here"><br>测试环境<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928148.png?raw=true" alt="enter description
 here">  </p>
 <h1 id="association-查询结果的一对一关联："><a href="#association-查询结果的一对一关联：" class="headerlink" title="association 查询结果的一对一关联："></a>association 查询结果的一对一关联：</h1><pre><code>&lt;resultMap id=&quot;blogResult&quot; type=&quot;Blog&quot;&gt;
   &lt;id property=”blog_id” column=&quot;id&quot; /&gt;
@@ -396,13 +396,13 @@ here">  </p>
         &lt;mapper class=&quot;com.bestcxx.stu.springmvc.mapper.UserModelTwoMapper&quot;/&gt;
     &lt;/mappers&gt;
 &lt;/configuration&gt;
-</code></pre><p>在存在 xml 配置文件的情况下，文件结构如下，没有 xml 配置文件的情况下，只有 Mapper 类<br><img src="https://viabcde.github.io/images/2018-10-10/2018101032.png" alt="enter descriptionhere"><br>第二种依据 Mapper 类所在的package包路径 配置 Mapper<br>这种情况下，如果是非注解模式的话xml配置文件必须也处于同一级 package 下，且与Mapper类同名  </p>
+</code></pre><p>在存在 xml 配置文件的情况下，文件结构如下，没有 xml 配置文件的情况下，只有 Mapper 类<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101032.png?raw=true" alt=""><br>第二种依据 Mapper 类所在的package包路径 配置 Mapper<br>这种情况下，如果是非注解模式的话xml配置文件必须也处于同一级 package 下，且与Mapper类同名  </p>
 <pre><code>&lt;configuration&gt;
     &lt;mappers&gt;
         &lt;package name=&quot;com.bestcxx.stu.springmvc.mapper&quot;/&gt;
     &lt;/mappers&gt;
 &lt;/configuration&gt;
-</code></pre><p>文件结构<br><img src="https://viabcde.github.io/images/2018-10-10/2018101033.png" alt="enter descriptionhere"><br>第三种是把 Mapper 的xml配置文件单独放置到 resources 中，和Mapper 类分开了<br>这种方式的好处是便于统一管理 xml 配置文件，不好的的地方是无法使用注解模式了  </p>
+</code></pre><p>文件结构<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101033.png?raw=true" alt=""><br>第三种是把 Mapper 的xml配置文件单独放置到 resources 中，和Mapper 类分开了<br>这种方式的好处是便于统一管理 xml 配置文件，不好的的地方是无法使用注解模式了  </p>
 <pre><code>&lt;configuration&gt;
     &lt;mappers&gt;
         &lt;!-- 使用这个方案，可以单独指定Mapper的位置 --&gt;
@@ -410,7 +410,7 @@ here">  </p>
         &lt;mapper resource=&quot;mybatis/mappings/UserModelTwoMapper.xml&quot;/&gt;
     &lt;/mappers&gt;
 &lt;/configuration&gt;
-</code></pre><p>然后Mapper类还是呆在该在的位置<br><img src="https://viabcde.github.io/images/2018-10-10/2018101034.png" alt="enter descriptionhere"><br>但是mapper 的 xml文件的位置如下<br><img src="https://viabcde.github.io/images/2018-10-10/2018101035.png" alt="enter descriptionhere"><br>上面的配置在mybitas-config.xml（名字是可以自定义的）中集中管理，Mapper 的 xml 文件需要关联<br>第一，是mybatis-config.xml 文件负责加载 Mapper的xml文件，即上面所说的配置是在这个mybatis-config.xml文件中<br>第二，mapper对应的xml 配置文件内部要指定对应的Mapper类<br>下面是单独测试mybatis的mybatas的配置文件的内容  </p>
+</code></pre><p>然后Mapper类还是呆在该在的位置<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101034.png?raw=true" alt=""><br>但是mapper 的 xml文件的位置如下<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101035.png?raw=true" alt=""><br>上面的配置在mybitas-config.xml（名字是可以自定义的）中集中管理，Mapper 的 xml 文件需要关联<br>第一，是mybatis-config.xml 文件负责加载 Mapper的xml文件，即上面所说的配置是在这个mybatis-config.xml文件中<br>第二，mapper对应的xml 配置文件内部要指定对应的Mapper类<br>下面是单独测试mybatis的mybatas的配置文件的内容  </p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE configuration
 PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
@@ -723,17 +723,19 @@ PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-Hadoop-修改Linux的ip地址/">
+                <a href="/2018/11/19/2018-11-19-映射器/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/55.gif" class="responsive-img" alt="Hadoop-修改Linux的ip地址">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/49.gif" class="responsive-img" alt="映射器">
                         
-                        <span class="card-title">Hadoop-修改Linux的ip地址</span>
+                        <span class="card-title">映射器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">修改ifcfg-eth0文件即可该文件路径：/etc/sysconfig/network-scripts/ifcfg-eth0  
-方法一：图形化设置IP①auto eth0代表第一张物理网卡，如果是eth1就代表第二张网卡点击并编辑它②修</div>
+                    <div class="summary">映射器是mybatis最复杂最核心的组件
+Sql Mapper（映射器）作用：1）定义参数、2）描述缓存、3）描述SQL语句、4）定义查询结果和POJO的映射关系  
+主要元素： 
+引入映射器mapper的方法用文件路径引入映射器     </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
@@ -753,8 +755,8 @@ PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hadoop/" target="_blank">
-                        <span class="chip bg-color">hadoop</span>
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>

@@ -543,17 +543,20 @@ seqhilo与hilo 类似，通过hi/lo 算法生成主键，只是主键历史状�
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-将hibernate的SessionFactory交由spring管理/">
+                <a href="/2018/11/18/2018-11-18-使用hibernatetemplate/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/65.gif" class="responsive-img" alt="将hibernate的SessionFactory交由spring管理">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/61.gif" class="responsive-img" alt="使用Hibernatetemplate">
                         
-                        <span class="card-title">将hibernate的SessionFactory交由spring管理</span>
+                        <span class="card-title">使用Hibernatetemplate</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">将hibernate的SessionFactory交由spring管理:sessionFactory需要dataSource给session配置自动扫描使用方法  
-</div>
+                    <div class="summary">使用hibernatetemplate示例  
+为dao注入hibernateTemplate  
+为hibernateTemplate注入session Factory  
+sessionFactory注入配置文件  
+查询所有记录使用h</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -573,8 +576,8 @@ seqhilo与hilo 类似，通过hi/lo 算法生成主键，只是主键历史状�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring/" target="_blank">
-                        <span class="chip bg-color">Spring</span>
+                    <a href="/tags/Hibernate/" target="_blank">
+                        <span class="chip bg-color">Hibernate</span>
                     </a>
                     
                 </div>
@@ -588,16 +591,18 @@ seqhilo与hilo 类似，通过hi/lo 算法生成主键，只是主键历史状�
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-getcurrentsession/">
+                <a href="/2018/11/18/2018-11-18-清除缓存/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/78.jpg" class="responsive-img" alt="Getcurrentsession">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/63.gif" class="responsive-img" alt="清除缓存">
                         
-                        <span class="card-title">Getcurrentsession</span>
+                        <span class="card-title">清除缓存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">getcurrentsession不需要close，事务提交，自动clsoe，在commit前的session都是同一个好处在adduser中要添加setlog方法时，事务的边界是在service层不能使用opensession，因为这是打</div>
+                    <div class="summary">清除缓存session  
+强制session与数据库做同步：即flush一次相当于commit一次  
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18

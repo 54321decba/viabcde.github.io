@@ -357,7 +357,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="运用多态"><a href="#运用多态" class="headerlink" title="运用多态"></a><strong>运用多态</strong></h3><p><strong>作用：</strong>可以根据需要切换子类即面向接口编程，如果使用配置文件那么连源代码都不需要改;<br>因为父类拥有所有子类的共有的方法，可以替换子类更改方法的实现方式<br>eg.切换不同的容器 Collection c= new ArrayList();<br>比较不确定对象的大小或属性 该对象先得实现compare接口;<br><img src="https://viabcde.github.io/images/2018-09-17/多态1.png" alt="duotai"><br>然后在比较的方法里运用多态的思想 用接口类型来比较对象的大小<br><img src="https://viabcde.github.io/images/2018-09-17/多态2.png" alt="duotai2"><br>第1处多态：根据传入的不同类型的对象比较大小<br>第2处多态：在比较大小时，比较方式定义为接口，利用多态思想传入不同的比较策略<br><strong>总结：</strong>策略模式就是运用接口多态的思想只需要把固定的策略作为接口并写在源代码里，而接口的实现作为参数传入的，当需要变更策略（即接口算法的实现）时只需要替换实现类即可 不需要修改源代码    </p>
+                <h3 id="运用多态"><a href="#运用多态" class="headerlink" title="运用多态"></a><strong>运用多态</strong></h3><p><strong>作用：</strong>可以根据需要切换子类即面向接口编程，如果使用配置文件那么连源代码都不需要改;<br>因为父类拥有所有子类的共有的方法，可以替换子类更改方法的实现方式<br>eg.切换不同的容器 Collection c= new ArrayList();<br>比较不确定对象的大小或属性 该对象先得实现compare接口;<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/多态1.png?raw=true" alt="duotai"><br>然后在比较的方法里运用多态的思想 用接口类型来比较对象的大小<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/多态2.png?raw=true" alt="duotai2"><br>第1处多态：根据传入的不同类型的对象比较大小<br>第2处多态：在比较大小时，比较方式定义为接口，利用多态思想传入不同的比较策略<br><strong>总结：</strong>策略模式就是运用接口多态的思想只需要把固定的策略作为接口并写在源代码里，而接口的实现作为参数传入的，当需要变更策略（即接口算法的实现）时只需要替换实现类即可 不需要修改源代码    </p>
 <h3 id="示例代码："><a href="#示例代码：" class="headerlink" title="示例代码："></a><strong>示例代码：</strong></h3><p><strong>测试类</strong></p>
 <pre><code>public class Test {
     public static void main(String[] args) {
@@ -460,9 +460,9 @@
     }
 }
 
-</code></pre><h3 id="获得当前的时间戳"><a href="#获得当前的时间戳" class="headerlink" title="获得当前的时间戳"></a>获得当前的时间戳</h3><p><img src="https://viabcde.github.io/images/2018-09-17/获取当前的时间戳.png" alt="shijianchuo"></p>
-<h3 id="单例："><a href="#单例：" class="headerlink" title="单例："></a>单例：</h3><p>在对象的类里面 用静态方法new 对象本身 再通过暴露 getInstance的这个方法去让其他类获取这个对象 从而实现单例<br><img src="https://viabcde.github.io/images/2018-09-17/单例.png" alt="danli">  </p>
-<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p><img src="https://viabcde.github.io/images/all/2018092901.png" alt="dai"><br>通过工厂来实现对象的管理与创建 ：<br>因为父类拥有所有子类的公共方法，通过父类来调用方法可以在替换子类时只需替换即可，不需要改代码<br><img src="https://viabcde.github.io/images/2018-09-17/工厂模式.png" alt="gongchanmoshi">  </p>
+</code></pre><h3 id="获得当前的时间戳"><a href="#获得当前的时间戳" class="headerlink" title="获得当前的时间戳"></a>获得当前的时间戳</h3><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/获取当前的时间戳.png?raw=true" alt="shijianchuo"></p>
+<h3 id="单例："><a href="#单例：" class="headerlink" title="单例："></a>单例：</h3><p>在对象的类里面 用静态方法new 对象本身 再通过暴露 getInstance的这个方法去让其他类获取这个对象 从而实现单例<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/单例.png?raw=true" alt="danli">  </p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p><img src="https://github.com/54321decba/tu/blob/master/all/2018092901.png?raw=true" alt="dai"><br>通过工厂来实现对象的管理与创建 ：<br>因为父类拥有所有子类的公共方法，通过父类来调用方法可以在替换子类时只需替换即可，不需要改代码<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/工厂模式.png?raw=true" alt="gongchanmoshi">  </p>
 <p>这样当子类更替的时候只需要修改一处即可不需要多处修改<br>并且 子类也可以运用多态的思想创建相同父类类型的不同子类对象<br>运用多态，通过继承抽象工厂来实现工厂的管理与创建 可以创建相同抽象工厂类型的不同子类对象</p>
 <h3 id="简单工厂与抽象工厂对比"><a href="#简单工厂与抽象工厂对比" class="headerlink" title="简单工厂与抽象工厂对比"></a>简单工厂与抽象工厂对比</h3><h3 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h3><p>只是对类的管理 用来产生多个对象<br>优点：增加扩展工厂的产品对象容易，只需直接增加<br>缺点：相同系列的子类实现要修改时还要在产生一个新的工厂</p>
 <h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>则运用了多态的思想 可以创建相同抽象工厂类型的子类对象<br>优点：解决了简单工厂的缺点<br>缺点：扩展工厂的产品困难 ，需要在每一个系列的工厂都增加</p>
@@ -631,18 +631,17 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/09/17/2018-9-17-生成二位码/">
+                <a href="/2018/09/17/2018-09-17-bean的scope/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/150.jpg" class="responsive-img" alt="Java生成二维码">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/81.jpg" class="responsive-img" alt="Bean的scope">
                         
-                        <span class="card-title">Java生成二维码</span>
+                        <span class="card-title">Bean的scope</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">jdk:1.6build path – add external archives 把下载好的QRCode.jar引入复制以下代码 运行即可生成二维码  
-import java.awt.Color;
-import java.awt.Gra</div>
+                    <div class="summary">bean的scopeprototype:原始类型，每次用都是全新的  
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-17
@@ -662,8 +661,8 @@ import java.awt.Gra</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java基础/" target="_blank">
-                        <span class="chip bg-color">java基础</span>
+                    <a href="/tags/Spring/" target="_blank">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>
@@ -677,17 +676,17 @@ import java.awt.Gra</div>
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/09/17/2018-11-18-bean的scope/">
+                <a href="/2018/09/17/2018-9-17-Date/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/81.jpg" class="responsive-img" alt="Bean的scope">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/159.jpg" class="responsive-img" alt="Date">
                         
-                        <span class="card-title">Bean的scope</span>
+                        <span class="card-title">Date</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">bean的scopeprototype:原始类型，每次用都是全新的  
-</div>
+                    <div class="summary">java Date在编程中，一般涉及到日期的操作有三种：日期的表示、转换、设定修改java把这三个功能分成了三个类，其中：  
+Date类负责时间表示，从1970.1.1 00:00:00 到当前时间的毫秒数进行计时，毫秒数就是指从1970</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-17
@@ -707,8 +706,8 @@ import java.awt.Gra</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring/" target="_blank">
-                        <span class="chip bg-color">Spring</span>
+                    <a href="/tags/java/" target="_blank">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>

@@ -381,14 +381,14 @@ public static voidmain(String[] args){
 <pre><code>mvn clean  package –DskipTests
 </code></pre><p>执行成功后在项目的target文件夹下出现jar包，例如（spingboot-demo-0.0.1-SNAPSHOT.jar）<br>然后再cmd 的C盘 用户目录下执行命令  </p>
 <pre><code>$ java –jar （jar包的目录）E:\program\spingboot-demo\target\spingboot-demo-0.0.1-SNAPSHOT.jar  
-</code></pre><p>回车运行会有如下图<br><img src="https://viabcde.github.io/images/2018-10-10/2018101012.png" alt="enter description
-here"><br>出现下图表示运行成功<br><img src="https://viabcde.github.io/images/2018-10-10/2018101013.png" alt="enter description
-here"><br>然后在浏览器中输入端口号和地址进行访问。<br><img src="https://viabcde.github.io/images/2018-10-10/2018101014.png" alt="enter description
+</code></pre><p>回车运行会有如下图<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101012.png?raw=true" alt="enter description
+here"><br>出现下图表示运行成功<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101013.png?raw=true" alt="enter description
+here"><br>然后在浏览器中输入端口号和地址进行访问。<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101014.png?raw=true" alt="enter description
 here"><br><strong>spring boot 优势:</strong>  一个jar 包和java 环境就能运行web 项目</p>
 <h2 id="远程下载并启动Spring-boot项目"><a href="#远程下载并启动Spring-boot项目" class="headerlink" title="远程下载并启动Spring boot项目"></a><strong>远程下载并启动Spring boot项目</strong></h2><pre><code>git clone git@github.com:hengyunabc/spring-boot-demo.git  
 mvn spring-boot-demo  
 java -jar target/demo-0.0.1-SNAPSHOT.jar  
-</code></pre><h3 id="部署spring-boot应用"><a href="#部署spring-boot应用" class="headerlink" title="部署spring boot应用"></a><strong>部署spring boot应用</strong></h3><p>要部署运行spring boot应用，首选要打包spring boot应用，你在pom文件中看到的spring-boot-maven-plugin插件就是打包spring boot应用的。<br>进入工程目录   运行mvn package 进行打包<br><img src="https://viabcde.github.io/images/201811/20181108.png" alt="enter description
+</code></pre><h3 id="部署spring-boot应用"><a href="#部署spring-boot应用" class="headerlink" title="部署spring boot应用"></a><strong>部署spring boot应用</strong></h3><p>要部署运行spring boot应用，首选要打包spring boot应用，你在pom文件中看到的spring-boot-maven-plugin插件就是打包spring boot应用的。<br>进入工程目录   运行mvn package 进行打包<br><img src="https://github.com/54321decba/tu/blob/master/201811/20181108.png?raw=true" alt="enter description
 here"><br>打包之后的文件在工程目录的target目录  使用java的原生命令执行生成的jar文件<br>java  -jar  spring-boot-demo01.jar –server.port=9090  启动spring boot 项目</p>
 
             </div>
@@ -555,16 +555,17 @@ here"><br>打包之后的文件在工程目录的target目录  使用java的原�
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/13/2018-11-13-Statement PreparedStatement CallableStatement的区别/">
+                <a href="/2018/11/13/2018-11-13-SpringBoot遇到的问题/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/105.jpg" class="responsive-img" alt="Statement PreparedStatement CallableStatement的区别">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/107.jpg" class="responsive-img" alt="SpringBoot遇到的问题">
                         
-                        <span class="card-title">Statement PreparedStatement CallableStatement的区别</span>
+                        <span class="card-title">SpringBoot遇到的问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Statement PreparedStatement CallableStatement的区别1.Statement、PreparedStatement和CallableStatement都是接口(interface)。2.Stateme</div>
+                    <div class="summary">遇到的问题：端口占用问题运行独立jar包时可能会出现端口占用问题，springboot的内嵌tomcat的端口8080可能会被oracle (我就是)占用或者 tomcat（默认8080）占用    
+解决方法重新配置内嵌tomcat的端口</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
@@ -584,8 +585,8 @@ here"><br>打包之后的文件在工程目录的target目录  使用java的原�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/web基础/" target="_blank">
-                        <span class="chip bg-color">web基础</span>
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>

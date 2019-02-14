@@ -359,9 +359,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>修改ifcfg-eth0文件即可<br>该文件路径：/etc/sysconfig/network-scripts/ifcfg-eth0  </p>
-<h3 id="方法一：图形化设置IP"><a href="#方法一：图形化设置IP" class="headerlink" title="方法一：图形化设置IP"></a><strong>方法一：图形化设置IP</strong></h3><p>①auto eth0代表第一张物理网卡，如果是eth1就代表第二张网卡<br>点击并编辑它<br><img src="https://viabcde.github.io/images/201812/1.png" alt="enter descriptionhere"><br>②修改IPv4的设置 method（网卡配置方式选择manual即手动配置的意思）<br>添加IP192.168.0.202  子网掩码：255.255.255.0 网关：192.168.0.1<br><img src="https://viabcde.github.io/images/201812/2.png" alt="enter descriptionhere"><br>IP地址分为网络号和主机号2个域的原因：IP数据包在网络传输时，是基于网络而非基于主机，这样即简化了路由表，有能快速定位目标主机所在网络<br>子网掩码的作用：外部网络号通过与子网掩码进行与运算，可以判断与本机网络号是否处于同一个网络<br>网关：192.168.0.1 外部的网络IP<br>本机IP:192.168.0.202,即192.168.0.1的子网，该子网内的主机IP通过与子网掩码与运算来判断是否可以直接相连<br><img src="https://viabcde.github.io/images/201812/3.png" alt="enter descriptionhere"> </p>
-<h3 id="方法二：修改配置文件方式设置IP"><a href="#方法二：修改配置文件方式设置IP" class="headerlink" title="方法二：修改配置文件方式设置IP"></a><strong>方法二：修改配置文件方式设置IP</strong></h3><p>打开终端<br><img src="https://viabcde.github.io/images/201812/4.png" alt="enter descriptionhere"><br>cd /etc/sysconfig/network-scripts<br><img src="https://viabcde.github.io/images/201812/5.png" alt="enter descriptionhere"><br>vim ifcfg-eth0<br><img src="https://viabcde.github.io/images/201812/6.png" alt="enter descriptionhere"><br>修改hwaddr(硬件物理地址)<br>ipaddr(IP地址)<br>netmask(子网掩码)<br>gateway(网关)<br><img src="https://viabcde.github.io/images/201812/7.png" alt="enter descriptionhere"> </p>
-<h3 id="查看配置结果"><a href="#查看配置结果" class="headerlink" title="查看配置结果"></a><strong>查看配置结果</strong></h3><p>ifconfig<br><img src="https://viabcde.github.io/images/201812/8.png" alt="enter descriptionhere"> </p>
+<h3 id="方法一：图形化设置IP"><a href="#方法一：图形化设置IP" class="headerlink" title="方法一：图形化设置IP"></a><strong>方法一：图形化设置IP</strong></h3><p>①auto eth0代表第一张物理网卡，如果是eth1就代表第二张网卡<br>点击并编辑它<br><img src="https://github.com/54321decba/tu/blob/master/201812/1.png?raw=true" alt=""><br>②修改IPv4的设置 method（网卡配置方式选择manual即手动配置的意思）<br>添加IP192.168.0.202  子网掩码：255.255.255.0 网关：192.168.0.1<br><img src="https://github.com/54321decba/tu/blob/master/201812/2.png?raw=true" alt=""><br>IP地址分为网络号和主机号2个域的原因：IP数据包在网络传输时，是基于网络而非基于主机，这样即简化了路由表，有能快速定位目标主机所在网络<br>子网掩码的作用：外部网络号通过与子网掩码进行与运算，可以判断与本机网络号是否处于同一个网络<br>网关：192.168.0.1 外部的网络IP<br>本机IP:192.168.0.202,即192.168.0.1的子网，该子网内的主机IP通过与子网掩码与运算来判断是否可以直接相连<br><img src="https://github.com/54321decba/tu/blob/master/201812/3.png?raw=true" alt=""> </p>
+<h3 id="方法二：修改配置文件方式设置IP"><a href="#方法二：修改配置文件方式设置IP" class="headerlink" title="方法二：修改配置文件方式设置IP"></a><strong>方法二：修改配置文件方式设置IP</strong></h3><p>打开终端<br><img src="https://github.com/54321decba/tu/blob/master/201812/4.png?raw=true" alt=""><br>cd /etc/sysconfig/network-scripts<br><img src="https://github.com/54321decba/tu/blob/master/201812/5.png?raw=true" alt=""><br>vim ifcfg-eth0<br><img src="https://github.com/54321decba/tu/blob/master/201812/6.png?raw=true" alt=""><br>修改hwaddr(硬件物理地址)<br>ipaddr(IP地址)<br>netmask(子网掩码)<br>gateway(网关)<br><img src="https://github.com/54321decba/tu/blob/master/201812/7.png?raw=true" alt=""> </p>
+<h3 id="查看配置结果"><a href="#查看配置结果" class="headerlink" title="查看配置结果"></a><strong>查看配置结果</strong></h3><p>ifconfig<br><img src="https://github.com/54321decba/tu/blob/master/201812/8.png?raw=true" alt=""> </p>
 
             </div>
             <hr>
@@ -527,17 +527,16 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-执行器/">
+                <a href="/2018/11/19/2018-11-19-修改主机名和映射关系/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/48.gif" class="responsive-img" alt="执行器Executor">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/50.gif" class="responsive-img" alt="修改主机名和映射关系">
                         
-                        <span class="card-title">执行器Executor</span>
+                        <span class="card-title">修改主机名和映射关系</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">作用：调度StatementHandler、ParameterHandler、ResultHandler等来执行对应的SQL。  
-SimpleExecutor每执行一次update或select，就开启一个Statement对象，用完立刻</div>
+                    <div class="summary">通过计算机名映射到IP地址修改主机名，只需要修改network文件即可①打开终端右键，open in terminalcd /etc/sysconfig  vim network②修改内容如下修改映射关系，只需要修改host文件即可vim </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
@@ -557,8 +556,8 @@ SimpleExecutor每执行一次update或select，就开启一个Statement对象，
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/" target="_blank">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/hadoop/" target="_blank">
+                        <span class="chip bg-color">hadoop</span>
                     </a>
                     
                 </div>
@@ -572,16 +571,17 @@ SimpleExecutor每执行一次update或select，就开启一个Statement对象，
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-mapper.xml文件sql语句编写/">
+                <a href="/2018/11/19/2018-11-19-Mybatis缓存/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/54.gif" class="responsive-img" alt="mapper.xml文件sql语句编写">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/53.gif" class="responsive-img" alt="Mybatis缓存">
                         
-                        <span class="card-title">mapper.xml文件sql语句编写</span>
+                        <span class="card-title">Mybatis缓存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">resultType和resultMap区别resultType是自定义除实体额外的pojo来接收查询结果resultMap是在xml组装好的映射结果，不需要额外的pojo一对一查询（resulttype）    需要些pojo 来接收查询</div>
+                    <div class="summary">Hibernate二级缓存的注意要点一级缓存是必需的，位于Session（是一个HashMap,存放对象的引用）在 session commit 时 清空一级缓存 (防止其他用户 读取到 修改的脏数据)    
+二级缓存非必需，跨多个ses</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19

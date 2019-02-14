@@ -361,12 +361,12 @@
                 <h2 id="遇到的问题：端口占用问题"><a href="#遇到的问题：端口占用问题" class="headerlink" title="遇到的问题：端口占用问题"></a><strong>遇到的问题：</strong>端口占用问题</h2><p>运行独立jar包时可能会出现端口占用问题，springboot的内嵌tomcat的端口8080可能会被oracle (我就是)占用或者 tomcat（默认8080）占用    </p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a><strong>解决方法</strong></h2><p>重新配置内嵌tomcat的端口号步骤如下    </p>
 <ol>
-<li>在resource目录下新建application.properties文件（文件名一定要application.properties因为这个是默认的配置，如果文件名字不是这个则需要手动的添加识别）配置如下图<br><img src="https://viabcde.github.io/images/2018-10-10/2018101015.png" alt="enter description
+<li>在resource目录下新建application.properties文件（文件名一定要application.properties因为这个是默认的配置，如果文件名字不是这个则需要手动的添加识别）配置如下图<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101015.png?raw=true" alt="enter description
 here"> </li>
 </ol>
 <h3 id="通过命令行设置属性值-启动的应用的端口号"><a href="#通过命令行设置属性值-启动的应用的端口号" class="headerlink" title="通过命令行设置属性值 启动的应用的端口号"></a><strong>通过命令行设置属性值 启动的应用的端口号</strong></h3><p>在命令行运行时，连续的两个减号–就是对application.properties中的属性值进行赋值的标识。<br>java -jar xxx.jar –server.port=8888命令，等价于我们在application.properties中添加属性server.port=8888</p>
 <p><strong>问题：</strong>通过命令行就能更改应用运行的参数很不安全<br><strong>解决方法：</strong>SpringBoot提供了屏蔽命令行访问属性的设置：SpringApplication.setAddCommandLineProperties(false)。 </p>
-<h3 id="编写SpringBoot-demo过程遇到的2个错误"><a href="#编写SpringBoot-demo过程遇到的2个错误" class="headerlink" title="编写SpringBoot demo过程遇到的2个错误"></a><strong>编写SpringBoot demo过程遇到的2个错误</strong></h3><p><strong>错误1</strong><br>创建完成后，如果项目报红色，(1).需要对项目右键-》属性-》Generate Deloyment Desriptor Stub。(2).项目右键-》Maven-》Update Project<br><strong>错误2</strong><br>运行后出现springboot A resource exists with a different case<br><img src="https://viabcde.github.io/images/201811/20181106.png" alt="enter description
+<h3 id="编写SpringBoot-demo过程遇到的2个错误"><a href="#编写SpringBoot-demo过程遇到的2个错误" class="headerlink" title="编写SpringBoot demo过程遇到的2个错误"></a><strong>编写SpringBoot demo过程遇到的2个错误</strong></h3><p><strong>错误1</strong><br>创建完成后，如果项目报红色，(1).需要对项目右键-》属性-》Generate Deloyment Desriptor Stub。(2).项目右键-》Maven-》Update Project<br><strong>错误2</strong><br>运行后出现springboot A resource exists with a different case<br><img src="https://github.com/54321decba/tu/blob/master/201811/20181106.png?raw=true" alt="enter description
 here"><br>groupId 和artifactId 和项目名不一致，我这里项目名SpringBootDemo而pom文件中是springbootDemo，所以出现这个错误，修改如上图即可<br><strong>错误3</strong><br>spring boot javax/annotation/ManagedBean : Unsupported major.minor version 51.0<br>原因jdk版本的问题  ，maven自带的jar版本与javax的jar版本不符，我修改为1.6即可解决<br><strong>错误4</strong><br>Establishing SSL connection without server’s identity verification is not recommended<br><strong>解决方法</strong><br>MySQL 5.5.45+, 5.6.26+ and 5.7.6+ 这些版本的数据库需要手动指定SSL是否开启，所以原来的连接字符串：jdbc.url=jdbc:mysql://127.0.0.1:3306/test就不可以了。<br>解决：<br>需要在其后附加useSSL=true或false，使用新的连接字符串：jdbc.url=jdbc:mysql://127.0.0.1:3306/test&amp;useSSL=false问题就解决了。</p>
 <h3 id="Spring-Boot-启动报错Unable-to-start-ServletWebServerApplicationContext-due-to-missing-ServletWebServerFa"><a href="#Spring-Boot-启动报错Unable-to-start-ServletWebServerApplicationContext-due-to-missing-ServletWebServerFa" class="headerlink" title="Spring Boot 启动报错Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFa"></a><strong>Spring Boot 启动报错Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFa</strong></h3><p><strong>错误代码</strong> </p>
 <pre><code>import org.springframework.boot.SpringApplication;
@@ -558,16 +558,16 @@ public class HelloController {
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/13/2018-11-13-回调函数/">
+                <a href="/2018/11/13/2018-11-13-Statement PreparedStatement CallableStatement的区别/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/104.jpg" class="responsive-img" alt="回调函数">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/105.jpg" class="responsive-img" alt="Statement PreparedStatement CallableStatement的区别">
                         
-                        <span class="card-title">回调函数</span>
+                        <span class="card-title">Statement PreparedStatement CallableStatement的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">回调函数回调也称委托即类a执行过程中无法完成的逻辑交由类b来完成，完成后并继续执行该委托任务的后续所有方法（这些方法在类a中已有定义，称为回调函数）。A：这工程我做了一半，后面的我做不了了，交给你吧，需要资料找我要B: 好的。我需要xxx这</div>
+                    <div class="summary">Statement PreparedStatement CallableStatement的区别1.Statement、PreparedStatement和CallableStatement都是接口(interface)。2.Stateme</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
@@ -587,8 +587,8 @@ public class HelloController {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java基础/" target="_blank">
-                        <span class="chip bg-color">java基础</span>
+                    <a href="/tags/web基础/" target="_blank">
+                        <span class="chip bg-color">web基础</span>
                     </a>
                     
                 </div>
@@ -602,16 +602,16 @@ public class HelloController {
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/13/2018-11-13-Statement PreparedStatement CallableStatement的区别/">
+                <a href="/2018/11/13/2018-11-13-运行SpringBoot/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/105.jpg" class="responsive-img" alt="Statement PreparedStatement CallableStatement的区别">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/103.jpg" class="responsive-img" alt="运行SpringBoot">
                         
-                        <span class="card-title">Statement PreparedStatement CallableStatement的区别</span>
+                        <span class="card-title">运行SpringBoot</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Statement PreparedStatement CallableStatement的区别1.Statement、PreparedStatement和CallableStatement都是接口(interface)。2.Stateme</div>
+                    <div class="summary">第一种方式1.在UserController中加上@EnableAutoConfiguration开启自动配置2.然后通过SpringApplication.run(UserController.class);运行这个控制器使用场景：这种方</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
@@ -631,8 +631,8 @@ public class HelloController {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/web基础/" target="_blank">
-                        <span class="chip bg-color">web基础</span>
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>

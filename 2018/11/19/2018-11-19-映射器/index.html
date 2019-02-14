@@ -362,7 +362,7 @@ Sql Mapper（映射器）作用：1）定义参数、2）描述缓存、3）描�
             <div id="articleContent">
                 <p>映射器是mybatis最复杂最核心的组件</p>
 <h2 id="Sql-Mapper（映射器）"><a href="#Sql-Mapper（映射器）" class="headerlink" title="Sql Mapper（映射器）"></a><strong>Sql Mapper（映射器）</strong></h2><h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a><strong>作用：</strong></h3><p>1）定义参数、2）描述缓存、3）描述SQL语句、4）定义查询结果和POJO的映射关系  </p>
-<h3 id="主要元素："><a href="#主要元素：" class="headerlink" title="主要元素："></a><strong>主要元素：</strong></h3><p><img src="https://viabcde.github.io/images/2018-10-10/2018101028.png" alt="enter description
+<h3 id="主要元素："><a href="#主要元素：" class="headerlink" title="主要元素："></a><strong>主要元素：</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101028.png?raw=true" alt="enter description
 here"> </p>
 <h3 id="引入映射器mapper的方法"><a href="#引入映射器mapper的方法" class="headerlink" title="引入映射器mapper的方法"></a><strong>引入映射器mapper的方法</strong></h3><p><strong>用文件路径引入映射器</strong>                                   </p>
 <pre><code>&lt;mappers&gt;
@@ -590,21 +590,19 @@ PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-Config配置/">
+                <a href="/2018/11/20/2018-11-20- Linux系统JDK的配置/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/57.gif" class="responsive-img" alt="Config配置">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/47.gif" class="responsive-img" alt="Linux系统JDK的配置">
                         
-                        <span class="card-title">Config配置</span>
+                        <span class="card-title">Linux系统JDK的配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">properties 3种配置方式：  
-第一种：property元素，配置代码示例如下&lt;properties&gt;
-    &lt;properties name=&quot;driver&quot; value=&quot;co</div>
+                    <div class="summary">①解压JDK的压缩包cd /simpletar -zxvf /simple/soft/jdk-7u79-linux-x64.tar.gz -C /simple/②配置JDK环境变量修改profile文件即可vim /etc/profile加</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
                         </span>
                         <span class="publish-author">
                             
@@ -621,8 +619,8 @@ PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/" target="_blank">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -636,18 +634,16 @@ PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-动态SQL/">
+                <a href="/2018/11/19/2018-11-19-mapper.xml文件sql语句编写/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/51.gif" class="responsive-img" alt="动态SQL">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/54.gif" class="responsive-img" alt="mapper.xml文件sql语句编写">
                         
-                        <span class="card-title">动态SQL</span>
+                        <span class="card-title">mapper.xml文件sql语句编写</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">动态SQL动态SQL是在原先SQL基础上加上判断条件，例如if等语句 
-if元素 示例：根据角色名称模糊匹配查询角色  
-       &lt;select id=&quot;findRoles&quot; parameterType=&q</div>
+                    <div class="summary">resultType和resultMap区别resultType是自定义除实体额外的pojo来接收查询结果resultMap是在xml组装好的映射结果，不需要额外的pojo一对一查询（resulttype）    需要些pojo 来接收查询</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19

@@ -367,8 +367,8 @@
 &lt;/bean&gt;
 &lt;bean id=&quot;injectionDAO&quot; class=&quot;com.aaa.dao.DAOimpl&quot;&gt;&lt;/bean&gt;
 </code></pre><h3 id="构造方法注入和设值注入有什么区别？"><a href="#构造方法注入和设值注入有什么区别？" class="headerlink" title="构造方法注入和设值注入有什么区别？"></a><strong>构造方法注入和设值注入有什么区别？</strong></h3><p>请注意以下明显的区别：<br>在设值注入方法支持大部分的依赖注入，对于基本类型，不用设值注入，可以设置默认值。    <strong>在对象创建前调用</strong><br>在构造方法注入不支持大部分的依赖注入，因为在调用构造方法中必须传入正确的构造参数，否则的话为报错。 <strong>在对象创建时调用</strong><br>设值注入是为了解决构造方法注入遇到的<strong>2个对象互相依赖无法注入</strong>的问题</p>
-<h3 id="为impl中的简单属性的注入初始值"><a href="#为impl中的简单属性的注入初始值" class="headerlink" title="为impl中的简单属性的注入初始值"></a><strong>为impl中的简单属性的注入初始值</strong></h3><p><img src="https://viabcde.github.io/images/blog/2018092898.png" alt="enter descriptionhere"><br><img src="https://viabcde.github.io/images/blog/2018092899.png" alt="enter descriptionhere">  </p>
-<h3 id="为impl注入集合类"><a href="#为impl注入集合类" class="headerlink" title="为impl注入集合类"></a><strong>为impl注入集合类</strong></h3><p><img src="https://viabcde.github.io/images/blog/20180928105.png" alt="enter descriptionhere">  </p>
+<h3 id="为impl中的简单属性的注入初始值"><a href="#为impl中的简单属性的注入初始值" class="headerlink" title="为impl中的简单属性的注入初始值"></a><strong>为impl中的简单属性的注入初始值</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/blog/2018092898.png?raw=true" alt=""><br><img src="https://github.com/54321decba/tu/blob/master/blog/2018092899.png?raw=true" alt="">  </p>
+<h3 id="为impl注入集合类"><a href="#为impl注入集合类" class="headerlink" title="为impl注入集合类"></a><strong>为impl注入集合类</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/blog/20180928105.png?raw=true" alt="">  </p>
 
             </div>
             <hr>
@@ -534,16 +534,18 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-Bean创建的2种规则/">
+                <a href="/2018/11/18/2018-11-18-bean的生命周期用注解/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/82.jpg" class="responsive-img" alt="Bean创建的2种规则">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/80.jpg" class="responsive-img" alt="Bean的生命周期用注解">
                         
-                        <span class="card-title">Bean创建的2种规则</span>
+                        <span class="card-title">Bean的生命周期用注解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">BeanFactory:延迟加载思想创建对象，即用到bean时才创建beanApplicationContext:立即加载思想创建对象，即解析完配置文件就创建bean⑴. 继承了 BeanFactory，拥有了基本的 IoC 功能；⑵. 除</div>
+                    <div class="summary">service的初始化以及结束方法  
+bean的生命周期用注解  
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -578,17 +580,16 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-junit/">
+                <a href="/2018/11/18/2018-11-18-Bean创建的2种规则/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/76.jpg" class="responsive-img" alt="Junit">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/82.jpg" class="responsive-img" alt="Bean创建的2种规则">
                         
-                        <span class="card-title">Junit</span>
+                        <span class="card-title">Bean创建的2种规则</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">junit  
-</div>
+                    <div class="summary">BeanFactory:延迟加载思想创建对象，即用到bean时才创建beanApplicationContext:立即加载思想创建对象，即解析完配置文件就创建bean⑴. 继承了 BeanFactory，拥有了基本的 IoC 功能；⑵. 除</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -608,8 +609,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/测试/" target="_blank">
-                        <span class="chip bg-color">测试</span>
+                    <a href="/tags/Spring/" target="_blank">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>

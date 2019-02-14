@@ -359,9 +359,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="清除缓存session"><a href="#清除缓存session" class="headerlink" title="清除缓存session"></a><strong>清除缓存session</strong></h3><p><img src="https://viabcde.github.io/images/blog/2018092852.png" alt="enter description
+                <h3 id="清除缓存session"><a href="#清除缓存session" class="headerlink" title="清除缓存session"></a><strong>清除缓存session</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/blog/2018092852.png?raw=true" alt="enter description
 here">  </p>
-<h3 id="强制session与数据库做同步：即flush一次相当于commit一次"><a href="#强制session与数据库做同步：即flush一次相当于commit一次" class="headerlink" title="强制session与数据库做同步：即flush一次相当于commit一次"></a><strong>强制session与数据库做同步：即flush一次相当于commit一次</strong></h3><p><img src="https://viabcde.github.io/images/blog/2018092853.png" alt="enter description
+<h3 id="强制session与数据库做同步：即flush一次相当于commit一次"><a href="#强制session与数据库做同步：即flush一次相当于commit一次" class="headerlink" title="强制session与数据库做同步：即flush一次相当于commit一次"></a><strong>强制session与数据库做同步：即flush一次相当于commit一次</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/blog/2018092853.png?raw=true" alt="enter description
 here">  </p>
 
             </div>
@@ -528,17 +528,18 @@ here">  </p>
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-实体类中的属性名和表中的字段名/">
+                <a href="/2018/11/18/2018-11-18-主键生成机制/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/62.gif" class="responsive-img" alt="实体类中的属性名和表中的字段名">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/59.gif" class="responsive-img" alt="主键生成机制">
                         
-                        <span class="card-title">实体类中的属性名和表中的字段名</span>
+                        <span class="card-title">主键生成机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">当实体类中的属性名和表中的字段名不一样 ，怎么办 ？1.在sql中设置别名2.在resultMap中通过属性映射数据库的字段示例第1种： 通过在查询的sql语句中定义字段名的别名，让字段名的别名和实体类的属性名一致
-&lt;select i</div>
+                    <div class="summary">Hibernate 的的不同属性含义assigned主键由外部程序生成。
+hilo通过hi/lo 算法生成主键，需要额外的数据库表保存主键生成历史状态。
+seqhilo与hilo 类似，通过hi/lo 算法生成主键，只是主键历史状态保存在S</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -558,8 +559,8 @@ here">  </p>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/" target="_blank">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/Hibernate/" target="_blank">
+                        <span class="chip bg-color">Hibernate</span>
                     </a>
                     
                 </div>
@@ -573,16 +574,16 @@ here">  </p>
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-对象的三种状态/">
+                <a href="/2018/11/18/2018-11-18-getcurrentsession/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/69.gif" class="responsive-img" alt="对象的三种状态">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/78.jpg" class="responsive-img" alt="Getcurrentsession">
                         
-                        <span class="card-title">对象的三种状态</span>
+                        <span class="card-title">Getcurrentsession</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">对象的三种状态save之后session中有指向实体的引用（persist）缓存，数据库有idcommit之后数据库中有实体（detach），session中对其的缓存销毁了save 之后的数据都暂时保存在session中  persist</div>
+                    <div class="summary">getcurrentsession不需要close，事务提交，自动clsoe，在commit前的session都是同一个好处在adduser中要添加setlog方法时，事务的边界是在service层不能使用opensession，因为这是打</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18

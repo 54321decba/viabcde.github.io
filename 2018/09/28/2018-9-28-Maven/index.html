@@ -360,33 +360,33 @@
                 <h2 id="Maven库"><a href="#Maven库" class="headerlink" title="Maven库"></a><strong>Maven库</strong></h2><h2 id="命令行模式安装maven-jar包"><a href="#命令行模式安装maven-jar包" class="headerlink" title="命令行模式安装maven jar包"></a><strong>命令行模式安装maven jar包</strong></h2><p>mvn install:install-file -Dfile=C:\Users\Administrator\Desktop\hibernate-c3p0-4.2.1.final.jar -DgroupId=org.hibernate -DartifactId=hibernate-c3p0 -Dversion=4.2.1 -Dpackaging=jar </p>
 <h3 id="可以到这里下载jar包"><a href="#可以到这里下载jar包" class="headerlink" title="可以到这里下载jar包"></a><strong>可以到这里下载jar包</strong></h3><p><a href="http://repo2.maven.org/maven2/" target="_blank" rel="noopener">http://repo2.maven.org/maven2/</a></p>
 <h3 id="可以到这里复制jar包的pom代码"><a href="#可以到这里复制jar包的pom代码" class="headerlink" title="可以到这里复制jar包的pom代码"></a><strong>可以到这里复制jar包的pom代码</strong></h3><p><a href="http://mvnrepository.com/" target="_blank" rel="noopener">http://mvnrepository.com/</a></p>
-<h2 id="安装配置Maven及其仓库"><a href="#安装配置Maven及其仓库" class="headerlink" title="安装配置Maven及其仓库"></a><strong>安装配置Maven及其仓库</strong></h2><h3 id="maven程序安装的环境准备"><a href="#maven程序安装的环境准备" class="headerlink" title="maven程序安装的环境准备"></a><strong>maven程序安装的环境准备</strong></h3><p>1.maven程序java开发 2.它运行所依赖的jdk<br> <img src="https://viabcde.github.io/images/blog/20180928174.png" alt="enter description
-here"><br><img src="https://viabcde.github.io/images/blog/20180928175.png" alt="enter description
+<h2 id="安装配置Maven及其仓库"><a href="#安装配置Maven及其仓库" class="headerlink" title="安装配置Maven及其仓库"></a><strong>安装配置Maven及其仓库</strong></h2><h3 id="maven程序安装的环境准备"><a href="#maven程序安装的环境准备" class="headerlink" title="maven程序安装的环境准备"></a><strong>maven程序安装的环境准备</strong></h3><p>1.maven程序java开发 2.它运行所依赖的jdk<br> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928174.png?raw=true" alt="enter description
+here"><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928175.png?raw=true" alt="enter description
 here">  </p>
-<h3 id="maven的下载和安装"><a href="#maven的下载和安装" class="headerlink" title="maven的下载和安装"></a><strong>maven的下载和安装</strong></h3><p> <strong>找到资料</strong><br> <img src="https://viabcde.github.io/images/blog/20180928176.png" alt="enter description
-here"><br><strong>解压到本地磁盘（解压目录不要有中文，空格）</strong><br><img src="https://viabcde.github.io/images/blog/20180928177.png" alt="enter description
+<h3 id="maven的下载和安装"><a href="#maven的下载和安装" class="headerlink" title="maven的下载和安装"></a><strong>maven的下载和安装</strong></h3><p> <strong>找到资料</strong><br> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928176.png?raw=true" alt="enter description
+here"><br><strong>解压到本地磁盘（解压目录不要有中文，空格）</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928177.png?raw=true" alt="enter description
 here"> </p>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a><strong>配置环境变量</strong></h3><p>Jdk环境变量：JAVA_HOME<br><img src="https://viabcde.github.io/images/blog/20180928178.png" alt="enter description
-here"><br><strong>将maven_home环境变量配置到path环境变量中</strong><br> <img src="https://viabcde.github.io/images/blog/20180928179.png" alt="enter description
-here"><br><strong>检查Maven是否已配置到计算机查询maven的版本信息</strong><br><img src="https://viabcde.github.io/images/blog/20180928180.png" alt="enter description
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a><strong>配置环境变量</strong></h3><p>Jdk环境变量：JAVA_HOME<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928178.png?raw=true" alt="enter description
+here"><br><strong>将maven_home环境变量配置到path环境变量中</strong><br> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928179.png?raw=true" alt="enter description
+here"><br><strong>检查Maven是否已配置到计算机查询maven的版本信息</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928180.png?raw=true" alt="enter description
 here"> </p>
-<h4 id="配置本地仓库"><a href="#配置本地仓库" class="headerlink" title="配置本地仓库"></a><strong>配置本地仓库</strong></h4><h3 id="解释Maven仓库"><a href="#解释Maven仓库" class="headerlink" title="解释Maven仓库"></a><strong>解释Maven仓库</strong></h3><p>有三个仓库 本地仓库（自己计算机的、私服（公司内部的）、 和远程仓库（推荐使用阿里巴巴的）<br>仓库类型：<br> <img src="https://viabcde.github.io/images/blog/20180928181.png" alt="enter description
-here"><br>配置本地仓库：<br>1、    找到jar包仓库压缩包<br><img src="https://viabcde.github.io/images/blog/20180928182.png" alt="enter description
-here"><br>2、    解压到本地磁盘<br>3、    配置本地仓库：让maven程序知道仓库在哪<br>如果是新的仓库 这里的路径可以自己设置 在pom.xml文件会把用到的jar包下载到仓库<br><img src="https://viabcde.github.io/images/blog/20180928183.png" alt="enter description
+<h4 id="配置本地仓库"><a href="#配置本地仓库" class="headerlink" title="配置本地仓库"></a><strong>配置本地仓库</strong></h4><h3 id="解释Maven仓库"><a href="#解释Maven仓库" class="headerlink" title="解释Maven仓库"></a><strong>解释Maven仓库</strong></h3><p>有三个仓库 本地仓库（自己计算机的、私服（公司内部的）、 和远程仓库（推荐使用阿里巴巴的）<br>仓库类型：<br> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928181.png?raw=true" alt="enter description
+here"><br>配置本地仓库：<br>1、    找到jar包仓库压缩包<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928182.png?raw=true" alt="enter description
+here"><br>2、    解压到本地磁盘<br>3、    配置本地仓库：让maven程序知道仓库在哪<br>如果是新的仓库 这里的路径可以自己设置 在pom.xml文件会把用到的jar包下载到仓库<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928183.png?raw=true" alt="enter description
 here"> </p>
-<h2 id="构建SSM工程、java-web工程步骤"><a href="#构建SSM工程、java-web工程步骤" class="headerlink" title="构建SSM工程、java web工程步骤"></a><strong>构建SSM工程、java web工程步骤</strong></h2><h3 id="Maven-三种archetype说明"><a href="#Maven-三种archetype说明" class="headerlink" title="Maven 三种archetype说明"></a><strong>Maven 三种archetype说明</strong></h3><p>1、cocoon-22-archetype-webapp<br>这个项目结构里包含了applicationContext.xml、log4j.xml、web.xml<br>2、maven-archetype-quickstart<br>除了pom.xml外，没有其他的xml了，但是有main、test两个包，包里放了一个App、AppTest类<br>3、maven-archetype-webapp<br>有WEB-INF目录，并且有web.xml和一个index.jsp<br>创建你的maven项目的<br>只需输入archetype:generate,剩下的就是做”选择题”了<br><img src="https://viabcde.github.io/images/2018-10-10/2018101011.png" alt="enter description
-here"><br>1、    配置m2e插件，Mars2版本自带maven插件<br>2、    需要配置maven程序<br><img src="https://viabcde.github.io/images/blog/20180928184.png" alt="enter description
-here"><br>3、    配置userSetting:让eclipse知道maven仓库位置<br><img src="https://viabcde.github.io/images/blog/20180928185.png" alt="enter description
-here"><br>4、    构建索引<br> <img src="https://viabcde.github.io/images/blog/20180928186.png" alt="enter description
+<h2 id="构建SSM工程、java-web工程步骤"><a href="#构建SSM工程、java-web工程步骤" class="headerlink" title="构建SSM工程、java web工程步骤"></a><strong>构建SSM工程、java web工程步骤</strong></h2><h3 id="Maven-三种archetype说明"><a href="#Maven-三种archetype说明" class="headerlink" title="Maven 三种archetype说明"></a><strong>Maven 三种archetype说明</strong></h3><p>1、cocoon-22-archetype-webapp<br>这个项目结构里包含了applicationContext.xml、log4j.xml、web.xml<br>2、maven-archetype-quickstart<br>除了pom.xml外，没有其他的xml了，但是有main、test两个包，包里放了一个App、AppTest类<br>3、maven-archetype-webapp<br>有WEB-INF目录，并且有web.xml和一个index.jsp<br>创建你的maven项目的<br>只需输入archetype:generate,剩下的就是做”选择题”了<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101011.png?raw=true" alt="enter description
+here"><br>1、    配置m2e插件，Mars2版本自带maven插件<br>2、    需要配置maven程序<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928184.png?raw=true" alt="enter description
+here"><br>3、    配置userSetting:让eclipse知道maven仓库位置<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928185.png?raw=true" alt="enter description
+here"><br>4、    构建索引<br> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928186.png?raw=true" alt="enter description
 here"> </p>
-<h4 id="Maven整合servlet"><a href="#Maven整合servlet" class="headerlink" title="Maven整合servlet"></a><strong>Maven整合servlet</strong></h4><p> <img src="https://viabcde.github.io/images/blog/20180928187.png" alt="enter description
-here"><br><img src="https://viabcde.github.io/images/blog/20180928188.png" alt="enter description
-here"><br><img src="https://viabcde.github.io/images/blog/20180928189.png" alt="enter description
-here"><br>创建好的web项目，错误：<br>1、    web.xml缺失<br> <img src="https://viabcde.github.io/images/blog/20180928190.png" alt="enter description
-here"><br>2、    jdk编译版本1.5，在pom.xml中添加插件<br><img src="https://viabcde.github.io/images/blog/20180928191.png" alt="enter description
-here"><br>3、    创建servlet,serlvet编译报错，原因：缺失servlet-api-xx.jar包<br> <img src="https://viabcde.github.io/images/blog/20180928192.png" alt="enter description
+<h4 id="Maven整合servlet"><a href="#Maven整合servlet" class="headerlink" title="Maven整合servlet"></a><strong>Maven整合servlet</strong></h4><p> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928187.png?raw=true" alt="enter description
+here"><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928188.png?raw=true" alt="enter description
+here"><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928189.png?raw=true" alt="enter description
+here"><br>创建好的web项目，错误：<br>1、    web.xml缺失<br> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928190.png?raw=true" alt="enter description
+here"><br>2、    jdk编译版本1.5，在pom.xml中添加插件<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928191.png?raw=true" alt="enter description
+here"><br>3、    创建servlet,serlvet编译报错，原因：缺失servlet-api-xx.jar包<br> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928192.png?raw=true" alt="enter description
 here"> </p>
-<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a><strong>添加依赖</strong></h3><p>注意：选择依赖选择[jar]<br> <img src="https://viabcde.github.io/images/blog/20180928193.png" alt="enter description
+<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a><strong>添加依赖</strong></h3><p>注意：选择依赖选择[jar]<br> <img src="https://github.com/54321decba/tu/blob/master/blog/20180928193.png?raw=true" alt="enter description
 here">  </p>
 <h3 id="传递依赖"><a href="#传递依赖" class="headerlink" title="传递依赖"></a><strong>传递依赖</strong></h3><p>最强的jar依赖 Complie 编译 运行 测试 打包 都包含<br>test 测试<br>runtime 除了编译 其他都包含<br>provied 处理打包 其他都包含<br>system  从本地文件系统拿jar 而非maven仓库<br>传递性：层级最短的，最先被引用的被传递。<br>如A项目有x.jar,B项目也要想x.jar，如果c项目先引用的A又引用的B，则使用A里的jar，如果A里的jar是通过A0引用得到的，则先使用B里的jar。<br>排除不需要的依赖<br>a依赖b，b依赖c,如果我们只想依赖b不依赖c,就要用exclusions  </p>
 <h3 id="解决包冲突问题"><a href="#解决包冲突问题" class="headerlink" title="解决包冲突问题"></a><strong>解决包冲突问题</strong></h3><p>过滤串使用groupId:artifactId:version的方式进行过滤，可以不写全啦，如：<br>mvn dependency:tree -Dverbose -Dincludes=asm:asm<br>然后在pom.xml中把不需要的jar删除<br>引起jar冲突的原因：1.先加载的被引用，后加载的不被引用  </p>
@@ -709,7 +709,7 @@ here">  </p>
                 <a href="/2018/09/28/2018-9-28-Maven常用命令/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/129.jpg" class="responsive-img" alt="Maven常用命令">
+                        <img src="https://i0.hdslb.com/bfs/album/1b1b1f828d27632a954e474dfbaeff870e4d84e7.webp" class="responsive-img" alt="Maven常用命令">
                         
                         <span class="card-title">Maven常用命令</span>
                     </div>
@@ -751,21 +751,23 @@ here">  </p>
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/09/26/2018-9-26-html/">
+                <a href="/2018/09/26/2018-09-26-div/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/131.jpg" class="responsive-img" alt="HTML">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/17.jpg" class="responsive-img" alt="Div">
                         
-                        <span class="card-title">HTML</span>
+                        <span class="card-title">Div</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">&lt;b&gt;、&lt;p&gt;效果代码
-&lt;!DOCTYPE html&gt;
+                    <div class="summary">效果代码
 &lt;html&gt;
 &lt;body&gt;
 
-&lt;p&gt;这是普通文本 - &lt;b&gt;这是粗体文本&lt;/b&gt;。&lt</div>
+&lt;h3&gt;This is a header&lt;/h3&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;div s</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-26
@@ -785,8 +787,8 @@ here">  </p>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java前端/" target="_blank">
-                        <span class="chip bg-color">java前端</span>
+                    <a href="/tags/html/" target="_blank">
+                        <span class="chip bg-color">html</span>
                     </a>
                     
                 </div>

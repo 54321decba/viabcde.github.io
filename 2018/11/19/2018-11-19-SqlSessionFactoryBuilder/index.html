@@ -357,7 +357,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="SqlSessionFactoryBuilder（构造器）"><a href="#SqlSessionFactoryBuilder（构造器）" class="headerlink" title="SqlSessionFactoryBuilder（构造器）"></a><strong>SqlSessionFactoryBuilder（构造器）</strong></h3><p><strong>用处：</strong>根据配置信息或者代码来生成SqlSessionFactory<br>该类有多个重载方法build()。如下图：<br><img src="https://viabcde.github.io/images/2018-10-10/2018101026.png" alt="enter description
+                <h3 id="SqlSessionFactoryBuilder（构造器）"><a href="#SqlSessionFactoryBuilder（构造器）" class="headerlink" title="SqlSessionFactoryBuilder（构造器）"></a><strong>SqlSessionFactoryBuilder（构造器）</strong></h3><p><strong>用处：</strong>根据配置信息或者代码来生成SqlSessionFactory<br>该类有多个重载方法build()。如下图：<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101026.png?raw=true" alt="enter description
 here"><br><strong>SqlSessionFactoryBuilder真正重载build方法只有如下三种：</strong><br>分别是InputStream（字节流）、Reader（字符流）、Configuration（类）<br><strong>字节流和字符流</strong>通过读取XML文件创建SqlSessionFactory    </p>
 <pre><code>public SqlSessionFactory build(InputStream inputStream, String environment, Properties properties) 
 </code></pre><pre><code>public SqlSessionFactory build(Reader reader, String environment, Properties properties)
@@ -370,7 +370,7 @@ here"><br><strong>SqlSessionFactoryBuilder真正重载build方法只有如下三
     sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 </code></pre><p>通过分析，SqlSessionFactoryBuilder创建SqlSessionFactory采用了建造者的设计模式<br>SqlSessionFactoryBuilder扮演具体的建造者，Configuration类则负责建造的细节工作，SqlSession则是构造出来的产品  </p>
 <h3 id="SqlSessionFactory（工厂接口）"><a href="#SqlSessionFactory（工厂接口）" class="headerlink" title="SqlSessionFactory（工厂接口）"></a><strong>SqlSessionFactory（工厂接口）</strong></h3><p><strong>用处：</strong>生产SqlSession会话 即sqlSession = sqlSessionFactory.openSession();  </p>
-<h3 id="SqlSession（会话）"><a href="#SqlSession（会话）" class="headerlink" title="SqlSession（会话）"></a><strong>SqlSession（会话）</strong></h3><p><strong>作用</strong><br>获取映射器，映射器通过命名空间和方法名称找到SQL，发送给数据库执行后返回结果；<br>通过update、insert、select、delete等方法，带上SQL的id来操作在XML中配置好的SQL，从而完成工作，与此同时它也支持事务，通过commit、rollback方法提交或者回滚事务。<br><strong>运行原理：</strong>SqlSession通过Executor（执行器）创建StatementHandler来运行的<br><img src="https://viabcde.github.io/images/2018-10-10/2018101027.png" alt="enter descriptionhere"> </p>
+<h3 id="SqlSession（会话）"><a href="#SqlSession（会话）" class="headerlink" title="SqlSession（会话）"></a><strong>SqlSession（会话）</strong></h3><p><strong>作用</strong><br>获取映射器，映射器通过命名空间和方法名称找到SQL，发送给数据库执行后返回结果；<br>通过update、insert、select、delete等方法，带上SQL的id来操作在XML中配置好的SQL，从而完成工作，与此同时它也支持事务，通过commit、rollback方法提交或者回滚事务。<br><strong>运行原理：</strong>SqlSession通过Executor（执行器）创建StatementHandler来运行的<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101027.png?raw=true" alt=""> </p>
 <h3 id="数据库会话器（StatementHandler）："><a href="#数据库会话器（StatementHandler）：" class="headerlink" title="数据库会话器（StatementHandler）："></a><strong>数据库会话器（StatementHandler）：</strong></h3><p>使用数据库的Statement（PrepareStatement）执行操作<br>种类：SimpleStatementHandler：对应SIMPLE执行器<br>           PrepareStatementHandler：对应REUSE执行器<br>           CallableStatementHandler：对应BATCH执行器<br><strong>参数处理器（ParameterHandler）：</strong>用于SQL对参数的处理<br><strong>结果处理器（ResultSetHandler）：</strong>进行最后数据集（ResultSet）的封装返回处理。  </p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>mybatis的核心组件，重点是SqlSession和映射器。SqlSession的运行原理要有所了解，会使用SqlSession，同时也要理解mapper的原理，理解mybatis访问数据看的具体原理</p>
 
@@ -538,16 +538,18 @@ here"><br><strong>SqlSessionFactoryBuilder真正重载build方法只有如下三
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-修改主机名和映射关系/">
+                <a href="/2018/11/19/2018-11-19-Config配置/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/50.gif" class="responsive-img" alt="修改主机名和映射关系">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/57.gif" class="responsive-img" alt="Config配置">
                         
-                        <span class="card-title">修改主机名和映射关系</span>
+                        <span class="card-title">Config配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">通过计算机名映射到IP地址修改主机名，只需要修改network文件即可①打开终端右键，open in terminalcd /etc/sysconfig  vim network②修改内容如下修改映射关系，只需要修改host文件即可vim </div>
+                    <div class="summary">properties 3种配置方式：  
+第一种：property元素，配置代码示例如下&lt;properties&gt;
+    &lt;properties name=&quot;driver&quot; value=&quot;co</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
@@ -567,8 +569,8 @@ here"><br><strong>SqlSessionFactoryBuilder真正重载build方法只有如下三
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hadoop/" target="_blank">
-                        <span class="chip bg-color">hadoop</span>
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>
@@ -582,16 +584,17 @@ here"><br><strong>SqlSessionFactoryBuilder真正重载build方法只有如下三
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-discriminator鉴别器/">
+                <a href="/2018/11/19/2018-11-19-执行器/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/56.gif" class="responsive-img" alt="Discriminator鉴别器">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/48.gif" class="responsive-img" alt="执行器Executor">
                         
-                        <span class="card-title">Discriminator鉴别器</span>
+                        <span class="card-title">执行器Executor</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">discriminator鉴别器（一）有时一个单独的数据库查询也许返回很多不同（但是希望有些关联）数据类型的结果集。鉴别器元素就是被设计来处理这个情况的，还有包括类的继承层次结构。鉴别器非常容易理解，它很像 Java的 switch定义鉴别</div>
+                    <div class="summary">作用：调度StatementHandler、ParameterHandler、ResultHandler等来执行对应的SQL。  
+SimpleExecutor每执行一次update或select，就开启一个Statement对象，用完立刻</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19

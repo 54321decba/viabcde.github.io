@@ -366,23 +366,23 @@
 <h3 id="隔离性"><a href="#隔离性" class="headerlink" title="隔离性"></a><strong>隔离性</strong></h3><p>不同事务互不干扰。<br>Spring是非侵入性的，不改动原有代码</p>
 <h3 id="platformTransactionManager"><a href="#platformTransactionManager" class="headerlink" title="platformTransactionManager"></a><strong>platformTransactionManager</strong></h3><p>事务管理器,有3个方法： commit() getTranscation(TransactionDefinition definition) roolback()</p>
 <h3 id="TransactionDefinition"><a href="#TransactionDefinition" class="headerlink" title="TransactionDefinition"></a><strong>TransactionDefinition</strong></h3><p>标志是事务类型</p>
-<h3 id="TransactionStatus"><a href="#TransactionStatus" class="headerlink" title="TransactionStatus"></a><strong>TransactionStatus</strong></h3><p>事务的状态<br><img src="https://viabcde.github.io/images/2018-09-24/2018092401.png" alt="enter description
+<h3 id="TransactionStatus"><a href="#TransactionStatus" class="headerlink" title="TransactionStatus"></a><strong>TransactionStatus</strong></h3><p>事务的状态<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-24/2018092401.png?raw=true" alt="enter description
 here">  </p>
 <h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a><strong>事务的隔离级别</strong></h2><h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a><strong>不可重复读</strong></h3><p>A事务在进行中，不能有B事务参与<br>否则，A事务的提交或者回滚会使B事务的更新丢失，相当于做了无用功  </p>
 <h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a><strong>脏读</strong></h3><p>A事务读取到了B事务正在进行中未提交的数据，如果B事务回滚，该数据就是脏数据  </p>
-<h3 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a><strong>幻读</strong></h3><p>A事务2次读取相同数据不一致，第一次是在B事物未开启时的数据第二次是在B事务开启后的数据<br><img src="https://viabcde.github.io/images/2018-09-24/2018092402.png" alt="enter description
+<h3 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a><strong>幻读</strong></h3><p>A事务2次读取相同数据不一致，第一次是在B事物未开启时的数据第二次是在B事务开启后的数据<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-24/2018092402.png?raw=true" alt="enter description
 here">  </p>
-<h2 id="事务的传播行为"><a href="#事务的传播行为" class="headerlink" title="事务的传播行为"></a><strong>事务的传播行为</strong></h2><p>控制多种操作是否处于同一个事务，方便回滚事务<br>eg.取款业务=取钱+打印凭条。<br>虽然这两个操作处于同一个业务中，但不能是同一事务，因为取钱后，如果打印凭条出错，不能把取钱的操作回滚，因为钱已经取出了。<br>eg.删除用户=删除基本信息+删除订单信息。 这两个操作必须处于同一事务，因为在删除订单信息出错，前面的没有回滚，那么订单信息就成了垃圾数据，无法正常删除<br><img src="https://viabcde.github.io/images/2018-09-24/2018092403.png" alt="enter descriptionhere"><br><img src="https://viabcde.github.io/images/blog/20180928129.png" alt="enter descriptionhere">    </p>
-<h2 id="环绕通知"><a href="#环绕通知" class="headerlink" title="环绕通知"></a><strong>环绕通知</strong></h2><p><img src="https://viabcde.github.io/images/2018-09-17/spring8.png" alt="">  </p>
+<h2 id="事务的传播行为"><a href="#事务的传播行为" class="headerlink" title="事务的传播行为"></a><strong>事务的传播行为</strong></h2><p>控制多种操作是否处于同一个事务，方便回滚事务<br>eg.取款业务=取钱+打印凭条。<br>虽然这两个操作处于同一个业务中，但不能是同一事务，因为取钱后，如果打印凭条出错，不能把取钱的操作回滚，因为钱已经取出了。<br>eg.删除用户=删除基本信息+删除订单信息。 这两个操作必须处于同一事务，因为在删除订单信息出错，前面的没有回滚，那么订单信息就成了垃圾数据，无法正常删除<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-24/2018092403.png?raw=true" alt=""><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928129.png?raw=true" alt="">    </p>
+<h2 id="环绕通知"><a href="#环绕通知" class="headerlink" title="环绕通知"></a><strong>环绕通知</strong></h2><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring8.png?raw=true" alt="">  </p>
 <h3 id="织入"><a href="#织入" class="headerlink" title="织入"></a><strong>织入</strong></h3><p>是一个动作 即在被代理的方法前后 执行拦截逻辑的动作</p>
 <h3 id="连接点"><a href="#连接点" class="headerlink" title="连接点"></a><strong>连接点</strong></h3><p>没有被拦截的方法+被拦截的方法</p>
 <h3 id="切入点"><a href="#切入点" class="headerlink" title="切入点"></a><strong>切入点</strong></h3><p>特殊的连接点 被拦截的方法</p>
-<h3 id="通知"><a href="#通知" class="headerlink" title="通知"></a><strong>通知</strong></h3><p>拦截后执行的逻辑<br>在aop：config中写入拦截的方法aop:before<br><img src="https://viabcde.github.io/images/2018-09-17/spring9.png" alt=""><br><strong>切入点的写法</strong><br><img src="https://viabcde.github.io/images/2018-09-17/spring10.png" alt="">  </p>
-<h3 id="通用切入点-必须配置在切面的前面"><a href="#通用切入点-必须配置在切面的前面" class="headerlink" title="通用切入点 必须配置在切面的前面"></a><strong>通用切入点 必须配置在切面的前面</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-17/spring11.png" alt=""><br><img src="https://viabcde.github.io/images/2018-09-17/spring12.png" alt=""><br><strong>后置只有被拦截的方法正确执行后才会执行</strong></p>
-<h2 id="开始配置事务"><a href="#开始配置事务" class="headerlink" title="开始配置事务"></a><strong>开始配置事务</strong></h2><p><img src="https://viabcde.github.io/images/2018-09-17/spring24.png" alt="">  </p>
-<h2 id="配置事务"><a href="#配置事务" class="headerlink" title="配置事务"></a><strong>配置事务</strong></h2><p><img src="https://viabcde.github.io/images/2018-09-17/spring25.png" alt="">  </p>
-<h3 id="配置事务的通知"><a href="#配置事务的通知" class="headerlink" title="配置事务的通知"></a><strong>配置事务的通知</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-17/spring26.png" alt="">  </p>
-<h3 id="配置aop"><a href="#配置aop" class="headerlink" title="配置aop"></a><strong>配置aop</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-17/spring27.png" alt="">  </p>
+<h3 id="通知"><a href="#通知" class="headerlink" title="通知"></a><strong>通知</strong></h3><p>拦截后执行的逻辑<br>在aop：config中写入拦截的方法aop:before<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring9.png?raw=true" alt=""><br><strong>切入点的写法</strong><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring10.png?raw=true" alt="">  </p>
+<h3 id="通用切入点-必须配置在切面的前面"><a href="#通用切入点-必须配置在切面的前面" class="headerlink" title="通用切入点 必须配置在切面的前面"></a><strong>通用切入点 必须配置在切面的前面</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring11.png?raw=true" alt=""><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring12.png?raw=true" alt=""><br><strong>后置只有被拦截的方法正确执行后才会执行</strong></p>
+<h2 id="开始配置事务"><a href="#开始配置事务" class="headerlink" title="开始配置事务"></a><strong>开始配置事务</strong></h2><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring24.png?raw=true" alt="">  </p>
+<h2 id="配置事务"><a href="#配置事务" class="headerlink" title="配置事务"></a><strong>配置事务</strong></h2><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring25.png?raw=true" alt="">  </p>
+<h3 id="配置事务的通知"><a href="#配置事务的通知" class="headerlink" title="配置事务的通知"></a><strong>配置事务的通知</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring26.png?raw=true" alt="">  </p>
+<h3 id="配置aop"><a href="#配置aop" class="headerlink" title="配置aop"></a><strong>配置aop</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-17/spring27.png?raw=true" alt="">  </p>
 <h2 id="AOP切面拦截器"><a href="#AOP切面拦截器" class="headerlink" title="AOP切面拦截器"></a><strong>AOP切面拦截器</strong></h2><p><strong>AOP是一种编程范式解决特定问题，不能解决所有问题<br>是OOP的补充，不是替代</strong><br><strong>编程范式概览</strong>  </p>
 <pre><code>面向过程编程  
 面向对象编程  
@@ -397,13 +397,13 @@ here">  </p>
 性能监控
 分布式追踪
 异常处理
-</code></pre><p><img src="https://viabcde.github.io/images/blog/20180928117.png" alt="enter description
-here"><br>源码无需改变 编写自己的切面逻辑<br>pointCut指定对哪些方法加切面逻辑<br>本来是写在@Before的括号内的 但为了方便 统一定义为 一个 myMethod(){}并在前指定对哪些方法加切面逻辑<br><img src="https://viabcde.github.io/images/blog/20180928118.png" alt="enter description
-here"><br>也可以在xml中实现AOP<br>首先编写自己的切面逻辑<br><img src="https://viabcde.github.io/images/blog/20180928119.png" alt="enter description
-here"><br>然后在xml中指定为哪些方法加切面逻辑<br><img src="https://viabcde.github.io/images/blog/20180928120.png" alt="enter description
-here"><br>配置事务管理<br><img src="https://viabcde.github.io/images/blog/20180928126.png" alt="enter description
-here"><br>在service加注解<br><img src="https://viabcde.github.io/images/blog/20180928127.png" alt="enter description
-here"><br>也可以使用XML进行事务管理<br>先指定对哪些方法 进行事务管理 再具体细分各种方法对应的事务管理<br><img src="https://viabcde.github.io/images/blog/20180928128.png" alt="enter description
+</code></pre><p><img src="https://github.com/54321decba/tu/blob/master/blog/20180928117.png?raw=true" alt="enter description
+here"><br>源码无需改变 编写自己的切面逻辑<br>pointCut指定对哪些方法加切面逻辑<br>本来是写在@Before的括号内的 但为了方便 统一定义为 一个 myMethod(){}并在前指定对哪些方法加切面逻辑<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928118.png?raw=true" alt="enter description
+here"><br>也可以在xml中实现AOP<br>首先编写自己的切面逻辑<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928119.png?raw=true" alt="enter description
+here"><br>然后在xml中指定为哪些方法加切面逻辑<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928120.png?raw=true" alt="enter description
+here"><br>配置事务管理<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928126.png?raw=true" alt="enter description
+here"><br>在service加注解<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928127.png?raw=true" alt="enter description
+here"><br>也可以使用XML进行事务管理<br>先指定对哪些方法 进行事务管理 再具体细分各种方法对应的事务管理<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928128.png?raw=true" alt="enter description
 here">  </p>
 
             </div>

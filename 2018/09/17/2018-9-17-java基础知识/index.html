@@ -393,7 +393,7 @@ String s=sc.nextInt();
 <h3 id="接口不能代替抽象类"><a href="#接口不能代替抽象类" class="headerlink" title="接口不能代替抽象类"></a><strong>接口不能代替抽象类</strong></h3><p>因为如果需要维护一个类的信息和状态时需要用到实例成员变量（没有static修饰）<br>而接口中的变量都用 static final修饰</p>
 <h3 id="符号运算"><a href="#符号运算" class="headerlink" title="符号运算"></a><strong>符号运算</strong></h3><p>左移&lt;&lt;右侧补0<br>右移&gt;&gt;左侧补符号位</p>
 <h3 id="ArrayList与Vector区别"><a href="#ArrayList与Vector区别" class="headerlink" title="ArrayList与Vector区别"></a><strong>ArrayList与Vector区别</strong></h3><p>ArrayList用于异步 容量不足自动扩展为原来的1.5倍<br>Vector用于同步 容量不足自动扩展为原来的2倍</p>
-<h3 id="遍历HashMap"><a href="#遍历HashMap" class="headerlink" title="遍历HashMap"></a><strong>遍历HashMap</strong></h3><p>iterator.next来获取key<br>通过get(key)获取Value<br><img src="https://viabcde.github.io/images/2018-09-26/2018092601.png" alt="enter description
+<h3 id="遍历HashMap"><a href="#遍历HashMap" class="headerlink" title="遍历HashMap"></a><strong>遍历HashMap</strong></h3><p>iterator.next来获取key<br>通过get(key)获取Value<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-26/2018092601.png?raw=true" alt="enter description
 here">  </p>
 <h3 id="HashMap与HashTable区别"><a href="#HashMap与HashTable区别" class="headerlink" title="HashMap与HashTable区别"></a><strong>HashMap与HashTable区别</strong></h3><p>HashMap用于异步 其key与value 可以为空，当多线程同时put的时候，会欺骗程序，hashmap容量不足，导致rehash操作（即扩容），导致死循环<br>HashTable用于同步 其key与value 不可以为空 编译时不报错 运行时出错</p>
 <h3 id="hashMap是根据key的hashCode来寻找存放位置的，那当key为null时，-怎么存储呢？"><a href="#hashMap是根据key的hashCode来寻找存放位置的，那当key为null时，-怎么存储呢？" class="headerlink" title="hashMap是根据key的hashCode来寻找存放位置的，那当key为null时， 怎么存储呢？"></a><strong>hashMap是根据key的hashCode来寻找存放位置的，那当key为null时， 怎么存储呢？</strong></h3><p>在put方法里头，其实第一行就处理了key=null的情况。 </p>
@@ -499,20 +499,20 @@ private V putForNullKey(V value) {
             System.out.println(&quot;true&quot;);
     }
 }
-</code></pre><h3 id="继承-1"><a href="#继承-1" class="headerlink" title="继承"></a><strong>继承</strong></h3><p>是子类和父类之间的关系 即把各个子类的公共属性提取出来作为父类<br><img src="https://viabcde.github.io/images/2018-09-27/2018092703.png" alt="enter description here"> </p>
+</code></pre><h3 id="继承-1"><a href="#继承-1" class="headerlink" title="继承"></a><strong>继承</strong></h3><p>是子类和父类之间的关系 即把各个子类的公共属性提取出来作为父类<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092703.png?raw=true" alt="enter description here"> </p>
 <h3 id="return"><a href="#return" class="headerlink" title="return"></a><strong>return</strong></h3><p>返回的值 会临时保存在栈内存中 方法结束后该内存才消失</p>
 <h3 id="equals方法默认比较的是首地址-必须重写"><a href="#equals方法默认比较的是首地址-必须重写" class="headerlink" title="equals方法默认比较的是首地址 必须重写"></a><strong>equals方法默认比较的是首地址 必须重写</strong></h3><p>String类 已经重写了equals方法 所以用String 比较时 不用自己重写equals方法  </p>
 <h3 id="局部变量系统不会自动初始化-成员变量才会"><a href="#局部变量系统不会自动初始化-成员变量才会" class="headerlink" title="局部变量系统不会自动初始化 成员变量才会"></a><strong>局部变量系统不会自动初始化 成员变量才会</strong></h3><h3 id="new-String-c-4-3"><a href="#new-String-c-4-3" class="headerlink" title="new String(c,4,3);"></a><strong>new String(c,4,3);</strong></h3><p>从c 的第4个字符串开始截取3个字符</p>
 <h3 id="s-indexof-“java”"><a href="#s-indexof-“java”" class="headerlink" title="s.indexof(“java”)"></a><strong>s.indexof(“java”)</strong></h3><p>首次出现java 的第一个位置</p>
 <h3 id="String-split-s-split-“-”"><a href="#String-split-s-split-“-”" class="headerlink" title="String[] _split= s.split(“,”);"></a><strong>String[] _split= s.split(“,”);</strong></h3><p> 把s 按逗号分离并分别保存到数组中_split</p>
-<p><img src="https://viabcde.github.io/images/2018-09-27/2018092706.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092707.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092708.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092729.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092710.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092711.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092712.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092713.png" alt="enter description here"><br>区别 ：前者是动态绑定 即编译期间 d指向的是Object 的toString 方法<br>运行时d 指向的是传入的子类对象 的toString方法<br>而后者直接调用d的toString方法  </p>
-<h3 id="判断c是否小写"><a href="#判断c是否小写" class="headerlink" title="判断c是否小写"></a><strong>判断c是否小写</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-27/2018092714.png" alt="enter description here"><br>s.charAt(i) 取得s 第i-1个字符<br>s.subString(1,2);表示截取 第2到第3个字符<br>s.subString(2);表示截取第3个字符至结尾所有字符<br>s1+=s2 指的是 s1 s2   的内存都复制保存到第三个内存空间中（因为String是不可变的   所以只能把2个String复制到共同的内存空间） 再把s1的首地址指向第三个内存空间<br>效率较低 改进 用StringBuffer<br>枚举类型 规定只能选择使用的参数时哪几个 使用类名.属性来获取   比如游戏中定义方向只能上下左右四个方向<br><img src="https://viabcde.github.io/images/2018-09-27/2018092715.png" alt="enter description here"><br>用容器的原因<br>数组的长度不能增加 要扩展必须开辟另一空间 再把原来的数组复制过来<br><img src="https://viabcde.github.io/images/2018-09-27/2018092716.png" alt="enter description here"><br>使用多态的原因 因为c只能使用Collection接口中的方法   而不会使用子类ArrayList自己的方法<br>当更换子类LinkList时 不需要修改子类的自己方法 直接替换即可<br>这里的Name类没有重写equals方法 所以其equals方法比较的是首地址是否相同<br>很明显2个Name对象都是各自new 出来的 首地址不同 所以   remove时并不会把之前的Name对象移除<br> <img src="https://viabcde.github.io/images/2018-09-27/2018092717.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092718.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092719.png" alt="enter description here"><br>utf8比较省空间<br>join 即把线程归并回主线程 当做方法使用   只有该线程执行完后才继续执行它下面的代码<br>yield 当前线程让其他线程执行一会<br><img src="https://viabcde.github.io/images/2018-09-27/2018092720.png" alt="enter description here"><br>网关 一边连着子网 替子网转发 一边连着公网上网<br>TCP必须有回复才发<br>UDP 发了不管    </p>
-<h2 id="继承-2"><a href="#继承-2" class="headerlink" title="继承"></a><strong>继承</strong></h2><p> <img src="https://viabcde.github.io/images/blog/2018092801.png" alt="enter description here"></p>
-<h2 id="接口实现"><a href="#接口实现" class="headerlink" title="接口实现"></a><strong>接口实现</strong></h2><p> <img src="https://viabcde.github.io/images/blog/2018092802.png" alt="enter description here"></p>
-<h2 id="关联-即A中引用了B"><a href="#关联-即A中引用了B" class="headerlink" title="关联 即A中引用了B"></a><strong>关联 即A中引用了B</strong></h2><p>!<img src="https://viabcde.github.io/images/blog/2018092803.png" alt="enter description here"></p>
-<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a><strong>聚合</strong></h2><p><img src="https://viabcde.github.io/images/blog/2018092804.png" alt="enter description here"></p>
-<h2 id="组合-对于-自身属性"><a href="#组合-对于-自身属性" class="headerlink" title="组合 对于 自身属性"></a><strong>组合 对于 自身属性</strong></h2><p><img src="https://viabcde.github.io/images/blog/2018092805.png" alt="enter description here"></p>
-<h2 id="依赖-对于传入方法参数"><a href="#依赖-对于传入方法参数" class="headerlink" title="依赖  对于传入方法参数"></a><strong>依赖  对于传入方法参数</strong></h2><p><img src="https://viabcde.github.io/images/blog/2018092806.png" alt="enter description here"></p>
+<p><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092706.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092707.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092708.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092729.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092710.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092711.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092712.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092713.png?raw=true" alt="enter description here"><br>区别 ：前者是动态绑定 即编译期间 d指向的是Object 的toString 方法<br>运行时d 指向的是传入的子类对象 的toString方法<br>而后者直接调用d的toString方法  </p>
+<h3 id="判断c是否小写"><a href="#判断c是否小写" class="headerlink" title="判断c是否小写"></a><strong>判断c是否小写</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092714.png?raw=true" alt="enter description here"><br>s.charAt(i) 取得s 第i-1个字符<br>s.subString(1,2);表示截取 第2到第3个字符<br>s.subString(2);表示截取第3个字符至结尾所有字符<br>s1+=s2 指的是 s1 s2   的内存都复制保存到第三个内存空间中（因为String是不可变的   所以只能把2个String复制到共同的内存空间） 再把s1的首地址指向第三个内存空间<br>效率较低 改进 用StringBuffer<br>枚举类型 规定只能选择使用的参数时哪几个 使用类名.属性来获取   比如游戏中定义方向只能上下左右四个方向<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092715.png?raw=true" alt="enter description here"><br>用容器的原因<br>数组的长度不能增加 要扩展必须开辟另一空间 再把原来的数组复制过来<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092716.png?raw=true" alt="enter description here"><br>使用多态的原因 因为c只能使用Collection接口中的方法   而不会使用子类ArrayList自己的方法<br>当更换子类LinkList时 不需要修改子类的自己方法 直接替换即可<br>这里的Name类没有重写equals方法 所以其equals方法比较的是首地址是否相同<br>很明显2个Name对象都是各自new 出来的 首地址不同 所以   remove时并不会把之前的Name对象移除<br> <img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092717.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092718.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092719.png?raw=true" alt="enter description here"><br>utf8比较省空间<br>join 即把线程归并回主线程 当做方法使用   只有该线程执行完后才继续执行它下面的代码<br>yield 当前线程让其他线程执行一会<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092720.png?raw=true" alt="enter description here"><br>网关 一边连着子网 替子网转发 一边连着公网上网<br>TCP必须有回复才发<br>UDP 发了不管    </p>
+<h2 id="继承-2"><a href="#继承-2" class="headerlink" title="继承"></a><strong>继承</strong></h2><p> <img src="https://github.com/54321decba/tu/blob/master/blog/2018092801.png?raw=true" alt="enter description here"></p>
+<h2 id="接口实现"><a href="#接口实现" class="headerlink" title="接口实现"></a><strong>接口实现</strong></h2><p> <img src="https://github.com/54321decba/tu/blob/master/blog/2018092802.png?raw=true" alt="enter description here"></p>
+<h2 id="关联-即A中引用了B"><a href="#关联-即A中引用了B" class="headerlink" title="关联 即A中引用了B"></a><strong>关联 即A中引用了B</strong></h2><p>!<img src="https://github.com/54321decba/tu/blob/master/blog/2018092803.png?raw=true" alt="enter description here"></p>
+<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a><strong>聚合</strong></h2><p><img src="https://github.com/54321decba/tu/blob/master/blog/2018092804.png?raw=true" alt="enter description here"></p>
+<h2 id="组合-对于-自身属性"><a href="#组合-对于-自身属性" class="headerlink" title="组合 对于 自身属性"></a><strong>组合 对于 自身属性</strong></h2><p><img src="https://github.com/54321decba/tu/blob/master/blog/2018092805.png?raw=true" alt="enter description here"></p>
+<h2 id="依赖-对于传入方法参数"><a href="#依赖-对于传入方法参数" class="headerlink" title="依赖  对于传入方法参数"></a><strong>依赖  对于传入方法参数</strong></h2><p><img src="https://github.com/54321decba/tu/blob/master/blog/2018092806.png?raw=true" alt="enter description here"></p>
 <h2 id="为什么尽量不去改动已有的代码"><a href="#为什么尽量不去改动已有的代码" class="headerlink" title="为什么尽量不去改动已有的代码"></a><strong>为什么尽量不去改动已有的代码</strong></h2><p>一是为了防止有些程序员恶意破坏<br>二是改了之后已有的代码还需要重新到各个机器编译安装一次  </p>
 <h2 id="连接字符串"><a href="#连接字符串" class="headerlink" title="连接字符串"></a><strong>连接字符串</strong></h2><pre><code>String s=&quot;a&quot;;
 s=s.concat(&quot;b&quot;);
@@ -712,17 +712,19 @@ s=s.concat(&quot;b&quot;);
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/09/17/2018-11-18-bean的scope/">
+                <a href="/2018/09/17/2018-9-17-数据结构/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/81.jpg" class="responsive-img" alt="Bean的scope">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/149.jpg" class="responsive-img" alt="数据结构">
                         
-                        <span class="card-title">Bean的scope</span>
+                        <span class="card-title">数据结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">bean的scopeprototype:原始类型，每次用都是全新的  
-</div>
+                    <div class="summary">时间复杂度运行次数而非时间（因为不同机器的运行环境不同）
+空间复杂度占用内存大小
+程序的难易程度能否一读便通
+健壮性能处理各种非法异常字段表示一个事物的属性（列）记录表示一个事物（行）表是同一类事物的集合视图是为了简化查询程序 = 数据的存</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-17
@@ -742,8 +744,8 @@ s=s.concat(&quot;b&quot;);
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring/" target="_blank">
-                        <span class="chip bg-color">Spring</span>
+                    <a href="/tags/java基础/" target="_blank">
+                        <span class="chip bg-color">java基础</span>
                     </a>
                     
                 </div>
@@ -757,17 +759,17 @@ s=s.concat(&quot;b&quot;);
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/09/17/2018-9-18-泛型与可变参数/">
+                <a href="/2018/09/17/2018-09-17-bean的scope/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/141.jpg" class="responsive-img" alt="泛型与可变参数">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/81.jpg" class="responsive-img" alt="Bean的scope">
                         
-                        <span class="card-title">泛型与可变参数</span>
+                        <span class="card-title">Bean的scope</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">协变与逆变协变：子类当作父类使用，安全，因为父类的功能子类都有，所以子类可以当作父类使用逆变：父类当作子类使用，不安全，因为子类的部分功能父类没有
-定义泛型方法，只需将泛型参数列表置于返回值之前public class GenericMet</div>
+                    <div class="summary">bean的scopeprototype:原始类型，每次用都是全新的  
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-17
@@ -787,8 +789,8 @@ s=s.concat(&quot;b&quot;);
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java基础/" target="_blank">
-                        <span class="chip bg-color">java基础</span>
+                    <a href="/tags/Spring/" target="_blank">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>

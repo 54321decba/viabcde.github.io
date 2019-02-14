@@ -357,7 +357,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>①解压Hadoop的压缩包<br>cd /simple<br>tar -zxvf /simple/soft/hadoop-2.4.1.tar.gz -C /simple/<br>②为hadoop配置好jdk<br>cd /simple/hadoop-2.4.1/etc/hadoop/<br>vi hadoop-env.sh<br>增加内容如下<br>export JAVA_HOME=/simple/jdk1.7.0_79<br><img src="https://viabcde.github.io/images/201812/14.png" alt="enter descriptionhere"><br>③指定hdfs的缺省名称及缺省路径地址和运行时产生文件的存储目录<br>只需要hadoop目录下的core-site.xml文件即可</p>
+                <p>①解压Hadoop的压缩包<br>cd /simple<br>tar -zxvf /simple/soft/hadoop-2.4.1.tar.gz -C /simple/<br>②为hadoop配置好jdk<br>cd /simple/hadoop-2.4.1/etc/hadoop/<br>vi hadoop-env.sh<br>增加内容如下<br>export JAVA_HOME=/simple/jdk1.7.0_79<br><img src="https://github.com/54321decba/tu/blob/master/201812/14.png?raw=true" alt=""><br>③指定hdfs的缺省名称及缺省路径地址和运行时产生文件的存储目录<br>只需要hadoop目录下的core-site.xml文件即可</p>
 <pre><code>&lt;!--缺省名称--&gt;
 &lt;property&gt;
     &lt;name&gt;fs.default.name&lt;/name&gt;
@@ -414,12 +414,12 @@
     &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
 &lt;/property&gt;
 
-</code></pre><p>最后，为hadoop配置环境变量<br>修改profile文件即可<br>vi /etc/profile 修改如下<br>HADOOP_HOME=/simple/hadoop-2.4.1<br>export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH<br><img src="https://viabcde.github.io/images/201812/15.png" alt="enter descriptionhere"><br>更新配置文件即可生效  source /etc/profile  </p>
+</code></pre><p>最后，为hadoop配置环境变量<br>修改profile文件即可<br>vi /etc/profile 修改如下<br>HADOOP_HOME=/simple/hadoop-2.4.1<br>export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH<br><img src="https://github.com/54321decba/tu/blob/master/201812/15.png?raw=true" alt=""><br>更新配置文件即可生效  source /etc/profile  </p>
 <h3 id="格式化namenode"><a href="#格式化namenode" class="headerlink" title="格式化namenode"></a>格式化namenode</h3><p>hdfs namenode -format<br>或者<br>hadoop namenode -format  </p>
 <h3 id="启动hadoop"><a href="#启动hadoop" class="headerlink" title="启动hadoop"></a>启动hadoop</h3><p>start-dfs.sh  </p>
 <h3 id="启动yarn"><a href="#启动yarn" class="headerlink" title="启动yarn"></a>启动yarn</h3><p>start-yarn.sh</p>
-<h3 id="查看以上是否正常启动"><a href="#查看以上是否正常启动" class="headerlink" title="查看以上是否正常启动"></a>查看以上是否正常启动</h3><p>jps 非正常则stop-all.sh然后重新启动  —–jps jvm process status<br><img src="https://viabcde.github.io/images/201812/16.png" alt="enter descriptionhere">      </p>
-<h3 id="测试hdfs和yarn"><a href="#测试hdfs和yarn" class="headerlink" title="测试hdfs和yarn"></a>测试hdfs和yarn</h3><p><img src="https://viabcde.github.io/images/201812/17.png" alt="enter descriptionhere"><br><img src="https://viabcde.github.io/images/201812/18.png" alt="enter descriptionhere">      </p>
+<h3 id="查看以上是否正常启动"><a href="#查看以上是否正常启动" class="headerlink" title="查看以上是否正常启动"></a>查看以上是否正常启动</h3><p>jps 非正常则stop-all.sh然后重新启动  —–jps jvm process status<br><img src="https://github.com/54321decba/tu/blob/master/201812/16.png?raw=true" alt="">      </p>
+<h3 id="测试hdfs和yarn"><a href="#测试hdfs和yarn" class="headerlink" title="测试hdfs和yarn"></a>测试hdfs和yarn</h3><p><img src="https://github.com/54321decba/tu/blob/master/201812/17.png?raw=true" alt=""><br><img src="https://github.com/54321decba/tu/blob/master/201812/18.png?raw=true" alt="">      </p>
 
             </div>
             <hr>
@@ -585,16 +585,16 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/20/2018-11-20- Linux系统JDK的配置/">
+                <a href="/2018/11/20/2018-11-20-SSH免密登录/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/47.gif" class="responsive-img" alt="Linux系统JDK的配置">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/45.gif" class="responsive-img" alt="SSH免密登录">
                         
-                        <span class="card-title">Linux系统JDK的配置</span>
+                        <span class="card-title">SSH免密登录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">①解压JDK的压缩包cd /simpletar -zxvf /simple/soft/jdk-7u79-linux-x64.tar.gz -C /simple/②配置JDK环境变量修改profile文件即可vim /etc/profile加</div>
+                    <div class="summary">A发送原始字符串–B公钥加密返回—A私钥解密—A发送字符串B前后字符串比较一致则true  B的公钥是A给的①生产ssh免密登录的密钥ce ~/.sshssh-keygen -t rsa 4个回车即可生成②将公钥copy到免密登录的机器（这</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
@@ -629,20 +629,19 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-执行器/">
+                <a href="/2018/11/20/2018-11-20- Linux系统JDK的配置/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/48.gif" class="responsive-img" alt="执行器Executor">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/47.gif" class="responsive-img" alt="Linux系统JDK的配置">
                         
-                        <span class="card-title">执行器Executor</span>
+                        <span class="card-title">Linux系统JDK的配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">作用：调度StatementHandler、ParameterHandler、ResultHandler等来执行对应的SQL。  
-SimpleExecutor每执行一次update或select，就开启一个Statement对象，用完立刻</div>
+                    <div class="summary">①解压JDK的压缩包cd /simpletar -zxvf /simple/soft/jdk-7u79-linux-x64.tar.gz -C /simple/②配置JDK环境变量修改profile文件即可vim /etc/profile加</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
                             </span>
                         <span class="publish-author">
                             
@@ -659,8 +658,8 @@ SimpleExecutor每执行一次update或select，就开启一个Statement对象，
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/" target="_blank">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>

@@ -1,0 +1,953 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Json, viabcde">
+    <meta name="description" content="json实例json是javaScript的子集，可使用javaScript的eval()函数解析，即重新运算求出参数的内容（还原成原生的javaScript函数）   数据由逗号分隔，大括号保存对象，中括号保存数组示例   
+{
+&amp;quo">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Json | 廖锡洪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">廖锡洪</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">廖锡洪</div>
+        <div class="logo-desc">
+            
+            廖锡洪
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('http://pmi6mt23n.bkt.clouddn.com/14.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Json
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/json/" target="_blank">
+                                <span class="chip bg-color">json</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/java/" class="post-category" target="_blank">
+                                java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-12-21
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="json实例"><a href="#json实例" class="headerlink" title="json实例"></a><strong>json实例</strong></h3><p>json是javaScript的子集，可使用javaScript的eval()函数解析，即重新运算求出参数的内容（还原成原生的javaScript函数）   数据由逗号分隔，大括号保存对象，中括号保存数组<br><strong>示例</strong>   </p>
+<pre><code>{
+&quot;sites&quot;: [
+{ &quot;name&quot;:&quot;菜鸟教程&quot; , &quot;url&quot;:&quot;www.runoob.com&quot; }, 
+{ &quot;name&quot;:&quot;google&quot; , &quot;url&quot;:&quot;www.google.com&quot; }, 
+{ &quot;name&quot;:&quot;微博&quot; , &quot;url&quot;:&quot;www.weibo.com&quot; }
+]
+}
+</code></pre><p>可以像这样访问 JavaScript 对象数组中的第一项（索引从 0 开始）：   </p>
+<pre><code>sites[0].name;
+</code></pre><p>返回的内容是：   runoob<br>可以像这样修改数据：  </p>
+<pre class=" language-lsl"><code class="language-lsl">sites[0].name="菜鸟教程";
+</code></pre>
+<h2 id="json对应javaScript"><a href="#json对应javaScript" class="headerlink" title="json对应javaScript"></a><strong>json对应javaScript</strong></h2><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span> <span class="token property">"name"</span><span class="token operator">:</span><span class="token string">"菜鸟教程"</span> <span class="token punctuation">,</span> <span class="token property">"url"</span><span class="token operator">:</span><span class="token string">"www.runoob.com"</span> <span class="token punctuation">}</span>
+</code></pre>
+<p>这一点也容易理解，与这条 JavaScript 语句等价：</p>
+<pre class=" language-makefile"><code class="language-makefile">name <span class="token operator">=</span> <span class="token string">"菜鸟教程"</span>
+url <span class="token operator">=</span> <span class="token string">"www.runoob.com"</span>
+</code></pre>
+<p><strong>效果：</strong><br><img src="https://github.com/54321decba/tu/blob/master/201812/47.png?raw=true" alt=""><br><strong>代码：</strong></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;JavaScript 创建 JSON 对象&lt;/h2&gt;
+&lt;p&gt;
+网站名称: &lt;span id=&quot;jname&quot;&gt;&lt;/span&gt;&lt;br /&gt; 
+网站地址: &lt;span id=&quot;jurl&quot;&gt;&lt;/span&gt;&lt;br /&gt; 
+网站 slogan: &lt;span id=&quot;jslogan&quot;&gt;&lt;/span&gt;&lt;br /&gt; 
+&lt;/p&gt;
+&lt;script&gt;
+var JSONObject= {
+    &quot;name&quot;:&quot;菜鸟教程&quot;,
+    &quot;url&quot;:&quot;www.runoob.com&quot;, 
+    &quot;slogan&quot;:&quot;学的不仅是技术，更是梦想！&quot;
+};
+document.getElementById(&quot;jname&quot;).innerHTML=JSONObject.name 
+document.getElementById(&quot;jurl&quot;).innerHTML=JSONObject.url 
+document.getElementById(&quot;jslogan&quot;).innerHTML=JSONObject.slogan 
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="访问对象的值"><a href="#访问对象的值" class="headerlink" title="访问对象的值"></a><strong>访问对象的值</strong></h3><p><strong>效果</strong><br><img src="https://github.com/54321decba/tu/blob/master/201812/48.png?raw=true" alt=""><br><strong>代码</strong>  </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;你可以使用点号（.）来访问 JSON 对象的值：&lt;/p&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var myObj, x;
+myObj = { &quot;name&quot;:&quot;runoob&quot;, &quot;alexa&quot;:10000, &quot;site&quot;:null };
+x = myObj.name;
+document.getElementById(&quot;demo&quot;).innerHTML = x;
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><strong>或者使用中括号来访问</strong></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;你也可以使用中括号（[]）来访问 JOSN 对象的值：&lt;/p&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var myObj, x;
+myObj = myObj = { &quot;name&quot;:&quot;runoob&quot;, &quot;alexa&quot;:10000, &quot;site&quot;:null };
+x = myObj[&quot;name&quot;];
+document.getElementById(&quot;demo&quot;).innerHTML = x;
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="使用-for-in-来循环对象的属性及其值"><a href="#使用-for-in-来循环对象的属性及其值" class="headerlink" title="使用 for-in 来循环对象的属性及其值"></a><strong>使用 for-in 来循环对象的属性及其值</strong></h3><p><strong>效果：</strong><br><img src="https://github.com/54321decba/tu/blob/master/201812/49.png?raw=true" alt=""><br><strong>代码</strong><br><strong>获取属性</strong>   </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;使用 for-in 来循环对象的属性:&lt;/p&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+var myObj = { &quot;name&quot;:&quot;runoob&quot;, &quot;alexa&quot;:10000, &quot;site&quot;:null };
+for (x in myObj) {
+    document.getElementById(&quot;demo&quot;).innerHTML += x + &quot;&lt;br&gt;&quot;;
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><strong>获得值</strong>   </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;在 for-in 循环对象的属性时，使用中括号（[]）来访问属性的值：&lt;/p&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+var myObj = { &quot;name&quot;:&quot;runoob&quot;, &quot;alexa&quot;:10000, &quot;site&quot;:null };
+for (x in myObj) {
+    document.getElementById(&quot;demo&quot;).innerHTML += myObj[x] + &quot;&lt;br&gt;&quot;;
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="删除对象的属性和值"><a href="#删除对象的属性和值" class="headerlink" title="删除对象的属性和值"></a><strong>删除对象的属性和值</strong></h3><p><strong>删除属性</strong>  </p>
+<pre><code>delete myObj.sites.site1;
+</code></pre><p><strong>删除值</strong></p>
+<pre><code>delete myObj.sites[&quot;site1&quot;]
+</code></pre><h3 id="将服务器传的JSON格式的数据转为javaScript"><a href="#将服务器传的JSON格式的数据转为javaScript" class="headerlink" title="将服务器传的JSON格式的数据转为javaScript"></a><strong>将服务器传的JSON格式的数据转为javaScript</strong></h3><p><strong>效果</strong><br><img src="https://github.com/54321decba/tu/blob/master/201812/50.png?raw=true" alt=""><br><strong>代码</strong></p>
+<pre><code>&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+var obj = JSON.parse(&#39;{ &quot;name&quot;:&quot;runoob&quot;, &quot;alexa&quot;:10000, &quot;site&quot;:&quot;www.runoob.com&quot; }&#39;);
+document.getElementById(&quot;demo&quot;).innerHTML = obj.name + &quot;：&quot; + obj.site;
+&lt;/script&gt;
+</code></pre><h3 id="使用AJAX请求json数据并解析为javaScript"><a href="#使用AJAX请求json数据并解析为javaScript" class="headerlink" title="使用AJAX请求json数据并解析为javaScript"></a><strong>使用AJAX请求json数据并解析为javaScript</strong></h3><p><strong>效果</strong><br><img src="https://github.com/54321decba/tu/blob/master/201812/51.png?raw=true" alt=""><br><strong>代码</strong></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h2&gt;使用 XMLHttpRequest 来获取文件内容&lt;/h2&gt;
+&lt;p&gt;文件内容是标准的 JSON 格式，可以使用 JSON.parse 方法将其转换为 JavaScript 对象。&lt;/p&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 &amp;&amp; this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        document.getElementById(&quot;demo&quot;).innerHTML = myObj.name;
+    }
+};
+xmlhttp.open(&quot;GET&quot;, &quot;/try/ajax/json_demo.txt&quot;, true);
+xmlhttp.send();
+
+&lt;/script&gt;
+
+&lt;p&gt;查看 JSON 文件数据 &lt;a href=&quot;/try/ajax/json_demo.txt&quot; target=&quot;_blank&quot;&gt;json_demo.txt&lt;/a&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="JSON-不能存储-Date-对象问题"><a href="#JSON-不能存储-Date-对象问题" class="headerlink" title="JSON 不能存储 Date 对象问题"></a><strong>JSON 不能存储 Date 对象问题</strong></h3><p><strong>解决方法1</strong><br>将其转换为字符串。<br>之后再将字符串转换为 Date 对象   </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h2&gt;将字符串转换为 Date 对象。&lt;/h2&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var text = &#39;{ &quot;name&quot;:&quot;Runoob&quot;, &quot;initDate&quot;:&quot;2013-12-14&quot;, &quot;site&quot;:&quot;www.runoob.com&quot;}&#39;;
+var obj = JSON.parse(text);
+obj.initDate = new Date(obj.initDate);
+
+document.getElementById(&quot;demo&quot;).innerHTML = obj.name + &quot;创建日期: &quot; + obj.initDate;
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><strong>解决方法2</strong></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h2&gt;字符串转换为 Date 对象&lt;/h2&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var text = &#39;{ &quot;name&quot;:&quot;Runoob&quot;, &quot;initDate&quot;:&quot;2013-12-14&quot;, &quot;site&quot;:&quot;www.runoob.com&quot;}&#39;;
+var obj = JSON.parse(text, function (key, value) {
+    if (key == &quot;initDate&quot;) {
+        return new Date(value);
+    } else {
+        return value;
+}});
+
+document.getElementById(&quot;demo&quot;).innerHTML = obj.name + &quot;创建日期：&quot; + obj.initDate;
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="eval和json-parse区别"><a href="#eval和json-parse区别" class="headerlink" title="eval和json.parse区别"></a><strong>eval和json.parse区别</strong></h3><p>eval不会检查字符串是否符合json格式，parse会检查</p>
+<pre><code>var data = &#39;{&quot;student&quot; : [{&quot;name&quot;:&quot;鸣人&quot;,&quot;age&quot;:17}, {&quot;name&quot;:&quot;小樱&quot;,&quot;age&quot;:17},{&quot;name&quot;:&quot;佐助&quot;,&quot;age&quot;:17}]}&#39;;
+eval(&#39;(&#39; + data + &#39;)&#39;);
+</code></pre><pre><code>var data = &#39;{&quot;student&quot; : [{&quot;name&quot;:&quot;鸣人&quot;,&quot;age&quot;:17}, {&quot;name&quot;:&quot;小樱&quot;,&quot;age&quot;:17},{&quot;name&quot;:&quot;佐助&quot;,&quot;age&quot;:17}]}&#39;;
+JSON.parse(data);
+</code></pre>
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://viabcde.github.io" class="b-link-green">廖锡洪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/21/2018-12-21-json/" class="b-link-green">Json</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/12/24/2018-12-24-html遇到的问题/">
+                    <div class="card-image">
+                        
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/4.jpg" class="responsive-img" alt="Html遇到的问题">
+                        
+                        <span class="card-title">Html遇到的问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">style=”display:none;”和type=”hide”的区别hide不显示但会在页面占位置，而displat:none不显示也不会在页面占位置
+</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category" target="_blank">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/html/" target="_blank">
+                        <span class="chip bg-color">html</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/12/21/2018-12-21-@Controller和@RestController的区别/">
+                    <div class="card-image">
+                        
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/19.jpg" class="responsive-img" alt="Controller和@RestController的区别">
+                        
+                        <span class="card-title">Controller和@RestController的区别</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">使用@Controller，配合视图解析器可以返回jsp、html等页面，如果要返回json，则需要再加@ResponseBody或者直接使用@RestController，此时只能返回json，不能返回jsp、html
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category" target="_blank">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/viabcde/viabcde.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:437230257@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=437230257" class="tooltipped" data-tooltip="QQ联系我: 437230257" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"search":null,"path":"search.xml","field":"post","log":false});</script></body>
+</html>

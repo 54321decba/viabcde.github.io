@@ -394,15 +394,15 @@ $ sudo chkconfig docker on
 </code></pre><h2 id="Docker基本用法"><a href="#Docker基本用法" class="headerlink" title="Docker基本用法"></a><strong>Docker基本用法</strong></h2><p>Docker的默认服务器是hub.docker.com 他目前是最大的镜像网站，由于国情原因下载上边的镜像，实在是慢的让人受不了，可以搜一下国内的镜像网站我是用的这个（不是给这个网站做广告，确实挺下载快多了）<a href="https://hub.tenxcloud.com/" target="_blank" rel="noopener">https://hub.tenxcloud.com/</a>  </p>
 <h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a><strong>拉取镜像</strong></h3><p>$ docker pull centos # 获取 centos 官方镜像  </p>
 <h3 id="指定国内的镜像地址"><a href="#指定国内的镜像地址" class="headerlink" title="指定国内的镜像地址"></a><strong>指定国内的镜像地址</strong></h3><p>$ docker pull index.tenxcloud.com/tenxcloud/centos:centos7  指定国内的镜像下载地址<br>后边的：centos7是tag，表明我想下载的版本是cent0s7  </p>
-<h3 id="查看现有镜像"><a href="#查看现有镜像" class="headerlink" title="查看现有镜像"></a><strong>查看现有镜像</strong></h3><p>docker images<br><img src="https://viabcde.github.io/images/2018-10-10/2018101020.png" alt="enter description
+<h3 id="查看现有镜像"><a href="#查看现有镜像" class="headerlink" title="查看现有镜像"></a><strong>查看现有镜像</strong></h3><p>docker images<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101020.png?raw=true" alt="enter description
 here"> </p>
 <h3 id="运行container"><a href="#运行container" class="headerlink" title="运行container"></a><strong>运行container</strong></h3><p>我们来运行下载好的centos7<br>docker run -i -t 6e75 /bin/bash<br>docker run       - 运行一个容器<br>-t                        - 分配一个（伪）tty<br>-i                        - 交互模式<br>6e75                - Image Id 我只输入了前几位，  </p>
 <pre><code>                        - 只要能标识出唯一就行  
-</code></pre><p>/bin/bash         - 运行命令 bash shell<br><img src="https://viabcde.github.io/images/2018-10-10/2018101021.png" alt="enter description
+</code></pre><p>/bin/bash         - 运行命令 bash shell<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101021.png?raw=true" alt="enter description
 here"><br>运行完命令后我们就已经进入了centos7容器，可以执行linux命令试一下。<br>如果要退出输入exit即可。<br>退出后容器也相应停止，如果想要在后台继续运行可以加可选参数 -d<br>docker run -i -t -d 6e75 /bin/bash  </p>
-<h3 id="查看哪些容器在运行"><a href="#查看哪些容器在运行" class="headerlink" title="查看哪些容器在运行"></a><strong>查看哪些容器在运行</strong></h3><p>docker ps # 会列出在运行的<br><img src="https://viabcde.github.io/images/2018-10-10/2018101022.png" alt="enter description
+<h3 id="查看哪些容器在运行"><a href="#查看哪些容器在运行" class="headerlink" title="查看哪些容器在运行"></a><strong>查看哪些容器在运行</strong></h3><p>docker ps # 会列出在运行的<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101022.png?raw=true" alt="enter description
 here"> </p>
-<h3 id="在已存在的容器上运行命令"><a href="#在已存在的容器上运行命令" class="headerlink" title="在已存在的容器上运行命令"></a><strong>在已存在的容器上运行命令</strong></h3><p>如上边截图我们的centos7容器在运行，想在这个容器里运行命令可以用exec命令<br>docker exec -t -i 875c /bin/bash<br><img src="https://viabcde.github.io/images/2018-10-10/2018101023.png" alt="enter description
+<h3 id="在已存在的容器上运行命令"><a href="#在已存在的容器上运行命令" class="headerlink" title="在已存在的容器上运行命令"></a><strong>在已存在的容器上运行命令</strong></h3><p>如上边截图我们的centos7容器在运行，想在这个容器里运行命令可以用exec命令<br>docker exec -t -i 875c /bin/bash<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101023.png?raw=true" alt="enter description
 here"> </p>
 <h2 id="Docker-命令帮助"><a href="#Docker-命令帮助" class="headerlink" title="Docker 命令帮助"></a><strong>Docker 命令帮助</strong></h2><p>$ sudo docker   # docker 命令帮助<br>Commands:</p>
 <pre><code>    attach    Attach to a running container                 # 当前 shell 下 attach 连接指定运行镜像

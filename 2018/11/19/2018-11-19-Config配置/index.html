@@ -379,7 +379,7 @@ username=root
 password=****
 </code></pre><h2 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a><strong>如何使用？</strong></h2><p>将配置文件放到源包下即可  <code>&lt;properties resource=&quot;jdbc.properties&quot;/&gt;</code></p>
 <h2 id="三种配置方式的优先级"><a href="#三种配置方式的优先级" class="headerlink" title="三种配置方式的优先级"></a><strong>三种配置方式的优先级</strong></h2><p>第三种通过程序方法参数传递的属性具有最高优先级，resource/url属性中指定的配置文件次之，最低优先级是properties元素中指定的属性。            </p>
-<h2 id="settings"><a href="#settings" class="headerlink" title="settings"></a><strong>settings</strong></h2><p>settings是mybatis最复杂的配置，也是最重要的配置，配置内容繁多，这里不予总结，配置内容项自行了解，那么如何配置哪？ 完整的配置示例如下<br> <img src="https://viabcde.github.io/images/2018-10-10/2018101031.png" alt="enter descriptionhere"> </p>
+<h2 id="settings"><a href="#settings" class="headerlink" title="settings"></a><strong>settings</strong></h2><p>settings是mybatis最复杂的配置，也是最重要的配置，配置内容繁多，这里不予总结，配置内容项自行了解，那么如何配置哪？ 完整的配置示例如下<br> <img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101031.png?raw=true" alt=""> </p>
 <pre><code>&lt;settings&gt;
     &lt;settings name=&quot;cacheEnable&quot; value=&quot;true&quot;/&gt;
     &lt;settings name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;
@@ -396,7 +396,7 @@ password=****
     &lt;settings name=&quot;lazyLoadTriggerMethods&quot; value=&quot;equals,clone,hashCode,toString&quot;/&gt;
 &lt;/settings&gt;
 </code></pre><h2 id="typeAliases"><a href="#typeAliases" class="headerlink" title="typeAliases"></a><strong>typeAliases</strong></h2><h2 id="作用："><a href="#作用：" class="headerlink" title="作用："></a><strong>作用：</strong></h2><p>别名可以代替过长类全限定名，在mybatis上下文中使用。  </p>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a><strong>分类</strong></h2><p><strong>系统自定义别名：如下表</strong><br><img src="https://viabcde.github.io/images/2018-10-10/2018101030.png" alt="enter descriptionhere"><br><strong>自定义别名：</strong><br>示例代码如下，使用role代替其类的全路径，减少配置的复杂度               </p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a><strong>分类</strong></h2><p><strong>系统自定义别名：如下表</strong><br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101030.png?raw=true" alt=""><br><strong>自定义别名：</strong><br>示例代码如下，使用role代替其类的全路径，减少配置的复杂度               </p>
 <pre><code>&lt;!--定义别名--!&gt;
 &lt;typeAliases&gt;
     &lt;typeAlias alias=&quot;role&quot; type=&quot;com.liming.domain.po.Role&quot;/&gt;
@@ -654,19 +654,16 @@ handler=&quot;com.liming.domain.typeHandler.myStringTypeHandler&quot;/&gt;
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-映射器/">
+                <a href="/2018/11/19/2018-11-19-SqlSessionFactoryBuilder/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/49.gif" class="responsive-img" alt="映射器">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/52.gif" class="responsive-img" alt="SqlSessionFactoryBuilder、SqlSessionFactory、SqlSession、数据库会话器">
                         
-                        <span class="card-title">映射器</span>
+                        <span class="card-title">SqlSessionFactoryBuilder、SqlSessionFactory、SqlSession、数据库会话器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">映射器是mybatis最复杂最核心的组件
-Sql Mapper（映射器）作用：1）定义参数、2）描述缓存、3）描述SQL语句、4）定义查询结果和POJO的映射关系  
-主要元素： 
-引入映射器mapper的方法用文件路径引入映射器     </div>
+                    <div class="summary">SqlSessionFactoryBuilder（构造器）用处：根据配置信息或者代码来生成SqlSessionFactory该类有多个重载方法build()。如下图：SqlSessionFactoryBuilder真正重载build方法只有</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19

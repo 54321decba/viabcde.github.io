@@ -358,8 +358,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>将hibernate的SessionFactory交由spring管理:sessionFactory需要dataSource</strong><br><img src="https://viabcde.github.io/images/blog/20180928122.png" alt="enter description
-here"><br><strong>给session配置自动扫描</strong><br><img src="https://viabcde.github.io/images/blog/20180928123.png" alt="enter descriptionhere"><br><strong>使用方法</strong><br><img src="https://viabcde.github.io/images/blog/20180928125.png" alt="enter descriptionhere">  </p>
+                <p><strong>将hibernate的SessionFactory交由spring管理:sessionFactory需要dataSource</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928122.png?raw=true" alt="enter description
+here"><br><strong>给session配置自动扫描</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928123.png?raw=true" alt=""><br><strong>使用方法</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928125.png?raw=true" alt="">  </p>
 
             </div>
             <hr>
@@ -525,20 +525,17 @@ here"><br><strong>给session配置自动扫描</strong><br><img src="https://via
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-使用hibernatetemplate/">
+                <a href="/2018/11/18/2018-11-18-接口绑定的实现方式/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/61.gif" class="responsive-img" alt="使用Hibernatetemplate">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/64.gif" class="responsive-img" alt="Mybatis接口绑定的实现方式">
                         
-                        <span class="card-title">使用Hibernatetemplate</span>
+                        <span class="card-title">Mybatis接口绑定的实现方式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">使用hibernatetemplate示例  
-为dao注入hibernateTemplate  
-为hibernateTemplate注入session Factory  
-sessionFactory注入配置文件  
-查询所有记录使用h</div>
+                    <div class="summary">一种是通过注解绑定,就是在接口的方法上面加上@Select@Update等注解里面包含Sql语句来绑定另外一种就是通过xml里面写SQL来绑定,在这种情况下,要指定xml映射文件里面的namespace必须为接口的全路径名 
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -558,8 +555,8 @@ sessionFactory注入配置文件
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hibernate/" target="_blank">
-                        <span class="chip bg-color">Hibernate</span>
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>
@@ -573,18 +570,17 @@ sessionFactory注入配置文件
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-主键生成机制/">
+                <a href="/2018/11/18/2018-11-18-实体类中的属性名和表中的字段名/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/59.gif" class="responsive-img" alt="主键生成机制">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/62.gif" class="responsive-img" alt="实体类中的属性名和表中的字段名">
                         
-                        <span class="card-title">主键生成机制</span>
+                        <span class="card-title">实体类中的属性名和表中的字段名</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Hibernate 的的不同属性含义assigned主键由外部程序生成。
-hilo通过hi/lo 算法生成主键，需要额外的数据库表保存主键生成历史状态。
-seqhilo与hilo 类似，通过hi/lo 算法生成主键，只是主键历史状态保存在S</div>
+                    <div class="summary">当实体类中的属性名和表中的字段名不一样 ，怎么办 ？1.在sql中设置别名2.在resultMap中通过属性映射数据库的字段示例第1种： 通过在查询的sql语句中定义字段名的别名，让字段名的别名和实体类的属性名一致
+&lt;select i</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
@@ -604,8 +600,8 @@ seqhilo与hilo 类似，通过hi/lo 算法生成主键，只是主键历史状�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hibernate/" target="_blank">
-                        <span class="chip bg-color">Hibernate</span>
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>

@@ -358,16 +358,16 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>浏览器发出<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 给DNS服务器—-服务器根据浏览器所在地区返回该地区的代理接收浏览器接下来的请求—代理先看自己的缓存有没有对应的资源，没有才请求真正的服务器去数据库里找<br><img src="https://viabcde.github.io/images/2018-09-27/2018092721.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092722.png" alt="enter description here"></p>
+                <p>浏览器发出<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 给DNS服务器—-服务器根据浏览器所在地区返回该地区的代理接收浏览器接下来的请求—代理先看自己的缓存有没有对应的资源，没有才请求真正的服务器去数据库里找<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092721.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092722.png?raw=true" alt="enter description here"></p>
 <h3 id="测试某个端口如8080端口是否正在监听"><a href="#测试某个端口如8080端口是否正在监听" class="headerlink" title="测试某个端口如8080端口是否正在监听"></a><strong>测试某个端口如8080端口是否正在监听</strong></h3><p>Telnet localhost 8080 </p>
 <h3 id="查询每个端口号对应的应用程序"><a href="#查询每个端口号对应的应用程序" class="headerlink" title="查询每个端口号对应的应用程序"></a><strong>查询每个端口号对应的应用程序</strong></h3><p>需要下载fport工具</p>
-<h3 id="配置startup-bat"><a href="#配置startup-bat" class="headerlink" title="配置startup.bat"></a><strong>配置startup.bat</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-27/2018092723.png" alt="enter description here"><br>shutdown.bat也一样配置</p>
-<h3 id="在bat文件中如果想要不显示命令-只显示结果"><a href="#在bat文件中如果想要不显示命令-只显示结果" class="headerlink" title="在bat文件中如果想要不显示命令 只显示结果"></a><strong>在bat文件中如果想要不显示命令 只显示结果</strong></h3><p>可以 在每个命令前加@<br>或者在文本最前面加echo off<br><img src="https://viabcde.github.io/images/2018-09-27/2018092724.png" alt="enter description here"></p>
+<h3 id="配置startup-bat"><a href="#配置startup-bat" class="headerlink" title="配置startup.bat"></a><strong>配置startup.bat</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092723.png?raw=true" alt="enter description here"><br>shutdown.bat也一样配置</p>
+<h3 id="在bat文件中如果想要不显示命令-只显示结果"><a href="#在bat文件中如果想要不显示命令-只显示结果" class="headerlink" title="在bat文件中如果想要不显示命令 只显示结果"></a><strong>在bat文件中如果想要不显示命令 只显示结果</strong></h3><p>可以 在每个命令前加@<br>或者在文本最前面加echo off<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092724.png?raw=true" alt="enter description here"></p>
 <h3 id="http-localhost-8080"><a href="#http-localhost-8080" class="headerlink" title="http://localhost:8080/"></a><strong><a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></strong></h3><p>最后的/表示tomcat程序文件目录 中 文件夹ROOT</p>
-<h3 id="配置web的虚拟目录-在server-xmi中"><a href="#配置web的虚拟目录-在server-xmi中" class="headerlink" title="配置web的虚拟目录  在server.xmi中"></a><strong>配置web的虚拟目录  在server.xmi中</strong></h3><p><strong>第一种：</strong><br> 即此时 / 优先指向 F:\javaweb\lession2<br>如果没有 再指向 tomcat程序文件目录 中 文件夹ROOT<br><img src="https://viabcde.github.io/images/2018-09-27/2018092725.png" alt="enter description here"><br>如果 path不为空 则需要在 / 后面加上 相应的 path 的内容 但是访问到的依然是F:\javaweb\lession2下的资源文件  </p>
+<h3 id="配置web的虚拟目录-在server-xmi中"><a href="#配置web的虚拟目录-在server-xmi中" class="headerlink" title="配置web的虚拟目录  在server.xmi中"></a><strong>配置web的虚拟目录  在server.xmi中</strong></h3><p><strong>第一种：</strong><br> 即此时 / 优先指向 F:\javaweb\lession2<br>如果没有 再指向 tomcat程序文件目录 中 文件夹ROOT<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092725.png?raw=true" alt="enter description here"><br>如果 path不为空 则需要在 / 后面加上 相应的 path 的内容 但是访问到的依然是F:\javaweb\lession2下的资源文件  </p>
 <h3 id="打包成war文件"><a href="#打包成war文件" class="headerlink" title="打包成war文件"></a><strong>打包成war文件</strong></h3><p>jar –cvf 自定义名称.war 需要打包的文件路径  </p>
-<h3 id="基于不同的主机名来区分不同站点"><a href="#基于不同的主机名来区分不同站点" class="headerlink" title="基于不同的主机名来区分不同站点"></a><strong>基于不同的主机名来区分不同站点</strong></h3><p>配置虚拟主机 在server.xml<br>如果在各个Host中找不到匹配的主机名 则选择默认的主机名为localhost<br><img src="https://viabcde.github.io/images/2018-09-27/2018092727.png" alt="enter description here"><br><img src="https://viabcde.github.io/images/2018-09-27/2018092728.png" alt="enter description here"><br>在输入localhost 表示ip 127.0.0.1  也可以 自定义配置输入 skfla 表127.0.0.1<br>此时使用 skfla也可以访问主机<br><img src="https://viabcde.github.io/images/2018-09-27/2018092729.png" alt="enter description here"></p>
-<h3 id="server-xml中修改端口号"><a href="#server-xml中修改端口号" class="headerlink" title="server.xml中修改端口号"></a><strong>server.xml中修改端口号</strong></h3><p><img src="https://viabcde.github.io/images/2018-09-27/2018092730.png" alt="enter description here"></p>
+<h3 id="基于不同的主机名来区分不同站点"><a href="#基于不同的主机名来区分不同站点" class="headerlink" title="基于不同的主机名来区分不同站点"></a><strong>基于不同的主机名来区分不同站点</strong></h3><p>配置虚拟主机 在server.xml<br>如果在各个Host中找不到匹配的主机名 则选择默认的主机名为localhost<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092727.png?raw=true" alt="enter description here"><br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092728.png?raw=true" alt="enter description here"><br>在输入localhost 表示ip 127.0.0.1  也可以 自定义配置输入 skfla 表127.0.0.1<br>此时使用 skfla也可以访问主机<br><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092729.png?raw=true" alt="enter description here"></p>
+<h3 id="server-xml中修改端口号"><a href="#server-xml中修改端口号" class="headerlink" title="server.xml中修改端口号"></a><strong>server.xml中修改端口号</strong></h3><p><img src="https://github.com/54321decba/tu/blob/master/2018-09-27/2018092730.png?raw=true" alt="enter description here"></p>
 <h3 id="基于不同的端口来区分不同站点"><a href="#基于不同的端口来区分不同站点" class="headerlink" title="基于不同的端口来区分不同站点"></a><strong>基于不同的端口来区分不同站点</strong></h3><p>也可以配置另外一个Service元素 改成不同的端口号 来区分不同 </p>
 <h3 id="修改Tomcat端口号"><a href="#修改Tomcat端口号" class="headerlink" title="修改Tomcat端口号"></a><strong>修改Tomcat端口号</strong></h3><p>第一步<br>在tomcat的conf文件夹下找到server.xml文件，<br>第二步<br>打开文件后修改  </p>
 <p>&lt;Connector port = “8080” protocol = “HTTP/1.1”<br>ConnectionTineout = “20000” redirectPort = “8443” /&gt;<br><em>备注</em>：如果修改为默认端口号80则localhost后面可不写端口号。  </p>
@@ -393,12 +393,12 @@
         enableLookups=&quot;false&quot;       
     /&gt;
 </code></pre><h3 id="Tomcat有几种部署方式"><a href="#Tomcat有几种部署方式" class="headerlink" title="Tomcat有几种部署方式"></a><strong>Tomcat有几种部署方式</strong></h3><p>1.直接把Web项目放在webapps下，Tomcat会自动将其部署<br>2.在server.xml文件上配置<context>节点，设置相关的属性即可<br>3.通过Catalina来进行配置:进入到conf\Catalina\localhost文件下，创建一个xml文件，该文件的名字就是站点的名字。编写XML的方式来进行设置。<br>部署方式第二点：<br>•在其他盘符下创建一个web站点目录，并创建WEB-INF目录和一个html文件。    </context></p>
-<p><img src="https://viabcde.github.io/images/2018-10-10/2018101003.png" alt="enter description
-here"><br>•找到Tomcat目录下/conf/server.xml文件<br><img src="https://viabcde.github.io/images/2018-10-10/2018101004.png" alt="enter description
+<p><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101003.png?raw=true" alt="enter description
+here"><br>•找到Tomcat目录下/conf/server.xml文件<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101004.png?raw=true" alt="enter description
 here"><br>•在server.xml中的  </p>
 <pre><code>  &lt;Context path=&quot;/web1&quot; docBase=&quot;D:\web1&quot;/&gt;
-</code></pre><p><img src="https://viabcde.github.io/images/2018-10-10/2018101005.png" alt="enter description
-here"><br>•访问配置好的web站点<br><img src="https://viabcde.github.io/images/2018-10-10/2018101006.png" alt="enter description
+</code></pre><p><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101005.png?raw=true" alt="enter description
+here"><br>•访问配置好的web站点<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101006.png?raw=true" alt="enter description
 here"><br><strong>部署方式第三点：</strong><br>•进入到conf\Catalina\localhost文件下，创建一个xml文件，该文件的名字就是站点的名字。<br>•xml文件的代码如下，docBase是你web站点的绝对路径  </p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
 &lt;Context 
@@ -572,23 +572,21 @@ here"><br><strong>部署方式第三点：</strong><br>•进入到conf\Catalina
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/09/26/2018-12-06-div/">
+                <a href="/2018/09/26/2018-9-26-html/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/17.jpg" class="responsive-img" alt="Div">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/131.jpg" class="responsive-img" alt="HTML">
                         
-                        <span class="card-title">Div</span>
+                        <span class="card-title">HTML</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">效果代码
+                    <div class="summary">&lt;b&gt;、&lt;p&gt;效果代码
+&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;body&gt;
 
-&lt;h3&gt;This is a header&lt;/h3&gt;
-&lt;p&gt;This is a paragraph.&lt;/p&gt;
-
-&lt;div s</div>
+&lt;p&gt;这是普通文本 - &lt;b&gt;这是粗体文本&lt;/b&gt;。&lt</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-26
@@ -608,8 +606,8 @@ here"><br><strong>部署方式第三点：</strong><br>•进入到conf\Catalina
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/html/" target="_blank">
-                        <span class="chip bg-color">html</span>
+                    <a href="/tags/java前端/" target="_blank">
+                        <span class="chip bg-color">java前端</span>
                     </a>
                     
                 </div>

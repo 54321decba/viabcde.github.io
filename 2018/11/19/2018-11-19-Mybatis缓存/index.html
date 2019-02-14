@@ -361,8 +361,8 @@
                 <h2 id="Hibernate二级缓存的注意要点"><a href="#Hibernate二级缓存的注意要点" class="headerlink" title="Hibernate二级缓存的注意要点"></a><strong>Hibernate二级缓存的注意要点</strong></h2><h2 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a><strong>一级缓存</strong></h2><p>是必需的，位于Session（是一个HashMap,存放对象的引用）在 session commit 时 清空一级缓存 (防止其他用户 读取到 修改的脏数据)    </p>
 <h2 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a><strong>二级缓存</strong></h2><p>非必需，跨多个session，由SessionFactory控制<br>二级缓存可指定使用何种Cache工具，Hibernate 3以后的版本默认使用的是Ehcache，也可以切换为Oscache、JbossCache.  </p>
 <h2 id="缓存策略："><a href="#缓存策略：" class="headerlink" title="缓存策略："></a><strong>缓存策略：</strong></h2><p>比如最大缓存数、缓存过期时间等，将这些参数降低至一个合理的范围<br>首先判断二级缓存有没有 再判断一级缓存有没有 都没有后 才执行sql语句<br>session 共享一个namespace为Usermapper二级缓存 但不共享 namespace为goodsmapper二级缓存<br>如果要这两个mapper.xml使用相同的namespace那么就共享同一个二级缓存   </p>
-<h2 id="开启全部二级缓存"><a href="#开启全部二级缓存" class="headerlink" title="开启全部二级缓存"></a><strong>开启全部二级缓存</strong></h2><p><strong>在sqlmapconfig.xml中</strong><br><img src="https://viabcde.github.io/images/blog/20180928137.png" alt="enter descriptionhere"><br>仅开启一个mapper的二级缓存 usermapper,xml中<br><img src="https://viabcde.github.io/images/blog/20180928138.png" alt="enter descriptionhere">  </p>
-<h2 id="整合echache"><a href="#整合echache" class="headerlink" title="整合echache"></a><strong>整合echache</strong></h2><p><strong>加入2个jar包</strong><br><img src="https://viabcde.github.io/images/blog/20180928138_1.png" alt="enter descriptionhere"><br><strong>usermapper.xml中加入</strong><br><img src="https://viabcde.github.io/images/blog/20180928139.png" alt="enter descriptionhere"><br><strong>echache配置文件classpath下</strong><br><img src="https://viabcde.github.io/images/blog/20180928140.png" alt="enter descriptionhere"><br>po实体类 实现序列化接口(因为二级缓存 可能存在硬盘中  当从硬盘中读取需要反序列化读取)<br>只要sqlsession不提交 就不会清空二级缓存  </p>
+<h2 id="开启全部二级缓存"><a href="#开启全部二级缓存" class="headerlink" title="开启全部二级缓存"></a><strong>开启全部二级缓存</strong></h2><p><strong>在sqlmapconfig.xml中</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928137.png?raw=true" alt=""><br>仅开启一个mapper的二级缓存 usermapper,xml中<br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928138.png?raw=true" alt="">  </p>
+<h2 id="整合echache"><a href="#整合echache" class="headerlink" title="整合echache"></a><strong>整合echache</strong></h2><p><strong>加入2个jar包</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928138_1.png?raw=true" alt=""><br><strong>usermapper.xml中加入</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928139.png?raw=true" alt=""><br><strong>echache配置文件classpath下</strong><br><img src="https://github.com/54321decba/tu/blob/master/blog/20180928140.png?raw=true" alt=""><br>po实体类 实现序列化接口(因为二级缓存 可能存在硬盘中  当从硬盘中读取需要反序列化读取)<br>只要sqlsession不提交 就不会清空二级缓存  </p>
 <h2 id="何时清空二级缓存"><a href="#何时清空二级缓存" class="headerlink" title="何时清空二级缓存"></a><strong>何时清空二级缓存</strong></h2><p>请求频繁、对实时数据要求不高的数据 不要求每次都是最新数据  （设置刷新频率久一点 30分钟 24小时）<br>实时性高的 操作后会自动更新缓存 即把缓存清空了  </p>
 <h2 id="二级缓存-局限性"><a href="#二级缓存-局限性" class="headerlink" title="二级缓存 局限性"></a><strong>二级缓存 局限性</strong></h2><p>A客户查询 了 a 商品 B客户查询了 b商品 …都存入了二级缓存 （有1w个商品）<br>当有一个更新商品的操作 那么二级缓存全部被清空了 因此可以说mybatis二级缓存只能针对整个mapper 而不是某一种操作设置二级缓存，粒度不够细<br><strong>缓存</strong><br>同hibernate一样，一级缓存（session级）是默认开启的，如果需要开启二级缓存，就需要加以下配置：  </p>
 <pre><code>&lt;!-- 在核心配置文件中加入配置 --&gt;
@@ -586,16 +586,17 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/11/19/2018-11-19-discriminator鉴别器/">
+                <a href="/2018/11/19/2018-11-19-Hadoop-修改Linux的ip地址/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/56.gif" class="responsive-img" alt="Discriminator鉴别器">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/55.gif" class="responsive-img" alt="Hadoop-修改Linux的ip地址">
                         
-                        <span class="card-title">Discriminator鉴别器</span>
+                        <span class="card-title">Hadoop-修改Linux的ip地址</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">discriminator鉴别器（一）有时一个单独的数据库查询也许返回很多不同（但是希望有些关联）数据类型的结果集。鉴别器元素就是被设计来处理这个情况的，还有包括类的继承层次结构。鉴别器非常容易理解，它很像 Java的 switch定义鉴别</div>
+                    <div class="summary">修改ifcfg-eth0文件即可该文件路径：/etc/sysconfig/network-scripts/ifcfg-eth0  
+方法一：图形化设置IP①auto eth0代表第一张物理网卡，如果是eth1就代表第二张网卡点击并编辑它②修</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
@@ -615,8 +616,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/" target="_blank">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/hadoop/" target="_blank">
+                        <span class="chip bg-color">hadoop</span>
                     </a>
                     
                 </div>
@@ -630,19 +631,19 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/18/2018-11-18-LOAD and GET/">
+                <a href="/2018/11/19/2018-11-19-discriminator鉴别器/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/75.jpg" class="responsive-img" alt="LOAD and GET">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/56.gif" class="responsive-img" alt="Discriminator鉴别器">
                         
-                        <span class="card-title">LOAD and GET</span>
+                        <span class="card-title">Discriminator鉴别器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">LOAD and GETsession get 获取的是实际的对象，发出sql语句，有实际的数据而session load 获取对象的代理，commit后通过代理取不到相应的对象，只有在commit之前，需要用到数据才会发出sql语句，所以</div>
+                    <div class="summary">discriminator鉴别器（一）有时一个单独的数据库查询也许返回很多不同（但是希望有些关联）数据类型的结果集。鉴别器元素就是被设计来处理这个情况的，还有包括类的继承层次结构。鉴别器非常容易理解，它很像 Java的 switch定义鉴别</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
                             </span>
                         <span class="publish-author">
                             
@@ -659,8 +660,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hibernate/" target="_blank">
-                        <span class="chip bg-color">Hibernate</span>
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>

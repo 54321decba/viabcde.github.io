@@ -370,7 +370,7 @@
 <pre><code>response.setCharacterEncoding(&quot;UTF-8&quot;);
 response.setContentType(&quot;text/html;charset=UTF-8&quot;);
 response.setHeader(&quot;Content-Type&quot;,&quot;text/html;charset=UTF-8&quot;);
-</code></pre><p>3、检查数据库字符集<br>mysql中可以设置数据库字符集，<br><img src="https://viabcde.github.io/images/2018-10-10/2018101001.png" alt="duotai"><br>也可以设置表的字符集<br><img src="https://viabcde.github.io/images/2018-10-10/2018101002.png" alt="duotai"><br>4、变更数据库URL<br>在连接数据库的URL属性中添加useUnicode=true&amp;characterEncoding=utf8<br>我直接添加的characterEncoding=utf8<br>最终解决了我的中文乱码问题</p>
+</code></pre><p>3、检查数据库字符集<br>mysql中可以设置数据库字符集，<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101001.png?raw=true" alt="duotai"><br>也可以设置表的字符集<br><img src="https://github.com/54321decba/tu/blob/master/2018-10-10/2018101002.png?raw=true" alt="duotai"><br>4、变更数据库URL<br>在连接数据库的URL属性中添加useUnicode=true&amp;characterEncoding=utf8<br>我直接添加的characterEncoding=utf8<br>最终解决了我的中文乱码问题</p>
 <h3 id="mysql启动正常但是访问时还是报错：-ERROR-2003-HY000-Can’t-connect-to-MySQL-server-on-‘localhost’-10061"><a href="#mysql启动正常但是访问时还是报错：-ERROR-2003-HY000-Can’t-connect-to-MySQL-server-on-‘localhost’-10061" class="headerlink" title="mysql启动正常但是访问时还是报错： ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061"></a><strong>mysql启动正常但是访问时还是报错： ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061</strong></h3><p>mysql以管理员身份在cmd命令行启动<br>net start mysql —&gt;启动成功<br>右键计算机 服务 启动 mysql 成功<br>但是就是在 执行 mysql -uroot -p 是报错，错误如下<br>报错：win7 ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061<br>后来发现原来是自己host文件里面，localhost 没有指向：127.0.0.1<br>修改host文件，mysql成功连接  </p>
 <h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a><strong>mysql</strong></h3><p>net start mysql<br>cmd 切换到指定路径：比如切换到D盘  直接输入D：即可 然后输入指定目录如：D:\java\mysql-5.7.24-winx64\bin<br>cd mysql bin目录(C:\Program Files\MySQL\MySQL Server 5.1\bin)<br>mysql -u root -p<br>输入密码<br>Source e:/library.sql;<br>Show databases;<br>Use library;<br>Show tables;   </p>
 <h3 id="查看数据库的隔离级别"><a href="#查看数据库的隔离级别" class="headerlink" title="查看数据库的隔离级别"></a><strong>查看数据库的隔离级别</strong></h3><pre><code>mysql&gt; show global variables like &#39;tx_isolation&#39;;
@@ -543,7 +543,7 @@ response.setHeader(&quot;Content-Type&quot;,&quot;text/html;charset=UTF-8&quot;)
                 <a href="/2018/11/14/2018-11-14-random/">
                     <div class="card-image">
                         
-                        <img src="http://pmi6mt23n.bkt.clouddn.com/98.png" class="responsive-img" alt="Random">
+                        <img src="http://pmi6mt23n.bkt.clouddn.com/98.png?raw=true" class="responsive-img" alt="Random">
                         
                         <span class="card-title">Random</span>
                     </div>
